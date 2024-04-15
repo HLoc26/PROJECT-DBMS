@@ -49,7 +49,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\DAO.cs" />
+    <Compile Include="DAO\DBConnection.cs" />
+    <Compile Include="DAO\EmployeeDAO.cs" />
+    <Compile Include="DTO\Employee.cs" />
+    <Compile Include="FLogin_Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FLogin_Register.Designer.cs">
+      <DependentUpon>FLogin_Register.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +84,9 @@
     <Compile Include="UC\UCTest3.Designer.cs">
       <DependentUpon>UCTest3.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FLogin_Register.resx">
+      <DependentUpon>FLogin_Register.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
