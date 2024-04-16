@@ -155,10 +155,8 @@ GO
 CREATE TABLE dbo.HOA_DON_NHAP(
 	MaDonNhap VARCHAR(10) NOT NULL,
 	ThoiGianNhap DATETIME NOT NULL,
-	MaNVNhap VARCHAR(10) NOT NULL,
 
 	PRIMARY KEY (MaDonNhap),
-	FOREIGN KEY (MaNVNhap) REFERENCES dbo.NHAN_VIEN(MaNV)
 );
 GO
 
@@ -230,7 +228,6 @@ GO
 --------------------------------------------------- PROCEDURE ---------------------------------------------------
 -- Register
 CREATE PROC PROC_Register
-@MaNV VARCHAR(10),
 @CMND VARCHAR(15),
 @Ho NVARCHAR(10),
 @TenLot NVARCHAR(10),
@@ -241,13 +238,16 @@ CREATE PROC PROC_Register
 AS
 BEGIN
 	-- Check if any record have that info
-	IF EXISTS (SELECT * FROM dbo.NHAN_VIEN WHERE MaNV = @MaNV OR CMND = @CMND)
+	IF EXISTS (SELECT * FROM dbo.NHAN_VIEN WHERE CMND = @CMND OR @TenDN = TenDN)
 	BEGIN
 		RAISERROR('Employee with the same ID or ID card number already exists.', 16, 1)
 		RETURN -1; -- EXIT
 	END
+		DECLARE @NewMaNV VARCHAR(10) = 'NV-' + FORMAT((SELECT COUNT(CMND) FROM dbo.NHAN_VIEN) + 1, '0000')
+		PRINT(@NewMaNV)
 		INSERT dbo.NHAN_VIEN(MaNV, CMND, Ho, TenLot, Ten, GioiTinh, TenDN, MK)
-		VALUES(@MaNV, @CMND, @Ho, @TenLot, @Ten, @GioiTinh, @TenDN, @MK)
+		VALUES(@NewMaNV, @CMND, @Ho, @TenLot, @Ten, @GioiTinh, @TenDN, @MK)
+		SELECT MaNV FROM dbo.NHAN_VIEN WHERE MaNV = @NewMaNV
 END;
 GO
 
@@ -296,8 +296,17 @@ BEGIN
 END;
 GO
 
---------------------------------------------------- PROCEDURE ---------------------------------------------------
+-- Get NV by Username
+CREATE PROC PROC_GetNV_ByUsername
+@TenDN VARCHAR(20)
+AS
+BEGIN
+	SELECT * FROM dbo.NHAN_VIEN WHERE TenDN = @TenDN
+END;
+GO
 
+
+--------------------------------------------------- PROCEDURE ---------------------------------------------------
 INSERT dbo.NXB(MaNXB, TenNXB, DiaChi, SDT)
 VALUES
 ('GDVN', N'Nhà xuất bản Giáo dục Việt Nam', N'Số 81 Trần Hưng Đạo, Hoàn Kiếm, Hà Nội', '02438220801'),
@@ -730,14 +739,24 @@ VALUES
 GO
 
 
+INSERT dbo.NHAN_VIEN(MaNV, CMND, Ho, TenLot, Ten, GioiTinh, Luong, TenDN, MK)
+VALUES
+('NV-001', '045203001353', N'Nguyễn', N'Văn', 'Vũ', N'Nam', 4000000, 'nvv1353', 'MK123456');
+INSERT dbo.NHAN_VIEN(MaNV, CMND, Ho, TenLot, Ten, GioiTinh, Luong, TenDN, MK)
+VALUES
+('NV-002', '014201003245', N'Hoàng', N'Ngọc Quang', N'Minh', N'Nam',4500000, 'hnqm3245', 'MK123456');
 
 INSERT dbo.NHAN_VIEN(MaNV, CMND, Ho, TenLot, Ten, GioiTinh, Luong, TenDN, MK)
 VALUES
-('NV-001', '045203001353', N'Nguyễn', N'Văn', 'Vũ', N'Nam', 4000000, 'nvv1353', 'MK123456'),
-('NV-002', '014201003245', N'Hoàng', N'Ngọc Quang', N'Minh', N'Nam',4500000, 'hnqm3245', 'MK123456'),
-('NV-003', '045302001521', N'Nguyễn', N'Trần Bảo', N'Ngọc', N'Nữ', 4500000, 'ntbn1521','MK123456'),
-('NV-004', '035301003241', N'Trần', N'Thị', N'Nghỉ', N'Nữ', 3500000, 'ttn3241','MK123456'),
-('NV-005', '045599007671', N'Lê', N'Văn', N'Ngọc', N'Nam', 5000000, 'nvnn7671','MK123456')
+('NV-003', '045302001521', N'Nguyễn', N'Trần Bảo', N'Ngọc', N'Nữ', 4500000, 'ntbn1521','MK123456');
+
+INSERT dbo.NHAN_VIEN(MaNV, CMND, Ho, TenLot, Ten, GioiTinh, Luong, TenDN, MK)
+VALUES
+('NV-004', '035301003241', N'Trần', N'Thị', N'Nghỉ', N'Nữ', 3500000, 'ttn3241','MK123456');
+
+INSERT dbo.NHAN_VIEN(MaNV, CMND, Ho, TenLot, Ten, GioiTinh, Luong, TenDN, MK)
+VALUES
+('NV-005', '045599007671', N'Lê', N'Văn', N'Ngọc', N'Nam', 5000000, 'nvnn7671','MK123456');
 
 INSERT dbo.LS_DANG_NHAP(MaNV, ThoiGianDN)
 VALUES
