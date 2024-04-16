@@ -25,11 +25,11 @@ namespace DBMS_BookStore.DAO
             else return null;
         }
 
-        public Employee GetInfoByEmpID(string maNV)
+        public Employee GetInfoByUsername(string username)
         {
-            string query = "EXEC PROC_GetNV_ByEmpID @MaNV = @param";
+            string query = "EXEC PROC_GetNV_ByUsername @TenDN = @param";
             SqlCommand cmd = new SqlCommand(query);
-            cmd.Parameters.AddWithValue("@param", maNV);
+            cmd.Parameters.AddWithValue("@param", username);
 
             DataTable dt = db.ExecuteQuery(cmd);
             if(dt.Rows.Count > 0)
@@ -37,7 +37,7 @@ namespace DBMS_BookStore.DAO
             else return null;
         }
 
-        public Employee GetInfoByUsername(string username, string password)
+        public Employee Login(string username, string password)
         {
             string query = "EXEC PROC_Login @TenDN = @param1, @MK = @param2";
             SqlCommand cmd = new SqlCommand(query);
@@ -48,6 +48,24 @@ namespace DBMS_BookStore.DAO
             if (dt.Rows.Count > 0)
                 return new Employee(dt.Rows[0]);
             else return null;
+        }
+
+        // Đăng ký thông tin và nhận về một mã NV
+        public string Register(Employee emp)
+        {
+            string query = "EXEC dbo.PROC_Register @CMND = @param1 , @Ho = @param2 , @TenLot = @param3 ," +
+                "@Ten = @param4 , @GioiTinh = @param5 , @TenDN = @param6 ,@MK = @param7 ";
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.Parameters.AddWithValue("@param1", emp.Cmnd);
+            cmd.Parameters.AddWithValue("@param2", emp.Ho);
+            cmd.Parameters.AddWithValue("@param3", emp.TenLot);
+            cmd.Parameters.AddWithValue("@param4", emp.Ten);
+            cmd.Parameters.AddWithValue("@param5", emp.GioiTinh);
+            cmd.Parameters.AddWithValue("@param6", emp.TenDN);
+            cmd.Parameters.AddWithValue("@param7", emp.Mk);
+            
+            string maNV = (string)db.ExecuteScalar(cmd);
+            return maNV;
         }
     }
 }

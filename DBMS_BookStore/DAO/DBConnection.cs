@@ -57,5 +57,24 @@ namespace DBMS_BookStore.DAO
             return succeed;
         }
 
+        // Trả về dòng cột đầu tiên của bảng trả về, những dòng, cột khác kệ
+        public object ExecuteScalar(SqlCommand sqlCommand)
+        {
+            object obj = new object();
+            try
+            {
+                SqlConn.Open();
+
+                sqlCommand.Connection = SqlConn;
+
+                obj = sqlCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + " From ExecuteNonQuery");
+            }
+            finally { SqlConn.Close(); }
+            return obj;
+        }
     }
 }
