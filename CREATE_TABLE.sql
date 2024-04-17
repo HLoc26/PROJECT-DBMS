@@ -108,8 +108,8 @@ CREATE TABLE dbo.THE_TV(
 	MaThe VARCHAR(10) NOT NULL,
 	SoDiem INT NOT NULL CHECK(SoDiem >= 0),
 	TenBacTV NVARCHAR(10) NOT NULL DEFAULT 'Không có',
-	NgayBatDau NVARCHAR(11) NOT NULL,
-	NgayKetThuc NVARCHAR(11) NOT NULL,
+	NgayBatDau DATETIME NOT NULL,
+	NgayKetThuc DATETIME NOT NULL,
 	MaKH VARCHAR(10) NOT NULL UNIQUE,
 
 	PRIMARY KEY (MaThe),
@@ -297,7 +297,7 @@ BEGIN
 	SELECT * FROM dbo.NHAN_VIEN WHERE CMND = @CMND
 END;
 GO
---------------------------------------------------- PROCEDURE ---------------------------------------------------
+--------------------------------------------------- PROCEDURE BAO ---------------------------------------------------
 -- Member card
 CREATE PROC PROC_MemberCard
 @MaKH VARCHAR(10),
