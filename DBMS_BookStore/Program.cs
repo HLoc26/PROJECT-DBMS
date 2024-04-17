@@ -16,7 +16,7 @@ namespace DBMS_BookStore
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FKhachhang());
+            Application.Run(new FLogin_Register());
         }
     }
 }

@@ -108,8 +108,6 @@ CREATE TABLE dbo.THE_TV(
 	MaThe VARCHAR(10) NOT NULL,
 	SoDiem INT NOT NULL CHECK(SoDiem >= 0),
 	TenBacTV NVARCHAR(10) NOT NULL DEFAULT 'Không có',
-	NgayBatDau DATETIME NOT NULL,
-	NgayKetThuc DATETIME NOT NULL,
 	MaKH VARCHAR(10) NOT NULL UNIQUE,
 
 	PRIMARY KEY (MaThe),
@@ -295,41 +293,6 @@ CREATE PROC PROC_GetNV_ByCityZID
 AS
 BEGIN
 	SELECT * FROM dbo.NHAN_VIEN WHERE CMND = @CMND
-END;
-GO
---------------------------------------------------- PROCEDURE BAO ---------------------------------------------------
--- Member card
-CREATE PROC PROC_MemberCard
-@MaKH VARCHAR(10),
-@Ho NVARCHAR(10),
-@TenLot NVARCHAR(10),
-@Ten NVARCHAR(10),
-@GioiTinh NVARCHAR(10),
-@NgaySinh VARCHAR(20),
-@MaThe VARCHAR(10) NOT NULL,
-@TenBacTV NVARCHAR(10) NOT NULL,
-@SoDiem INT NOT NULL,
-@NgayBatDau NVARCHAR(11) NOT NULL,
-@NgayKetThuc NVARCHAR(11) NOT NULL
-
-AS
-BEGIN
-	-- Check if any record have that info
-	IF EXISTS (SELECT * FROM dbo.THE_TV WHERE MaKH = @MaKH OR MaThe = @MaThe)
-		BEGIN
-		RAISERROR('Customer with the same Customer ID or Membership ID already exists.', 16, 1)
-		RETURN -1; -- EXIT
-	END
-		INSERT dbo.THE_TV(MaThe, SoDiem, TenBacTV, NgayBatDau, NgayKetThuc)
-		VALUES(@MaThe, @SoDiem, @TenBacTV, @NgayBatDau, @NgayKetThuc)
-	-- Check if membership card is expired
-	IF EXISTS (SELECT * FROM dbo.THE_TV WHERE NgayKetThuc = @NgayKetThuc)
-	BEGIN
-		RAISERROR('The Membership Card is expried.', 16, 1)
-		RETURN -1; -- EXIT
-	END
-		INSERT dbo.THE_TV(MaThe, SoDiem, TenBacTV, NgayBatDau, NgayKetThuc)
-		VALUES(@MaThe, @SoDiem, @TenBacTV, @NgayBatDau, @NgayKetThuc)
 END;
 GO
 
@@ -802,19 +765,3 @@ VALUES
 ('NV-003','2024-03-11'),
 ('NV-004','2024-03-06'),
 ('NV-002','2024-03-01')
-
-INSERT dbo.KHACH_HANG(MaKH, Ho, TenLot, Ten, NgaySinh, GioiTinh)
-VALUES
-('KH-001', N'Nguyễn', N'Văn', 'Sang', '18/03/2009', N'Nam'),
-('KH-002',  N'Hoàng', N'Ngọc Quang', N'Trung','12/04/1999', N'Nam'),
-('KH-003',  N'Nguyễn', N'Trần Mai', N'Châu', '18/12/2004',N'Nữ'),
-('KH-004', N'Trần', N'Minh', N'Nghỉ','17/10/2005', N'Nữ'),
-('KH-005', N'Lê', N'Công', N'Toàn','18/07/1981', N'Nam')
-
-INSERT dbo.THE_TV(MaThe, SoDiem, TenBacTV, NgayBatDau, NgayKetThuc)
-VALUES
-('MB-001', '880', 'Gold', '18/01/2021', '18/12/2021'),
-('MB-001', '330', 'Bronze', '21/12/2023', '21/01/2024'),
-('MB-001', '690', 'Silver', '09/03/2022', '09/03/2022'),
-('MB-001', '780', 'Gold', '13/05/2023', '13/04/2023'),
-('MB-001', '440', 'Silver', '19/02/2020', '19/03/2020')
