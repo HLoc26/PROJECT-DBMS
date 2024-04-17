@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="DAO\DBConnection.cs" />
     <Compile Include="DAO\EmployeeDAO.cs" />
+    <Compile Include="DTO\Class1.cs" />
     <Compile Include="DTO\Employee.cs" />
     <Compile Include="FLogin_Register.cs">
       <SubType>Form</SubType>
