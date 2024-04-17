@@ -227,6 +227,16 @@ GO
 
 --------------------------------------------------- PROCEDURE ---------------------------------------------------
 -- Register
+
+CREATE FUNCTION FUNC_Create_MaNV()
+RETURNS VARCHAR(10)
+AS
+BEGIN
+	DECLARE @MaNV VARCHAR(10) = 'NV-' + FORMAT((SELECT COUNT(CMND) FROM dbo.NHAN_VIEN) + 1, '0000')
+	RETURN @MaNV
+END;
+GO
+
 CREATE PROC PROC_Register
 @CMND VARCHAR(15),
 @Ho NVARCHAR(10),
@@ -243,21 +253,13 @@ BEGIN
 		RAISERROR('Employee with the same ID or ID card number already exists.', 16, 1)
 		RETURN -1; -- EXIT
 	END
-		DECLARE @NewMaNV VARCHAR(10) = 
+		DECLARE @NewMaNV VARCHAR(10) = FUNC_Create_MaNV()
 		INSERT dbo.NHAN_VIEN(MaNV, CMND, Ho, TenLot, Ten, GioiTinh, TenDN, MK)
 		VALUES(@NewMaNV, @CMND, @Ho, @TenLot, @Ten, @GioiTinh, @TenDN, @MK)
 		SELECT MaNV FROM dbo.NHAN_VIEN WHERE MaNV = @NewMaNV
 END;
 GO
 
-CREATE FUNCTION FUNC_Create_MaNV()
-RETURNS VARCHAR(10)
-AS
-BEGIN
-	DECLARE @MaNV VARCHAR(10) = 'NV-' + FORMAT((SELECT COUNT(CMND) FROM dbo.NHAN_VIEN) + 1, '0000')
-	RETURN @MaNV
-END;
-GO
 
 -- Login: Get info of user by TenDN
 CREATE PROC PROC_Login
