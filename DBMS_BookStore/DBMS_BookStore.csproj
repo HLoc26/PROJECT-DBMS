@@ -52,6 +52,8 @@
     <Compile Include="DAO\DBConnection.cs" />
     <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DTO\Employee.cs" />
+    <Compile Include="DTO\KhachHang.cs" />
+    <Compile Include="DTO\TheTV.cs" />
     <Compile Include="FLogin_Register.cs">
       <SubType>Form</SubType>
     </Compile>
