@@ -11,7 +11,7 @@ namespace DBMS_BookStore.DAO
 {
     internal class DBConnection
     {
-        SqlConnection SqlConn = new SqlConnection("Data Source=LAPTOP-LDCUFKEL;Initial Catalog=Proj_DBMS_BookStore;Integrated Security=True");
+        SqlConnection SqlConn = new SqlConnection("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=Proj_DBMS_BookStore;Integrated Security=True");
 
         public DataTable ExecuteQuery(SqlCommand sqlCommand)
         {

@@ -32,8 +32,12 @@
             this.pageLogin = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.txbUsername = new System.Windows.Forms.TextBox();
+            this.tblpPassword = new System.Windows.Forms.TableLayoutPanel();
             this.txbPassword = new System.Windows.Forms.TextBox();
+            this.lblIncorrectPassword = new System.Windows.Forms.Label();
+            this.tblpUsername = new System.Windows.Forms.TableLayoutPanel();
+            this.txbUsername = new System.Windows.Forms.TextBox();
+            this.lblIncorrectUsername = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tblpButtons = new System.Windows.Forms.TableLayoutPanel();
@@ -66,14 +70,12 @@
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnBackLogin = new System.Windows.Forms.Button();
-            this.tblpPassword = new System.Windows.Forms.TableLayoutPanel();
-            this.tblpUsername = new System.Windows.Forms.TableLayoutPanel();
-            this.lblIncorrectUsername = new System.Windows.Forms.Label();
-            this.lblIncorrectPassword = new System.Windows.Forms.Label();
             this.tabControl_Login.SuspendLayout();
             this.pageLogin.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tblpPassword.SuspendLayout();
+            this.tblpUsername.SuspendLayout();
             this.tblpButtons.SuspendLayout();
             this.pageRegister.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -82,8 +84,6 @@
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
-            this.tblpPassword.SuspendLayout();
-            this.tblpUsername.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl_Login
@@ -145,14 +145,20 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(415, 194);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // txbUsername
+            // tblpPassword
             // 
-            this.txbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbUsername.Location = new System.Drawing.Point(3, 3);
-            this.txbUsername.Name = "txbUsername";
-            this.txbUsername.Size = new System.Drawing.Size(300, 29);
-            this.txbUsername.TabIndex = 0;
-            this.txbUsername.TextChanged += new System.EventHandler(this.txbUsername_TextChanged);
+            this.tblpPassword.ColumnCount = 1;
+            this.tblpPassword.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblpPassword.Controls.Add(this.txbPassword, 0, 0);
+            this.tblpPassword.Controls.Add(this.lblIncorrectPassword, 0, 1);
+            this.tblpPassword.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblpPassword.Location = new System.Drawing.Point(106, 75);
+            this.tblpPassword.Name = "tblpPassword";
+            this.tblpPassword.RowCount = 2;
+            this.tblpPassword.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblpPassword.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblpPassword.Size = new System.Drawing.Size(306, 66);
+            this.tblpPassword.TabIndex = 2;
             // 
             // txbPassword
             // 
@@ -163,6 +169,54 @@
             this.txbPassword.Size = new System.Drawing.Size(300, 29);
             this.txbPassword.TabIndex = 1;
             this.txbPassword.TextChanged += new System.EventHandler(this.txbPassword_TextChanged);
+            // 
+            // lblIncorrectPassword
+            // 
+            this.lblIncorrectPassword.AutoSize = true;
+            this.lblIncorrectPassword.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblIncorrectPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIncorrectPassword.ForeColor = System.Drawing.Color.Red;
+            this.lblIncorrectPassword.Location = new System.Drawing.Point(3, 33);
+            this.lblIncorrectPassword.Name = "lblIncorrectPassword";
+            this.lblIncorrectPassword.Size = new System.Drawing.Size(300, 16);
+            this.lblIncorrectPassword.TabIndex = 2;
+            this.lblIncorrectPassword.Text = "Incorrect Username or Password";
+            // 
+            // tblpUsername
+            // 
+            this.tblpUsername.ColumnCount = 1;
+            this.tblpUsername.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblpUsername.Controls.Add(this.txbUsername, 0, 0);
+            this.tblpUsername.Controls.Add(this.lblIncorrectUsername, 0, 1);
+            this.tblpUsername.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblpUsername.Location = new System.Drawing.Point(106, 3);
+            this.tblpUsername.Name = "tblpUsername";
+            this.tblpUsername.RowCount = 2;
+            this.tblpUsername.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblpUsername.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblpUsername.Size = new System.Drawing.Size(306, 66);
+            this.tblpUsername.TabIndex = 2;
+            // 
+            // txbUsername
+            // 
+            this.txbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbUsername.Location = new System.Drawing.Point(3, 3);
+            this.txbUsername.Name = "txbUsername";
+            this.txbUsername.Size = new System.Drawing.Size(300, 29);
+            this.txbUsername.TabIndex = 0;
+            this.txbUsername.TextChanged += new System.EventHandler(this.txbUsername_TextChanged);
+            // 
+            // lblIncorrectUsername
+            // 
+            this.lblIncorrectUsername.AutoSize = true;
+            this.lblIncorrectUsername.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblIncorrectUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIncorrectUsername.ForeColor = System.Drawing.Color.Red;
+            this.lblIncorrectUsername.Location = new System.Drawing.Point(3, 33);
+            this.lblIncorrectUsername.Name = "lblIncorrectUsername";
+            this.lblIncorrectUsername.Size = new System.Drawing.Size(300, 16);
+            this.lblIncorrectUsername.TabIndex = 1;
+            this.lblIncorrectUsername.Text = "Incorrect Username or password";
             // 
             // label1
             // 
@@ -528,60 +582,6 @@
             this.btnBackLogin.UseVisualStyleBackColor = true;
             this.btnBackLogin.Click += new System.EventHandler(this.btnBackLogin_Click);
             // 
-            // tblpPassword
-            // 
-            this.tblpPassword.ColumnCount = 1;
-            this.tblpPassword.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblpPassword.Controls.Add(this.txbPassword, 0, 0);
-            this.tblpPassword.Controls.Add(this.lblIncorrectPassword, 0, 1);
-            this.tblpPassword.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblpPassword.Location = new System.Drawing.Point(106, 75);
-            this.tblpPassword.Name = "tblpPassword";
-            this.tblpPassword.RowCount = 2;
-            this.tblpPassword.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblpPassword.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblpPassword.Size = new System.Drawing.Size(306, 66);
-            this.tblpPassword.TabIndex = 2;
-            // 
-            // tblpUsername
-            // 
-            this.tblpUsername.ColumnCount = 1;
-            this.tblpUsername.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblpUsername.Controls.Add(this.txbUsername, 0, 0);
-            this.tblpUsername.Controls.Add(this.lblIncorrectUsername, 0, 1);
-            this.tblpUsername.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblpUsername.Location = new System.Drawing.Point(106, 3);
-            this.tblpUsername.Name = "tblpUsername";
-            this.tblpUsername.RowCount = 2;
-            this.tblpUsername.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblpUsername.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblpUsername.Size = new System.Drawing.Size(306, 66);
-            this.tblpUsername.TabIndex = 2;
-            // 
-            // lblIncorrectUsername
-            // 
-            this.lblIncorrectUsername.AutoSize = true;
-            this.lblIncorrectUsername.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblIncorrectUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIncorrectUsername.ForeColor = System.Drawing.Color.Red;
-            this.lblIncorrectUsername.Location = new System.Drawing.Point(3, 33);
-            this.lblIncorrectUsername.Name = "lblIncorrectUsername";
-            this.lblIncorrectUsername.Size = new System.Drawing.Size(300, 16);
-            this.lblIncorrectUsername.TabIndex = 1;
-            this.lblIncorrectUsername.Text = "Incorrect Username or password";
-            // 
-            // lblIncorrectPassword
-            // 
-            this.lblIncorrectPassword.AutoSize = true;
-            this.lblIncorrectPassword.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblIncorrectPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIncorrectPassword.ForeColor = System.Drawing.Color.Red;
-            this.lblIncorrectPassword.Location = new System.Drawing.Point(3, 33);
-            this.lblIncorrectPassword.Name = "lblIncorrectPassword";
-            this.lblIncorrectPassword.Size = new System.Drawing.Size(300, 16);
-            this.lblIncorrectPassword.TabIndex = 2;
-            this.lblIncorrectPassword.Text = "Incorrect Username or Password";
-            // 
             // FLogin_Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -596,6 +596,10 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.tblpPassword.ResumeLayout(false);
+            this.tblpPassword.PerformLayout();
+            this.tblpUsername.ResumeLayout(false);
+            this.tblpUsername.PerformLayout();
             this.tblpButtons.ResumeLayout(false);
             this.pageRegister.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -608,10 +612,6 @@
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel10.ResumeLayout(false);
-            this.tblpPassword.ResumeLayout(false);
-            this.tblpPassword.PerformLayout();
-            this.tblpUsername.ResumeLayout(false);
-            this.tblpUsername.PerformLayout();
             this.ResumeLayout(false);
 
         }

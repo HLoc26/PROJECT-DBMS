@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DBMS_BookStore.UC
+namespace DBMS_BookStore
 {
-    public partial class UCTest2 : UserControl
+    public partial class FMain : Form
     {
-        public UCTest2()
+        public FMain()
         {
             InitializeComponent();
         }
