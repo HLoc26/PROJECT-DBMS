@@ -18,6 +18,7 @@ namespace DBMS_BookStore
         {
             InitializeComponent();
             HideAllTabsOnTabControl();
+            InitErrorLabels();
         }
 
         private void HideAllTabsOnTabControl()
@@ -25,6 +26,14 @@ namespace DBMS_BookStore
             tabControl_Login.Appearance = TabAppearance.FlatButtons;
             tabControl_Login.ItemSize = new Size(0, 1);
             tabControl_Login.SizeMode = TabSizeMode.Fixed;
+        }
+
+        private void InitErrorLabels()
+        {   
+            lblIncorrectUsername.Text = string.Empty;
+            lblIncorrectUsername.Visible = false;
+            lblIncorrectPassword.Text = string.Empty;
+            lblIncorrectPassword.Visible = false;
         }
 
         #region Login
@@ -37,13 +46,15 @@ namespace DBMS_BookStore
         {
             if (string.IsNullOrEmpty(txbUsername.Text.Trim()))
             {
-                MessageBox.Show("Username must not be empty!", "Empty field");
+                lblIncorrectUsername.Text = "Username must not be empty!";
+                lblIncorrectUsername.Visible = true;
                 txbUsername.Focus();
                 return;
             }
             if (string.IsNullOrEmpty(txbPassword.Text.Trim()))
             {
-                MessageBox.Show("Password must not be empty!", "Empty field");
+                lblIncorrectPassword.Text = "Password must not be empty!";
+                lblIncorrectPassword.Visible = true;
                 txbPassword.Focus();
                 return;
             }
@@ -58,7 +69,10 @@ namespace DBMS_BookStore
             else
             {
                 // Handle wrong password or username here (Show error text, not show messagebox)
-                MessageBox.Show("Login Failed!", "Login Failed");
+                lblIncorrectUsername.Text = "Wrong username or password";
+                lblIncorrectUsername.Visible = true;
+                lblIncorrectPassword.Text = "Wrong username or password";
+                lblIncorrectPassword.Visible = true;
             }
 
             /* Some Login username (pass MK123456 for all):
@@ -68,7 +82,15 @@ namespace DBMS_BookStore
              * ttn3241
              * nvnn7671
              */
+        }
+        private void txbUsername_TextChanged(object sender, EventArgs e)
+        {
+            lblIncorrectUsername.Visible = false;
+        }
 
+        private void txbPassword_TextChanged(object sender, EventArgs e)
+        {
+            lblIncorrectPassword.Visible = false;
         }
 
         #endregion
@@ -155,8 +177,7 @@ namespace DBMS_BookStore
             Employee emp = employeeDAO.GetInfoByUsername(txbRegUsername.Text.Trim());
             return emp == null;
         }
+
         #endregion
-
-
     }
 }
