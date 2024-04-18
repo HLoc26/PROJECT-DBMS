@@ -91,27 +91,34 @@ namespace DBMS_BookStore
         private void btnThemSP_Click(object sender, EventArgs e)
         {
             DataRow hanghoa = hanghoaDAO.GetHangHoa(txbMaSP.Text);
+            if(hanghoa != null) { 
             hanghoa["SoLuong"] = numSoLuongMua.Value.ToString();
             int colNum = dtgvGioHang.ColumnCount;
-            // Kiểm tra xem đã có sản phẩm đó chưa, nếu có rồi thì cộng thêm vào
-            foreach (DataGridViewRow row in dtgvGioHang.Rows)
-            {
-                if (row.Cells[0].Value != null && row.Cells[0].Value.ToString() == txbMaSP.Text)
+                // Kiểm tra xem đã có sản phẩm đó chưa, nếu có rồi thì cộng thêm vào
+                foreach (DataGridViewRow row in dtgvGioHang.Rows)
                 {
-                    // Kiểm tra xem có đủ sản phẩm trong kho không
-                    if (int.Parse(row.Cells[colNum - 1].Value.ToString()) + numSoLuongMua.Value <= int.Parse(txbSoLuongCon.Text))
+                    if (row.Cells[0].Value != null && row.Cells[0].Value.ToString() == txbMaSP.Text)
                     {
-                        row.Cells[colNum - 1].Value = (int.Parse(row.Cells[colNum - 1].Value.ToString()) + numSoLuongMua.Value).ToString();
+                        // Kiểm tra xem có đủ sản phẩm trong kho không
+                        if (int.Parse(row.Cells[colNum - 1].Value.ToString()) + numSoLuongMua.Value <= int.Parse(txbSoLuongCon.Text))
+                        {
+                            row.Cells[colNum - 1].Value = (int.Parse(row.Cells[colNum - 1].Value.ToString()) + numSoLuongMua.Value).ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Số lượng sản phẩm đạt giới hạn", "Không đủ sản phẩm", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        return;
                     }
-                    else
-                    {
-                        MessageBox.Show("Số lượng sản phẩm đạt giới hạn", "Không đủ sản phẩm",  MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    return;
                 }
+                // Nếu chưa có thì thêm vào giỏ hàng
+                dtgvGioHang.Rows.Add(hanghoa.ItemArray);
             }
-            // Nếu chưa có thì thêm vào giỏ hàng
-            dtgvGioHang.Rows.Add(hanghoa.ItemArray);
+            else
+            {
+                MessageBox.Show("Không tìm thấy sản phẩm", "Không tìm thấy sản phẩm", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
         private void btnXoaSP_Click(object sender, EventArgs e)
         {
