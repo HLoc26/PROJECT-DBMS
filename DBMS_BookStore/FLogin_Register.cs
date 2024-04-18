@@ -17,15 +17,7 @@ namespace DBMS_BookStore
         public FLogin_Register()
         {
             InitializeComponent();
-            HideAllTabsOnTabControl();
             InitErrorLabels();
-        }
-
-        private void HideAllTabsOnTabControl()
-        {
-            tabControl_Login.Appearance = TabAppearance.FlatButtons;
-            tabControl_Login.ItemSize = new Size(0, 1);
-            tabControl_Login.SizeMode = TabSizeMode.Fixed;
         }
 
         private void InitErrorLabels()
@@ -37,11 +29,6 @@ namespace DBMS_BookStore
         }
 
         #region Login
-        private void btnCreateAcc_Click(object sender, EventArgs e)
-        {
-            tabControl_Login.SelectedIndex = 1;
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txbUsername.Text.Trim()))
@@ -65,6 +52,10 @@ namespace DBMS_BookStore
             {
                 // Open main form here
                 MessageBox.Show("Login Success\n" + employee.ToString(), "Login Success");
+                FMain main = new FMain(employee);
+                Hide();
+                main.ShowDialog();
+                Show();
             }
             else
             {

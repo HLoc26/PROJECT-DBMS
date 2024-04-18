@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DBMS_BookStore.DTO
 {
-    internal class Employee
+    public class Employee
     {
         string maNV;
         string cmnd;
@@ -18,6 +18,7 @@ namespace DBMS_BookStore.DTO
         int luong;
         string tenDN;
         string mk;
+        bool tinhTrangLamViec;
 
         public Employee(string maNV, string cmnd, string ho, string tenLot, string ten, string gioiTinh, string tenDN, string mk)
         { 
@@ -30,6 +31,7 @@ namespace DBMS_BookStore.DTO
             TenDN = tenDN;
             Mk = mk;
             Luong = 0;
+            TinhTrangLamViec = true;
         }
         public Employee(DataRow dr)
         {
@@ -42,7 +44,7 @@ namespace DBMS_BookStore.DTO
             TenDN = dr["TenDN"].ToString();
             Mk = dr["MK"].ToString();
             Luong = (int)dr["Luong"];
-
+            TinhTrangLamViec = (bool)dr["TinhTrangLamViec"];
         }
         public string MaNV { get => maNV; set => maNV = value; }
         public string Cmnd { get => cmnd; set => cmnd = value; }
@@ -53,5 +55,6 @@ namespace DBMS_BookStore.DTO
         public int Luong { get => luong; set => luong = value; }
         public string TenDN { get => tenDN; set => tenDN = value; }
         public string Mk { get => mk; set => mk = value; }
+        public bool TinhTrangLamViec { get => tinhTrangLamViec; set => tinhTrangLamViec = value; }
     }
 }
