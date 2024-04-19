@@ -34,6 +34,39 @@ namespace DBMS_BookStore
             tabControl.ItemSize = new Size(0, 1);
             tabControl.SizeMode = TabSizeMode.Fixed;
         }
+        /* Thứ tự các tab:
+         * 0. Giao dịch
+         * 1. Tra cứu
+         * 2. Cài đặt
+         * 3. Báo cáo (thống kê)
+         * 
+         * 4. Giao dịch - Bán hàng
+         * 5. Giao dịch - Bán hàng - Thanh toán
+         * 7. Giao dịch - Bán hàng - Thanh toán - Tiền mặt 
+         * 8. Giao dịch - Bán hàng - Thanh toán - Chuyển khoản
+         * 
+         * 9. Giao dịch - Nhập hàng (Chỉ admin)
+         * 
+         * 10. Giao dịch - Khách hàng
+         * 11. Giao dịch - Khách hàng - Tìm thông tin
+         * 12. Giao dịch - Khách hàng - Tạo thẻ TV
+         * 
+         * 13. Giao dịch - Hoá đơn bán hàng (tra cứu hoá đơn bán) 
+         * 14. Giao dịch - Hoá đơn nhập hàng (tra cứu hoá đơn nhập)
+         * 
+         * 15. Tra cứu - Sách
+         * 16. Tra cứu - Tác giả
+         * 17. Tra cứu - NXB
+         * 18. Tra cứu - Thể loại
+         * 19. Tra cứu - VPP
+         * 
+         * 20. Cài đặt - Đổi MK (nv hiện tại đổi mk của mình)
+         * 21. Cài đặt - Xem lịch làm việc
+         * 22. Cài đặt - Xem thông tin NV (Chỉ admin mới sửa được)
+         * 
+         * 23. Báo cáo - Doanh thu
+         * 24. Báo cáo - Lương NV
+         */
 
         #region NAV
         private void btnExit_Click(object sender, EventArgs e)
@@ -58,14 +91,14 @@ namespace DBMS_BookStore
         }
         #endregion
 
-        #region Giao Dịch
+        #region 0. Giao Dịch
         private void btnBanHang_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[4];
         }
         #endregion
 
-        #region Giao Dịch - Bán Hàng
+        #region 4.Giao Dịch - Bán Hàng
 
         private void btnQuayLaiGiaoDich_Click(object sender, EventArgs e)
         {
@@ -158,5 +191,84 @@ namespace DBMS_BookStore
 
         #endregion
 
+        #region 4. Giao dịch - Bán hàng
+        // Code here
+        #endregion
+
+        #region 5. Giao dịch - Bán hàng - Thanh toán
+        // Code here
+        #endregion
+
+        #region 7. Giao dịch - Bán hàng - Thanh toán - Tiền mặt
+        // Code here
+        #endregion
+
+        #region 8. Giao dịch - Bán hàng - Thanh toán - Chuyển khoản
+        // Code here
+        #endregion
+
+        #region 9. Giao dịch - Nhập hàng (Chỉ admin)
+        // Code here
+        #endregion
+
+        #region 10. Giao dịch - Khách hàng
+        // Code here
+        #endregion
+
+        #region 11. Giao dịch - Khách hàng - Tìm thông tin
+        // Code here
+        #endregion
+
+        #region 12. Giao dịch - Khách hàng - Tạo thẻ TV
+        // Code here
+        #endregion
+
+        #region 13. Giao dịch - Hoá đơn bán hàng (tra cứu hoá đơn bán)
+        // Code here
+        #endregion
+
+        #region 14. Giao dịch - Hoá đơn nhập hàng (tra cứu hoá đơn nhập)
+        // Code here
+        #endregion
+
+        #region 15. Tra cứu - Sách
+        // Code here
+        #endregion
+
+        #region 16. Tra cứu - Tác giả
+        // Code here
+        #endregion
+
+        #region 17. Tra cứu - NXB
+        // Code here
+        #endregion
+
+        #region 18. Tra cứu - Thể loại
+        // Code here
+        #endregion
+
+        #region 19. Tra cứu - VPP
+        // Code here
+        #endregion
+
+        #region 20. Cài đặt - Đổi MK (nv hiện tại đổi mk của mình)
+        // Code here
+        #endregion
+
+        #region 21. Cài đặt - Xem lịch làm việc
+        // Code here
+        #endregion
+
+        #region 22. Cài đặt - Xem thông tin NV (Chỉ admin mới sửa được)
+        // Code here
+        #endregion
+
+        #region 23. Báo cáo - Doanh thu
+        // Code here
+        #endregion
+
+        #region 24. Báo cáo - Lương NV
+        // Code here
+        #endregion
     }
 }
