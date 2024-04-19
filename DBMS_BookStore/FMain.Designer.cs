@@ -111,6 +111,10 @@
             this.pageTC_VPP = new System.Windows.Forms.TabPage();
             this.pageCD_MK = new System.Windows.Forms.TabPage();
             this.pageCD_Lich = new System.Windows.Forms.TabPage();
+            this.pageCD_NV = new System.Windows.Forms.TabPage();
+            this.pageBC_DoanhThu = new System.Windows.Forms.TabPage();
+            this.pageBC_LuongNV = new System.Windows.Forms.TabPage();
+            this.page6 = new System.Windows.Forms.TabPage();
             this.tabControl.SuspendLayout();
             this.pageGiaoDich.SuspendLayout();
             this.tblpGiaoDich.SuspendLayout();
@@ -144,6 +148,7 @@
             this.tabControl.Controls.Add(this.pageBaoCao);
             this.tabControl.Controls.Add(this.pageGiaoDich_BanHang);
             this.tabControl.Controls.Add(this.pageGD_BH_ThanhToan);
+            this.tabControl.Controls.Add(this.page6);
             this.tabControl.Controls.Add(this.pageGD_BH_TT_TienMat);
             this.tabControl.Controls.Add(this.pageGD_BH_TT_ChuyenKhoan);
             this.tabControl.Controls.Add(this.pageGD_NhapHang);
@@ -159,6 +164,9 @@
             this.tabControl.Controls.Add(this.pageTC_VPP);
             this.tabControl.Controls.Add(this.pageCD_MK);
             this.tabControl.Controls.Add(this.pageCD_Lich);
+            this.tabControl.Controls.Add(this.pageCD_NV);
+            this.tabControl.Controls.Add(this.pageBC_DoanhThu);
+            this.tabControl.Controls.Add(this.pageBC_LuongNV);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(291, 3);
             this.tabControl.Name = "tabControl";
@@ -1215,8 +1223,47 @@
             this.pageCD_Lich.Padding = new System.Windows.Forms.Padding(3);
             this.pageCD_Lich.Size = new System.Drawing.Size(1618, 1048);
             this.pageCD_Lich.TabIndex = 20;
-            this.pageCD_Lich.Text = "pageCD_Lich";
+            this.pageCD_Lich.Text = "CD_Lich";
             this.pageCD_Lich.UseVisualStyleBackColor = true;
+            // 
+            // pageCD_NV
+            // 
+            this.pageCD_NV.Location = new System.Drawing.Point(4, 22);
+            this.pageCD_NV.Name = "pageCD_NV";
+            this.pageCD_NV.Padding = new System.Windows.Forms.Padding(3);
+            this.pageCD_NV.Size = new System.Drawing.Size(1618, 1048);
+            this.pageCD_NV.TabIndex = 21;
+            this.pageCD_NV.Text = "CD_NV";
+            this.pageCD_NV.UseVisualStyleBackColor = true;
+            // 
+            // pageBC_DoanhThu
+            // 
+            this.pageBC_DoanhThu.Location = new System.Drawing.Point(4, 22);
+            this.pageBC_DoanhThu.Name = "pageBC_DoanhThu";
+            this.pageBC_DoanhThu.Padding = new System.Windows.Forms.Padding(3);
+            this.pageBC_DoanhThu.Size = new System.Drawing.Size(1618, 1048);
+            this.pageBC_DoanhThu.TabIndex = 22;
+            this.pageBC_DoanhThu.Text = "BC_DoanhThu";
+            this.pageBC_DoanhThu.UseVisualStyleBackColor = true;
+            // 
+            // pageBC_LuongNV
+            // 
+            this.pageBC_LuongNV.Location = new System.Drawing.Point(4, 22);
+            this.pageBC_LuongNV.Name = "pageBC_LuongNV";
+            this.pageBC_LuongNV.Padding = new System.Windows.Forms.Padding(3);
+            this.pageBC_LuongNV.Size = new System.Drawing.Size(1618, 1048);
+            this.pageBC_LuongNV.TabIndex = 23;
+            this.pageBC_LuongNV.Text = "BC_LuongNV";
+            this.pageBC_LuongNV.UseVisualStyleBackColor = true;
+            // 
+            // page6
+            // 
+            this.page6.Location = new System.Drawing.Point(4, 22);
+            this.page6.Name = "page6";
+            this.page6.Size = new System.Drawing.Size(1618, 1048);
+            this.page6.TabIndex = 24;
+            this.page6.Text = "6";
+            this.page6.UseVisualStyleBackColor = true;
             // 
             // FMain
             // 
@@ -1344,5 +1391,9 @@
         private System.Windows.Forms.TabPage pageTC_VPP;
         private System.Windows.Forms.TabPage pageCD_MK;
         private System.Windows.Forms.TabPage pageCD_Lich;
+        private System.Windows.Forms.TabPage pageCD_NV;
+        private System.Windows.Forms.TabPage pageBC_DoanhThu;
+        private System.Windows.Forms.TabPage pageBC_LuongNV;
+        private System.Windows.Forms.TabPage page6;
     }
 }
