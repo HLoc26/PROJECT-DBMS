@@ -148,6 +148,7 @@ namespace DBMS_BookStore
                         if (int.Parse(row.Cells[colNum - 1].Value.ToString()) + numSoLuongMua.Value <= int.Parse(txbSoLuongCon.Text))
                         {
                             row.Cells[colNum - 1].Value = (int.Parse(row.Cells[colNum - 1].Value.ToString()) + numSoLuongMua.Value).ToString();
+                            txbTongTien.Text = CalculateTotal().ToString();
                         }
                         else
                         {
@@ -158,6 +159,7 @@ namespace DBMS_BookStore
                 }
                 // Nếu chưa có thì thêm vào giỏ hàng
                 dtgvGioHang.Rows.Add(hanghoa.ItemArray);
+                txbTongTien.Text = CalculateTotal().ToString();
             }
             else
             {
@@ -165,6 +167,17 @@ namespace DBMS_BookStore
 
             }
         }
+
+        private int CalculateTotal()
+        {
+            int total = 0;
+            foreach (DataGridViewRow row in dtgvGioHang.Rows)
+            {
+                total += int.Parse(row.Cells[2].Value.ToString()) * int.Parse(row.Cells[3].Value.ToString());
+            }
+            return total;
+        }
+
         private void btnXoaSP_Click(object sender, EventArgs e)
         {
             string maHang = txbMaSP.Text;
@@ -200,11 +213,10 @@ namespace DBMS_BookStore
             txbSoLuongCon.Text = hanghoa["SoLuong"].ToString();
             numSoLuongMua.Maximum = int.Parse(hanghoa["SoLuong"].ToString());
         }
-
-        #endregion
-
-        #region 4. Giao dịch - Bán hàng
-        // Code here
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[5];
+        }
         #endregion
 
         #region 5. Giao dịch - Bán hàng - Thanh toán

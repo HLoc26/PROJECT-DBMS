@@ -88,14 +88,8 @@
             this.colSoLuongMua = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnQuayLaiGiaoDich = new System.Windows.Forms.Button();
-            this.tblpMainContainer = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnGiaoDich = new System.Windows.Forms.Button();
-            this.btnTraCuu = new System.Windows.Forms.Button();
-            this.btnSetting = new System.Windows.Forms.Button();
-            this.btnBaoCao = new System.Windows.Forms.Button();
             this.pageGD_BH_ThanhToan = new System.Windows.Forms.TabPage();
+            this.page6 = new System.Windows.Forms.TabPage();
             this.pageGD_BH_TT_TienMat = new System.Windows.Forms.TabPage();
             this.pageGD_BH_TT_ChuyenKhoan = new System.Windows.Forms.TabPage();
             this.pageGD_NhapHang = new System.Windows.Forms.TabPage();
@@ -114,7 +108,13 @@
             this.pageCD_NV = new System.Windows.Forms.TabPage();
             this.pageBC_DoanhThu = new System.Windows.Forms.TabPage();
             this.pageBC_LuongNV = new System.Windows.Forms.TabPage();
-            this.page6 = new System.Windows.Forms.TabPage();
+            this.tblpMainContainer = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnGiaoDich = new System.Windows.Forms.Button();
+            this.btnTraCuu = new System.Windows.Forms.Button();
+            this.btnSetting = new System.Windows.Forms.Button();
+            this.btnBaoCao = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.pageGiaoDich.SuspendLayout();
             this.tblpGiaoDich.SuspendLayout();
@@ -835,6 +835,7 @@
             this.btnThanhToan.TabIndex = 6;
             this.btnThanhToan.Text = "Thanh toán";
             this.btnThanhToan.UseVisualStyleBackColor = true;
+            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
             // 
             // dtgvGioHang
             // 
@@ -950,122 +951,6 @@
             this.btnQuayLaiGiaoDich.UseVisualStyleBackColor = true;
             this.btnQuayLaiGiaoDich.Click += new System.EventHandler(this.btnQuayLaiGiaoDich_Click);
             // 
-            // tblpMainContainer
-            // 
-            this.tblpMainContainer.ColumnCount = 2;
-            this.tblpMainContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tblpMainContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.tblpMainContainer.Controls.Add(this.tabControl, 1, 0);
-            this.tblpMainContainer.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tblpMainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblpMainContainer.Location = new System.Drawing.Point(0, 0);
-            this.tblpMainContainer.Name = "tblpMainContainer";
-            this.tblpMainContainer.RowCount = 1;
-            this.tblpMainContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblpMainContainer.Size = new System.Drawing.Size(1920, 1080);
-            this.tblpMainContainer.TabIndex = 1;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.btnExit, 0, 9);
-            this.tableLayoutPanel2.Controls.Add(this.btnGiaoDich, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnTraCuu, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.btnSetting, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.btnBaoCao, 0, 3);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 10;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.999999F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.999999F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.999999F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.999999F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.999999F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.999999F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.999999F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.999999F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(282, 1074);
-            this.tableLayoutPanel2.TabIndex = 1;
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(3, 966);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(276, 105);
-            this.btnExit.TabIndex = 0;
-            this.btnExit.Text = "THOÁT";
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnGiaoDich
-            // 
-            this.btnGiaoDich.BackColor = System.Drawing.Color.Fuchsia;
-            this.btnGiaoDich.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGiaoDich.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGiaoDich.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGiaoDich.Location = new System.Drawing.Point(3, 3);
-            this.btnGiaoDich.Name = "btnGiaoDich";
-            this.btnGiaoDich.Size = new System.Drawing.Size(276, 101);
-            this.btnGiaoDich.TabIndex = 1;
-            this.btnGiaoDich.Text = "GIAO DỊCH";
-            this.btnGiaoDich.UseVisualStyleBackColor = false;
-            this.btnGiaoDich.Click += new System.EventHandler(this.btnGiaoDich_Click);
-            // 
-            // btnTraCuu
-            // 
-            this.btnTraCuu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnTraCuu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTraCuu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnTraCuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTraCuu.Location = new System.Drawing.Point(3, 110);
-            this.btnTraCuu.Name = "btnTraCuu";
-            this.btnTraCuu.Size = new System.Drawing.Size(276, 101);
-            this.btnTraCuu.TabIndex = 2;
-            this.btnTraCuu.Text = "TRA CỨU THÔNG TIN";
-            this.btnTraCuu.UseVisualStyleBackColor = false;
-            this.btnTraCuu.Click += new System.EventHandler(this.btnTraCuu_Click);
-            // 
-            // btnSetting
-            // 
-            this.btnSetting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnSetting.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSetting.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetting.Location = new System.Drawing.Point(3, 217);
-            this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(276, 101);
-            this.btnSetting.TabIndex = 4;
-            this.btnSetting.Text = "CÀI ĐẶT";
-            this.btnSetting.UseVisualStyleBackColor = false;
-            this.btnSetting.Click += new System.EventHandler(this.btnCaiDat_Click);
-            // 
-            // btnBaoCao
-            // 
-            this.btnBaoCao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnBaoCao.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBaoCao.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnBaoCao.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBaoCao.Location = new System.Drawing.Point(3, 324);
-            this.btnBaoCao.Name = "btnBaoCao";
-            this.btnBaoCao.Size = new System.Drawing.Size(276, 101);
-            this.btnBaoCao.TabIndex = 3;
-            this.btnBaoCao.Text = "BÁO CÁO";
-            this.btnBaoCao.UseVisualStyleBackColor = false;
-            this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
-            // 
             // pageGD_BH_ThanhToan
             // 
             this.pageGD_BH_ThanhToan.Location = new System.Drawing.Point(4, 22);
@@ -1075,6 +960,15 @@
             this.pageGD_BH_ThanhToan.TabIndex = 5;
             this.pageGD_BH_ThanhToan.Text = "GD_BH_ThanhToan";
             this.pageGD_BH_ThanhToan.UseVisualStyleBackColor = true;
+            // 
+            // page6
+            // 
+            this.page6.Location = new System.Drawing.Point(4, 22);
+            this.page6.Name = "page6";
+            this.page6.Size = new System.Drawing.Size(1618, 1048);
+            this.page6.TabIndex = 24;
+            this.page6.Text = "6";
+            this.page6.UseVisualStyleBackColor = true;
             // 
             // pageGD_BH_TT_TienMat
             // 
@@ -1256,14 +1150,121 @@
             this.pageBC_LuongNV.Text = "BC_LuongNV";
             this.pageBC_LuongNV.UseVisualStyleBackColor = true;
             // 
-            // page6
+            // tblpMainContainer
             // 
-            this.page6.Location = new System.Drawing.Point(4, 22);
-            this.page6.Name = "page6";
-            this.page6.Size = new System.Drawing.Size(1618, 1048);
-            this.page6.TabIndex = 24;
-            this.page6.Text = "6";
-            this.page6.UseVisualStyleBackColor = true;
+            this.tblpMainContainer.ColumnCount = 2;
+            this.tblpMainContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tblpMainContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85F));
+            this.tblpMainContainer.Controls.Add(this.tabControl, 1, 0);
+            this.tblpMainContainer.Controls.Add(this.tableLayoutPanel2, 0, 0);
+            this.tblpMainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblpMainContainer.Location = new System.Drawing.Point(0, 0);
+            this.tblpMainContainer.Name = "tblpMainContainer";
+            this.tblpMainContainer.RowCount = 1;
+            this.tblpMainContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tblpMainContainer.Size = new System.Drawing.Size(1920, 1080);
+            this.tblpMainContainer.TabIndex = 1;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.btnExit, 0, 9);
+            this.tableLayoutPanel2.Controls.Add(this.btnGiaoDich, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnTraCuu, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.btnSetting, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.btnBaoCao, 0, 3);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 10;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.999999F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.999999F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.999999F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.999999F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.999999F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.999999F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.999999F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.999999F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(282, 1074);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(3, 966);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(276, 105);
+            this.btnExit.TabIndex = 0;
+            this.btnExit.Text = "THOÁT";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnGiaoDich
+            // 
+            this.btnGiaoDich.BackColor = System.Drawing.Color.Fuchsia;
+            this.btnGiaoDich.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGiaoDich.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGiaoDich.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGiaoDich.Location = new System.Drawing.Point(3, 3);
+            this.btnGiaoDich.Name = "btnGiaoDich";
+            this.btnGiaoDich.Size = new System.Drawing.Size(276, 101);
+            this.btnGiaoDich.TabIndex = 1;
+            this.btnGiaoDich.Text = "GIAO DỊCH";
+            this.btnGiaoDich.UseVisualStyleBackColor = false;
+            this.btnGiaoDich.Click += new System.EventHandler(this.btnGiaoDich_Click);
+            // 
+            // btnTraCuu
+            // 
+            this.btnTraCuu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnTraCuu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTraCuu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnTraCuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTraCuu.Location = new System.Drawing.Point(3, 110);
+            this.btnTraCuu.Name = "btnTraCuu";
+            this.btnTraCuu.Size = new System.Drawing.Size(276, 101);
+            this.btnTraCuu.TabIndex = 2;
+            this.btnTraCuu.Text = "TRA CỨU THÔNG TIN";
+            this.btnTraCuu.UseVisualStyleBackColor = false;
+            this.btnTraCuu.Click += new System.EventHandler(this.btnTraCuu_Click);
+            // 
+            // btnSetting
+            // 
+            this.btnSetting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnSetting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSetting.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetting.Location = new System.Drawing.Point(3, 217);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(276, 101);
+            this.btnSetting.TabIndex = 4;
+            this.btnSetting.Text = "CÀI ĐẶT";
+            this.btnSetting.UseVisualStyleBackColor = false;
+            this.btnSetting.Click += new System.EventHandler(this.btnCaiDat_Click);
+            // 
+            // btnBaoCao
+            // 
+            this.btnBaoCao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnBaoCao.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBaoCao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnBaoCao.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBaoCao.Location = new System.Drawing.Point(3, 324);
+            this.btnBaoCao.Name = "btnBaoCao";
+            this.btnBaoCao.Size = new System.Drawing.Size(276, 101);
+            this.btnBaoCao.TabIndex = 3;
+            this.btnBaoCao.Text = "BÁO CÁO";
+            this.btnBaoCao.UseVisualStyleBackColor = false;
+            this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
             // 
             // FMain
             // 
