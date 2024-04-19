@@ -220,7 +220,19 @@ namespace DBMS_BookStore
         #endregion
 
         #region 5. Giao dịch - Bán hàng - Thanh toán
-        // Code here
+        private void btnTienMat_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[7];
+        }
+
+        private void btnChuyenKhoan_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[8];
+        }
+        private void btnQuayLaiBanHang_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[4];
+        }
         #endregion
 
         #region 7. Giao dịch - Bán hàng - Thanh toán - Tiền mặt
