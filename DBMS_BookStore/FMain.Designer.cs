@@ -95,6 +95,22 @@
             this.btnTraCuu = new System.Windows.Forms.Button();
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnBaoCao = new System.Windows.Forms.Button();
+            this.pageGD_BH_ThanhToan = new System.Windows.Forms.TabPage();
+            this.pageGD_BH_TT_TienMat = new System.Windows.Forms.TabPage();
+            this.pageGD_BH_TT_ChuyenKhoan = new System.Windows.Forms.TabPage();
+            this.pageGD_NhapHang = new System.Windows.Forms.TabPage();
+            this.pageGD_KhachHang = new System.Windows.Forms.TabPage();
+            this.pageGD_KH_TimTT = new System.Windows.Forms.TabPage();
+            this.pageGD_KH_TaoThe = new System.Windows.Forms.TabPage();
+            this.pageGD_HDBan = new System.Windows.Forms.TabPage();
+            this.pageGD_HDNhap = new System.Windows.Forms.TabPage();
+            this.pageTC_Sach = new System.Windows.Forms.TabPage();
+            this.pageTC_TG = new System.Windows.Forms.TabPage();
+            this.pageTC_NXB = new System.Windows.Forms.TabPage();
+            this.pageTC_TheLoai = new System.Windows.Forms.TabPage();
+            this.pageTC_VPP = new System.Windows.Forms.TabPage();
+            this.pageCD_MK = new System.Windows.Forms.TabPage();
+            this.pageCD_Lich = new System.Windows.Forms.TabPage();
             this.tabControl.SuspendLayout();
             this.pageGiaoDich.SuspendLayout();
             this.tblpGiaoDich.SuspendLayout();
@@ -127,6 +143,22 @@
             this.tabControl.Controls.Add(this.pageCaiDat);
             this.tabControl.Controls.Add(this.pageBaoCao);
             this.tabControl.Controls.Add(this.pageGiaoDich_BanHang);
+            this.tabControl.Controls.Add(this.pageGD_BH_ThanhToan);
+            this.tabControl.Controls.Add(this.pageGD_BH_TT_TienMat);
+            this.tabControl.Controls.Add(this.pageGD_BH_TT_ChuyenKhoan);
+            this.tabControl.Controls.Add(this.pageGD_NhapHang);
+            this.tabControl.Controls.Add(this.pageGD_KhachHang);
+            this.tabControl.Controls.Add(this.pageGD_KH_TimTT);
+            this.tabControl.Controls.Add(this.pageGD_KH_TaoThe);
+            this.tabControl.Controls.Add(this.pageGD_HDBan);
+            this.tabControl.Controls.Add(this.pageGD_HDNhap);
+            this.tabControl.Controls.Add(this.pageTC_Sach);
+            this.tabControl.Controls.Add(this.pageTC_TG);
+            this.tabControl.Controls.Add(this.pageTC_NXB);
+            this.tabControl.Controls.Add(this.pageTC_TheLoai);
+            this.tabControl.Controls.Add(this.pageTC_VPP);
+            this.tabControl.Controls.Add(this.pageCD_MK);
+            this.tabControl.Controls.Add(this.pageCD_Lich);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(291, 3);
             this.tabControl.Name = "tabControl";
@@ -142,7 +174,7 @@
             this.pageGiaoDich.Padding = new System.Windows.Forms.Padding(3);
             this.pageGiaoDich.Size = new System.Drawing.Size(1618, 1048);
             this.pageGiaoDich.TabIndex = 0;
-            this.pageGiaoDich.Text = "pageGiaoDich";
+            this.pageGiaoDich.Text = "GiaoDich";
             this.pageGiaoDich.UseVisualStyleBackColor = true;
             // 
             // tblpGiaoDich
@@ -400,7 +432,7 @@
             this.pageGiaoDich_BanHang.Padding = new System.Windows.Forms.Padding(3);
             this.pageGiaoDich_BanHang.Size = new System.Drawing.Size(1618, 1048);
             this.pageGiaoDich_BanHang.TabIndex = 4;
-            this.pageGiaoDich_BanHang.Text = "GiaoDich_BanHang";
+            this.pageGiaoDich_BanHang.Text = "GD_BanHang";
             this.pageGiaoDich_BanHang.UseVisualStyleBackColor = true;
             // 
             // tblpGiaoDich_BanHang
@@ -1026,6 +1058,166 @@
             this.btnBaoCao.UseVisualStyleBackColor = false;
             this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
             // 
+            // pageGD_BH_ThanhToan
+            // 
+            this.pageGD_BH_ThanhToan.Location = new System.Drawing.Point(4, 22);
+            this.pageGD_BH_ThanhToan.Name = "pageGD_BH_ThanhToan";
+            this.pageGD_BH_ThanhToan.Padding = new System.Windows.Forms.Padding(3);
+            this.pageGD_BH_ThanhToan.Size = new System.Drawing.Size(1618, 1048);
+            this.pageGD_BH_ThanhToan.TabIndex = 5;
+            this.pageGD_BH_ThanhToan.Text = "GD_BH_ThanhToan";
+            this.pageGD_BH_ThanhToan.UseVisualStyleBackColor = true;
+            // 
+            // pageGD_BH_TT_TienMat
+            // 
+            this.pageGD_BH_TT_TienMat.Location = new System.Drawing.Point(4, 22);
+            this.pageGD_BH_TT_TienMat.Name = "pageGD_BH_TT_TienMat";
+            this.pageGD_BH_TT_TienMat.Padding = new System.Windows.Forms.Padding(3);
+            this.pageGD_BH_TT_TienMat.Size = new System.Drawing.Size(1618, 1048);
+            this.pageGD_BH_TT_TienMat.TabIndex = 6;
+            this.pageGD_BH_TT_TienMat.Text = "GD_BH_TT_TienMat";
+            this.pageGD_BH_TT_TienMat.UseVisualStyleBackColor = true;
+            // 
+            // pageGD_BH_TT_ChuyenKhoan
+            // 
+            this.pageGD_BH_TT_ChuyenKhoan.Location = new System.Drawing.Point(4, 22);
+            this.pageGD_BH_TT_ChuyenKhoan.Name = "pageGD_BH_TT_ChuyenKhoan";
+            this.pageGD_BH_TT_ChuyenKhoan.Padding = new System.Windows.Forms.Padding(3);
+            this.pageGD_BH_TT_ChuyenKhoan.Size = new System.Drawing.Size(1618, 1048);
+            this.pageGD_BH_TT_ChuyenKhoan.TabIndex = 7;
+            this.pageGD_BH_TT_ChuyenKhoan.Text = "GD_BH_TT_ChuyenKhoan";
+            this.pageGD_BH_TT_ChuyenKhoan.UseVisualStyleBackColor = true;
+            // 
+            // pageGD_NhapHang
+            // 
+            this.pageGD_NhapHang.Location = new System.Drawing.Point(4, 22);
+            this.pageGD_NhapHang.Name = "pageGD_NhapHang";
+            this.pageGD_NhapHang.Padding = new System.Windows.Forms.Padding(3);
+            this.pageGD_NhapHang.Size = new System.Drawing.Size(1618, 1048);
+            this.pageGD_NhapHang.TabIndex = 8;
+            this.pageGD_NhapHang.Text = "GD_NhapHang";
+            this.pageGD_NhapHang.UseVisualStyleBackColor = true;
+            // 
+            // pageGD_KhachHang
+            // 
+            this.pageGD_KhachHang.Location = new System.Drawing.Point(4, 22);
+            this.pageGD_KhachHang.Name = "pageGD_KhachHang";
+            this.pageGD_KhachHang.Padding = new System.Windows.Forms.Padding(3);
+            this.pageGD_KhachHang.Size = new System.Drawing.Size(1618, 1048);
+            this.pageGD_KhachHang.TabIndex = 9;
+            this.pageGD_KhachHang.Text = "GD_KhachHang";
+            this.pageGD_KhachHang.UseVisualStyleBackColor = true;
+            // 
+            // pageGD_KH_TimTT
+            // 
+            this.pageGD_KH_TimTT.Location = new System.Drawing.Point(4, 22);
+            this.pageGD_KH_TimTT.Name = "pageGD_KH_TimTT";
+            this.pageGD_KH_TimTT.Padding = new System.Windows.Forms.Padding(3);
+            this.pageGD_KH_TimTT.Size = new System.Drawing.Size(1618, 1048);
+            this.pageGD_KH_TimTT.TabIndex = 10;
+            this.pageGD_KH_TimTT.Text = "GD_KH_TimTT";
+            this.pageGD_KH_TimTT.UseVisualStyleBackColor = true;
+            // 
+            // pageGD_KH_TaoThe
+            // 
+            this.pageGD_KH_TaoThe.Location = new System.Drawing.Point(4, 22);
+            this.pageGD_KH_TaoThe.Name = "pageGD_KH_TaoThe";
+            this.pageGD_KH_TaoThe.Padding = new System.Windows.Forms.Padding(3);
+            this.pageGD_KH_TaoThe.Size = new System.Drawing.Size(1618, 1048);
+            this.pageGD_KH_TaoThe.TabIndex = 11;
+            this.pageGD_KH_TaoThe.Text = "GD_KH_TaoThe";
+            this.pageGD_KH_TaoThe.UseVisualStyleBackColor = true;
+            // 
+            // pageGD_HDBan
+            // 
+            this.pageGD_HDBan.Location = new System.Drawing.Point(4, 22);
+            this.pageGD_HDBan.Name = "pageGD_HDBan";
+            this.pageGD_HDBan.Padding = new System.Windows.Forms.Padding(3);
+            this.pageGD_HDBan.Size = new System.Drawing.Size(1618, 1048);
+            this.pageGD_HDBan.TabIndex = 12;
+            this.pageGD_HDBan.Text = "GD_HDBan";
+            this.pageGD_HDBan.UseVisualStyleBackColor = true;
+            // 
+            // pageGD_HDNhap
+            // 
+            this.pageGD_HDNhap.Location = new System.Drawing.Point(4, 22);
+            this.pageGD_HDNhap.Name = "pageGD_HDNhap";
+            this.pageGD_HDNhap.Padding = new System.Windows.Forms.Padding(3);
+            this.pageGD_HDNhap.Size = new System.Drawing.Size(1618, 1048);
+            this.pageGD_HDNhap.TabIndex = 13;
+            this.pageGD_HDNhap.Text = "GD_HDNhap";
+            this.pageGD_HDNhap.UseVisualStyleBackColor = true;
+            // 
+            // pageTC_Sach
+            // 
+            this.pageTC_Sach.Location = new System.Drawing.Point(4, 22);
+            this.pageTC_Sach.Name = "pageTC_Sach";
+            this.pageTC_Sach.Padding = new System.Windows.Forms.Padding(3);
+            this.pageTC_Sach.Size = new System.Drawing.Size(1618, 1048);
+            this.pageTC_Sach.TabIndex = 14;
+            this.pageTC_Sach.Text = "TC_Sach";
+            this.pageTC_Sach.UseVisualStyleBackColor = true;
+            // 
+            // pageTC_TG
+            // 
+            this.pageTC_TG.Location = new System.Drawing.Point(4, 22);
+            this.pageTC_TG.Name = "pageTC_TG";
+            this.pageTC_TG.Padding = new System.Windows.Forms.Padding(3);
+            this.pageTC_TG.Size = new System.Drawing.Size(1618, 1048);
+            this.pageTC_TG.TabIndex = 15;
+            this.pageTC_TG.Text = "TC_TG";
+            this.pageTC_TG.UseVisualStyleBackColor = true;
+            // 
+            // pageTC_NXB
+            // 
+            this.pageTC_NXB.Location = new System.Drawing.Point(4, 22);
+            this.pageTC_NXB.Name = "pageTC_NXB";
+            this.pageTC_NXB.Padding = new System.Windows.Forms.Padding(3);
+            this.pageTC_NXB.Size = new System.Drawing.Size(1618, 1048);
+            this.pageTC_NXB.TabIndex = 16;
+            this.pageTC_NXB.Text = "TC_NXB";
+            this.pageTC_NXB.UseVisualStyleBackColor = true;
+            // 
+            // pageTC_TheLoai
+            // 
+            this.pageTC_TheLoai.Location = new System.Drawing.Point(4, 22);
+            this.pageTC_TheLoai.Name = "pageTC_TheLoai";
+            this.pageTC_TheLoai.Padding = new System.Windows.Forms.Padding(3);
+            this.pageTC_TheLoai.Size = new System.Drawing.Size(1618, 1048);
+            this.pageTC_TheLoai.TabIndex = 17;
+            this.pageTC_TheLoai.Text = "TC_TheLoai";
+            this.pageTC_TheLoai.UseVisualStyleBackColor = true;
+            // 
+            // pageTC_VPP
+            // 
+            this.pageTC_VPP.Location = new System.Drawing.Point(4, 22);
+            this.pageTC_VPP.Name = "pageTC_VPP";
+            this.pageTC_VPP.Padding = new System.Windows.Forms.Padding(3);
+            this.pageTC_VPP.Size = new System.Drawing.Size(1618, 1048);
+            this.pageTC_VPP.TabIndex = 18;
+            this.pageTC_VPP.Text = "TC_VPP";
+            this.pageTC_VPP.UseVisualStyleBackColor = true;
+            // 
+            // pageCD_MK
+            // 
+            this.pageCD_MK.Location = new System.Drawing.Point(4, 22);
+            this.pageCD_MK.Name = "pageCD_MK";
+            this.pageCD_MK.Padding = new System.Windows.Forms.Padding(3);
+            this.pageCD_MK.Size = new System.Drawing.Size(1618, 1048);
+            this.pageCD_MK.TabIndex = 19;
+            this.pageCD_MK.Text = "CD_MK";
+            this.pageCD_MK.UseVisualStyleBackColor = true;
+            // 
+            // pageCD_Lich
+            // 
+            this.pageCD_Lich.Location = new System.Drawing.Point(4, 22);
+            this.pageCD_Lich.Name = "pageCD_Lich";
+            this.pageCD_Lich.Padding = new System.Windows.Forms.Padding(3);
+            this.pageCD_Lich.Size = new System.Drawing.Size(1618, 1048);
+            this.pageCD_Lich.TabIndex = 20;
+            this.pageCD_Lich.Text = "pageCD_Lich";
+            this.pageCD_Lich.UseVisualStyleBackColor = true;
+            // 
             // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1136,5 +1328,21 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txbSoLuongCon;
+        private System.Windows.Forms.TabPage pageGD_BH_ThanhToan;
+        private System.Windows.Forms.TabPage pageGD_BH_TT_TienMat;
+        private System.Windows.Forms.TabPage pageGD_BH_TT_ChuyenKhoan;
+        private System.Windows.Forms.TabPage pageGD_NhapHang;
+        private System.Windows.Forms.TabPage pageGD_KhachHang;
+        private System.Windows.Forms.TabPage pageGD_KH_TimTT;
+        private System.Windows.Forms.TabPage pageGD_KH_TaoThe;
+        private System.Windows.Forms.TabPage pageGD_HDBan;
+        private System.Windows.Forms.TabPage pageGD_HDNhap;
+        private System.Windows.Forms.TabPage pageTC_Sach;
+        private System.Windows.Forms.TabPage pageTC_TG;
+        private System.Windows.Forms.TabPage pageTC_NXB;
+        private System.Windows.Forms.TabPage pageTC_TheLoai;
+        private System.Windows.Forms.TabPage pageTC_VPP;
+        private System.Windows.Forms.TabPage pageCD_MK;
+        private System.Windows.Forms.TabPage pageCD_Lich;
     }
 }

@@ -97,6 +97,18 @@ namespace DBMS_BookStore
             tabControl.SelectedTab = tabControl.TabPages[4];
         }
         #endregion
+       
+        #region 1. Tra cứu
+        // Code here
+        #endregion
+
+        #region 2. Cài đặt
+        // Code here
+        #endregion
+
+        #region 3. Báo cáo (thống kê)
+        // Code here
+        #endregion
 
         #region 4.Giao Dịch - Bán Hàng
 
