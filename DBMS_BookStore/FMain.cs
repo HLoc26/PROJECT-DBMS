@@ -223,6 +223,7 @@ namespace DBMS_BookStore
         private void btnTienMat_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[7];
+            dtgvXemLaiTienMat.DataSource = dtgvGioHang.DataSource;
         }
 
         private void btnChuyenKhoan_Click(object sender, EventArgs e)
@@ -236,7 +237,14 @@ namespace DBMS_BookStore
         #endregion
 
         #region 7. Giao dịch - Bán hàng - Thanh toán - Tiền mặt
-        // Code here
+        private void btnTMQuayLaiTT_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[5];
+        }
+
+        /*
+         * Thêm vào bảng BAN_HANG(mã hoá đơn 
+         */
         #endregion
 
         #region 8. Giao dịch - Bán hàng - Thanh toán - Chuyển khoản
