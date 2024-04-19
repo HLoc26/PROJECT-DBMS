@@ -18,7 +18,7 @@ BEGIN
 		RETURN -1; -- EXIT
 	END
 
-	-- Tạo mã NV tự động
+	-- Tạo mã NV tự động	
 	DECLARE @NewMaNV VARCHAR(10) = dbo.FUNC_Create_MaNV()
 	
 	-- Thêm vào bảng NHAN_VIEN
