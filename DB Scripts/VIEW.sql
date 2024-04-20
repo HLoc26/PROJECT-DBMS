@@ -20,7 +20,9 @@ AS
 	JOIN dbo.THE_LOAI_SACH tl_s ON tl_s.MaSach = s.MaSach 
 	JOIN dbo.THE_LOAI tl ON tl.MaLoai = tl_s.MaLoai
 GO
-
+SELECT tenTG , COUNT (MaSach)
+FROM dbo.VIEW_SACH
+GROUP BY (tenTG)
 -- VIEW xem thông tin VPP
 CREATE VIEW VIEW_VPP
 AS

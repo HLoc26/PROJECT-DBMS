@@ -4,6 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
+using System.Data.Odbc;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
@@ -89,7 +92,7 @@ namespace DBMS_BookStore
         {
             tabControl.SelectedTab = tabControl.TabPages[3];
         }
-  
+
         #endregion
 
         #region 0. Giao Dịch
@@ -103,9 +106,39 @@ namespace DBMS_BookStore
         private void btnTTSach_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[15];
-            dtgvTCSACH.DataSource = sachDAO.LoadTCSach();
+            DataTable dt = sachDAO.LoadTCSach();
+            foreach (DataRow row in dt.Rows)
+            {
+                dtgvTCSACH.Rows.Add(row.ItemArray);
+            }
             dtgvTCSACH.Refresh();
             dtgvTCSACH.Update();
+        }
+
+        private void btnTTTacGia_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[16];
+            //DataTable dt = sachDAO.LoadTCTG();
+            //foreach (DataRow row in dt.Rows)
+            //{
+            //    dtgvTCTG.Rows.Add(row.ItemArray);
+            //}
+            //dtgvTCTG.Refresh();
+            //dtgvTCTG.Update();
+        }
+        private void btnTTNXB_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[17];
+        }
+        private void btnTTTheLoai_Click(object sender, EventArgs e)
+        {
+
+            tabControl.SelectedTab = tabControl.TabPages[18];
+
+        }
+        private void btnTTVPP_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[19];
         }
         #endregion
 
@@ -263,10 +296,13 @@ namespace DBMS_BookStore
                 if (dataTable != null)
                 {
                     // Assuming dtgvTCSACH is your DataGridView to display the results
-                    //dtgvTCSACH.DataSource = dataTable;
-                    foreach (DataRow row in dataTable.Rows) {
-                    dtgvTCSACH.Rows.Add(row.ItemArray);
+                    dtgvTCSACH.DataSource = dataTable;
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        dtgvTCSACH.Rows.Add(row.ItemArray);
                     }
+                    dtgvTCSACH.Refresh();
+                    dtgvTCSACH.Update();
                 }
             }
             else
@@ -276,10 +312,30 @@ namespace DBMS_BookStore
         }
 
 
+
         #endregion
 
         #region 16. Tra cứu - Tác giả
-        // Code here
+        private void btnTCTG_Click(object sender, EventArgs e)
+        {
+            string tenTG = txtbTCTG.Text;
+            DBConnection dbConnection = new DBConnection();
+            //DataTable dt = sachDAO.LoadTCTG(tenTG, dbConnection);
+            //foreach (DataRow row in dt.Rows)
+            //{
+            //    dtgvTCTG.Rows.Add(row.ItemArray);
+            //}
+            //dtgvTCTG.Refresh();
+            //dtgvTCTG.Update();
+            DataTable dt = SachDAO.LoadTCTG(tenTG, dbConnection);
+            dtgvTCTG.DataSource = dt;
+        }
+
+
+
+
+
+
         #endregion
 
         #region 17. Tra cứu - NXB
@@ -313,6 +369,7 @@ namespace DBMS_BookStore
         #region 24. Báo cáo - Lương NV
         // Code here
         #endregion
+
 
     }
 }

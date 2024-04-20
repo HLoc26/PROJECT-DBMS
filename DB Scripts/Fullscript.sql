@@ -251,6 +251,16 @@ AS
 	JOIN dbo.THE_LOAI_SACH tl_s ON tl_s.MaSach = s.MaSach 
 	JOIN dbo.THE_LOAI tl ON tl.MaLoai = tl_s.MaLoai
 GO
+CREATE VIEW dbo.VIEW_SACH_TG
+AS
+	SELECT s.MaSach, s.TieuDe, nxb.TenNXB, tg.MaTG, tg.TenTG, s.MaNXB
+	FROM
+	dbo.SACH s
+	JOIN dbo.NXB nxb ON nxb.MaNXB = s.MaNXB
+	JOIN dbo.TAC_GIA_SACH tg_s ON tg_s.MaSach = s.MaSach
+	JOIN dbo.TAC_GIA tg ON tg.MaTG = tg_s.MaTG;
+GO
+
 
 -- VIEW xem thông tin VPP
 CREATE VIEW VIEW_VPP
@@ -344,6 +354,14 @@ BEGIN
 	RETURN @Discount
 END;
 GO 
+-- Hàm lấy thông tin tác giả dựa vào tên tác giả
+CREATE FUNCTION FUNC_TCTG(@tenTG VARCHAR(20))
+RETURNS TABLE
+AS
+	RETURN (SELECT MaSach, tenTG, TieuDe, DonGia, TenLoai FROM VIEW_SACH WHERE tenTG = @tenTG)
+GO
+
+
 -- =========================================================================================================================== --
 -- =========================================================================================================================== --
 -- ====================================  ____  ____   ___   ____ ____  _   _ ____  _____  ==================================== --
@@ -453,6 +471,25 @@ BEGIN
 	END
 END;
 GO
+--Hàm lấy sách rồi cho ra bảng kq
+CREATE PROCEDURE SearchSACHByMaHang
+    @MaHang VARCHAR(20)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT s.MaSach, s.TieuDe, hh.DonGia, hh.SoLuong, tg.TenTG, tl.TenLoai, nxb.TenNXB
+    FROM dbo.SACH s
+    JOIN dbo.HANG_HOA hh ON s.MaSach = hh.MaHang
+    JOIN dbo.NXB nxb ON nxb.MaNXB = s.MaNXB
+    JOIN dbo.TAC_GIA_SACH tg_s ON tg_s.MaSach = s.MaSach
+    JOIN dbo.TAC_GIA tg ON tg.MaTG = tg_s.MaTG
+    JOIN dbo.THE_LOAI_SACH tl_s ON tl_s.MaSach = s.MaSach 
+    JOIN dbo.THE_LOAI tl ON tl.MaLoai = tl_s.MaLoai
+    WHERE s.MaSach = @MaHang;
+END;
+SELECT * FROM dbo.VIEW_SACH 
+
 -- ========================================================================================================================== --
 -- ========================================================================================================================== --
 -- ========================================  _____ ____  ___ ____  ____ _____ ____   ======================================== --

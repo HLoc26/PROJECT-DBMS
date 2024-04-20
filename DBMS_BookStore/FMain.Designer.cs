@@ -105,9 +105,25 @@
             this.btnTCSACHID = new System.Windows.Forms.Button();
             this.txtb_TCSACH = new System.Windows.Forms.TextBox();
             this.dtgvTCSACH = new System.Windows.Forms.DataGridView();
+            this.MaSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TieuDe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenTG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TheLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NXB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pageTC_TG = new System.Windows.Forms.TabPage();
+            this.txtbTCTG = new System.Windows.Forms.TextBox();
+            this.btnTCTG = new System.Windows.Forms.Button();
+            this.dtgvTCTG = new System.Windows.Forms.DataGridView();
+            this.MaSachTG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenTGTG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TieuDeTG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonGiaTG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenLoaiTG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pageTC_NXB = new System.Windows.Forms.TabPage();
-            this.pageTC_TheLoai = new System.Windows.Forms.TabPage();
+            this.pageTCTL = new System.Windows.Forms.TabPage();
+            this.txtbTCTL = new System.Windows.Forms.TextBox();
             this.pageTC_VPP = new System.Windows.Forms.TabPage();
             this.pageCD_MK = new System.Windows.Forms.TabPage();
             this.pageCD_Lich = new System.Windows.Forms.TabPage();
@@ -120,13 +136,14 @@
             this.btnTraCuu = new System.Windows.Forms.Button();
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnBaoCao = new System.Windows.Forms.Button();
-            this.MaSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TieuDe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenTG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TheLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NXB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtbTCNXB = new System.Windows.Forms.TextBox();
+            this.btnTCNXB = new System.Windows.Forms.Button();
+            this.dtgvTCNXB = new System.Windows.Forms.DataGridView();
+            this.dtgvTCTL = new System.Windows.Forms.DataGridView();
+            this.btnTCTL = new System.Windows.Forms.Button();
+            this.btnTCVPP = new System.Windows.Forms.Button();
+            this.txtbTCVPP = new System.Windows.Forms.TextBox();
+            this.dtgvTCVPP = new System.Windows.Forms.DataGridView();
             this.tblpMainContainer.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.pageGiaoDich.SuspendLayout();
@@ -151,7 +168,15 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.pageTC_Sach.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTCSACH)).BeginInit();
+            this.pageTC_TG.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvTCTG)).BeginInit();
+            this.pageTC_NXB.SuspendLayout();
+            this.pageTCTL.SuspendLayout();
+            this.pageTC_VPP.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvTCNXB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvTCTL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvTCVPP)).BeginInit();
             this.SuspendLayout();
             // 
             // tblpMainContainer
@@ -190,7 +215,7 @@
             this.tabControl.Controls.Add(this.pageTC_Sach);
             this.tabControl.Controls.Add(this.pageTC_TG);
             this.tabControl.Controls.Add(this.pageTC_NXB);
-            this.tabControl.Controls.Add(this.pageTC_TheLoai);
+            this.tabControl.Controls.Add(this.pageTCTL);
             this.tabControl.Controls.Add(this.pageTC_VPP);
             this.tabControl.Controls.Add(this.pageCD_MK);
             this.tabControl.Controls.Add(this.pageCD_Lich);
@@ -292,6 +317,7 @@
             // 
             // pageTraCuu
             // 
+            this.pageTraCuu.BackColor = System.Drawing.Color.Transparent;
             this.pageTraCuu.Controls.Add(this.tblpTraCuu);
             this.pageTraCuu.Location = new System.Drawing.Point(4, 25);
             this.pageTraCuu.Margin = new System.Windows.Forms.Padding(4);
@@ -300,7 +326,6 @@
             this.pageTraCuu.Size = new System.Drawing.Size(1635, 1065);
             this.pageTraCuu.TabIndex = 1;
             this.pageTraCuu.Text = "pageTraCuu";
-            this.pageTraCuu.UseVisualStyleBackColor = true;
             // 
             // tblpTraCuu
             // 
@@ -349,6 +374,7 @@
             this.btnTTTacGia.TabIndex = 1;
             this.btnTTTacGia.Text = "TÁC GIẢ";
             this.btnTTTacGia.UseVisualStyleBackColor = true;
+            this.btnTTTacGia.Click += new System.EventHandler(this.btnTTTacGia_Click);
             // 
             // btnTTNXB
             // 
@@ -362,6 +388,7 @@
             this.btnTTNXB.TabIndex = 2;
             this.btnTTNXB.Text = "NHÀ XUẤT BẢN";
             this.btnTTNXB.UseVisualStyleBackColor = true;
+            this.btnTTNXB.Click += new System.EventHandler(this.btnTTNXB_Click);
             // 
             // btnTTTheLoai
             // 
@@ -375,6 +402,7 @@
             this.btnTTTheLoai.TabIndex = 3;
             this.btnTTTheLoai.Text = "THỂ LOẠI";
             this.btnTTTheLoai.UseVisualStyleBackColor = true;
+            this.btnTTTheLoai.Click += new System.EventHandler(this.btnTTTheLoai_Click);
             // 
             // btnTTVPP
             // 
@@ -388,6 +416,7 @@
             this.btnTTVPP.TabIndex = 4;
             this.btnTTVPP.Text = "VĂN PHÒNG PHẨM";
             this.btnTTVPP.UseVisualStyleBackColor = true;
+            this.btnTTVPP.Click += new System.EventHandler(this.btnTTVPP_Click);
             // 
             // pageCaiDat
             // 
@@ -1202,8 +1231,74 @@
             this.dtgvTCSACH.Size = new System.Drawing.Size(1636, 743);
             this.dtgvTCSACH.TabIndex = 0;
             // 
+            // MaSach
+            // 
+            this.MaSach.Frozen = true;
+            this.MaSach.HeaderText = "Mã sách";
+            this.MaSach.MinimumWidth = 6;
+            this.MaSach.Name = "MaSach";
+            this.MaSach.ReadOnly = true;
+            this.MaSach.Width = 125;
+            // 
+            // TieuDe
+            // 
+            this.TieuDe.Frozen = true;
+            this.TieuDe.HeaderText = "Tiêu đề";
+            this.TieuDe.MinimumWidth = 6;
+            this.TieuDe.Name = "TieuDe";
+            this.TieuDe.ReadOnly = true;
+            this.TieuDe.Width = 125;
+            // 
+            // DonGia
+            // 
+            this.DonGia.Frozen = true;
+            this.DonGia.HeaderText = "Đơn giá";
+            this.DonGia.MinimumWidth = 6;
+            this.DonGia.Name = "DonGia";
+            this.DonGia.ReadOnly = true;
+            this.DonGia.Width = 125;
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.Frozen = true;
+            this.SoLuong.HeaderText = "Số lượng";
+            this.SoLuong.MinimumWidth = 6;
+            this.SoLuong.Name = "SoLuong";
+            this.SoLuong.ReadOnly = true;
+            this.SoLuong.Width = 125;
+            // 
+            // TenTG
+            // 
+            this.TenTG.Frozen = true;
+            this.TenTG.HeaderText = "Tên tác giả";
+            this.TenTG.MinimumWidth = 6;
+            this.TenTG.Name = "TenTG";
+            this.TenTG.ReadOnly = true;
+            this.TenTG.Width = 125;
+            // 
+            // TheLoai
+            // 
+            this.TheLoai.Frozen = true;
+            this.TheLoai.HeaderText = "Thể loại";
+            this.TheLoai.MinimumWidth = 6;
+            this.TheLoai.Name = "TheLoai";
+            this.TheLoai.ReadOnly = true;
+            this.TheLoai.Width = 125;
+            // 
+            // NXB
+            // 
+            this.NXB.Frozen = true;
+            this.NXB.HeaderText = "NXB";
+            this.NXB.MinimumWidth = 6;
+            this.NXB.Name = "NXB";
+            this.NXB.ReadOnly = true;
+            this.NXB.Width = 125;
+            // 
             // pageTC_TG
             // 
+            this.pageTC_TG.Controls.Add(this.txtbTCTG);
+            this.pageTC_TG.Controls.Add(this.btnTCTG);
+            this.pageTC_TG.Controls.Add(this.dtgvTCTG);
             this.pageTC_TG.Location = new System.Drawing.Point(4, 25);
             this.pageTC_TG.Margin = new System.Windows.Forms.Padding(4);
             this.pageTC_TG.Name = "pageTC_TG";
@@ -1213,8 +1308,90 @@
             this.pageTC_TG.Text = "TC_TG";
             this.pageTC_TG.UseVisualStyleBackColor = true;
             // 
+            // txtbTCTG
+            // 
+            this.txtbTCTG.Location = new System.Drawing.Point(75, 40);
+            this.txtbTCTG.Multiline = true;
+            this.txtbTCTG.Name = "txtbTCTG";
+            this.txtbTCTG.Size = new System.Drawing.Size(163, 57);
+            this.txtbTCTG.TabIndex = 2;
+            // 
+            // btnTCTG
+            // 
+            this.btnTCTG.Location = new System.Drawing.Point(303, 40);
+            this.btnTCTG.Name = "btnTCTG";
+            this.btnTCTG.Size = new System.Drawing.Size(207, 57);
+            this.btnTCTG.TabIndex = 1;
+            this.btnTCTG.Text = "Search Author";
+            this.btnTCTG.UseVisualStyleBackColor = true;
+            this.btnTCTG.Click += new System.EventHandler(this.btnTCTG_Click);
+            // 
+            // dtgvTCTG
+            // 
+            this.dtgvTCTG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvTCTG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaSachTG,
+            this.tenTGTG,
+            this.TieuDeTG,
+            this.DonGiaTG,
+            this.TenLoaiTG});
+            this.dtgvTCTG.Location = new System.Drawing.Point(4, 135);
+            this.dtgvTCTG.Name = "dtgvTCTG";
+            this.dtgvTCTG.RowHeadersWidth = 51;
+            this.dtgvTCTG.RowTemplate.Height = 24;
+            this.dtgvTCTG.Size = new System.Drawing.Size(1512, 521);
+            this.dtgvTCTG.TabIndex = 0;
+            // 
+            // MaSachTG
+            // 
+            this.MaSachTG.Frozen = true;
+            this.MaSachTG.HeaderText = "Mã Sách";
+            this.MaSachTG.MinimumWidth = 6;
+            this.MaSachTG.Name = "MaSachTG";
+            this.MaSachTG.ReadOnly = true;
+            this.MaSachTG.Width = 125;
+            // 
+            // tenTGTG
+            // 
+            this.tenTGTG.Frozen = true;
+            this.tenTGTG.HeaderText = "Tên tác giả";
+            this.tenTGTG.MinimumWidth = 6;
+            this.tenTGTG.Name = "tenTGTG";
+            this.tenTGTG.ReadOnly = true;
+            this.tenTGTG.Width = 125;
+            // 
+            // TieuDeTG
+            // 
+            this.TieuDeTG.Frozen = true;
+            this.TieuDeTG.HeaderText = "Tiêu đề";
+            this.TieuDeTG.MinimumWidth = 6;
+            this.TieuDeTG.Name = "TieuDeTG";
+            this.TieuDeTG.ReadOnly = true;
+            this.TieuDeTG.Width = 125;
+            // 
+            // DonGiaTG
+            // 
+            this.DonGiaTG.Frozen = true;
+            this.DonGiaTG.HeaderText = "Đơn giá";
+            this.DonGiaTG.MinimumWidth = 6;
+            this.DonGiaTG.Name = "DonGiaTG";
+            this.DonGiaTG.ReadOnly = true;
+            this.DonGiaTG.Width = 125;
+            // 
+            // TenLoaiTG
+            // 
+            this.TenLoaiTG.Frozen = true;
+            this.TenLoaiTG.HeaderText = "Tên loại";
+            this.TenLoaiTG.MinimumWidth = 6;
+            this.TenLoaiTG.Name = "TenLoaiTG";
+            this.TenLoaiTG.ReadOnly = true;
+            this.TenLoaiTG.Width = 125;
+            // 
             // pageTC_NXB
             // 
+            this.pageTC_NXB.Controls.Add(this.dtgvTCNXB);
+            this.pageTC_NXB.Controls.Add(this.btnTCNXB);
+            this.pageTC_NXB.Controls.Add(this.txtbTCNXB);
             this.pageTC_NXB.Location = new System.Drawing.Point(4, 25);
             this.pageTC_NXB.Margin = new System.Windows.Forms.Padding(4);
             this.pageTC_NXB.Name = "pageTC_NXB";
@@ -1224,19 +1401,32 @@
             this.pageTC_NXB.Text = "TC_NXB";
             this.pageTC_NXB.UseVisualStyleBackColor = true;
             // 
-            // pageTC_TheLoai
+            // pageTCTL
             // 
-            this.pageTC_TheLoai.Location = new System.Drawing.Point(4, 25);
-            this.pageTC_TheLoai.Margin = new System.Windows.Forms.Padding(4);
-            this.pageTC_TheLoai.Name = "pageTC_TheLoai";
-            this.pageTC_TheLoai.Padding = new System.Windows.Forms.Padding(4);
-            this.pageTC_TheLoai.Size = new System.Drawing.Size(1635, 1065);
-            this.pageTC_TheLoai.TabIndex = 17;
-            this.pageTC_TheLoai.Text = "TC_TheLoai";
-            this.pageTC_TheLoai.UseVisualStyleBackColor = true;
+            this.pageTCTL.Controls.Add(this.btnTCTL);
+            this.pageTCTL.Controls.Add(this.dtgvTCTL);
+            this.pageTCTL.Controls.Add(this.txtbTCTL);
+            this.pageTCTL.Location = new System.Drawing.Point(4, 25);
+            this.pageTCTL.Margin = new System.Windows.Forms.Padding(4);
+            this.pageTCTL.Name = "pageTCTL";
+            this.pageTCTL.Padding = new System.Windows.Forms.Padding(4);
+            this.pageTCTL.Size = new System.Drawing.Size(1635, 1065);
+            this.pageTCTL.TabIndex = 17;
+            this.pageTCTL.Text = "TC_TheLoai";
+            this.pageTCTL.UseVisualStyleBackColor = true;
+            // 
+            // txtbTCTL
+            // 
+            this.txtbTCTL.Location = new System.Drawing.Point(57, 39);
+            this.txtbTCTL.Name = "txtbTCTL";
+            this.txtbTCTL.Size = new System.Drawing.Size(277, 22);
+            this.txtbTCTL.TabIndex = 0;
             // 
             // pageTC_VPP
             // 
+            this.pageTC_VPP.Controls.Add(this.dtgvTCVPP);
+            this.pageTC_VPP.Controls.Add(this.txtbTCVPP);
+            this.pageTC_VPP.Controls.Add(this.btnTCVPP);
             this.pageTC_VPP.Location = new System.Drawing.Point(4, 25);
             this.pageTC_VPP.Margin = new System.Windows.Forms.Padding(4);
             this.pageTC_VPP.Name = "pageTC_VPP";
@@ -1408,68 +1598,76 @@
             this.btnBaoCao.UseVisualStyleBackColor = false;
             this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
             // 
-            // MaSach
+            // txtbTCNXB
             // 
-            this.MaSach.Frozen = true;
-            this.MaSach.HeaderText = "Mã sách";
-            this.MaSach.MinimumWidth = 6;
-            this.MaSach.Name = "MaSach";
-            this.MaSach.ReadOnly = true;
-            this.MaSach.Width = 125;
+            this.txtbTCNXB.Location = new System.Drawing.Point(37, 43);
+            this.txtbTCNXB.Name = "txtbTCNXB";
+            this.txtbTCNXB.Size = new System.Drawing.Size(236, 22);
+            this.txtbTCNXB.TabIndex = 0;
             // 
-            // TieuDe
+            // btnTCNXB
             // 
-            this.TieuDe.Frozen = true;
-            this.TieuDe.HeaderText = "Tiêu đề";
-            this.TieuDe.MinimumWidth = 6;
-            this.TieuDe.Name = "TieuDe";
-            this.TieuDe.ReadOnly = true;
-            this.TieuDe.Width = 125;
+            this.btnTCNXB.Location = new System.Drawing.Point(371, 21);
+            this.btnTCNXB.Name = "btnTCNXB";
+            this.btnTCNXB.Size = new System.Drawing.Size(174, 67);
+            this.btnTCNXB.TabIndex = 1;
+            this.btnTCNXB.Text = "Tìm nhà xuất bản";
+            this.btnTCNXB.UseVisualStyleBackColor = true;
             // 
-            // DonGia
+            // dtgvTCNXB
             // 
-            this.DonGia.Frozen = true;
-            this.DonGia.HeaderText = "Đơn giá";
-            this.DonGia.MinimumWidth = 6;
-            this.DonGia.Name = "DonGia";
-            this.DonGia.ReadOnly = true;
-            this.DonGia.Width = 125;
+            this.dtgvTCNXB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvTCNXB.Location = new System.Drawing.Point(4, 102);
+            this.dtgvTCNXB.Name = "dtgvTCNXB";
+            this.dtgvTCNXB.RowHeadersWidth = 51;
+            this.dtgvTCNXB.RowTemplate.Height = 24;
+            this.dtgvTCNXB.Size = new System.Drawing.Size(1111, 640);
+            this.dtgvTCNXB.TabIndex = 2;
             // 
-            // SoLuong
+            // dtgvTCTL
             // 
-            this.SoLuong.Frozen = true;
-            this.SoLuong.HeaderText = "Số lượng";
-            this.SoLuong.MinimumWidth = 6;
-            this.SoLuong.Name = "SoLuong";
-            this.SoLuong.ReadOnly = true;
-            this.SoLuong.Width = 125;
+            this.dtgvTCTL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvTCTL.Location = new System.Drawing.Point(4, 96);
+            this.dtgvTCTL.Name = "dtgvTCTL";
+            this.dtgvTCTL.RowHeadersWidth = 51;
+            this.dtgvTCTL.RowTemplate.Height = 24;
+            this.dtgvTCTL.Size = new System.Drawing.Size(1435, 785);
+            this.dtgvTCTL.TabIndex = 1;
             // 
-            // TenTG
+            // btnTCTL
             // 
-            this.TenTG.Frozen = true;
-            this.TenTG.HeaderText = "Tên tác giả";
-            this.TenTG.MinimumWidth = 6;
-            this.TenTG.Name = "TenTG";
-            this.TenTG.ReadOnly = true;
-            this.TenTG.Width = 125;
+            this.btnTCTL.Location = new System.Drawing.Point(377, 14);
+            this.btnTCTL.Name = "btnTCTL";
+            this.btnTCTL.Size = new System.Drawing.Size(208, 66);
+            this.btnTCTL.TabIndex = 2;
+            this.btnTCTL.Text = "Tìm kiếm thể loại";
+            this.btnTCTL.UseVisualStyleBackColor = true;
             // 
-            // TheLoai
+            // btnTCVPP
             // 
-            this.TheLoai.Frozen = true;
-            this.TheLoai.HeaderText = "Thể loại";
-            this.TheLoai.MinimumWidth = 6;
-            this.TheLoai.Name = "TheLoai";
-            this.TheLoai.ReadOnly = true;
-            this.TheLoai.Width = 125;
+            this.btnTCVPP.Location = new System.Drawing.Point(319, 9);
+            this.btnTCVPP.Name = "btnTCVPP";
+            this.btnTCVPP.Size = new System.Drawing.Size(209, 55);
+            this.btnTCVPP.TabIndex = 0;
+            this.btnTCVPP.Text = "Tìm kiếm văn phòng phẩm";
+            this.btnTCVPP.UseVisualStyleBackColor = true;
             // 
-            // NXB
+            // txtbTCVPP
             // 
-            this.NXB.Frozen = true;
-            this.NXB.HeaderText = "NXB";
-            this.NXB.MinimumWidth = 6;
-            this.NXB.Name = "NXB";
-            this.NXB.ReadOnly = true;
-            this.NXB.Width = 125;
+            this.txtbTCVPP.Location = new System.Drawing.Point(28, 25);
+            this.txtbTCVPP.Name = "txtbTCVPP";
+            this.txtbTCVPP.Size = new System.Drawing.Size(221, 22);
+            this.txtbTCVPP.TabIndex = 1;
+            // 
+            // dtgvTCVPP
+            // 
+            this.dtgvTCVPP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvTCVPP.Location = new System.Drawing.Point(2, 84);
+            this.dtgvTCVPP.Name = "dtgvTCVPP";
+            this.dtgvTCVPP.RowHeadersWidth = 51;
+            this.dtgvTCVPP.RowTemplate.Height = 24;
+            this.dtgvTCVPP.Size = new System.Drawing.Size(1492, 797);
+            this.dtgvTCVPP.TabIndex = 2;
             // 
             // FMain
             // 
@@ -1514,7 +1712,19 @@
             this.pageTC_Sach.ResumeLayout(false);
             this.pageTC_Sach.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTCSACH)).EndInit();
+            this.pageTC_TG.ResumeLayout(false);
+            this.pageTC_TG.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvTCTG)).EndInit();
+            this.pageTC_NXB.ResumeLayout(false);
+            this.pageTC_NXB.PerformLayout();
+            this.pageTCTL.ResumeLayout(false);
+            this.pageTCTL.PerformLayout();
+            this.pageTC_VPP.ResumeLayout(false);
+            this.pageTC_VPP.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvTCNXB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvTCTL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvTCVPP)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1599,7 +1809,7 @@
         private System.Windows.Forms.TabPage pageGD_HDNhap;
         private System.Windows.Forms.TabPage pageTC_TG;
         private System.Windows.Forms.TabPage pageTC_NXB;
-        private System.Windows.Forms.TabPage pageTC_TheLoai;
+        private System.Windows.Forms.TabPage pageTCTL;
         private System.Windows.Forms.TabPage pageTC_VPP;
         private System.Windows.Forms.TabPage pageCD_MK;
         private System.Windows.Forms.TabPage pageCD_Lich;
@@ -1614,5 +1824,22 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TenTG;
         private System.Windows.Forms.DataGridViewTextBoxColumn TheLoai;
         private System.Windows.Forms.DataGridViewTextBoxColumn NXB;
+        private System.Windows.Forms.DataGridView dtgvTCTG;
+        private System.Windows.Forms.TextBox txtbTCTG;
+        private System.Windows.Forms.Button btnTCTG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaSachTG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenTGTG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TieuDeTG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DonGiaTG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenLoaiTG;
+        private System.Windows.Forms.TextBox txtbTCTL;
+        private System.Windows.Forms.DataGridView dtgvTCNXB;
+        private System.Windows.Forms.Button btnTCNXB;
+        private System.Windows.Forms.TextBox txtbTCNXB;
+        private System.Windows.Forms.DataGridView dtgvTCTL;
+        private System.Windows.Forms.Button btnTCTL;
+        private System.Windows.Forms.DataGridView dtgvTCVPP;
+        private System.Windows.Forms.TextBox txtbTCVPP;
+        private System.Windows.Forms.Button btnTCVPP;
     }
 }
