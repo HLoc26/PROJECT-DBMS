@@ -53,6 +53,7 @@
     <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\HangHoaDAO.cs" />
     <Compile Include="DAO\KhachHangDAO.cs" />
+    <Compile Include="DAO\SachDAO.cs" />
     <Compile Include="DTO\Employee.cs" />
     <Compile Include="DTO\KhachHang.cs" />
     <Compile Include="DTO\TheTV.cs" />
@@ -75,6 +76,11 @@
       <DependentUpon>FMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Proj_DBMS_BookStoreDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Proj_DBMS_BookStoreDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FKhachhang.resx">
       <DependentUpon>FKhachhang.cs</DependentUpon>
@@ -95,6 +101,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Proj_DBMS_BookStoreDataSet.xsc">
+      <DependentUpon>Proj_DBMS_BookStoreDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Proj_DBMS_BookStoreDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Proj_DBMS_BookStoreDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Proj_DBMS_BookStoreDataSet.xss">
+      <DependentUpon>Proj_DBMS_BookStoreDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

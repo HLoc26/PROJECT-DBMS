@@ -19,7 +19,7 @@ namespace DBMS_BookStore
         Employee nv;
 
         HangHoaDAO hanghoaDAO = new HangHoaDAO();
-
+        SachDAO sachDAO = new SachDAO();
         public FMain(Employee nv)
         {
             InitializeComponent();
@@ -89,6 +89,7 @@ namespace DBMS_BookStore
         {
             tabControl.SelectedTab = tabControl.TabPages[3];
         }
+  
         #endregion
 
         #region 0. Giao Dịch
@@ -97,9 +98,15 @@ namespace DBMS_BookStore
             tabControl.SelectedTab = tabControl.TabPages[4];
         }
         #endregion
-       
+
         #region 1. Tra cứu
-        // Code here
+        private void btnTTSach_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[15];
+            dtgvTCSACH.DataSource = sachDAO.LoadTCSach();
+            dtgvTCSACH.Refresh();
+            dtgvTCSACH.Update();
+        }
         #endregion
 
         #region 2. Cài đặt
@@ -244,7 +251,31 @@ namespace DBMS_BookStore
         #endregion
 
         #region 15. Tra cứu - Sách
-        // Code here
+
+
+
+        private void btnTCSACHID_Click(object sender, EventArgs e)
+        {
+            string maHang = txtb_TCSACH.Text.Trim();
+            if (!string.IsNullOrEmpty(maHang))
+            {
+                DataTable dataTable = sachDAO.SearchSACHByMaHang(maHang);
+                if (dataTable != null)
+                {
+                    // Assuming dtgvTCSACH is your DataGridView to display the results
+                    //dtgvTCSACH.DataSource = dataTable;
+                    foreach (DataRow row in dataTable.Rows) {
+                    dtgvTCSACH.Rows.Add(row.ItemArray);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid MaHang.");
+            }
+        }
+
+
         #endregion
 
         #region 16. Tra cứu - Tác giả
@@ -282,5 +313,6 @@ namespace DBMS_BookStore
         #region 24. Báo cáo - Lương NV
         // Code here
         #endregion
+
     }
 }

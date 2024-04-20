@@ -63,7 +63,7 @@ namespace DBMS_BookStore.DAO
             object obj = new object();
             try
             {
-                SqlConn.Open();
+                SqlConn.Open();     
 
                 sqlCommand.Connection = SqlConn;
 
