@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DBMS_BookStore.DTO
 {
-    internal class KhachHang
+    public class KhachHang
     {
         string maKH;
         string ho;
