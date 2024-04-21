@@ -86,6 +86,7 @@ BEGIN
 			-- Nếu mã hoá đơn chưa có trong bảng hoá đơn bán thì thêm vào 
 			IF NOT EXISTS (SELECT * FROM dbo.HOA_DON_BAN WHERE MaHoaDon = @MaHoaDon)
 			BEGIN
+				-- Khuyến mãi lấy tự động
 				DECLARE @Discount REAL
 				SET @Discount = dbo.FUNC_GetDiscount(@MaKH)
 				INSERT dbo.HOA_DON_BAN (MaHoaDon, KhuyenMai, ThoiGianBan)
@@ -99,7 +100,12 @@ BEGIN
 			-- Cộng điểm cho khách hàng nếu có thẻ TV
 			IF EXISTS (SELECT * FROM dbo.THE_TV WHERE MaKH = @MaKH)
 			BEGIN
-				
+				DECLARE @OldDiem INT
+				SELECT @OldDiem = SoDiem FROM dbo.THE_TV WHERE MaKH = @MaKH
+
+				UPDATE dbo.THE_TV 
+				SET SoDiem = @OldDiem + (2 * @SoLuong)
+				WHERE MaKH = @MaKH
 			END
 
 			COMMIT TRAN

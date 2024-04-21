@@ -457,3 +457,6 @@ VALUES
 ('ttn3241','2024-03-06'),
 ('nvnn7671','2024-03-01')
 GO
+
+INSERT dbo.KHACH_HANG (MaKH, Ho, TenLot, Ten, GioiTinh, NgaySinh)
+VALUES ('0000000000', N'Khách', N'Vãng', N'Lai', N'Nam', '2000-01-01')

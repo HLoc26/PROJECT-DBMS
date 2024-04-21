@@ -23,6 +23,7 @@ namespace DBMS_BookStore
 
         HangHoaDAO hanghoaDAO = new HangHoaDAO();
         EmployeeDAO employeeDAO = new EmployeeDAO();
+        HoaDonBanDAO hoaDonBanDAO = new HoaDonBanDAO();
         public FMain(Employee nv)
         {
             InitializeComponent();
@@ -206,6 +207,7 @@ namespace DBMS_BookStore
             }
             dtgvGioHang.Update();
             dtgvGioHang.Refresh();
+            txbTongTien.Text = CalculateTotal().ToString();
         }
 
         private void btnSuaSP_Click(object sender, EventArgs e)
@@ -239,12 +241,30 @@ namespace DBMS_BookStore
         private void btnTienMat_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[7];
-            dtgvXemLaiTienMat.DataSource = dtgvGioHang.DataSource;
+            DataGridViewRow row = new DataGridViewRow();
+
+            // Copy dữ liệu từ giỏ hàng 
+            for (int i = 0; i < dtgvGioHang.Rows.Count; i++)
+            {
+                row = (DataGridViewRow)dtgvGioHang.Rows[i].Clone();
+                int intColIndex = 0;
+                foreach (DataGridViewCell cell in dtgvGioHang.Rows[i].Cells)
+                {
+                    row.Cells[intColIndex].Value = cell.Value;
+                    intColIndex++;
+                }
+                dtgvXemLaiTienMat.Rows.Add(row);
+            }
+            dtgvXemLaiTienMat.AllowUserToAddRows = false;
+            dtgvXemLaiTienMat.Refresh();
+
+            // Copy tổng tiền
+            txbTongTienMat.Text = (double.Parse(txbTongTien.Text) * (1 - double.Parse(txbGiamGia.Text))).ToString();
         }
 
         private void btnChuyenKhoan_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = tabControl.TabPages[8];
+            btnTienMat_Click(sender, e); // hihi
         }
         private void btnQuayLaiBanHang_Click(object sender, EventArgs e)
         {
@@ -253,14 +273,33 @@ namespace DBMS_BookStore
         #endregion
 
         #region 7. Giao dịch - Bán hàng - Thanh toán - Tiền mặt
+
         private void btnTMQuayLaiTT_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[5];
+            dtgvXemLaiTienMat.Rows.Clear();
+        }
+        private void btnTienMatThanhToan_Click(object sender, EventArgs e)
+        {
+            string maHoaDonBan = hoaDonBanDAO.GetMaHoaDon();
+            string maKH = "0000000000";
+
+            // Nếu nhập mã khách hàng thì lấy mã đó, còn không thì lấy mã mặc định "0000000000"
+            if (!string.IsNullOrEmpty(txbMaKH.Text))
+            {
+                maKH = txbMaKH.Text;
+            }
+            int succeed = 0;
+            foreach(DataGridViewRow row in dtgvXemLaiTienMat.Rows)
+            {
+                VatPham vatpham = new VatPham(maHoaDonBan, nv.MaNV, maKH, row.Cells[0].Value.ToString(), (int)row.Cells[3].Value);
+
+                succeed += hoaDonBanDAO.InsertBanHang(vatpham);
+            }
+
+            MessageBox.Show($"Đã thêm {succeed} hàng vào BAN_HANG");
         }
 
-        /*
-         * Thêm vào bảng BAN_HANG(mã hoá đơn 
-         */
         #endregion
 
         #region 8. Giao dịch - Bán hàng - Thanh toán - Chuyển khoản

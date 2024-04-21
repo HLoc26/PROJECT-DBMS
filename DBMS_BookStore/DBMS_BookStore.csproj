@@ -55,7 +55,7 @@
     <Compile Include="DAO\HoaDonBanDAO.cs" />
     <Compile Include="DAO\KhachHangDAO.cs" />
     <Compile Include="DTO\Employee.cs" />
-    <Compile Include="DTO\HoaDonBan.cs" />
+    <Compile Include="DTO\VatPham.cs" />
     <Compile Include="DTO\KhachHang.cs" />
     <Compile Include="DTO\TheTV.cs" />
     <Compile Include="FLogin_Register.cs">

@@ -118,4 +118,18 @@ BEGIN
 			SET @Err = 'ERROR CHANGE PASS: ' + ERROR_MESSAGE()
 			RAISERROR(@Err, 16, 1)
 		END CATCH
-END
+END;
+GO
+
+CREATE PROC PROC_AddGioHangVaoHoaDon
+@MaHoaDon VARCHAR(10),
+@MaKH VARCHAR(10),
+@MaNV VARCHAR(10),
+@MaHang VARCHAR(20),
+@SoLuong INT
+AS
+BEGIN
+	INSERT dbo.BAN_HANG(MaHoaDon, MaNVBan, MaKH, MaHang, SoLuong)
+	VALUES (@MaHoaDon, @MaNV, @MaKH, @MaHang, @SoLuong)
+END;
+GO
