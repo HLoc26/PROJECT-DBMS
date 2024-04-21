@@ -43,17 +43,6 @@ namespace DBMS_BookStore.DAO
             }
             return null;
         }
-        public DataTable LoadTCVPP()
-        {
-            string query = "SELECT * FROM dbo.VIEW_VPP";
-            SqlCommand sql = new SqlCommand(query);
-            DataTable dt = dbConnection.ExecuteQuery(sql);
-            if (dt.Rows.Count > 0)
-            {
-                return dt;
-            }
-            return null;
-        }
         public DataRow GetTCTG(string tenTG)
         {
             string query = "SELECT * FROM dbo.PROC_TCTG(@param)";
@@ -67,15 +56,16 @@ namespace DBMS_BookStore.DAO
             }
             return null;
         }
-        public DataTable SearchBooksByAuthor(string authorName)
+        public DataTable LoadTCVPP()
         {
-            // Create SqlCommand for the stored procedure
-            SqlCommand sqlCommand = new SqlCommand("SearchBooksByAuthor");
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("@tenTG", authorName);
-
-            // Execute the query using DBConnection and return the result
-            return dbConnection.ExecuteQuery(sqlCommand);
+            string query = "SELECT * FROM dbo.VIEW_VPP";
+            SqlCommand sql = new SqlCommand(query);
+            DataTable dt = dbConnection.ExecuteQuery(sql);
+            if (dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            return null;
         }
         public DataTable SearchSACHByMaHang(string maHang)
         {
@@ -88,10 +78,29 @@ namespace DBMS_BookStore.DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);    
+                MessageBox.Show("Error: " + ex.Message);
                 return null;
             }
         }
+        public DataTable SearchBooksByAuthor(string authorName)
+        {
+            // Create SqlCommand for the stored procedure
+            SqlCommand sqlCommand = new SqlCommand("SearchBooksByAuthor");
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@tenTG", authorName);
+
+            // Execute the query using DBConnection and return the result
+            return dbConnection.ExecuteQuery(sqlCommand);
+        }
+
+        public DataTable SearchSachByNXB(string TenNXB)
+        {
+            SqlCommand sqlCommand = new SqlCommand("SELECT * FROM VIEW_SACHNXB WHERE TenNXB = @TenNXB");
+            sqlCommand.Parameters.AddWithValue("@TenNXB", TenNXB);
+
+            return dbConnection.ExecuteQuery(sqlCommand);
+        }
+
         public DataTable SearchVPPByMaHang(string maHang)
         {
             SqlCommand sqlCommand = new SqlCommand("SearchVPPByMaHang");
@@ -100,6 +109,12 @@ namespace DBMS_BookStore.DAO
 
             return dbConnection.ExecuteQuery(sqlCommand);
         }
+        public DataTable SearchSachByTenLoai(string tenLoai)
+        {
+            SqlCommand sqlCommand = new SqlCommand("SELECT * FROM VIEW_THELOAISACH WHERE TenLoai = @TenLoai");
+            sqlCommand.Parameters.AddWithValue("@TenLoai", tenLoai);
 
+            return dbConnection.ExecuteQuery(sqlCommand);
+        }
     }
 }

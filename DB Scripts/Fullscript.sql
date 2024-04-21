@@ -270,7 +270,7 @@ AS
 	dbo.HANG_HOA hh RIGHT JOIN dbo.VAN_PHONG_PHAM vpp ON vpp.MaHang = hh.MaHang
 GO
 
--- View xem mã hàng, tên hàng hoá, đơn giá, số lượng còn lại
+-- View xem mã hàng, tên hàng hoá, đơn giá, số lượng còn lại	
 -- COALESCE trả về giá trị not null đầu tiên trong (s.TieuDe, vpp.TenHang), nếu tiêu đề null thì sẽ in ra tên hàng và ngược lại
 CREATE VIEW VIEW_HANG_HOA
 AS 
@@ -285,6 +285,26 @@ CREATE VIEW VIEW_KH_DiemTV
 AS
 	SELECT kh.MaKH, kh.Ho, kh.TenLot, kh.Ten, the.MaThe, the.SoDiem --, the.TenBacTV
 	FROM dbo.KHACH_HANG kh JOIN dbo.THE_TV the ON the.MaKH = kh.MaKH
+GO
+--VIEW check sách theo NXB (phục vụ tra cứu NXB)
+CREATE VIEW dbo.VIEW_SACHNXB
+AS
+SELECT s.MaSach, s.TieuDe, tl.TenLoai, nxb.TenNXB, nxb.DiaChi, nxb.SDT
+FROM dbo.SACH s
+JOIN dbo.NXB nxb ON s.MaNXB = nxb.MaNXB
+JOIN dbo.THE_LOAI_SACH tls ON s.MaSach = tls.MaSach
+JOIN dbo.THE_LOAI tl ON tls.MaLoai = tl.MaLoai;
+GO
+--VIEW check table của thể loại sách (phục vụ tra cứu thể loại)
+CREATE VIEW VIEW_THELOAISACH
+AS
+    SELECT s.MaSach, s.TieuDe, tl.TenLoai, tg.TenTG, nxb.TenNXB
+    FROM dbo.SACH s
+    JOIN dbo.THE_LOAI_SACH tls ON s.MaSach = tls.MaSach
+    JOIN dbo.THE_LOAI tl ON tls.MaLoai = tl.MaLoai
+    JOIN dbo.TAC_GIA_SACH tgs ON s.MaSach = tgs.MaSach
+    JOIN dbo.TAC_GIA tg ON tgs.MaTG = tg.MaTG
+    JOIN dbo.NXB nxb ON s.MaNXB = nxb.MaNXB;
 GO
 -- ========================================================================================================================== --
 -- ========================================================================================================================== --
@@ -354,12 +374,7 @@ BEGIN
 	RETURN @Discount
 END;
 GO 
--- Hàm lấy thông tin tác giả dựa vào tên tác giả
-CREATE FUNCTION FUNC_TCTG(@tenTG VARCHAR(20))
-RETURNS TABLE
-AS
-	RETURN (SELECT MaSach, tenTG, TieuDe, DonGia, TenLoai FROM dbo.VIEW_SACH WHERE tenTG = @tenTG)
-GO
+
 
 
 -- =========================================================================================================================== --
@@ -471,7 +486,7 @@ BEGIN
 	END
 END;
 GO
---Hàm lấy sách rồi cho ra bảng kq
+--PROCEDURE lấy sách rồi cho ra bảng kq
 CREATE PROCEDURE SearchSACHByMaHang
     @MaHang VARCHAR(20)
 AS
@@ -488,7 +503,31 @@ BEGIN
     JOIN dbo.THE_LOAI tl ON tl.MaLoai = tl_s.MaLoai
     WHERE s.MaSach = @MaHang;
 END;
-SELECT * FROM dbo.VIEW_SACH 
+
+--PROCEDURE tra cứu văn phòng phẩm theo mã hàng
+CREATE PROCEDURE SearchBooksByAuthor
+    @tenTG VARCHAR(20)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT MaSach, tenTG, TieuDe, DonGia, TenLoai 
+    FROM dbo.VIEW_SACH 
+    WHERE tenTG = @tenTG;
+END;
+GO
+--PROCEDURE tra cứu văn phòng phẩm theo mã hàng
+CREATE PROCEDURE SearchVPPByMaHang
+    @MaHang VARCHAR(20)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT MaHang, TenHang, DonGia, SoLuong
+    FROM VIEW_VPP
+    WHERE MaHang = @MaHang;
+END;
+
 
 -- ========================================================================================================================== --
 -- ========================================================================================================================== --

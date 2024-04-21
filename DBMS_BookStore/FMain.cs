@@ -346,11 +346,35 @@ namespace DBMS_BookStore
         #endregion
 
         #region 17. Tra cứu - NXB
-        // Code here
+        private void btnTCNXB_Click(object sender, EventArgs e)
+        {
+            string TenNXB = txtbTCNXB.Text;
+            TraCuuDAO traCuuDAO = new TraCuuDAO();
+
+            DataTable sachNXBData = traCuuDAO.SearchSachByNXB(TenNXB);
+
+            dtgvTCNXB.Rows.Clear();
+
+            foreach (DataRow row in sachNXBData.Rows)
+            {
+                dtgvTCNXB.Rows.Add(row["MaSach"], row["TieuDe"], row["TenLoai"], row["TenNXB"], row["DiaChi"], row["SDT"]);
+            }
+        }
+
         #endregion
 
         #region 18. Tra cứu - Thể loại
-        // Code here
+        private void btnTCTL_Click(object sender, EventArgs e)
+        {
+            string tenLoai = txtbTCTL.Text; 
+            TraCuuDAO traCuuDAO = new TraCuuDAO();
+            DataTable sachByTenLoaiData = traCuuDAO.SearchSachByTenLoai(tenLoai);
+            dtgvTCTL.Rows.Clear();
+            foreach (DataRow row in sachByTenLoaiData.Rows)
+            {
+                dtgvTCTL.Rows.Add(row["MaSach"], row["TieuDe"], row["TenLoai"], row["TenTG"], row["TenNXB"]);
+            }
+        }
         #endregion
 
         #region 19. Tra cứu - VPP
@@ -369,7 +393,7 @@ namespace DBMS_BookStore
             // Add rows to the DataGridView based on the DataTable
             foreach (DataRow row in vppByMaHang.Rows)
             {
-                dtgvTCVPP.Rows.Add(row["MaHangVPP"], row["TenHang"], row["DonGia"], row["SoLuong"]);
+                dtgvTCVPP.Rows.Add(row["MaHang"], row["TenHang"], row["DonGia"], row["SoLuong"]);
             }
         }
 
