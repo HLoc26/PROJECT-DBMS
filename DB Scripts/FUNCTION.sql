@@ -52,3 +52,11 @@ BEGIN
 		END
 	RETURN @Discount
 END;
+GO
+
+-- Function trả về bảng lịch sử đăng nhập của 1 nv
+CREATE FUNCTION FUNC_GetLoginHistory(@TenDN VARCHAR(20))
+RETURNS TABLE
+AS
+	RETURN (SELECT * FROM dbo.LS_DANG_NHAP WHERE TenDN = @TenDN)
+GO
