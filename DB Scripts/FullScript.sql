@@ -105,7 +105,7 @@ GO
 CREATE TABLE dbo.KHACH_HANG(
 	MaKH VARCHAR(10) NOT NULL, -- Dung SDT lam ma KH
 	Ho NVARCHAR(10) NOT NULL,
-	TenLot NVARCHAR(10) NULL DEFAULT '',
+	TenLot NVARCHAR(20) NULL DEFAULT '',
 	Ten NVARCHAR(10) NOT NULL,
 	NgaySinh DATETIME NULL,
 	GioiTinh NVARCHAR(3) NULL
@@ -118,7 +118,7 @@ GO
 CREATE TABLE dbo.THE_TV(
 	MaThe VARCHAR(10) NOT NULL,
 	SoDiem INT NOT NULL CHECK(SoDiem >= 0),
-	-- TenBacTV NVARCHAR(10) NOT NULL DEFAULT 'Không có',
+	--TenBacTV NVARCHAR(10) NOT NULL DEFAULT 'None',
 	MaKH VARCHAR(10) NOT NULL UNIQUE,
 
 	PRIMARY KEY (MaThe),
@@ -268,7 +268,13 @@ AS
 	dbo.HANG_HOA hh LEFT JOIN dbo.SACH s ON s.MaSach = hh.MaHang
 	LEFT JOIN dbo.VAN_PHONG_PHAM vpp ON vpp.MaHang = hh.MaHang
 GO
-
+-- View thông tin khách hàng
+CREATE VIEW dbo.VIEW_KH
+AS
+	SELECT kh.MaKH, kh.Ho, kh.TenLot, kh.Ten, kh.NgaySinh, kh.GioiTinh FROM dbo.KHACH_HANG kh 
+	INNER JOIN dbo.THE_TV tv
+	ON kh.MaKH = tv.MaKH
+GO
 -- View kiểm tra khách hàng có bao nhiêu điểm thành viên
 CREATE VIEW VIEW_KH_DiemTV
 AS
@@ -294,14 +300,26 @@ BEGIN
 	RETURN 'NV-' + FORMAT((SELECT COUNT(CMND) FROM dbo.NHAN_VIEN) + 1, '0000')
 END;
 GO
-
+--Hàm lấy danh sách thông tin nhân viên còn đang làm việc
+CREATE FUNCTION FUNC_Get_DSNhanVien (@MaNV VARCHAR(10))
+RETURNS TABLE
+AS
+	RETURN(SELECT * FROM NHAN_VIEN WHERE MaNV = @MaNV AND TinhTrangLamViec = 1)
+GO
 -- Hàm lấy thông tin hàng hoá dựa vào mã
 CREATE FUNCTION FUNC_Get_HangHoa(@MaHang VARCHAR(20))
 RETURNS TABLE
 AS
 	RETURN (SELECT * FROM VIEW_HANG_HOA WHERE MaHang = @MaHang)
 GO
-
+-- Hàm tạo mã thẻ thành viên tự động
+CREATE FUNCTION FUNC_Create_MaThe()
+RETURNS VARCHAR(10)
+AS 
+BEGIN
+	RETURN 'MB-' + FORMAT((SELECT COUNT(MaKH) FROM dbo.THE_TV) +1, '0000')
+END;
+GO
 -- Hàm lấy tên của bậc dựa vào số điểm nhập vào
 CREATE FUNCTION FUNC_Get_TenBac(@SoDiem INT)
 RETURNS NVARCHAR(10)
@@ -310,10 +328,10 @@ BEGIN
 	DECLARE @TenBac NVARCHAR(10)
 	SET @TenBac = 
 		CASE 
-			WHEN @SoDiem = 0 THEN N'Bạc'
-			WHEN @SoDiem > 0 AND @SoDiem < 200 THEN N'Đồng'
-			WHEN @SoDiem >= 200 AND @SoDiem < 400 THEN N'Bạc'
-			WHEN @SoDiem >= 400 AND @SoDiem < 600 THEN N'Vàng'
+			WHEN @SoDiem = 0 THEN N'None'
+			WHEN @SoDiem > 0 AND @SoDiem < 200 THEN N'Bronze'
+			WHEN @SoDiem >= 200 AND @SoDiem < 400 THEN N'Silver'
+			WHEN @SoDiem >= 400 AND @SoDiem < 600 THEN N'Gold'
 			ELSE N'VIP'
 		END
 	RETURN @TenBac
@@ -452,6 +470,47 @@ BEGIN
 	END
 END;
 GO
+--Create Customer
+CREATE PROCEDURE PROC_Create_Customer
+@MaKH VARCHAR(10),
+@Ho VARCHAR (10),
+@TenLot VARCHAR (20),
+@Ten VARCHAR(10),
+@NgaySinh DATETIME,
+@GioiTinh VARCHAR(3),
+@MaThe VARCHAR (10),
+@SoDiem INT
+AS 
+BEGIN
+	--Check if exist that customer or not
+	IF EXISTS (SELECT MaKH FROM KHACH_HANG WHERE MaKH = @MaKH )
+	BEGIN
+		RAISERROR('Customer with the same ID number already exists.', 16, 1)
+		RETURN -1; -- EXIT
+	END
+	-- Tạo mã thẻ thành viên tự động
+	DECLARE @NewMaThe VARCHAR(10) = dbo.FUNC_Create_MaThe()
+
+	-- Thêm vào bảng NHAN_VIEN
+	INSERT dbo.KHACH_HANG(MaKH, Ho, TenLot, Ten, NgaySinh, GioiTinh)
+	VALUES(@MaKH, @Ho, @TenLot, @Ten, @NgaySinh, @GioiTinh)
+
+	-- Thêm vào bảng THE_TV
+	INSERT dbo.THE_TV(MaThe, SoDiem, MaKH)
+	VALUES(@NewMaThe, @SoDiem, @MaKH)
+
+	SELECT MaThe FROM dbo.THE_TV WHERE MaThe = @NewMaThe
+END;
+GO
+
+CREATE PROCEDURE PROC_GetKH_ByCusID
+@MaThe VARCHAR(10)
+AS
+BEGIN
+	SELECT * FROM dbo.THE_TV WHERE MaThe = @MaThe
+END;
+GO
+
 -- ========================================================================================================================== --
 -- ========================================================================================================================== --
 -- ========================================  _____ ____  ___ ____  ____ _____ ____   ======================================== --
@@ -1041,3 +1100,23 @@ VALUES
 ('ttn3241','2024-03-06'),
 ('nvnn7671','2024-03-01')
 GO
+
+INSERT dbo.KHACH_HANG (MaKH, Ho, TenLot, Ten, NgaySinh, GioiTinh)
+VALUES
+('0837123647', N'Nguyễn', N'Công', N'Hoan', '1998-04-03', N'Nam'),
+('0973034785', N'Huỳnh', N'Nguyễn Minh', N'Châu', '2003-11-17', N'Nữ'),
+('0917654721', N'Đào', N'Toan', N'Tính', '2008-01-30', N'Nam'),
+('0913133277', N'Nguyễn', N'Trần Công', N'Toản', '1999-02-28', N'Nam'),
+('0892172333', N'Đoàn', N'Trần Thanh', N'Thanh', '2009-12-01', N'Nữ'),
+('0888998903', N'Nguyễn', N'Huỳnh Quốc', N'Bảo', '2004-12-17', N'Nam'),
+('0972377456', N'Nguyễn', N'Cát', N'Tường', '2005-11-02', N'Nữ')
+
+INSERT dbo.THE_TV (MaThe, SoDiem, MaKH)
+VALUES
+('MB-0001', '320', '0837123647'),
+('MB-0002', '550', '0973034785'),
+('MB-0003', '660', '0917654721'),
+('MB-0004', '130', '0913133277'),
+('MB-0005', '0', '0892172333'),
+('MB-0006', '440', '0888998903'),
+('MB-0007', '230', '0972377456')
