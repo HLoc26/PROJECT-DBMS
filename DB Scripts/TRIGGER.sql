@@ -96,6 +96,12 @@ BEGIN
 			INSERT dbo.BAN_HANG (MaHoaDon, MaNVBan, MaKH, MaHang, SoLuong)
 			VALUES (@MaHoaDon, @MaNV, @MaKH, @MaHang, @SoLuong)
 
+			-- Cộng điểm cho khách hàng nếu có thẻ TV
+			IF EXISTS (SELECT * FROM dbo.THE_TV WHERE MaKH = @MaKH)
+			BEGIN
+				
+			END
+
 			COMMIT TRAN
 		END TRY
 
