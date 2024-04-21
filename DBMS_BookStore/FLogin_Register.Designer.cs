@@ -62,7 +62,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(541, 432);
-            this.tableLayoutPanel2.TabIndex = 2;
+            this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -134,7 +134,7 @@
             this.tblpUsername.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblpUsername.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblpUsername.Size = new System.Drawing.Size(314, 72);
-            this.tblpUsername.TabIndex = 2;
+            this.tblpUsername.TabIndex = 0;
             // 
             // txbUsername
             // 
@@ -165,7 +165,7 @@
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 78);
-            this.label1.TabIndex = 2;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Username";
             // 
             // label2
@@ -201,7 +201,7 @@
             this.btnLogin.Location = new System.Drawing.Point(160, 3);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(151, 42);
-            this.btnLogin.TabIndex = 4;
+            this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);

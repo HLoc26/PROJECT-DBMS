@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DBMS_BookStore.DAO
 {
@@ -46,7 +47,11 @@ namespace DBMS_BookStore.DAO
 
             DataTable dt = db.ExecuteQuery(cmd);
             if (dt.Rows.Count > 0)
-                return new Employee(dt.Rows[0]);
+            {
+                Employee nv = new Employee(dt.Rows[0]);
+                nv.LsLamViec = GetLS(username);
+                return nv;
+            }
             else return null;
         }
 
@@ -78,6 +83,23 @@ namespace DBMS_BookStore.DAO
 
             int succeed = db.ExecuteNonQuery(cmd);
             return succeed == 1;
+        }
+
+        // Lấy lịch sử làm việc dựa vài tên ĐN
+        public List<DateTime> GetLS(string tenDN)
+        {
+            string query = "SELECT * FROM FUNC_GetLoginHistory(@param)";
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.Parameters.AddWithValue("@param", tenDN);
+
+            DataTable dt = db.ExecuteQuery(cmd);
+
+            List<DateTime> ls = new List<DateTime>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                ls.Add((DateTime)dr[1]);
+            }
+            return ls;
         }
     }
 }

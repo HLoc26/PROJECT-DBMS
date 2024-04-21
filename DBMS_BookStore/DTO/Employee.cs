@@ -19,6 +19,7 @@ namespace DBMS_BookStore.DTO
         string tenDN;
         string mk;
         bool tinhTrangLamViec;
+        List<DateTime> lsLamViec;
 
         public Employee(string maNV, string cmnd, string ho, string tenLot, string ten, string gioiTinh, string tenDN, string mk)
         { 
@@ -32,6 +33,7 @@ namespace DBMS_BookStore.DTO
             Mk = mk;
             Luong = 0;
             TinhTrangLamViec = true;
+            LsLamViec = new List<DateTime>();
         }
         public Employee(DataRow dr)
         {
@@ -56,5 +58,6 @@ namespace DBMS_BookStore.DTO
         public string TenDN { get => tenDN; set => tenDN = value; }
         public string Mk { get => mk; set => mk = value; }
         public bool TinhTrangLamViec { get => tinhTrangLamViec; set => tinhTrangLamViec = value; }
+        public List<DateTime> LsLamViec { get => lsLamViec; set => lsLamViec = value; }
     }
 }

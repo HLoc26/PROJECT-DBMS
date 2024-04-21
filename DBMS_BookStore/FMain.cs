@@ -16,6 +16,8 @@ namespace DBMS_BookStore
 {
     public partial class FMain : Form
     {
+        const int MAX_DAYS_ROW = 6;
+        const int MAX_DAYS_COL = 7;
         // Thông tin của NV đăng nhập vào phiên hiện tại
         Employee nv;
 
@@ -25,8 +27,8 @@ namespace DBMS_BookStore
         {
             InitializeComponent();
             HideAllTabsOnTabControl();
-
             this.nv = nv;
+            DateComboBoxes_Load();
         }
 
         private void HideAllTabsOnTabControl()
@@ -112,6 +114,7 @@ namespace DBMS_BookStore
         private void btnCD_XemLich_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[21];
+            Days_Load();
         }
         private void btnCD_XemNV_Click(object sender, EventArgs e)
         {
@@ -351,8 +354,147 @@ namespace DBMS_BookStore
         }
         #endregion
 
-        #region 21. Cài đặt - Xem lịch làm việc
-        // Code here
+        #region 21. Cài đặt - Xem lịch sử làm việc
+        int year = DateTime.Now.Year;
+        int month = DateTime.Now.Month;
+        private void Days_Load()
+        {
+            int btnWidth = (flpnlDays.Size.Width - 8 * (MAX_DAYS_COL - 1)) / MAX_DAYS_COL;
+            int btnHeight = (flpnlDays.Size.Height - 10 * (MAX_DAYS_ROW - 1)) / MAX_DAYS_ROW;
+
+            flpnlDays.Controls.Clear();
+            List<int> valid = GetWorkDates();
+
+
+            DateTime startDate = new DateTime(year, month, 1);
+            // Day count of month
+            int days = DateTime.DaysInMonth(year, month);
+            // Convert startDate to int
+            int dayOfWeek = Convert.ToInt32(startDate.DayOfWeek.ToString("d"));
+
+            // Add blank days
+            for (int i = 0; i < dayOfWeek; i++)
+            {
+                int lastMonth = month - 1;
+                if (lastMonth == 0) lastMonth = 12;
+                int lastMonthDayCount = DateTime.DaysInMonth(year, lastMonth);
+
+                Button btn = new Button();
+                btn.Text = (lastMonthDayCount - dayOfWeek + i + 1).ToString();
+                btn.Size = new Size(btnWidth, btnHeight);
+                btn.Font = new Font(btn.Font.FontFamily, 20);
+                btn.Enabled = false;
+
+                flpnlDays.Controls.Add(btn);
+            }
+
+            int countTongNgayLam = 0;
+
+            // Fill days of current month
+            for (int i = 0; i < days; i++)
+            {
+                Button btn = new Button();
+                btn.Text = (i + 1).ToString();
+                btn.Size = new Size(btnWidth, btnHeight);
+                btn.Font = new Font(btn.Font.FontFamily, 20);
+                btn.Enabled = true;
+                
+                if (valid.Contains(i + 1))
+                {
+                    btn.BackColor = Color.Green;
+                    countTongNgayLam += 1;
+                }
+                else
+                {
+                    btn.BackColor = Color.Red;
+                }
+                flpnlDays.Controls.Add(btn);
+            }
+
+            txbTongNgayLam.Text = countTongNgayLam.ToString();
+
+            // Fill the rest with blank
+            for (int i = 0; i < 42 - days - dayOfWeek; i++)
+            {
+                Button btn = new Button();
+                btn.Text = (i + 1).ToString();
+                btn.Size = new Size(btnWidth, btnHeight);
+                btn.Font = new Font(btn.Font.FontFamily, 20);
+                btn.Enabled = false;
+
+                flpnlDays.Controls.Add(btn);
+            }
+        }
+
+        private List<int> GetWorkDates()
+        {
+            List<int> days = new List<int>();
+            foreach(DateTime day in nv.LsLamViec)
+            {
+                if (day.Month == month)
+                {
+                    days.Add(day.Day);
+                }
+            }
+            return days;
+        }
+
+        private void DateComboBoxes_Load()
+        {
+            string[] monthNames = new string[]
+            {
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            };
+            cbbMonth.Items.AddRange(monthNames);
+
+            for (int i = DateTime.Now.Year - 5; i <= DateTime.Now.Year + 5; i++)
+            {
+                cbbYear.Items.Add(i.ToString());
+            }
+            cbbMonth.SelectedIndex = month - 1;
+            cbbYear.SelectedIndex = 0;
+        }
+
+        private void btnNextMonth_Click(object sender, EventArgs e)
+        {
+            month += 1;
+            if (month > 12)
+            {
+                month = 1;
+                year += 1;
+                cbbYear.SelectedIndex = year - DateTime.Now.Year;
+            }
+            cbbMonth.SelectedIndex = month - 1;
+        }
+
+        private void btnPrevMonth_Click(object sender, EventArgs e)
+        {
+            month -= 1;
+            if (month < 1)
+            {
+                month = 12;
+                year -= 1;
+                cbbYear.SelectedIndex = year - DateTime.Now.Year;
+            }
+            cbbMonth.SelectedIndex = month - 1;
+        }
+
+        private void cbbMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            month = cbbMonth.SelectedIndex + 1;
+            Days_Load();
+        }
+
+        private void cbbYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            year = cbbYear.SelectedIndex + DateTime.Now.Year;
+            Days_Load();
+        }
+        private void btnLSQuayLaiCaiDat_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[2];
+        }
         #endregion
 
         #region 22. Cài đặt - Xem thông tin NV (Chỉ admin mới sửa được)

@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.pageGiaoDich = new System.Windows.Forms.TabPage();
             this.tblpGiaoDich = new System.Windows.Forms.TableLayoutPanel();
@@ -49,6 +49,10 @@
             this.btnTTTheLoai = new System.Windows.Forms.Button();
             this.btnTTVPP = new System.Windows.Forms.Button();
             this.pageCaiDat = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_CD_DoiMK = new System.Windows.Forms.Button();
+            this.btnCD_XemLich = new System.Windows.Forms.Button();
+            this.btnCD_XemNV = new System.Windows.Forms.Button();
             this.pageBaoCao = new System.Windows.Forms.TabPage();
             this.tblpBaoCao = new System.Windows.Forms.TableLayoutPanel();
             this.btnBaoCaoDoanhThu = new System.Windows.Forms.Button();
@@ -149,7 +153,26 @@
             this.pageTC_TheLoai = new System.Windows.Forms.TabPage();
             this.pageTC_VPP = new System.Windows.Forms.TabPage();
             this.pageCD_MK = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblHelloUser = new System.Windows.Forms.Label();
+            this.txbMKCu = new System.Windows.Forms.TextBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.txbMKMoi = new System.Windows.Forms.TextBox();
+            this.btnSavePass = new System.Windows.Forms.Button();
+            this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnDoiMKQuayLaiCaiDat = new System.Windows.Forms.Button();
             this.pageCD_Lich = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
+            this.flpnlDays = new System.Windows.Forms.FlowLayoutPanel();
+            this.cbbYear = new System.Windows.Forms.ComboBox();
+            this.txbTongNgayLam = new System.Windows.Forms.TextBox();
+            this.cbbMonth = new System.Windows.Forms.ComboBox();
+            this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnPrevMonth = new System.Windows.Forms.Button();
+            this.tableLayoutPanel23 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnNextMonth = new System.Windows.Forms.Button();
             this.pageCD_NV = new System.Windows.Forms.TabPage();
             this.pageBC_DoanhThu = new System.Windows.Forms.TabPage();
             this.pageBC_LuongNV = new System.Windows.Forms.TabPage();
@@ -160,26 +183,21 @@
             this.btnTraCuu = new System.Windows.Forms.Button();
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnBaoCao = new System.Windows.Forms.Button();
-            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_CD_DoiMK = new System.Windows.Forms.Button();
-            this.btnCD_XemLich = new System.Windows.Forms.Button();
-            this.btnCD_XemNV = new System.Windows.Forms.Button();
-            this.txbMKCu = new System.Windows.Forms.TextBox();
-            this.txbMKMoi = new System.Windows.Forms.TextBox();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.lblHelloUser = new System.Windows.Forms.Label();
-            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSavePass = new System.Windows.Forms.Button();
-            this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnDoiMKQuayLaiCaiDat = new System.Windows.Forms.Button();
+            this.tableLayoutPanel24 = new System.Windows.Forms.TableLayoutPanel();
+            this.label37 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel25 = new System.Windows.Forms.TableLayoutPanel();
+            this.label38 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
+            this.label39 = new System.Windows.Forms.Label();
+            this.btnLSQuayLaiCaiDat = new System.Windows.Forms.Button();
+            this.label40 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.pageGiaoDich.SuspendLayout();
             this.tblpGiaoDich.SuspendLayout();
             this.pageTraCuu.SuspendLayout();
             this.tblpTraCuu.SuspendLayout();
             this.pageCaiDat.SuspendLayout();
+            this.tableLayoutPanel17.SuspendLayout();
             this.pageBaoCao.SuspendLayout();
             this.tblpBaoCao.SuspendLayout();
             this.pageGiaoDich_BanHang.SuspendLayout();
@@ -206,12 +224,18 @@
             this.tableLayoutPanel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvXemLaiTienMat)).BeginInit();
             this.pageCD_MK.SuspendLayout();
-            this.tblpMainContainer.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel17.SuspendLayout();
             this.tableLayoutPanel18.SuspendLayout();
             this.tableLayoutPanel19.SuspendLayout();
             this.tableLayoutPanel20.SuspendLayout();
+            this.pageCD_Lich.SuspendLayout();
+            this.tableLayoutPanel21.SuspendLayout();
+            this.tableLayoutPanel22.SuspendLayout();
+            this.tableLayoutPanel23.SuspendLayout();
+            this.tblpMainContainer.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel24.SuspendLayout();
+            this.tableLayoutPanel25.SuspendLayout();
+            this.tableLayoutPanel26.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -437,6 +461,66 @@
             this.pageCaiDat.TabIndex = 3;
             this.pageCaiDat.Text = "pageCaiDat";
             this.pageCaiDat.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel17
+            // 
+            this.tableLayoutPanel17.ColumnCount = 3;
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel17.Controls.Add(this.btn_CD_DoiMK, 0, 0);
+            this.tableLayoutPanel17.Controls.Add(this.btnCD_XemLich, 1, 0);
+            this.tableLayoutPanel17.Controls.Add(this.btnCD_XemNV, 2, 0);
+            this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel17.Name = "tableLayoutPanel17";
+            this.tableLayoutPanel17.RowCount = 2;
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(1612, 1042);
+            this.tableLayoutPanel17.TabIndex = 0;
+            // 
+            // btn_CD_DoiMK
+            // 
+            this.btn_CD_DoiMK.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_CD_DoiMK.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_CD_DoiMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F);
+            this.btn_CD_DoiMK.Location = new System.Drawing.Point(20, 20);
+            this.btn_CD_DoiMK.Margin = new System.Windows.Forms.Padding(20);
+            this.btn_CD_DoiMK.Name = "btn_CD_DoiMK";
+            this.btn_CD_DoiMK.Size = new System.Drawing.Size(497, 481);
+            this.btn_CD_DoiMK.TabIndex = 0;
+            this.btn_CD_DoiMK.Text = "ĐỔI MẬT KHẨU";
+            this.btn_CD_DoiMK.UseVisualStyleBackColor = true;
+            this.btn_CD_DoiMK.Click += new System.EventHandler(this.btn_CD_DoiMK_Click);
+            // 
+            // btnCD_XemLich
+            // 
+            this.btnCD_XemLich.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCD_XemLich.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCD_XemLich.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
+            this.btnCD_XemLich.Location = new System.Drawing.Point(557, 20);
+            this.btnCD_XemLich.Margin = new System.Windows.Forms.Padding(20);
+            this.btnCD_XemLich.Name = "btnCD_XemLich";
+            this.btnCD_XemLich.Size = new System.Drawing.Size(497, 481);
+            this.btnCD_XemLich.TabIndex = 1;
+            this.btnCD_XemLich.Text = "XEM NGÀY LÀM VIỆC";
+            this.btnCD_XemLich.UseVisualStyleBackColor = true;
+            this.btnCD_XemLich.Click += new System.EventHandler(this.btnCD_XemLich_Click);
+            // 
+            // btnCD_XemNV
+            // 
+            this.btnCD_XemNV.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCD_XemNV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCD_XemNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F);
+            this.btnCD_XemNV.Location = new System.Drawing.Point(1094, 20);
+            this.btnCD_XemNV.Margin = new System.Windows.Forms.Padding(20);
+            this.btnCD_XemNV.Name = "btnCD_XemNV";
+            this.btnCD_XemNV.Size = new System.Drawing.Size(498, 481);
+            this.btnCD_XemNV.TabIndex = 2;
+            this.btnCD_XemNV.Text = "NHÂN VIÊN";
+            this.btnCD_XemNV.UseVisualStyleBackColor = true;
+            this.btnCD_XemNV.Click += new System.EventHandler(this.btnCD_XemNV_Click);
             // 
             // pageBaoCao
             // 
@@ -918,14 +1002,14 @@
             this.dtgvGioHang.AllowUserToDeleteRows = false;
             this.dtgvGioHang.AllowUserToResizeColumns = false;
             this.dtgvGioHang.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvGioHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvGioHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dtgvGioHang.ColumnHeadersHeight = 40;
             this.dtgvGioHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtgvGioHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -934,27 +1018,27 @@
             this.colDonGia,
             this.colSoLuongMua});
             this.tblpGiaoDich_BanHang.SetColumnSpan(this.dtgvGioHang, 3);
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvGioHang.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvGioHang.DefaultCellStyle = dataGridViewCellStyle20;
             this.dtgvGioHang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvGioHang.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dtgvGioHang.Location = new System.Drawing.Point(3, 107);
             this.dtgvGioHang.Name = "dtgvGioHang";
             this.dtgvGioHang.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvGioHang.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvGioHang.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dtgvGioHang.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtgvGioHang.RowTemplate.Height = 30;
             this.dtgvGioHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1518,14 +1602,14 @@
             this.dtgvXemLaiTienMat.AllowUserToDeleteRows = false;
             this.dtgvXemLaiTienMat.AllowUserToResizeColumns = false;
             this.dtgvXemLaiTienMat.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvXemLaiTienMat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvXemLaiTienMat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dtgvXemLaiTienMat.ColumnHeadersHeight = 40;
             this.dtgvXemLaiTienMat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtgvXemLaiTienMat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1533,27 +1617,27 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvXemLaiTienMat.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvXemLaiTienMat.DefaultCellStyle = dataGridViewCellStyle23;
             this.dtgvXemLaiTienMat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvXemLaiTienMat.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dtgvXemLaiTienMat.Location = new System.Drawing.Point(3, 107);
             this.dtgvXemLaiTienMat.Name = "dtgvXemLaiTienMat";
             this.dtgvXemLaiTienMat.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvXemLaiTienMat.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvXemLaiTienMat.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.dtgvXemLaiTienMat.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtgvXemLaiTienMat.RowTemplate.Height = 30;
             this.dtgvXemLaiTienMat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1728,8 +1812,149 @@
             this.pageCD_MK.Text = "CD_MK";
             this.pageCD_MK.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel18
+            // 
+            this.tableLayoutPanel18.ColumnCount = 3;
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel19, 1, 1);
+            this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel20, 0, 0);
+            this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel18.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel18.Name = "tableLayoutPanel18";
+            this.tableLayoutPanel18.RowCount = 3;
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(1612, 1042);
+            this.tableLayoutPanel18.TabIndex = 5;
+            // 
+            // tableLayoutPanel19
+            // 
+            this.tableLayoutPanel19.ColumnCount = 3;
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel19.Controls.Add(this.lblHelloUser, 0, 0);
+            this.tableLayoutPanel19.Controls.Add(this.txbMKCu, 1, 1);
+            this.tableLayoutPanel19.Controls.Add(this.label36, 0, 2);
+            this.tableLayoutPanel19.Controls.Add(this.label35, 0, 1);
+            this.tableLayoutPanel19.Controls.Add(this.txbMKMoi, 1, 2);
+            this.tableLayoutPanel19.Controls.Add(this.btnSavePass, 2, 3);
+            this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel19.Location = new System.Drawing.Point(406, 263);
+            this.tableLayoutPanel19.Name = "tableLayoutPanel19";
+            this.tableLayoutPanel19.RowCount = 4;
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(800, 515);
+            this.tableLayoutPanel19.TabIndex = 6;
+            // 
+            // lblHelloUser
+            // 
+            this.lblHelloUser.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblHelloUser.AutoSize = true;
+            this.tableLayoutPanel19.SetColumnSpan(this.lblHelloUser, 3);
+            this.lblHelloUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHelloUser.Location = new System.Drawing.Point(235, 15);
+            this.lblHelloUser.Name = "lblHelloUser";
+            this.lblHelloUser.Size = new System.Drawing.Size(330, 73);
+            this.lblHelloUser.TabIndex = 4;
+            this.lblHelloUser.Text = "Hello User";
+            // 
+            // txbMKCu
+            // 
+            this.txbMKCu.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tableLayoutPanel19.SetColumnSpan(this.txbMKCu, 2);
+            this.txbMKCu.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbMKCu.Location = new System.Drawing.Point(240, 160);
+            this.txbMKCu.Margin = new System.Windows.Forms.Padding(0);
+            this.txbMKCu.Name = "txbMKCu";
+            this.txbMKCu.Size = new System.Drawing.Size(560, 40);
+            this.txbMKCu.TabIndex = 0;
+            // 
+            // label36
+            // 
+            this.label36.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(0, 317);
+            this.label36.Margin = new System.Windows.Forms.Padding(0);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(190, 33);
+            this.label36.TabIndex = 3;
+            this.label36.Text = "Mật khẩu mới";
+            // 
+            // label35
+            // 
+            this.label35.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(0, 163);
+            this.label35.Margin = new System.Windows.Forms.Padding(0);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(173, 33);
+            this.label35.TabIndex = 2;
+            this.label35.Text = "Mật khẩu cũ";
+            // 
+            // txbMKMoi
+            // 
+            this.txbMKMoi.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tableLayoutPanel19.SetColumnSpan(this.txbMKMoi, 2);
+            this.txbMKMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbMKMoi.Location = new System.Drawing.Point(240, 314);
+            this.txbMKMoi.Margin = new System.Windows.Forms.Padding(0);
+            this.txbMKMoi.Name = "txbMKMoi";
+            this.txbMKMoi.Size = new System.Drawing.Size(560, 40);
+            this.txbMKMoi.TabIndex = 1;
+            // 
+            // btnSavePass
+            // 
+            this.btnSavePass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSavePass.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSavePass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSavePass.Location = new System.Drawing.Point(643, 414);
+            this.btnSavePass.Name = "btnSavePass";
+            this.btnSavePass.Size = new System.Drawing.Size(154, 98);
+            this.btnSavePass.TabIndex = 5;
+            this.btnSavePass.Text = "Lưu";
+            this.btnSavePass.UseVisualStyleBackColor = true;
+            this.btnSavePass.Click += new System.EventHandler(this.btnSavePass_Click);
+            // 
+            // tableLayoutPanel20
+            // 
+            this.tableLayoutPanel20.ColumnCount = 2;
+            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.49118F));
+            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.50882F));
+            this.tableLayoutPanel20.Controls.Add(this.btnDoiMKQuayLaiCaiDat, 0, 0);
+            this.tableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel20.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel20.Name = "tableLayoutPanel20";
+            this.tableLayoutPanel20.RowCount = 2;
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.91339F));
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.08661F));
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(397, 254);
+            this.tableLayoutPanel20.TabIndex = 7;
+            // 
+            // btnDoiMKQuayLaiCaiDat
+            // 
+            this.btnDoiMKQuayLaiCaiDat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDoiMKQuayLaiCaiDat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDoiMKQuayLaiCaiDat.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDoiMKQuayLaiCaiDat.Location = new System.Drawing.Point(3, 3);
+            this.btnDoiMKQuayLaiCaiDat.Name = "btnDoiMKQuayLaiCaiDat";
+            this.btnDoiMKQuayLaiCaiDat.Size = new System.Drawing.Size(253, 103);
+            this.btnDoiMKQuayLaiCaiDat.TabIndex = 0;
+            this.btnDoiMKQuayLaiCaiDat.Text = "Quay lại";
+            this.btnDoiMKQuayLaiCaiDat.UseVisualStyleBackColor = true;
+            this.btnDoiMKQuayLaiCaiDat.Click += new System.EventHandler(this.btnDoiMKQuayLaiCaiDat_Click);
+            // 
             // pageCD_Lich
             // 
+            this.pageCD_Lich.Controls.Add(this.tableLayoutPanel21);
             this.pageCD_Lich.Location = new System.Drawing.Point(4, 22);
             this.pageCD_Lich.Name = "pageCD_Lich";
             this.pageCD_Lich.Padding = new System.Windows.Forms.Padding(3);
@@ -1737,6 +1962,134 @@
             this.pageCD_Lich.TabIndex = 20;
             this.pageCD_Lich.Text = "CD_Lich";
             this.pageCD_Lich.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel21
+            // 
+            this.tableLayoutPanel21.ColumnCount = 4;
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel21.Controls.Add(this.flpnlDays, 1, 2);
+            this.tableLayoutPanel21.Controls.Add(this.tableLayoutPanel22, 0, 2);
+            this.tableLayoutPanel21.Controls.Add(this.tableLayoutPanel23, 3, 2);
+            this.tableLayoutPanel21.Controls.Add(this.tableLayoutPanel24, 2, 3);
+            this.tableLayoutPanel21.Controls.Add(this.tableLayoutPanel25, 1, 1);
+            this.tableLayoutPanel21.Controls.Add(this.tableLayoutPanel26, 2, 1);
+            this.tableLayoutPanel21.Controls.Add(this.btnLSQuayLaiCaiDat, 0, 0);
+            this.tableLayoutPanel21.Controls.Add(this.label40, 1, 0);
+            this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel21.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel21.Name = "tableLayoutPanel21";
+            this.tableLayoutPanel21.RowCount = 4;
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel21.Size = new System.Drawing.Size(1612, 1042);
+            this.tableLayoutPanel21.TabIndex = 6;
+            // 
+            // flpnlDays
+            // 
+            this.tableLayoutPanel21.SetColumnSpan(this.flpnlDays, 2);
+            this.flpnlDays.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpnlDays.Location = new System.Drawing.Point(244, 211);
+            this.flpnlDays.Name = "flpnlDays";
+            this.flpnlDays.Size = new System.Drawing.Size(1122, 723);
+            this.flpnlDays.TabIndex = 0;
+            // 
+            // cbbYear
+            // 
+            this.cbbYear.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbbYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.cbbYear.FormattingEnabled = true;
+            this.cbbYear.Location = new System.Drawing.Point(282, 29);
+            this.cbbYear.Name = "cbbYear";
+            this.cbbYear.Size = new System.Drawing.Size(273, 39);
+            this.cbbYear.TabIndex = 5;
+            this.cbbYear.SelectedIndexChanged += new System.EventHandler(this.cbbYear_SelectedIndexChanged);
+            // 
+            // txbTongNgayLam
+            // 
+            this.txbTongNgayLam.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txbTongNgayLam.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.txbTongNgayLam.Location = new System.Drawing.Point(418, 27);
+            this.txbTongNgayLam.Name = "txbTongNgayLam";
+            this.txbTongNgayLam.ReadOnly = true;
+            this.txbTongNgayLam.Size = new System.Drawing.Size(137, 45);
+            this.txbTongNgayLam.TabIndex = 3;
+            // 
+            // cbbMonth
+            // 
+            this.cbbMonth.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbbMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.cbbMonth.FormattingEnabled = true;
+            this.cbbMonth.Location = new System.Drawing.Point(282, 29);
+            this.cbbMonth.Name = "cbbMonth";
+            this.cbbMonth.Size = new System.Drawing.Size(273, 39);
+            this.cbbMonth.TabIndex = 4;
+            this.cbbMonth.SelectedIndexChanged += new System.EventHandler(this.cbbMonth_SelectedIndexChanged);
+            // 
+            // tableLayoutPanel22
+            // 
+            this.tableLayoutPanel22.ColumnCount = 1;
+            this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel22.Controls.Add(this.btnPrevMonth, 0, 2);
+            this.tableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel22.Location = new System.Drawing.Point(3, 211);
+            this.tableLayoutPanel22.Name = "tableLayoutPanel22";
+            this.tableLayoutPanel22.RowCount = 5;
+            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel22.Size = new System.Drawing.Size(235, 723);
+            this.tableLayoutPanel22.TabIndex = 6;
+            // 
+            // btnPrevMonth
+            // 
+            this.btnPrevMonth.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrevMonth.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPrevMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.btnPrevMonth.Location = new System.Drawing.Point(3, 291);
+            this.btnPrevMonth.Name = "btnPrevMonth";
+            this.btnPrevMonth.Size = new System.Drawing.Size(229, 138);
+            this.btnPrevMonth.TabIndex = 1;
+            this.btnPrevMonth.Text = "<<<<<";
+            this.btnPrevMonth.UseVisualStyleBackColor = true;
+            this.btnPrevMonth.Click += new System.EventHandler(this.btnPrevMonth_Click);
+            // 
+            // tableLayoutPanel23
+            // 
+            this.tableLayoutPanel23.ColumnCount = 1;
+            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel23.Controls.Add(this.btnNextMonth, 0, 2);
+            this.tableLayoutPanel23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel23.Location = new System.Drawing.Point(1372, 211);
+            this.tableLayoutPanel23.Name = "tableLayoutPanel23";
+            this.tableLayoutPanel23.RowCount = 5;
+            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel23.Size = new System.Drawing.Size(237, 723);
+            this.tableLayoutPanel23.TabIndex = 7;
+            // 
+            // btnNextMonth
+            // 
+            this.btnNextMonth.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNextMonth.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnNextMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.btnNextMonth.Location = new System.Drawing.Point(3, 291);
+            this.btnNextMonth.Name = "btnNextMonth";
+            this.btnNextMonth.Size = new System.Drawing.Size(231, 138);
+            this.btnNextMonth.TabIndex = 2;
+            this.btnNextMonth.Text = ">>>>>";
+            this.btnNextMonth.UseVisualStyleBackColor = true;
+            this.btnNextMonth.Click += new System.EventHandler(this.btnNextMonth_Click);
             // 
             // pageCD_NV
             // 
@@ -1884,205 +2237,108 @@
             this.btnBaoCao.UseVisualStyleBackColor = false;
             this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
             // 
-            // tableLayoutPanel17
+            // tableLayoutPanel24
             // 
-            this.tableLayoutPanel17.ColumnCount = 3;
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel17.Controls.Add(this.btn_CD_DoiMK, 0, 0);
-            this.tableLayoutPanel17.Controls.Add(this.btnCD_XemLich, 1, 0);
-            this.tableLayoutPanel17.Controls.Add(this.btnCD_XemNV, 2, 0);
-            this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel17.Name = "tableLayoutPanel17";
-            this.tableLayoutPanel17.RowCount = 2;
-            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(1612, 1042);
-            this.tableLayoutPanel17.TabIndex = 0;
+            this.tableLayoutPanel24.ColumnCount = 2;
+            this.tableLayoutPanel24.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.45652F));
+            this.tableLayoutPanel24.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.54348F));
+            this.tableLayoutPanel24.Controls.Add(this.txbTongNgayLam, 1, 0);
+            this.tableLayoutPanel24.Controls.Add(this.label37, 0, 0);
+            this.tableLayoutPanel24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel24.Location = new System.Drawing.Point(808, 940);
+            this.tableLayoutPanel24.Name = "tableLayoutPanel24";
+            this.tableLayoutPanel24.RowCount = 1;
+            this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel24.Size = new System.Drawing.Size(558, 99);
+            this.tableLayoutPanel24.TabIndex = 8;
             // 
-            // btn_CD_DoiMK
+            // label37
             // 
-            this.btn_CD_DoiMK.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_CD_DoiMK.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_CD_DoiMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F);
-            this.btn_CD_DoiMK.Location = new System.Drawing.Point(20, 20);
-            this.btn_CD_DoiMK.Margin = new System.Windows.Forms.Padding(20);
-            this.btn_CD_DoiMK.Name = "btn_CD_DoiMK";
-            this.btn_CD_DoiMK.Size = new System.Drawing.Size(497, 481);
-            this.btn_CD_DoiMK.TabIndex = 0;
-            this.btn_CD_DoiMK.Text = "ĐỔI MẬT KHẨU";
-            this.btn_CD_DoiMK.UseVisualStyleBackColor = true;
-            this.btn_CD_DoiMK.Click += new System.EventHandler(this.btn_CD_DoiMK_Click);
+            this.label37.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.label37.Location = new System.Drawing.Point(3, 30);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(403, 39);
+            this.label37.TabIndex = 4;
+            this.label37.Text = "Tổng số ngày trong tháng";
             // 
-            // btnCD_XemLich
+            // tableLayoutPanel25
             // 
-            this.btnCD_XemLich.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCD_XemLich.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCD_XemLich.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
-            this.btnCD_XemLich.Location = new System.Drawing.Point(557, 20);
-            this.btnCD_XemLich.Margin = new System.Windows.Forms.Padding(20);
-            this.btnCD_XemLich.Name = "btnCD_XemLich";
-            this.btnCD_XemLich.Size = new System.Drawing.Size(497, 481);
-            this.btnCD_XemLich.TabIndex = 1;
-            this.btnCD_XemLich.Text = "XEM NGÀY LÀM VIỆC";
-            this.btnCD_XemLich.UseVisualStyleBackColor = true;
-            this.btnCD_XemLich.Click += new System.EventHandler(this.btnCD_XemLich_Click);
+            this.tableLayoutPanel25.ColumnCount = 2;
+            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel25.Controls.Add(this.cbbMonth, 1, 0);
+            this.tableLayoutPanel25.Controls.Add(this.label38, 0, 0);
+            this.tableLayoutPanel25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel25.Location = new System.Drawing.Point(244, 107);
+            this.tableLayoutPanel25.Name = "tableLayoutPanel25";
+            this.tableLayoutPanel25.RowCount = 1;
+            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel25.Size = new System.Drawing.Size(558, 98);
+            this.tableLayoutPanel25.TabIndex = 9;
             // 
-            // btnCD_XemNV
+            // label38
             // 
-            this.btnCD_XemNV.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCD_XemNV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCD_XemNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F);
-            this.btnCD_XemNV.Location = new System.Drawing.Point(1094, 20);
-            this.btnCD_XemNV.Margin = new System.Windows.Forms.Padding(20);
-            this.btnCD_XemNV.Name = "btnCD_XemNV";
-            this.btnCD_XemNV.Size = new System.Drawing.Size(498, 481);
-            this.btnCD_XemNV.TabIndex = 2;
-            this.btnCD_XemNV.Text = "NHÂN VIÊN";
-            this.btnCD_XemNV.UseVisualStyleBackColor = true;
-            this.btnCD_XemNV.Click += new System.EventHandler(this.btnCD_XemNV_Click);
+            this.label38.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.label38.Location = new System.Drawing.Point(94, 33);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(91, 31);
+            this.label38.TabIndex = 5;
+            this.label38.Text = "Tháng";
             // 
-            // txbMKCu
+            // tableLayoutPanel26
             // 
-            this.txbMKCu.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tableLayoutPanel19.SetColumnSpan(this.txbMKCu, 2);
-            this.txbMKCu.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbMKCu.Location = new System.Drawing.Point(240, 160);
-            this.txbMKCu.Margin = new System.Windows.Forms.Padding(0);
-            this.txbMKCu.Name = "txbMKCu";
-            this.txbMKCu.Size = new System.Drawing.Size(560, 40);
-            this.txbMKCu.TabIndex = 0;
+            this.tableLayoutPanel26.ColumnCount = 2;
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel26.Controls.Add(this.label39, 0, 0);
+            this.tableLayoutPanel26.Controls.Add(this.cbbYear, 1, 0);
+            this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel26.Location = new System.Drawing.Point(808, 107);
+            this.tableLayoutPanel26.Name = "tableLayoutPanel26";
+            this.tableLayoutPanel26.RowCount = 1;
+            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel26.Size = new System.Drawing.Size(558, 98);
+            this.tableLayoutPanel26.TabIndex = 10;
             // 
-            // txbMKMoi
+            // label39
             // 
-            this.txbMKMoi.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tableLayoutPanel19.SetColumnSpan(this.txbMKMoi, 2);
-            this.txbMKMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbMKMoi.Location = new System.Drawing.Point(240, 314);
-            this.txbMKMoi.Margin = new System.Windows.Forms.Padding(0);
-            this.txbMKMoi.Name = "txbMKMoi";
-            this.txbMKMoi.Size = new System.Drawing.Size(560, 40);
-            this.txbMKMoi.TabIndex = 1;
+            this.label39.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.label39.Location = new System.Drawing.Point(104, 33);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(71, 31);
+            this.label39.TabIndex = 6;
+            this.label39.Text = "Năm";
             // 
-            // label35
+            // btnLSQuayLaiCaiDat
             // 
-            this.label35.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(0, 163);
-            this.label35.Margin = new System.Windows.Forms.Padding(0);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(173, 33);
-            this.label35.TabIndex = 2;
-            this.label35.Text = "Mật khẩu cũ";
+            this.btnLSQuayLaiCaiDat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLSQuayLaiCaiDat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnLSQuayLaiCaiDat.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.btnLSQuayLaiCaiDat.Location = new System.Drawing.Point(3, 3);
+            this.btnLSQuayLaiCaiDat.Name = "btnLSQuayLaiCaiDat";
+            this.btnLSQuayLaiCaiDat.Size = new System.Drawing.Size(235, 98);
+            this.btnLSQuayLaiCaiDat.TabIndex = 11;
+            this.btnLSQuayLaiCaiDat.Text = "Quay lại";
+            this.btnLSQuayLaiCaiDat.UseVisualStyleBackColor = true;
+            this.btnLSQuayLaiCaiDat.Click += new System.EventHandler(this.btnLSQuayLaiCaiDat_Click);
             // 
-            // label36
+            // label40
             // 
-            this.label36.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(0, 317);
-            this.label36.Margin = new System.Windows.Forms.Padding(0);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(190, 33);
-            this.label36.TabIndex = 3;
-            this.label36.Text = "Mật khẩu mới";
-            // 
-            // lblHelloUser
-            // 
-            this.lblHelloUser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblHelloUser.AutoSize = true;
-            this.tableLayoutPanel19.SetColumnSpan(this.lblHelloUser, 3);
-            this.lblHelloUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHelloUser.Location = new System.Drawing.Point(235, 15);
-            this.lblHelloUser.Name = "lblHelloUser";
-            this.lblHelloUser.Size = new System.Drawing.Size(330, 73);
-            this.lblHelloUser.TabIndex = 4;
-            this.lblHelloUser.Text = "Hello User";
-            // 
-            // tableLayoutPanel18
-            // 
-            this.tableLayoutPanel18.ColumnCount = 3;
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel19, 1, 1);
-            this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel20, 0, 0);
-            this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel18.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel18.Name = "tableLayoutPanel18";
-            this.tableLayoutPanel18.RowCount = 3;
-            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel18.Size = new System.Drawing.Size(1612, 1042);
-            this.tableLayoutPanel18.TabIndex = 5;
-            // 
-            // tableLayoutPanel19
-            // 
-            this.tableLayoutPanel19.ColumnCount = 3;
-            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel19.Controls.Add(this.lblHelloUser, 0, 0);
-            this.tableLayoutPanel19.Controls.Add(this.txbMKCu, 1, 1);
-            this.tableLayoutPanel19.Controls.Add(this.label36, 0, 2);
-            this.tableLayoutPanel19.Controls.Add(this.label35, 0, 1);
-            this.tableLayoutPanel19.Controls.Add(this.txbMKMoi, 1, 2);
-            this.tableLayoutPanel19.Controls.Add(this.btnSavePass, 2, 3);
-            this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel19.Location = new System.Drawing.Point(406, 263);
-            this.tableLayoutPanel19.Name = "tableLayoutPanel19";
-            this.tableLayoutPanel19.RowCount = 4;
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(800, 515);
-            this.tableLayoutPanel19.TabIndex = 6;
-            // 
-            // btnSavePass
-            // 
-            this.btnSavePass.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSavePass.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSavePass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSavePass.Location = new System.Drawing.Point(643, 414);
-            this.btnSavePass.Name = "btnSavePass";
-            this.btnSavePass.Size = new System.Drawing.Size(154, 98);
-            this.btnSavePass.TabIndex = 5;
-            this.btnSavePass.Text = "Lưu";
-            this.btnSavePass.UseVisualStyleBackColor = true;
-            this.btnSavePass.Click += new System.EventHandler(this.btnSavePass_Click);
-            // 
-            // tableLayoutPanel20
-            // 
-            this.tableLayoutPanel20.ColumnCount = 2;
-            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.49118F));
-            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.50882F));
-            this.tableLayoutPanel20.Controls.Add(this.btnDoiMKQuayLaiCaiDat, 0, 0);
-            this.tableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel20.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel20.Name = "tableLayoutPanel20";
-            this.tableLayoutPanel20.RowCount = 2;
-            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.91339F));
-            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.08661F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(397, 254);
-            this.tableLayoutPanel20.TabIndex = 7;
-            // 
-            // btnDoiMKQuayLaiCaiDat
-            // 
-            this.btnDoiMKQuayLaiCaiDat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDoiMKQuayLaiCaiDat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDoiMKQuayLaiCaiDat.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDoiMKQuayLaiCaiDat.Location = new System.Drawing.Point(3, 3);
-            this.btnDoiMKQuayLaiCaiDat.Name = "btnDoiMKQuayLaiCaiDat";
-            this.btnDoiMKQuayLaiCaiDat.Size = new System.Drawing.Size(253, 103);
-            this.btnDoiMKQuayLaiCaiDat.TabIndex = 0;
-            this.btnDoiMKQuayLaiCaiDat.Text = "Quay lại";
-            this.btnDoiMKQuayLaiCaiDat.UseVisualStyleBackColor = true;
-            this.btnDoiMKQuayLaiCaiDat.Click += new System.EventHandler(this.btnDoiMKQuayLaiCaiDat_Click);
+            this.label40.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label40.AutoSize = true;
+            this.tableLayoutPanel21.SetColumnSpan(this.label40, 2);
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
+            this.label40.Location = new System.Drawing.Point(553, 20);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(504, 63);
+            this.label40.TabIndex = 12;
+            this.label40.Text = "LỊCH SỬ LÀM VIỆC";
             // 
             // FMain
             // 
@@ -2100,6 +2356,7 @@
             this.pageTraCuu.ResumeLayout(false);
             this.tblpTraCuu.ResumeLayout(false);
             this.pageCaiDat.ResumeLayout(false);
+            this.tableLayoutPanel17.ResumeLayout(false);
             this.pageBaoCao.ResumeLayout(false);
             this.tblpBaoCao.ResumeLayout(false);
             this.pageGiaoDich_BanHang.ResumeLayout(false);
@@ -2135,13 +2392,23 @@
             this.tableLayoutPanel15.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvXemLaiTienMat)).EndInit();
             this.pageCD_MK.ResumeLayout(false);
-            this.tblpMainContainer.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel17.ResumeLayout(false);
             this.tableLayoutPanel18.ResumeLayout(false);
             this.tableLayoutPanel19.ResumeLayout(false);
             this.tableLayoutPanel19.PerformLayout();
             this.tableLayoutPanel20.ResumeLayout(false);
+            this.pageCD_Lich.ResumeLayout(false);
+            this.tableLayoutPanel21.ResumeLayout(false);
+            this.tableLayoutPanel21.PerformLayout();
+            this.tableLayoutPanel22.ResumeLayout(false);
+            this.tableLayoutPanel23.ResumeLayout(false);
+            this.tblpMainContainer.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel24.ResumeLayout(false);
+            this.tableLayoutPanel24.PerformLayout();
+            this.tableLayoutPanel25.ResumeLayout(false);
+            this.tableLayoutPanel25.PerformLayout();
+            this.tableLayoutPanel26.ResumeLayout(false);
+            this.tableLayoutPanel26.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2288,5 +2555,22 @@
         private System.Windows.Forms.Button btnSavePass;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel20;
         private System.Windows.Forms.Button btnDoiMKQuayLaiCaiDat;
+        private System.Windows.Forms.FlowLayoutPanel flpnlDays;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
+        private System.Windows.Forms.ComboBox cbbYear;
+        private System.Windows.Forms.ComboBox cbbMonth;
+        private System.Windows.Forms.TextBox txbTongNgayLam;
+        private System.Windows.Forms.Button btnNextMonth;
+        private System.Windows.Forms.Button btnPrevMonth;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel22;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel23;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel24;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel25;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel26;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Button btnLSQuayLaiCaiDat;
+        private System.Windows.Forms.Label label40;
     }
 }
