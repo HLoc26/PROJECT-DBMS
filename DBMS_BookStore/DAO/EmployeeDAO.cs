@@ -67,5 +67,17 @@ namespace DBMS_BookStore.DAO
             string maNV = (string)db.ExecuteScalar(cmd);
             return maNV;
         }
+
+        // Đổi MK
+        public bool ChangePass(string newPass, string MaNV)
+        {
+            string query = "EXEC dbo.PROC_ChangePass @MaNV = @param1, @NewPass = @param2";
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.Parameters.AddWithValue("@param1", MaNV);
+            cmd.Parameters.AddWithValue("@param2", newPass);
+
+            int succeed = db.ExecuteNonQuery(cmd);
+            return succeed == 1;
+        }
     }
 }

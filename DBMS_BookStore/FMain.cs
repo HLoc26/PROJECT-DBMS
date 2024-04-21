@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,7 +20,7 @@ namespace DBMS_BookStore
         Employee nv;
 
         HangHoaDAO hanghoaDAO = new HangHoaDAO();
-
+        EmployeeDAO employeeDAO = new EmployeeDAO();
         public FMain(Employee nv)
         {
             InitializeComponent();
@@ -97,13 +98,25 @@ namespace DBMS_BookStore
             tabControl.SelectedTab = tabControl.TabPages[4];
         }
         #endregion
-       
+
         #region 1. Tra cứu
         // Code here
         #endregion
 
         #region 2. Cài đặt
-        // Code here
+        private void btn_CD_DoiMK_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[20];
+            lblHelloUser.Text = $"Hello, {nv.Ho} {nv.TenLot} {nv.Ten}";
+        }
+        private void btnCD_XemLich_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[21];
+        }
+        private void btnCD_XemNV_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[22];
+        }
         #endregion
 
         #region 3. Báo cáo (thống kê)
@@ -296,7 +309,46 @@ namespace DBMS_BookStore
         #endregion
 
         #region 20. Cài đặt - Đổi MK (nv hiện tại đổi mk của mình)
-        // Code here
+        private bool isValidNewPass(string pass)
+        {
+            // Regex pattern to match at least 8 characters long and contain both letters and numbers
+            string pattern = @"^(?=.*[a-zA-Z])(?=.*\d).{8,30}$";
+
+            return Regex.IsMatch(pass, pattern);
+        }
+        private void btnSavePass_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra pass có đúng không
+            if (!string.Equals(txbMKCu.Text, nv.Mk))
+            {
+                MessageBox.Show("Mật khẩu không đúng!", "Sai mật khẩu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            // Kiểm tra pass2 có đúng regex ko 
+            if (!isValidNewPass(txbMKMoi.Text))
+            {
+                MessageBox.Show("Mật khẩu mới phải có 8-30 ký tự, có ít nhất một chữ cái và một số.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            // Đổi mật khẩu
+            bool succeed = employeeDAO.ChangePass(txbMKMoi.Text, nv.MaNV);
+            // Nếu đã đổi thành công
+            if (succeed)
+            {
+                // Cập nhật lại nv hiện tại
+                nv = employeeDAO.GetInfoByUsername(nv.TenDN);
+            }
+            else
+            {
+                MessageBox.Show("ERROR CHANGE PASS!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return;
+        }
+
+        private void btnDoiMKQuayLaiCaiDat_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[2];
+        }
         #endregion
 
         #region 21. Cài đặt - Xem lịch làm việc
