@@ -11,11 +11,11 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace DBMS_BookStore.DAO
 {
-    internal class SachDAO
+    internal class TraCuuDAO
     {
         DBConnection dbConnection;
         DBConnection db = new DBConnection();
-        public SachDAO()
+        public TraCuuDAO()
         {
             dbConnection = new DBConnection();
             
@@ -32,29 +32,31 @@ namespace DBMS_BookStore.DAO
             }
             return null;
         }
-        //public DataTable LoadTCTG()
-        //{
-        //    string query = "SELECT * FROM dbo.VIEW_SACH";
-        //    SqlCommand sql = new SqlCommand(query);
-        //    DataTable dt = dbConnection.ExecuteQuery(sql);
-        //    if (dt.Rows.Count > 0)
-        //    {
-        //        return dt;
-        //    }
-        //    return null;
-        //}
-        public static DataTable LoadTCTG(string tenTG, DBConnection dbConnection)
+        public DataTable LoadTCTG()
         {
-            string query = "SELECT * FROM PROC_TCTG(@tenTG)";
+            string query = "SELECT MaSach, tenTG, TieuDe, DonGia, TenLoai FROM dbo.VIEW_SACH";
             SqlCommand sql = new SqlCommand(query);
-            sql.Parameters.AddWithValue("@tenTG", tenTG);
             DataTable dt = dbConnection.ExecuteQuery(sql);
-            return dt;
+            if (dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            return null;
         }
-
+        public DataTable LoadTCVPP()
+        {
+            string query = "SELECT * FROM dbo.VIEW_VPP";
+            SqlCommand sql = new SqlCommand(query);
+            DataTable dt = dbConnection.ExecuteQuery(sql);
+            if (dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            return null;
+        }
         public DataRow GetTCTG(string tenTG)
         {
-            string query = "SELECT * FROM dbo.FUNC_TCTG(@param)";
+            string query = "SELECT * FROM dbo.PROC_TCTG(@param)";
             SqlCommand cmd = new SqlCommand(query);
             cmd.Parameters.AddWithValue("@param", tenTG);
 
@@ -64,6 +66,16 @@ namespace DBMS_BookStore.DAO
                 return dt.Rows[0];
             }
             return null;
+        }
+        public DataTable SearchBooksByAuthor(string authorName)
+        {
+            // Create SqlCommand for the stored procedure
+            SqlCommand sqlCommand = new SqlCommand("SearchBooksByAuthor");
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@tenTG", authorName);
+
+            // Execute the query using DBConnection and return the result
+            return dbConnection.ExecuteQuery(sqlCommand);
         }
         public DataTable SearchSACHByMaHang(string maHang)
         {
@@ -76,8 +88,18 @@ namespace DBMS_BookStore.DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error: " + ex.Message);    
                 return null;
             }
         }
-}}
+        public DataTable SearchVPPByMaHang(string maHang)
+        {
+            SqlCommand sqlCommand = new SqlCommand("SearchVPPByMaHang");
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@MaHang", maHang);
+
+            return dbConnection.ExecuteQuery(sqlCommand);
+        }
+
+    }
+}

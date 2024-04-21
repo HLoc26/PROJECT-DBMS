@@ -53,7 +53,7 @@
     <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\HangHoaDAO.cs" />
     <Compile Include="DAO\KhachHangDAO.cs" />
-    <Compile Include="DAO\SachDAO.cs" />
+    <Compile Include="DAO\TraCuuDAO.cs" />
     <Compile Include="DTO\Employee.cs" />
     <Compile Include="DTO\KhachHang.cs" />
     <Compile Include="DTO\TheTV.cs" />

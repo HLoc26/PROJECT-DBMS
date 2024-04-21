@@ -22,7 +22,7 @@ namespace DBMS_BookStore
         Employee nv;
 
         HangHoaDAO hanghoaDAO = new HangHoaDAO();
-        SachDAO sachDAO = new SachDAO();
+        TraCuuDAO traCuuDAO = new TraCuuDAO();
         public FMain(Employee nv)
         {
             InitializeComponent();
@@ -106,7 +106,7 @@ namespace DBMS_BookStore
         private void btnTTSach_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[15];
-            DataTable dt = sachDAO.LoadTCSach();
+            DataTable dt = traCuuDAO.LoadTCSach();
             foreach (DataRow row in dt.Rows)
             {
                 dtgvTCSACH.Rows.Add(row.ItemArray);
@@ -118,13 +118,13 @@ namespace DBMS_BookStore
         private void btnTTTacGia_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[16];
-            //DataTable dt = sachDAO.LoadTCTG();
-            //foreach (DataRow row in dt.Rows)
-            //{
-            //    dtgvTCTG.Rows.Add(row.ItemArray);
-            //}
-            //dtgvTCTG.Refresh();
-            //dtgvTCTG.Update();
+            DataTable dt = traCuuDAO.LoadTCTG();
+            foreach (DataRow row in dt.Rows)
+            {
+                dtgvTCTG.Rows.Add(row.ItemArray);
+            }
+            dtgvTCTG.Refresh();
+            dtgvTCTG.Update();
         }
         private void btnTTNXB_Click(object sender, EventArgs e)
         {
@@ -139,6 +139,14 @@ namespace DBMS_BookStore
         private void btnTTVPP_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[19];
+            DataTable dt = traCuuDAO.LoadTCVPP();
+            foreach (DataRow row in dt.Rows)
+            {
+                dtgvTCVPP.Rows.Add(row.ItemArray);
+            }
+            dtgvTCVPP.Refresh();
+            dtgvTCVPP.Update();
+            
         }
         #endregion
 
@@ -289,47 +297,46 @@ namespace DBMS_BookStore
 
         private void btnTCSACHID_Click(object sender, EventArgs e)
         {
-            string maHang = txtb_TCSACH.Text.Trim();
-            if (!string.IsNullOrEmpty(maHang))
+            string maHang = txtb_TCSACH.Text;
+
+
+            // Call SearchSACHByMaHang method to retrieve books by maHang
+            DataTable booksByMaHang = traCuuDAO.SearchSACHByMaHang(maHang);
+
+            // Clear existing rows in the DataGridView
+            dtgvTCSACH.Rows.Clear();
+
+            // Add rows to the DataGridView based on the DataTable
+            foreach (DataRow row in booksByMaHang.Rows)
             {
-                DataTable dataTable = sachDAO.SearchSACHByMaHang(maHang);
-                if (dataTable != null)
-                {
-                    // Assuming dtgvTCSACH is your DataGridView to display the results
-                    dtgvTCSACH.DataSource = dataTable;
-                    foreach (DataRow row in dataTable.Rows)
-                    {
-                        dtgvTCSACH.Rows.Add(row.ItemArray);
-                    }
-                    dtgvTCSACH.Refresh();
-                    dtgvTCSACH.Update();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please enter a valid MaHang.");
+                dtgvTCSACH.Rows.Add(row["MaSach"], row["TieuDe"], row["DonGia"], row["SoLuong"], row["TenTG"], row["TenLoai"], row["TenNXB"]);
             }
         }
+
 
 
 
         #endregion
 
         #region 16. Tra cứu - Tác giả
+
         private void btnTCTG_Click(object sender, EventArgs e)
         {
-            string tenTG = txtbTCTG.Text;
-            DBConnection dbConnection = new DBConnection();
-            //DataTable dt = sachDAO.LoadTCTG(tenTG, dbConnection);
-            //foreach (DataRow row in dt.Rows)
-            //{
-            //    dtgvTCTG.Rows.Add(row.ItemArray);
-            //}
-            //dtgvTCTG.Refresh();
-            //dtgvTCTG.Update();
-            DataTable dt = SachDAO.LoadTCTG(tenTG, dbConnection);
-            dtgvTCTG.DataSource = dt;
+            string authorName = txtbTCTG.Text;
+
+            // Call SearchBooksByAuthor method to retrieve books by author
+            DataTable booksByAuthor = traCuuDAO.SearchBooksByAuthor(authorName);
+
+            // Clear existing rows in the DataGridView
+            dtgvTCTG.Rows.Clear();
+
+            // Add rows to the DataGridView based on the DataTable
+            foreach (DataRow row in booksByAuthor.Rows)
+            {
+                dtgvTCTG.Rows.Add(row["MaSach"], row["tenTG"], row["TieuDe"], row["DonGia"], row["TenLoai"]);
+            }
         }
+
 
 
 
@@ -347,7 +354,25 @@ namespace DBMS_BookStore
         #endregion
 
         #region 19. Tra cứu - VPP
-        // Code here
+        private void btnTCVPP_Click(object sender, EventArgs e)
+        {
+            string maHang = txtbTCVPP.Text; 
+
+
+
+            // Call SearchVPPByMaHang method to retrieve VPP items by MaHang
+            DataTable vppByMaHang = traCuuDAO.SearchVPPByMaHang(maHang);
+
+            // Clear existing rows in the DataGridView
+            dtgvTCVPP.Rows.Clear();
+
+            // Add rows to the DataGridView based on the DataTable
+            foreach (DataRow row in vppByMaHang.Rows)
+            {
+                dtgvTCVPP.Rows.Add(row["MaHangVPP"], row["TenHang"], row["DonGia"], row["SoLuong"]);
+            }
+        }
+
         #endregion
 
         #region 20. Cài đặt - Đổi MK (nv hiện tại đổi mk của mình)

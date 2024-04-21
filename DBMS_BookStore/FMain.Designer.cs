@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tblpMainContainer = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.pageGiaoDich = new System.Windows.Forms.TabPage();
@@ -105,13 +105,6 @@
             this.btnTCSACHID = new System.Windows.Forms.Button();
             this.txtb_TCSACH = new System.Windows.Forms.TextBox();
             this.dtgvTCSACH = new System.Windows.Forms.DataGridView();
-            this.MaSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TieuDe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenTG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TheLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NXB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pageTC_TG = new System.Windows.Forms.TabPage();
             this.txtbTCTG = new System.Windows.Forms.TextBox();
             this.btnTCTG = new System.Windows.Forms.Button();
@@ -122,9 +115,17 @@
             this.DonGiaTG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenLoaiTG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pageTC_NXB = new System.Windows.Forms.TabPage();
+            this.dtgvTCNXB = new System.Windows.Forms.DataGridView();
+            this.btnTCNXB = new System.Windows.Forms.Button();
+            this.txtbTCNXB = new System.Windows.Forms.TextBox();
             this.pageTCTL = new System.Windows.Forms.TabPage();
+            this.btnTCTL = new System.Windows.Forms.Button();
+            this.dtgvTCTL = new System.Windows.Forms.DataGridView();
             this.txtbTCTL = new System.Windows.Forms.TextBox();
             this.pageTC_VPP = new System.Windows.Forms.TabPage();
+            this.dtgvTCVPP = new System.Windows.Forms.DataGridView();
+            this.txtbTCVPP = new System.Windows.Forms.TextBox();
+            this.btnTCVPP = new System.Windows.Forms.Button();
             this.pageCD_MK = new System.Windows.Forms.TabPage();
             this.pageCD_Lich = new System.Windows.Forms.TabPage();
             this.pageCD_NV = new System.Windows.Forms.TabPage();
@@ -136,14 +137,17 @@
             this.btnTraCuu = new System.Windows.Forms.Button();
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnBaoCao = new System.Windows.Forms.Button();
-            this.txtbTCNXB = new System.Windows.Forms.TextBox();
-            this.btnTCNXB = new System.Windows.Forms.Button();
-            this.dtgvTCNXB = new System.Windows.Forms.DataGridView();
-            this.dtgvTCTL = new System.Windows.Forms.DataGridView();
-            this.btnTCTL = new System.Windows.Forms.Button();
-            this.btnTCVPP = new System.Windows.Forms.Button();
-            this.txtbTCVPP = new System.Windows.Forms.TextBox();
-            this.dtgvTCVPP = new System.Windows.Forms.DataGridView();
+            this.MaHangVPP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenHangVPP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonGiaVPP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuongVPP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaSachS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TieuDeS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonGiaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuongS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenTGS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TheLoaiS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NXBS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblpMainContainer.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.pageGiaoDich.SuspendLayout();
@@ -171,12 +175,12 @@
             this.pageTC_TG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTCTG)).BeginInit();
             this.pageTC_NXB.SuspendLayout();
-            this.pageTCTL.SuspendLayout();
-            this.pageTC_VPP.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTCNXB)).BeginInit();
+            this.pageTCTL.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTCTL)).BeginInit();
+            this.pageTC_VPP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTCVPP)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tblpMainContainer
@@ -940,14 +944,14 @@
             this.dtgvGioHang.AllowUserToDeleteRows = false;
             this.dtgvGioHang.AllowUserToResizeColumns = false;
             this.dtgvGioHang.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvGioHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvGioHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dtgvGioHang.ColumnHeadersHeight = 40;
             this.dtgvGioHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtgvGioHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -956,28 +960,28 @@
             this.colDonGia,
             this.colSoLuongMua});
             this.tblpGiaoDich_BanHang.SetColumnSpan(this.dtgvGioHang, 3);
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvGioHang.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvGioHang.DefaultCellStyle = dataGridViewCellStyle12;
             this.dtgvGioHang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvGioHang.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dtgvGioHang.Location = new System.Drawing.Point(4, 109);
             this.dtgvGioHang.Margin = new System.Windows.Forms.Padding(4);
             this.dtgvGioHang.Name = "dtgvGioHang";
             this.dtgvGioHang.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvGioHang.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvGioHang.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dtgvGioHang.RowHeadersWidth = 51;
             this.dtgvGioHang.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtgvGioHang.RowTemplate.Height = 30;
@@ -1184,7 +1188,7 @@
             this.btnTCSACHID.Name = "btnTCSACHID";
             this.btnTCSACHID.Size = new System.Drawing.Size(136, 49);
             this.btnTCSACHID.TabIndex = 0;
-            this.btnTCSACHID.Text = "Search";
+            this.btnTCSACHID.Text = "Tìm sách";
             this.btnTCSACHID.Click += new System.EventHandler(this.btnTCSACHID_Click);
             // 
             // txtb_TCSACH
@@ -1197,31 +1201,31 @@
             // 
             // dtgvTCSACH
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvTCSACH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvTCSACH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dtgvTCSACH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvTCSACH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaSach,
-            this.TieuDe,
-            this.DonGia,
-            this.SoLuong,
-            this.TenTG,
-            this.TheLoai,
-            this.NXB});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvTCSACH.DefaultCellStyle = dataGridViewCellStyle5;
+            this.MaSachS,
+            this.TieuDeS,
+            this.DonGiaS,
+            this.SoLuongS,
+            this.TenTGS,
+            this.TheLoaiS,
+            this.NXBS});
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvTCSACH.DefaultCellStyle = dataGridViewCellStyle15;
             this.dtgvTCSACH.Location = new System.Drawing.Point(7, 138);
             this.dtgvTCSACH.Name = "dtgvTCSACH";
             this.dtgvTCSACH.ReadOnly = true;
@@ -1230,69 +1234,6 @@
             this.dtgvTCSACH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvTCSACH.Size = new System.Drawing.Size(1636, 743);
             this.dtgvTCSACH.TabIndex = 0;
-            // 
-            // MaSach
-            // 
-            this.MaSach.Frozen = true;
-            this.MaSach.HeaderText = "Mã sách";
-            this.MaSach.MinimumWidth = 6;
-            this.MaSach.Name = "MaSach";
-            this.MaSach.ReadOnly = true;
-            this.MaSach.Width = 125;
-            // 
-            // TieuDe
-            // 
-            this.TieuDe.Frozen = true;
-            this.TieuDe.HeaderText = "Tiêu đề";
-            this.TieuDe.MinimumWidth = 6;
-            this.TieuDe.Name = "TieuDe";
-            this.TieuDe.ReadOnly = true;
-            this.TieuDe.Width = 125;
-            // 
-            // DonGia
-            // 
-            this.DonGia.Frozen = true;
-            this.DonGia.HeaderText = "Đơn giá";
-            this.DonGia.MinimumWidth = 6;
-            this.DonGia.Name = "DonGia";
-            this.DonGia.ReadOnly = true;
-            this.DonGia.Width = 125;
-            // 
-            // SoLuong
-            // 
-            this.SoLuong.Frozen = true;
-            this.SoLuong.HeaderText = "Số lượng";
-            this.SoLuong.MinimumWidth = 6;
-            this.SoLuong.Name = "SoLuong";
-            this.SoLuong.ReadOnly = true;
-            this.SoLuong.Width = 125;
-            // 
-            // TenTG
-            // 
-            this.TenTG.Frozen = true;
-            this.TenTG.HeaderText = "Tên tác giả";
-            this.TenTG.MinimumWidth = 6;
-            this.TenTG.Name = "TenTG";
-            this.TenTG.ReadOnly = true;
-            this.TenTG.Width = 125;
-            // 
-            // TheLoai
-            // 
-            this.TheLoai.Frozen = true;
-            this.TheLoai.HeaderText = "Thể loại";
-            this.TheLoai.MinimumWidth = 6;
-            this.TheLoai.Name = "TheLoai";
-            this.TheLoai.ReadOnly = true;
-            this.TheLoai.Width = 125;
-            // 
-            // NXB
-            // 
-            this.NXB.Frozen = true;
-            this.NXB.HeaderText = "NXB";
-            this.NXB.MinimumWidth = 6;
-            this.NXB.Name = "NXB";
-            this.NXB.ReadOnly = true;
-            this.NXB.Width = 125;
             // 
             // pageTC_TG
             // 
@@ -1322,7 +1263,7 @@
             this.btnTCTG.Name = "btnTCTG";
             this.btnTCTG.Size = new System.Drawing.Size(207, 57);
             this.btnTCTG.TabIndex = 1;
-            this.btnTCTG.Text = "Search Author";
+            this.btnTCTG.Text = "Tìm tác giả";
             this.btnTCTG.UseVisualStyleBackColor = true;
             this.btnTCTG.Click += new System.EventHandler(this.btnTCTG_Click);
             // 
@@ -1401,6 +1342,32 @@
             this.pageTC_NXB.Text = "TC_NXB";
             this.pageTC_NXB.UseVisualStyleBackColor = true;
             // 
+            // dtgvTCNXB
+            // 
+            this.dtgvTCNXB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvTCNXB.Location = new System.Drawing.Point(4, 102);
+            this.dtgvTCNXB.Name = "dtgvTCNXB";
+            this.dtgvTCNXB.RowHeadersWidth = 51;
+            this.dtgvTCNXB.RowTemplate.Height = 24;
+            this.dtgvTCNXB.Size = new System.Drawing.Size(1111, 640);
+            this.dtgvTCNXB.TabIndex = 2;
+            // 
+            // btnTCNXB
+            // 
+            this.btnTCNXB.Location = new System.Drawing.Point(371, 21);
+            this.btnTCNXB.Name = "btnTCNXB";
+            this.btnTCNXB.Size = new System.Drawing.Size(174, 67);
+            this.btnTCNXB.TabIndex = 1;
+            this.btnTCNXB.Text = "Tìm nhà xuất bản";
+            this.btnTCNXB.UseVisualStyleBackColor = true;
+            // 
+            // txtbTCNXB
+            // 
+            this.txtbTCNXB.Location = new System.Drawing.Point(37, 43);
+            this.txtbTCNXB.Name = "txtbTCNXB";
+            this.txtbTCNXB.Size = new System.Drawing.Size(236, 22);
+            this.txtbTCNXB.TabIndex = 0;
+            // 
             // pageTCTL
             // 
             this.pageTCTL.Controls.Add(this.btnTCTL);
@@ -1414,6 +1381,25 @@
             this.pageTCTL.TabIndex = 17;
             this.pageTCTL.Text = "TC_TheLoai";
             this.pageTCTL.UseVisualStyleBackColor = true;
+            // 
+            // btnTCTL
+            // 
+            this.btnTCTL.Location = new System.Drawing.Point(377, 14);
+            this.btnTCTL.Name = "btnTCTL";
+            this.btnTCTL.Size = new System.Drawing.Size(208, 66);
+            this.btnTCTL.TabIndex = 2;
+            this.btnTCTL.Text = "Tìm kiếm thể loại";
+            this.btnTCTL.UseVisualStyleBackColor = true;
+            // 
+            // dtgvTCTL
+            // 
+            this.dtgvTCTL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvTCTL.Location = new System.Drawing.Point(4, 96);
+            this.dtgvTCTL.Name = "dtgvTCTL";
+            this.dtgvTCTL.RowHeadersWidth = 51;
+            this.dtgvTCTL.RowTemplate.Height = 24;
+            this.dtgvTCTL.Size = new System.Drawing.Size(1435, 785);
+            this.dtgvTCTL.TabIndex = 1;
             // 
             // txtbTCTL
             // 
@@ -1435,6 +1421,38 @@
             this.pageTC_VPP.TabIndex = 18;
             this.pageTC_VPP.Text = "TC_VPP";
             this.pageTC_VPP.UseVisualStyleBackColor = true;
+            // 
+            // dtgvTCVPP
+            // 
+            this.dtgvTCVPP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvTCVPP.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaHangVPP,
+            this.TenHangVPP,
+            this.DonGiaVPP,
+            this.SoLuongVPP});
+            this.dtgvTCVPP.Location = new System.Drawing.Point(2, 84);
+            this.dtgvTCVPP.Name = "dtgvTCVPP";
+            this.dtgvTCVPP.RowHeadersWidth = 51;
+            this.dtgvTCVPP.RowTemplate.Height = 24;
+            this.dtgvTCVPP.Size = new System.Drawing.Size(1492, 797);
+            this.dtgvTCVPP.TabIndex = 2;
+            // 
+            // txtbTCVPP
+            // 
+            this.txtbTCVPP.Location = new System.Drawing.Point(28, 25);
+            this.txtbTCVPP.Name = "txtbTCVPP";
+            this.txtbTCVPP.Size = new System.Drawing.Size(221, 22);
+            this.txtbTCVPP.TabIndex = 1;
+            // 
+            // btnTCVPP
+            // 
+            this.btnTCVPP.Location = new System.Drawing.Point(319, 9);
+            this.btnTCVPP.Name = "btnTCVPP";
+            this.btnTCVPP.Size = new System.Drawing.Size(209, 55);
+            this.btnTCVPP.TabIndex = 0;
+            this.btnTCVPP.Text = "Tìm kiếm văn phòng phẩm";
+            this.btnTCVPP.UseVisualStyleBackColor = true;
+            this.btnTCVPP.Click += new System.EventHandler(this.btnTCVPP_Click);
             // 
             // pageCD_MK
             // 
@@ -1598,76 +1616,104 @@
             this.btnBaoCao.UseVisualStyleBackColor = false;
             this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
             // 
-            // txtbTCNXB
+            // MaHangVPP
             // 
-            this.txtbTCNXB.Location = new System.Drawing.Point(37, 43);
-            this.txtbTCNXB.Name = "txtbTCNXB";
-            this.txtbTCNXB.Size = new System.Drawing.Size(236, 22);
-            this.txtbTCNXB.TabIndex = 0;
+            this.MaHangVPP.Frozen = true;
+            this.MaHangVPP.HeaderText = "Mã hàng";
+            this.MaHangVPP.MinimumWidth = 6;
+            this.MaHangVPP.Name = "MaHangVPP";
+            this.MaHangVPP.ReadOnly = true;
+            this.MaHangVPP.Width = 125;
             // 
-            // btnTCNXB
+            // TenHangVPP
             // 
-            this.btnTCNXB.Location = new System.Drawing.Point(371, 21);
-            this.btnTCNXB.Name = "btnTCNXB";
-            this.btnTCNXB.Size = new System.Drawing.Size(174, 67);
-            this.btnTCNXB.TabIndex = 1;
-            this.btnTCNXB.Text = "Tìm nhà xuất bản";
-            this.btnTCNXB.UseVisualStyleBackColor = true;
+            this.TenHangVPP.Frozen = true;
+            this.TenHangVPP.HeaderText = "Tên hàng";
+            this.TenHangVPP.MinimumWidth = 6;
+            this.TenHangVPP.Name = "TenHangVPP";
+            this.TenHangVPP.ReadOnly = true;
+            this.TenHangVPP.Width = 125;
             // 
-            // dtgvTCNXB
+            // DonGiaVPP
             // 
-            this.dtgvTCNXB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvTCNXB.Location = new System.Drawing.Point(4, 102);
-            this.dtgvTCNXB.Name = "dtgvTCNXB";
-            this.dtgvTCNXB.RowHeadersWidth = 51;
-            this.dtgvTCNXB.RowTemplate.Height = 24;
-            this.dtgvTCNXB.Size = new System.Drawing.Size(1111, 640);
-            this.dtgvTCNXB.TabIndex = 2;
+            this.DonGiaVPP.Frozen = true;
+            this.DonGiaVPP.HeaderText = "Đơn giá";
+            this.DonGiaVPP.MinimumWidth = 6;
+            this.DonGiaVPP.Name = "DonGiaVPP";
+            this.DonGiaVPP.ReadOnly = true;
+            this.DonGiaVPP.Width = 125;
             // 
-            // dtgvTCTL
+            // SoLuongVPP
             // 
-            this.dtgvTCTL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvTCTL.Location = new System.Drawing.Point(4, 96);
-            this.dtgvTCTL.Name = "dtgvTCTL";
-            this.dtgvTCTL.RowHeadersWidth = 51;
-            this.dtgvTCTL.RowTemplate.Height = 24;
-            this.dtgvTCTL.Size = new System.Drawing.Size(1435, 785);
-            this.dtgvTCTL.TabIndex = 1;
+            this.SoLuongVPP.Frozen = true;
+            this.SoLuongVPP.HeaderText = "Số lượng";
+            this.SoLuongVPP.MinimumWidth = 6;
+            this.SoLuongVPP.Name = "SoLuongVPP";
+            this.SoLuongVPP.ReadOnly = true;
+            this.SoLuongVPP.Width = 125;
             // 
-            // btnTCTL
+            // MaSachS
             // 
-            this.btnTCTL.Location = new System.Drawing.Point(377, 14);
-            this.btnTCTL.Name = "btnTCTL";
-            this.btnTCTL.Size = new System.Drawing.Size(208, 66);
-            this.btnTCTL.TabIndex = 2;
-            this.btnTCTL.Text = "Tìm kiếm thể loại";
-            this.btnTCTL.UseVisualStyleBackColor = true;
+            this.MaSachS.Frozen = true;
+            this.MaSachS.HeaderText = "Mã sách";
+            this.MaSachS.MinimumWidth = 6;
+            this.MaSachS.Name = "MaSachS";
+            this.MaSachS.ReadOnly = true;
+            this.MaSachS.Width = 125;
             // 
-            // btnTCVPP
+            // TieuDeS
             // 
-            this.btnTCVPP.Location = new System.Drawing.Point(319, 9);
-            this.btnTCVPP.Name = "btnTCVPP";
-            this.btnTCVPP.Size = new System.Drawing.Size(209, 55);
-            this.btnTCVPP.TabIndex = 0;
-            this.btnTCVPP.Text = "Tìm kiếm văn phòng phẩm";
-            this.btnTCVPP.UseVisualStyleBackColor = true;
+            this.TieuDeS.Frozen = true;
+            this.TieuDeS.HeaderText = "Tiêu đề";
+            this.TieuDeS.MinimumWidth = 6;
+            this.TieuDeS.Name = "TieuDeS";
+            this.TieuDeS.ReadOnly = true;
+            this.TieuDeS.Width = 125;
             // 
-            // txtbTCVPP
+            // DonGiaS
             // 
-            this.txtbTCVPP.Location = new System.Drawing.Point(28, 25);
-            this.txtbTCVPP.Name = "txtbTCVPP";
-            this.txtbTCVPP.Size = new System.Drawing.Size(221, 22);
-            this.txtbTCVPP.TabIndex = 1;
+            this.DonGiaS.Frozen = true;
+            this.DonGiaS.HeaderText = "Đơn giá";
+            this.DonGiaS.MinimumWidth = 6;
+            this.DonGiaS.Name = "DonGiaS";
+            this.DonGiaS.ReadOnly = true;
+            this.DonGiaS.Width = 125;
             // 
-            // dtgvTCVPP
+            // SoLuongS
             // 
-            this.dtgvTCVPP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvTCVPP.Location = new System.Drawing.Point(2, 84);
-            this.dtgvTCVPP.Name = "dtgvTCVPP";
-            this.dtgvTCVPP.RowHeadersWidth = 51;
-            this.dtgvTCVPP.RowTemplate.Height = 24;
-            this.dtgvTCVPP.Size = new System.Drawing.Size(1492, 797);
-            this.dtgvTCVPP.TabIndex = 2;
+            this.SoLuongS.Frozen = true;
+            this.SoLuongS.HeaderText = "Số lượng";
+            this.SoLuongS.MinimumWidth = 6;
+            this.SoLuongS.Name = "SoLuongS";
+            this.SoLuongS.ReadOnly = true;
+            this.SoLuongS.Width = 125;
+            // 
+            // TenTGS
+            // 
+            this.TenTGS.Frozen = true;
+            this.TenTGS.HeaderText = "Tên tác giả";
+            this.TenTGS.MinimumWidth = 6;
+            this.TenTGS.Name = "TenTGS";
+            this.TenTGS.ReadOnly = true;
+            this.TenTGS.Width = 125;
+            // 
+            // TheLoaiS
+            // 
+            this.TheLoaiS.Frozen = true;
+            this.TheLoaiS.HeaderText = "Thể loại";
+            this.TheLoaiS.MinimumWidth = 6;
+            this.TheLoaiS.Name = "TheLoaiS";
+            this.TheLoaiS.ReadOnly = true;
+            this.TheLoaiS.Width = 125;
+            // 
+            // NXBS
+            // 
+            this.NXBS.Frozen = true;
+            this.NXBS.HeaderText = "NXB";
+            this.NXBS.MinimumWidth = 6;
+            this.NXBS.Name = "NXBS";
+            this.NXBS.ReadOnly = true;
+            this.NXBS.Width = 125;
             // 
             // FMain
             // 
@@ -1717,14 +1763,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTCTG)).EndInit();
             this.pageTC_NXB.ResumeLayout(false);
             this.pageTC_NXB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvTCNXB)).EndInit();
             this.pageTCTL.ResumeLayout(false);
             this.pageTCTL.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvTCTL)).EndInit();
             this.pageTC_VPP.ResumeLayout(false);
             this.pageTC_VPP.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvTCNXB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvTCTL)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTCVPP)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1817,13 +1863,6 @@
         private System.Windows.Forms.TabPage pageBC_DoanhThu;
         private System.Windows.Forms.TabPage pageBC_LuongNV;
         public System.Windows.Forms.DataGridView dtgvTCSACH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaSach;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TieuDe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DonGia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenTG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TheLoai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NXB;
         private System.Windows.Forms.DataGridView dtgvTCTG;
         private System.Windows.Forms.TextBox txtbTCTG;
         private System.Windows.Forms.Button btnTCTG;
@@ -1841,5 +1880,16 @@
         private System.Windows.Forms.DataGridView dtgvTCVPP;
         private System.Windows.Forms.TextBox txtbTCVPP;
         private System.Windows.Forms.Button btnTCVPP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaHangVPP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenHangVPP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DonGiaVPP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongVPP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaSachS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TieuDeS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DonGiaS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenTGS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TheLoaiS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NXBS;
     }
 }
