@@ -130,47 +130,47 @@ GO
 
 INSERT dbo.VAN_PHONG_PHAM(MaHang, TenHang)
 VALUES
-('TL-079', 'Bút bi Thiên Long TL-079'), -- Bút bi thiên long 
-('TL-089', 'Bút bi Thiên Long TL-089'),
-('TL-090', 'Bút bi Thiên Long TL-090'),
-('TL-093', 'Bút bi Thiên Long TL-093'),
-('TL-095', 'Bút bi Thiên Long TL-095'),
-('TL-097', 'Bút bi Thiên Long TL-097'),
-('TL-008', 'Bút bi Thiên Long TL-008'),
-('SR-002', 'Thước kẻ Thiên Long nhựa cứng 15cm'), -- Thước kẻ
-('SR-003', 'Thước kẻ Thiên Long nhựa cứng 20cm'),
-('SR-024', 'Thước kẻ Thiên Long nhựa dẻo 20cm'),
-('SR-026', 'Thước kẻ Thiên Long nhựa cứng 50cm'),
-('SR-031', 'Thước kẻ Thiên Long nhựa cứng 30cm'),
-('GP-027', 'Bút chì gỗ 2B lục giác'), -- Bút chì gỗ 2B
-('GP-026', 'Bút chì gỗ HB lục giác'), -- HB
-('GP-025', 'Bút chì gỗ 6B lục giác'), -- 6B
-('GP-024', 'Bút chì gỗ 5B lục giác'), -- 5B
-('GP-023', 'Bút chì gỗ 4B lục giác'), -- 4B
-('GP-022', 'Bút chì gỗ 3B lục giác'), -- 3B
-('GP-020', 'Bút chì gỗ 2B lục giác'), -- 2B
-('GP-018', 'Bút chì gỗ 2B tam giác'), -- 2B
-('GP-016', 'Bút chì gỗ HB tam giác'), -- HB
-('GP-004', 'Bút chì gỗ HB lục giác'), -- HB
-('PC-024', 'Bút chì bấm HB 0.05mm'), -- Bút chì bấm HB
-('PC-026', 'Bút chì bấm 2B 0.5mm'), -- Bút chì bấm 2B
-('PC-018', 'Bút chì bấm HB 0.07mm'), -- HB
-('NB-096', 'Tập học sinh kẻ ngang 200 trang'), -- Tập học sinh
-('NB-095', 'Tập học sinh kẻ ngang 98 trang'),
-('NB-094', 'Tập học sinh kẻ ô 200 trang'),
-('NB-066', 'Tập học sinh kẻ ô 98 trang'),
-('NB-061', 'Tập học sinh kẻ ô 98 trang'),
-('NB-053', 'Tập học sinh kẻ ô 98 trang'),
-('NB-039', 'Tập học sinh kẻ ô 98 trang'),
-('E-033', 'Gôm hình Pikachu'), -- Gôm
-('E-032', 'Gôm hình gấu Pooh'),
-('E-031', 'Gôm hình BlackPink'),
-('E-026', 'Gôm hình Pikachu'),
-('E-010', 'Gôm hình Bạch Tuyết'),
-('E-011', 'Gôm hình Gấu Lotso'),
-('E-030', 'Gôm hình Buzz Lightyear'),
-('E-028', 'Gôm vệ sinh LifeBouy'),
-('E-029', 'Gôm hình Doraemon')
+('TL-079', N'Bút bi Thiên Long TL-079'), -- Bút bi thiên long 
+('TL-089', N'Bút bi Thiên Long TL-089'),
+('TL-090', N'Bút bi Thiên Long TL-090'),
+('TL-093', N'Bút bi Thiên Long TL-093'),
+('TL-095', N'Bút bi Thiên Long TL-095'),
+('TL-097', N'Bút bi Thiên Long TL-097'),
+('TL-008', N'Bút bi Thiên Long TL-008'),
+('SR-002', N'Thước kẻ Thiên Long nhựa cứng 15cm'), -- Thước kẻ
+('SR-003', N'Thước kẻ Thiên Long nhựa cứng 20cm'),
+('SR-024', N'Thước kẻ Thiên Long nhựa dẻo 20cm'),
+('SR-026', N'Thước kẻ Thiên Long nhựa cứng 50cm'),
+('SR-031', N'Thước kẻ Thiên Long nhựa cứng 30cm'),
+('GP-027', N'Bút chì gỗ 2B lục giác'), -- Bút chì gỗ 2B
+('GP-026', N'Bút chì gỗ HB lục giác'), -- HB
+('GP-025', N'Bút chì gỗ 6B lục giác'), -- 6B
+('GP-024', N'Bút chì gỗ 5B lục giác'), -- 5B
+('GP-023', N'Bút chì gỗ 4B lục giác'), -- 4B
+('GP-022', N'Bút chì gỗ 3B lục giác'), -- 3B
+('GP-020', N'Bút chì gỗ 2B lục giác'), -- 2B
+('GP-018', N'Bút chì gỗ 2B tam giác'), -- 2B
+('GP-016', N'Bút chì gỗ HB tam giác'), -- HB
+('GP-004', N'Bút chì gỗ HB lục giác'), -- HB
+('PC-024', N'Bút chì bấm HB 0.05mm'), -- Bút chì bấm HB
+('PC-026', N'Bút chì bấm 2B 0.5mm'), -- Bút chì bấm 2B
+('PC-018', N'Bút chì bấm HB 0.07mm'), -- HB
+('NB-096', N'Tập học sinh kẻ ngang 200 trang'), -- Tập học sinh
+('NB-095', N'Tập học sinh kẻ ngang 98 trang'),
+('NB-094', N'Tập học sinh kẻ ô 200 trang'),
+('NB-066', N'Tập học sinh kẻ ô 98 trang'),
+('NB-061', N'Tập học sinh kẻ ô 98 trang'),
+('NB-053', N'Tập học sinh kẻ ô 98 trang'),
+('NB-039', N'Tập học sinh kẻ ô 98 trang'),
+('E-033', N'Gôm hình Pikachu'), -- Gôm
+('E-032', N'Gôm hình gấu Pooh'),
+('E-031', N'Gôm hình BlackPink'),
+('E-026', N'Gôm hình Pikachu'),
+('E-010', N'Gôm hình Bạch Tuyết'),
+('E-011', N'Gôm hình Gấu Lotso'),
+('E-030', N'Gôm hình Buzz Lightyear'),
+('E-028', N'Gôm vệ sinh LifeBouy'),
+('E-029', N'Gôm hình Doraemon')
 GO
 
 INSERT dbo.SACH(MaSach, TieuDe, MaNXB, NamXB)
@@ -347,11 +347,11 @@ GO
 
 INSERT dbo.THE_LOAI (MaLoai, TenLoai)
 VALUES
-('TT','Tiểu thuyết'),
-('TTr','Truyện tranh'),
-('KD','Kinh doanh'),
-('SGK','Sách giáo khoa'),
-('NN','Ngoại ngữ')
+('TT', N'Tiểu thuyết'),
+('TTr',N'Truyện tranh'),
+('KD',N'Kinh doanh'),
+('SGK',N'Sách giáo khoa'),
+('NN',N'Ngoại ngữ')
 GO
 
 INSERT dbo.THE_LOAI_SACH (MaSach, MaLoai)
@@ -433,7 +433,7 @@ GO
 
 INSERT dbo.NHAN_VIEN(MaNV, CMND, Ho, TenLot, Ten, GioiTinh, Luong, TinhTrangLamViec)
 VALUES
-('NV-001', '045203001353', N'Nguyễn', N'Văn', 'Vũ', N'Nam', 4000000, 1),
+('NV-001', '045203001353', N'Nguyễn', N'Văn', N'Vũ', N'Nam', 4000000, 1),
 ('NV-002', '014201003245', N'Hoàng', N'Ngọc Quang', N'Minh', N'Nam',4500000, 1),
 ('NV-003', '045302001521', N'Nguyễn', N'Trần Bảo', N'Ngọc', N'Nữ', 4500000, 1),
 ('NV-004', '035301003241', N'Trần', N'Thị', N'Nghỉ', N'Nữ', 3500000, 1),
