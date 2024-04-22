@@ -28,6 +28,7 @@ namespace DBMS_BookStore
         HangHoaDAO hanghoaDAO = new HangHoaDAO();
         TraCuuDAO traCuuDAO = new TraCuuDAO();
         HoaDonBanDAO hoaDonBanDAO = new HoaDonBanDAO();
+        HoaDonNhapDAO hoaDonNhapDAO = new HoaDonNhapDAO();
         public FMain(Employee nv)
         {
             InitializeComponent();
@@ -377,7 +378,6 @@ namespace DBMS_BookStore
                     tlplGD_NHContainer4.Visible = true;
                     tlplGD_NHContainer7.Visible = true;
                     tlplGD_NHContainer5.Visible = true;
-
                     break;
                 case 1:
                     tlplGD_NHContainer4.Visible = false;
@@ -385,6 +385,15 @@ namespace DBMS_BookStore
                     tlplGD_NHContainer5.Visible = false;
                     break;
             }
+            txbMaHangNhap.Text = string.Empty;
+            txbTenHangNhap.Text = string.Empty;
+            txbDonGiaNhap.Text = string.Empty;
+            txbTacGiaNhap.Text = string.Empty;
+            txbTheLoaiNhap.Text = string.Empty;
+            txbNXBNhap.Text = string.Empty;
+            txbSoLuongCon_Nhap.Text = "0";
+
+            txbMaHangNhap.Focus();
         }
         private void txbMaHangNhap_TextChanged(object sender, EventArgs e)
         {
@@ -417,6 +426,7 @@ namespace DBMS_BookStore
                 txbTacGiaNhap.Text = string.Empty;
                 txbTheLoaiNhap.Text = string.Empty;
                 txbNXBNhap.Text = string.Empty;
+                txbSoLuongCon_Nhap.Text = "0";
             }
         }
 
@@ -429,12 +439,30 @@ namespace DBMS_BookStore
                                      (int)numSoLuongNhap.Value,
                                      txbTacGiaNhap.Text, txbNXBNhap.Text, txbTheLoaiNhap.Text
                                      );
+                foreach(HangHoa item in dsHangNhap)
+                {
+                    if(item.MaHang == sach.MaHang)
+                    {
+                        item.SoLuongNhap += sach.SoLuongNhap;
+                        LoadDTGVNhap();
+                        return;
+                    }
+                }
                 dsHangNhap.Add(sach);
             }
             else if(cbbLoaiHangNhap.SelectedIndex == 1)
             {
                 // VPP nhap
                 HangHoa vpp = new HangHoa(txbMaHangNhap.Text, txbTenHangNhap.Text, int.Parse(txbDonGiaNhap.Text), (int)numSoLuongNhap.Value);
+                foreach (HangHoa item in dsHangNhap)
+                {
+                    if (item.MaHang == vpp.MaHang)
+                    {
+                        item.SoLuongNhap += vpp.SoLuongNhap;
+                        LoadDTGVNhap();
+                        return;
+                    }
+                }
                 dsHangNhap.Add(vpp);
             }
             LoadDTGVNhap();
@@ -442,6 +470,48 @@ namespace DBMS_BookStore
 
         private void LoadDTGVNhap()
         {
+            dtgvNhapHang.Rows.Clear();
+            foreach (HangHoa item in dsHangNhap)
+            {
+                dtgvNhapHang.Rows.Add(item.MaHang, item.TenHang, item.DonGia, item.SoLuongNhap);
+            }
+        }
+        private void btnSuaHangNhap_Click(object sender, EventArgs e)
+        {
+            string selectedID = dtgvNhapHang.SelectedRows[0].Cells[0].Value.ToString();
+            foreach (HangHoa item in dsHangNhap)
+            {
+                if (item.MaHang == selectedID)
+                {
+                    item.SoLuongNhap = (int)numSoLuongNhap.Value;
+                    LoadDTGVNhap();
+                    return;
+                }
+            }
+        }
+        private void btnXoaHangNhap_Click(object sender, EventArgs e)
+        {
+            string selectedID = dtgvNhapHang.SelectedRows[0].Cells[0].Value.ToString();
+            foreach (HangHoa item in dsHangNhap)
+            {
+                if (item.MaHang == selectedID)
+                {
+                    dsHangNhap.Remove(item);
+                    LoadDTGVNhap();
+                    return;
+                }
+            }
+        }
+        private void btnXacNhanNhapHang_Click(object sender, EventArgs e)
+        {
+            string maDonNhap = hoaDonNhapDAO.GetMaDonNhap();
+            foreach(HangHoa item in dsHangNhap)
+            {
+                hoaDonNhapDAO.InsertNhapHang(maDonNhap, nv.MaNV, item);
+            }
+            dsHangNhap.Clear();
+            txbMaHangNhap.Text = string.Empty;
+            LoadDTGVNhap();
         }
 
         private void btnNhapHangQuayLaiGiaoDich_Click(object sender, EventArgs e)
