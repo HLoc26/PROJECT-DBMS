@@ -28,7 +28,7 @@ namespace DBMS_BookStore
             txtCustomerDoB.Text = kh.NgaySinh.ToString();
             txtCustomerGender.Text = kh.GioiTinh;
             txtMembershipID.Text = kh.ThanhVien.MaThe;
-            txtCustomerLevel.Text = kh.ThanhVien.SoDiem.ToString;
+            txtCustomerLevel.Text = kh.ThanhVien.SoDiem.ToString();
 
         }
         private void btnCustomerID_Click(object sender, EventArgs e)
