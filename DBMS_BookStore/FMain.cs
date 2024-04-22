@@ -516,13 +516,6 @@ namespace DBMS_BookStore
                 dtgvTCTG.Rows.Add(row["MaSach"], row["tenTG"], row["TieuDe"], row["DonGia"], row["TenLoai"]);
             }
         }
-
-
-
-
-
-
-
         #endregion
 
         #region 17. Tra cứu - NXB
