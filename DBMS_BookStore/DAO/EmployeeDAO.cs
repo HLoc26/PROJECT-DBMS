@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -66,6 +67,14 @@ namespace DBMS_BookStore.DAO
             
             string maNV = (string)db.ExecuteScalar(cmd);
             return maNV;
+        }
+        //Tìm kiếm bằng mã nv hoặc bằng tên nhân viên
+        public DataTable SearchNhanVienByMaNVOrTen(string input)
+        {
+            SqlCommand sqlCommand = new SqlCommand("SearchNhanVienByMaNVOrTen");
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@Input", input);
+            return db.ExecuteQuery(sqlCommand);
         }
     }
 }

@@ -20,6 +20,7 @@ namespace DBMS_BookStore
     {
         // Thông tin của NV đăng nhập vào phiên hiện tại
         Employee nv;
+        EmployeeDAO employeeDAO= new EmployeeDAO();
 
         HangHoaDAO hanghoaDAO = new HangHoaDAO();
         TraCuuDAO traCuuDAO = new TraCuuDAO();
@@ -155,7 +156,10 @@ namespace DBMS_BookStore
         #endregion
 
         #region 3. Báo cáo (thống kê)
-        // Code here
+        private void btnBaoCaoNhanVien_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[24];
+        }
         #endregion
 
         #region 4.Giao Dịch - Bán Hàng
@@ -397,6 +401,7 @@ namespace DBMS_BookStore
             }
         }
 
+
         #endregion
 
         #region 20. Cài đặt - Đổi MK (nv hiện tại đổi mk của mình)
@@ -408,7 +413,23 @@ namespace DBMS_BookStore
         #endregion
 
         #region 22. Cài đặt - Xem thông tin NV (Chỉ admin mới sửa được)
-        // Code here
+        private void btnTCNV_Click(object sender, EventArgs e)
+        {
+            string input = txtbTCNV.Text; // Assuming txtInput is the TextBox for input
+
+            // Call SearchNhanVienByMaNVOrTen method to retrieve data of employees
+            DataTable nhanVienData = employeeDAO.SearchNhanVienByMaNVOrTen(input);
+
+            // Clear existing rows in the DataGridView
+            dtgvTCNV.Rows.Clear();
+
+            // Add rows to the DataGridView based on the DataTable
+            foreach (DataRow row in nhanVienData.Rows)
+            {
+                dtgvTCNV.Rows.Add(row["MaNV"], row["CMND"], row["Ho"], row["TenLot"], row["Ten"], row["GioiTinh"], row["Luong"], row["TinhTrangLamViec"]);
+            }
+        }
+
         #endregion
 
         #region 23. Báo cáo - Doanh thu
