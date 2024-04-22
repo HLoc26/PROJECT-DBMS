@@ -251,6 +251,16 @@ AS
 	JOIN dbo.THE_LOAI tl ON tl.MaLoai = tl_s.MaLoai
 GO
 
+CREATE VIEW dbo.VIEW_SACH_TG
+AS
+	SELECT s.MaSach, s.TieuDe, nxb.TenNXB, tg.MaTG, tg.TenTG, s.MaNXB
+	FROM
+	dbo.SACH s
+	JOIN dbo.NXB nxb ON nxb.MaNXB = s.MaNXB
+	JOIN dbo.TAC_GIA_SACH tg_s ON tg_s.MaSach = s.MaSach
+	JOIN dbo.TAC_GIA tg ON tg.MaTG = tg_s.MaTG;
+GO
+
 -- VIEW xem thông tin VPP
 CREATE VIEW VIEW_VPP
 AS
@@ -275,6 +285,37 @@ AS
 	SELECT kh.MaKH, kh.Ho, kh.TenLot, kh.Ten, the.MaThe, the.SoDiem --, the.TenBacTV
 	FROM dbo.KHACH_HANG kh JOIN dbo.THE_TV the ON the.MaKH = kh.MaKH
 GO
+
+-- VIEW check sách theo NXB (phục vụ tra cứu NXB)
+CREATE VIEW dbo.VIEW_SACHNXB
+AS
+SELECT s.MaSach, s.TieuDe, tl.TenLoai, nxb.TenNXB, nxb.DiaChi, nxb.SDT
+FROM dbo.SACH s
+JOIN dbo.NXB nxb ON s.MaNXB = nxb.MaNXB
+JOIN dbo.THE_LOAI_SACH tls ON s.MaSach = tls.MaSach
+JOIN dbo.THE_LOAI tl ON tls.MaLoai = tl.MaLoai;
+GO
+
+-- VIEW check table của thể loại sách (phục vụ tra cứu thể loại)
+CREATE VIEW VIEW_THELOAISACH
+AS
+    SELECT s.MaSach, s.TieuDe, tl.TenLoai, tg.TenTG, nxb.TenNXB
+    FROM dbo.SACH s
+    JOIN dbo.THE_LOAI_SACH tls ON s.MaSach = tls.MaSach
+    JOIN dbo.THE_LOAI tl ON tls.MaLoai = tl.MaLoai
+    JOIN dbo.TAC_GIA_SACH tgs ON s.MaSach = tgs.MaSach
+    JOIN dbo.TAC_GIA tg ON tgs.MaTG = tg.MaTG
+    JOIN dbo.NXB nxb ON s.MaNXB = nxb.MaNXB;
+GO
+
+--VIEW xem nhân viên của BAOCAO
+CREATE VIEW dbo.VIEW_NV
+AS
+    SELECT nv.MaNV, nv.CMND, nv.Ho, nv.TenLot, nv.Ten, nv.GioiTinh, nv.Luong, nv.TinhTrangLamViec
+    FROM dbo.NHAN_VIEN nv;
+GO
+
+
 -- ========================================================================================================================== --
 -- ========================================================================================================================== --
 -- =====================================  _____ _   _ _   _  ____ _____ ___ ___  _   _  ===================================== --
@@ -322,6 +363,10 @@ BEGIN
 END;
 GO
 
+ALTER TABLE dbo.THE_TV
+ADD TenBacTV AS dbo.FUNC_Get_TenBac(SoDiem)
+GO
+
 -- Hàm lấy giá trị giảm dựa vào điểm thành viên
 CREATE FUNCTION FUNC_GetDiscount(@MaKH VARCHAR(10))
 RETURNS REAL
@@ -357,6 +402,29 @@ BEGIN
 	RETURN 'HDB-' + FORMAT((SELECT COUNT(MaHoaDon) FROM dbo.HOA_DON_BAN) + 1, '0000')
 END;
 GO
+
+-- Function tạo mã hoá đơn nhập tự động
+CREATE FUNCTION FUNC_Create_MaHoaDonNhap()
+RETURNS VARCHAR(10)
+AS
+BEGIN
+	RETURN 'HDN-' + FORMAT((SELECT COUNT(MaDonNhap) FROM dbo.HOA_DON_NHAP) + 1, '0000')
+END;
+GO
+
+-- Function trả về thông tin sách
+CREATE FUNCTION FUNC_Get_TTSach(@MaSach VARCHAR(20))
+RETURNS TABLE
+AS
+	RETURN (SELECT * FROM dbo.VIEW_SACH WHERE MaSach = @MaSach)
+GO
+
+-- Function trả về thông tin VPP
+CREATE FUNCTION FUNC_Get_TTVPP(@MaHang VARCHAR(20))
+RETURNS TABLE
+AS
+	RETURN (SELECT * FROM dbo.VIEW_VPP WHERE MaHang = @MaHang)
+GO	
 
 -- =========================================================================================================================== --
 -- =========================================================================================================================== --
@@ -467,6 +535,79 @@ BEGIN
 	BEGIN
 		SELECT * FROM VIEW_SACH WHERE MaSach = @MaHang
 	END
+END;
+GO
+
+--PROCEDURE lấy sách rồi cho ra bảng kq
+CREATE PROCEDURE SearchSACHByMaHang
+    @MaHang VARCHAR(20)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT s.MaSach, s.TieuDe, hh.DonGia, hh.SoLuong, tg.TenTG, tl.TenLoai, nxb.TenNXB
+    FROM dbo.SACH s
+    JOIN dbo.HANG_HOA hh ON s.MaSach = hh.MaHang
+    JOIN dbo.NXB nxb ON nxb.MaNXB = s.MaNXB
+    JOIN dbo.TAC_GIA_SACH tg_s ON tg_s.MaSach = s.MaSach
+    JOIN dbo.TAC_GIA tg ON tg.MaTG = tg_s.MaTG
+    JOIN dbo.THE_LOAI_SACH tl_s ON tl_s.MaSach = s.MaSach 
+    JOIN dbo.THE_LOAI tl ON tl.MaLoai = tl_s.MaLoai
+    WHERE s.MaSach = @MaHang;
+END;
+
+-- PROCEDURE tra cứu văn phòng phẩm theo mã hàng
+CREATE PROCEDURE SearchBooksByAuthor
+    @tenTG VARCHAR(20)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT MaSach, tenTG, TieuDe, DonGia, TenLoai 
+    FROM dbo.VIEW_SACH 
+    WHERE tenTG = @tenTG;
+END;
+GO
+-- PROCEDURE tra cứu văn phòng phẩm theo mã hàng
+CREATE PROCEDURE SearchVPPByMaHang
+    @MaHang VARCHAR(20)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT MaHang, TenHang, DonGia, SoLuong
+    FROM VIEW_VPP
+    WHERE MaHang = @MaHang;
+END;
+GO
+
+--Kiểm tra input nếu tìm thấy bằng mã nhân viên hoặc tên nv
+CREATE PROCEDURE SearchNhanVienByMaNVOrTen
+    @Input NVARCHAR(100)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    DECLARE @FoundMaNV NVARCHAR(20);
+    DECLARE @FoundTen NVARCHAR(100);
+    -- Check if the input is MaNV
+    SELECT @FoundMaNV = MaNV
+    FROM NHAN_VIEN
+    WHERE MaNV = @Input;
+    -- Check if the input is Ten
+    SELECT @FoundTen = Ten
+    FROM NHAN_VIEN
+    WHERE Ten = @Input;
+    -- Return the employee information if either MaNV or Ten is found
+    IF @FoundMaNV IS NOT NULL OR @FoundTen IS NOT NULL
+    BEGIN
+        SELECT *
+        FROM VIEW_NV
+        WHERE MaNV = @FoundMaNV OR Ten = @FoundTen;
+    END
+    ELSE
+    BEGIN
+        -- If neither MaNV nor Ten matches the input, return an empty result set
+        SELECT *
+        FROM VIEW_NV
+        WHERE 1 = 0; -- This condition ensures an empty result set
+    END
 END;
 GO
 
