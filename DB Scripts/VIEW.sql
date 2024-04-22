@@ -40,3 +40,10 @@ AS
 	dbo.HANG_HOA hh LEFT JOIN dbo.SACH s ON s.MaSach = hh.MaHang
 	LEFT JOIN dbo.VAN_PHONG_PHAM vpp ON vpp.MaHang = hh.MaHang
 GO
+
+-- View kiểm tra khách hàng có bao nhiêu điểm thành viên
+CREATE VIEW VIEW_KH_DiemTV
+AS
+	SELECT kh.MaKH, kh.Ho, kh.TenLot, kh.Ten, the.MaThe, the.SoDiem, the.TenBacTV
+	FROM dbo.KHACH_HANG kh JOIN dbo.THE_TV the ON the.MaKH = kh.MaKH
+GO

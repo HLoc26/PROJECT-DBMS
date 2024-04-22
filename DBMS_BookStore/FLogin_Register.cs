@@ -51,10 +51,13 @@ namespace DBMS_BookStore
             if (employee != null)
             {
                 // Open main form here
-                MessageBox.Show("Login Success\n" + employee.ToString(), "Login Success");
+                // MessageBox.Show("Login Success\n" + employee.ToString(), "Login Success");
                 FMain main = new FMain(employee);
                 Hide();
                 main.ShowDialog();
+                txbUsername.Text = "";
+                txbPassword.Text = "";
+                txbUsername.Focus();
                 Show();
             }
             else

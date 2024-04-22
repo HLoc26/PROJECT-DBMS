@@ -52,9 +52,13 @@
     <Compile Include="DAO\DBConnection.cs" />
     <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\HangHoaDAO.cs" />
+    <Compile Include="DAO\HoaDonBanDAO.cs" />
     <Compile Include="DAO\KhachHangDAO.cs" />
     <Compile Include="DAO\TraCuuDAO.cs" />
     <Compile Include="DTO\Employee.cs" />
+    <Compile Include="DTO\HangHoa.cs" />
+    <Compile Include="DTO\Sach.cs" />
+    <Compile Include="DTO\VatPham.cs" />
     <Compile Include="DTO\KhachHang.cs" />
     <Compile Include="DTO\TheTV.cs" />
     <Compile Include="FLogin_Register.cs">
@@ -90,6 +94,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FMain.resx">
       <DependentUpon>FMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -18,7 +18,7 @@ BEGIN
 		RETURN -1; -- EXIT
 	END
 
-	-- Tạo mã NV tự động
+	-- Tạo mã NV tự động	
 	DECLARE @NewMaNV VARCHAR(10) = dbo.FUNC_Create_MaNV()
 	
 	-- Thêm vào bảng NHAN_VIEN
@@ -97,5 +97,39 @@ BEGIN
 	BEGIN
 		SELECT * FROM VIEW_SACH WHERE MaSach = @MaHang
 	END
+END;
+GO
+
+CREATE PROC PROC_ChangePass
+@MaNV VARCHAR(10),
+@NewPass VARCHAR(30)
+AS
+BEGIN
+	SET XACT_ABORT ON
+	BEGIN TRAN
+		BEGIN TRY
+			UPDATE dbo.TAI_KHOAN_DN
+			SET MK = @NewPass 
+			WHERE MaNV = @MaNV
+		COMMIT TRAN
+		END TRY
+		BEGIN CATCH
+			DECLARE @Err NVARCHAR(MAX)
+			SET @Err = 'ERROR CHANGE PASS: ' + ERROR_MESSAGE()
+			RAISERROR(@Err, 16, 1)
+		END CATCH
+END;
+GO
+
+CREATE PROC PROC_AddGioHangVaoHoaDon
+@MaHoaDon VARCHAR(10),
+@MaKH VARCHAR(10),
+@MaNV VARCHAR(10),
+@MaHang VARCHAR(20),
+@SoLuong INT
+AS
+BEGIN
+	INSERT dbo.BAN_HANG(MaHoaDon, MaNVBan, MaKH, MaHang, SoLuong)
+	VALUES (@MaHoaDon, @MaNV, @MaKH, @MaHang, @SoLuong)
 END;
 GO

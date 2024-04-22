@@ -1,9 +1,11 @@
-﻿using System;
+﻿using DBMS_BookStore.DAO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DBMS_BookStore.DTO
 {
@@ -19,6 +21,7 @@ namespace DBMS_BookStore.DTO
         string tenDN;
         string mk;
         bool tinhTrangLamViec;
+        List<DateTime> lsLamViec;
 
         public Employee(string maNV, string cmnd, string ho, string tenLot, string ten, string gioiTinh, string tenDN, string mk)
         { 
@@ -32,6 +35,9 @@ namespace DBMS_BookStore.DTO
             Mk = mk;
             Luong = 0;
             TinhTrangLamViec = true;
+
+            EmployeeDAO employeeDAO = new EmployeeDAO();
+            LsLamViec = employeeDAO.GetLS(TenDN);
         }
         public Employee(DataRow dr)
         {
@@ -45,6 +51,9 @@ namespace DBMS_BookStore.DTO
             Mk = dr["MK"].ToString();
             Luong = (int)dr["Luong"];
             TinhTrangLamViec = (bool)dr["TinhTrangLamViec"];
+
+            EmployeeDAO employeeDAO = new EmployeeDAO();
+            LsLamViec = employeeDAO.GetLS(TenDN);
         }
         public string MaNV { get => maNV; set => maNV = value; }
         public string Cmnd { get => cmnd; set => cmnd = value; }
@@ -56,5 +65,6 @@ namespace DBMS_BookStore.DTO
         public string TenDN { get => tenDN; set => tenDN = value; }
         public string Mk { get => mk; set => mk = value; }
         public bool TinhTrangLamViec { get => tinhTrangLamViec; set => tinhTrangLamViec = value; }
+        public List<DateTime> LsLamViec { get => lsLamViec; set => lsLamViec = value; }
     }
 }

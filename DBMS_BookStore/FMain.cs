@@ -11,6 +11,7 @@ using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,18 +19,22 @@ namespace DBMS_BookStore
 {
     public partial class FMain : Form
     {
+        const int MAX_DAYS_ROW = 6;
+        const int MAX_DAYS_COL = 7;
         // Thông tin của NV đăng nhập vào phiên hiện tại
         Employee nv;
         EmployeeDAO employeeDAO= new EmployeeDAO();
 
         HangHoaDAO hanghoaDAO = new HangHoaDAO();
         TraCuuDAO traCuuDAO = new TraCuuDAO();
+        HoaDonBanDAO hoaDonBanDAO = new HoaDonBanDAO();
         public FMain(Employee nv)
         {
             InitializeComponent();
             HideAllTabsOnTabControl();
-
             this.nv = nv;
+            DateComboBoxes_Load();
+            SetDTGVStyles();
         }
 
         private void HideAllTabsOnTabControl()
@@ -101,6 +106,11 @@ namespace DBMS_BookStore
         {
             tabControl.SelectedTab = tabControl.TabPages[4];
         }
+        private void btnNhapHang_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[9];
+            cbbLoaiHangNhap.SelectedIndex = 0;
+        }
         #endregion
 
         #region 1. Tra cứu
@@ -152,7 +162,20 @@ namespace DBMS_BookStore
         #endregion
 
         #region 2. Cài đặt
-        // Code here
+        private void btn_CD_DoiMK_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[20];
+            lblHelloUser.Text = $"Hello, {nv.Ho} {nv.TenLot} {nv.Ten}";
+        }
+        private void btnCD_XemLich_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[21];
+            Days_Load();
+        }
+        private void btnCD_XemNV_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[22];
+        }
         #endregion
 
         #region 3. Báo cáo (thống kê)
@@ -200,6 +223,7 @@ namespace DBMS_BookStore
                         if (int.Parse(row.Cells[colNum - 1].Value.ToString()) + numSoLuongMua.Value <= int.Parse(txbSoLuongCon.Text))
                         {
                             row.Cells[colNum - 1].Value = (int.Parse(row.Cells[colNum - 1].Value.ToString()) + numSoLuongMua.Value).ToString();
+                            txbTongTien.Text = CalculateTotal().ToString();
                         }
                         else
                         {
@@ -210,6 +234,7 @@ namespace DBMS_BookStore
                 }
                 // Nếu chưa có thì thêm vào giỏ hàng
                 dtgvGioHang.Rows.Add(hanghoa.ItemArray);
+                txbTongTien.Text = CalculateTotal().ToString();
             }
             else
             {
@@ -217,6 +242,17 @@ namespace DBMS_BookStore
 
             }
         }
+
+        private int CalculateTotal()
+        {
+            int total = 0;
+            foreach (DataGridViewRow row in dtgvGioHang.Rows)
+            {
+                total += int.Parse(row.Cells[2].Value.ToString()) * int.Parse(row.Cells[3].Value.ToString());
+            }
+            return total;
+        }
+
         private void btnXoaSP_Click(object sender, EventArgs e)
         {
             string maHang = txbMaSP.Text;
@@ -229,6 +265,7 @@ namespace DBMS_BookStore
             }
             dtgvGioHang.Update();
             dtgvGioHang.Refresh();
+            txbTongTien.Text = CalculateTotal().ToString();
         }
 
         private void btnSuaSP_Click(object sender, EventArgs e)
@@ -252,19 +289,75 @@ namespace DBMS_BookStore
             txbSoLuongCon.Text = hanghoa["SoLuong"].ToString();
             numSoLuongMua.Maximum = int.Parse(hanghoa["SoLuong"].ToString());
         }
-
-        #endregion
-
-        #region 4. Giao dịch - Bán hàng
-        // Code here
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[5];
+        }
         #endregion
 
         #region 5. Giao dịch - Bán hàng - Thanh toán
-        // Code here
+        private void btnTienMat_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[7];
+            DataGridViewRow row = new DataGridViewRow();
+
+            // Copy dữ liệu từ giỏ hàng 
+            for (int i = 0; i < dtgvGioHang.Rows.Count; i++)
+            {
+                row = (DataGridViewRow)dtgvGioHang.Rows[i].Clone();
+                int intColIndex = 0;
+                foreach (DataGridViewCell cell in dtgvGioHang.Rows[i].Cells)
+                {
+                    row.Cells[intColIndex].Value = cell.Value;
+                    intColIndex++;
+                }
+                dtgvXemLaiTienMat.Rows.Add(row);
+            }
+            dtgvXemLaiTienMat.AllowUserToAddRows = false;
+            dtgvXemLaiTienMat.Refresh();
+
+            // Copy tổng tiền
+            txbTongTienMat.Text = (double.Parse(txbTongTien.Text) * (1 - double.Parse(txbGiamGia.Text))).ToString();
+        }
+
+        private void btnChuyenKhoan_Click(object sender, EventArgs e)
+        {
+            btnTienMat_Click(sender, e); // hihi
+        }
+        private void btnQuayLaiBanHang_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[4];
+        }
         #endregion
 
         #region 7. Giao dịch - Bán hàng - Thanh toán - Tiền mặt
-        // Code here
+
+        private void btnTMQuayLaiTT_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[5];
+            dtgvXemLaiTienMat.Rows.Clear();
+        }
+        private void btnTienMatThanhToan_Click(object sender, EventArgs e)
+        {
+            string maHoaDonBan = hoaDonBanDAO.GetMaHoaDon();
+            string maKH = "0000000000";
+
+            // Nếu nhập mã khách hàng thì lấy mã đó, còn không thì lấy mã mặc định "0000000000"
+            if (!string.IsNullOrEmpty(txbMaKH.Text))
+            {
+                maKH = txbMaKH.Text;
+            }
+            int succeed = 0;
+            foreach(DataGridViewRow row in dtgvXemLaiTienMat.Rows)
+            {
+                VatPham vatpham = new VatPham(maHoaDonBan, nv.MaNV, maKH, row.Cells[0].Value.ToString(), (int)row.Cells[3].Value);
+
+                succeed += hoaDonBanDAO.InsertBanHang(vatpham);
+            }
+
+            MessageBox.Show($"Đã thêm {succeed} hàng vào BAN_HANG");
+        }
+
         #endregion
 
         #region 8. Giao dịch - Bán hàng - Thanh toán - Chuyển khoản
@@ -272,7 +365,90 @@ namespace DBMS_BookStore
         #endregion
 
         #region 9. Giao dịch - Nhập hàng (Chỉ admin)
-        // Code here
+
+        // Nhập hàng
+        List<HangHoa> dsHangNhap = new List<HangHoa>();
+        // 1. Chọn loại hàng: ComboBox chọn sách hoặc vpp
+        private void cbbLoaiHang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cbbLoaiHangNhap.SelectedIndex)
+            {
+                case 0:
+                    tlplGD_NHContainer4.Visible = true;
+                    tlplGD_NHContainer7.Visible = true;
+                    tlplGD_NHContainer5.Visible = true;
+
+                    break;
+                case 1:
+                    tlplGD_NHContainer4.Visible = false;
+                    tlplGD_NHContainer7.Visible = false;
+                    tlplGD_NHContainer5.Visible = false;
+                    break;
+            }
+        }
+        private void txbMaHangNhap_TextChanged(object sender, EventArgs e)
+        {
+            numSoLuongNhap.Value = 1;
+            DataRow drSach = hanghoaDAO.GetSach(txbMaHangNhap.Text);
+            DataRow drVPP = hanghoaDAO.GetVPP(txbMaHangNhap.Text);
+
+            if (cbbLoaiHangNhap.SelectedIndex == 0 && drSach != null)
+            {
+                Sach sach = new Sach(drSach);
+                txbTenHangNhap.Text = sach.TenHang;
+                txbDonGiaNhap.Text = sach.DonGia.ToString();
+                txbTacGiaNhap.Text = sach.TacGia;
+                txbTheLoaiNhap.Text = sach.TheLoai;
+                txbNXBNhap.Text = sach.Nxb;
+                txbSoLuongCon_Nhap.Text = drSach["SoLuong"].ToString();
+            }
+            else if (cbbLoaiHangNhap.SelectedIndex == 1 && drVPP != null)
+            {
+                HangHoa vpp = new HangHoa(drVPP);
+                txbTenHangNhap.Text = vpp.TenHang;
+                txbDonGiaNhap.Text = vpp.DonGia.ToString();
+                txbSoLuongCon_Nhap.Text = drVPP["SoLuong"].ToString();
+
+            }
+            else
+            {
+                txbTenHangNhap.Text = string.Empty;
+                txbDonGiaNhap.Text = string.Empty;
+                txbTacGiaNhap.Text = string.Empty;
+                txbTheLoaiNhap.Text = string.Empty;
+                txbNXBNhap.Text = string.Empty;
+            }
+        }
+
+        private void btnThemHangNhap_Click(object sender, EventArgs e)
+        {
+            if (cbbLoaiHangNhap.SelectedIndex == 0)
+            {
+                // Sach nhap
+                Sach sach = new Sach(txbMaHangNhap.Text, txbTenHangNhap.Text, int.Parse(txbDonGiaNhap.Text),
+                                     (int)numSoLuongNhap.Value,
+                                     txbTacGiaNhap.Text, txbNXBNhap.Text, txbTheLoaiNhap.Text
+                                     );
+                dsHangNhap.Add(sach);
+            }
+            else if(cbbLoaiHangNhap.SelectedIndex == 1)
+            {
+                // VPP nhap
+                HangHoa vpp = new HangHoa(txbMaHangNhap.Text, txbTenHangNhap.Text, int.Parse(txbDonGiaNhap.Text), (int)numSoLuongNhap.Value);
+                dsHangNhap.Add(vpp);
+            }
+            LoadDTGVNhap();
+        }
+
+        private void LoadDTGVNhap()
+        {
+        }
+
+        private void btnNhapHangQuayLaiGiaoDich_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[0];
+        }
+
         #endregion
 
         #region 10. Giao dịch - Khách hàng
@@ -405,11 +581,190 @@ namespace DBMS_BookStore
         #endregion
 
         #region 20. Cài đặt - Đổi MK (nv hiện tại đổi mk của mình)
-        // Code here
+        private bool isValidNewPass(string pass)
+        {
+            // Regex pattern to match at least 8 characters long and contain both letters and numbers
+            string pattern = @"^(?=.*[a-zA-Z])(?=.*\d).{8,30}$";
+
+            return Regex.IsMatch(pass, pattern);
+        }
+        private void btnSavePass_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra pass có đúng không
+            if (!string.Equals(txbMKCu.Text, nv.Mk))
+            {
+                MessageBox.Show("Mật khẩu không đúng!", "Sai mật khẩu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            // Kiểm tra pass2 có đúng regex ko 
+            if (!isValidNewPass(txbMKMoi.Text))
+            {
+                MessageBox.Show("Mật khẩu mới phải có 8-30 ký tự, có ít nhất một chữ cái và một số.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            // Đổi mật khẩu
+            bool succeed = employeeDAO.ChangePass(txbMKMoi.Text, nv.MaNV);
+            // Nếu đã đổi thành công
+            if (succeed)
+            {
+                // Cập nhật lại nv hiện tại
+                nv = employeeDAO.GetInfoByUsername(nv.TenDN);
+            }
+            else
+            {
+                MessageBox.Show("ERROR CHANGE PASS!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return;
+        }
+
+        private void btnDoiMKQuayLaiCaiDat_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[2];
+        }
         #endregion
 
-        #region 21. Cài đặt - Xem lịch làm việc
-        // Code here
+        #region 21. Cài đặt - Xem lịch sử làm việc
+        int year = DateTime.Now.Year;
+        int month = DateTime.Now.Month;
+        private void Days_Load()
+        {
+            int btnWidth = (flpnlDays.Size.Width - 8 * (MAX_DAYS_COL - 1)) / MAX_DAYS_COL;
+            int btnHeight = (flpnlDays.Size.Height - 10 * (MAX_DAYS_ROW - 1)) / MAX_DAYS_ROW;
+
+            flpnlDays.Controls.Clear();
+            List<int> valid = GetWorkDates();
+
+
+            DateTime startDate = new DateTime(year, month, 1);
+            // Day count of month
+            int days = DateTime.DaysInMonth(year, month);
+            // Convert startDate to int
+            int dayOfWeek = Convert.ToInt32(startDate.DayOfWeek.ToString("d"));
+
+            // Add blank days
+            for (int i = 0; i < dayOfWeek; i++)
+            {
+                int lastMonth = month - 1;
+                if (lastMonth == 0) lastMonth = 12;
+                int lastMonthDayCount = DateTime.DaysInMonth(year, lastMonth);
+
+                Button btn = new Button();
+                btn.Text = (lastMonthDayCount - dayOfWeek + i + 1).ToString();
+                btn.Size = new Size(btnWidth, btnHeight);
+                btn.Font = new Font(btn.Font.FontFamily, 20);
+                btn.Enabled = false;
+
+                flpnlDays.Controls.Add(btn);
+            }
+
+            int countTongNgayLam = 0;
+
+            // Fill days of current month
+            for (int i = 0; i < days; i++)
+            {
+                Button btn = new Button();
+                btn.Text = (i + 1).ToString();
+                btn.Size = new Size(btnWidth, btnHeight);
+                btn.Font = new Font(btn.Font.FontFamily, 20);
+                btn.Enabled = true;
+                
+                if (valid.Contains(i + 1))
+                {
+                    btn.BackColor = Color.Green;
+                    countTongNgayLam += 1;
+                }
+                else
+                {
+                    btn.BackColor = Color.Red;
+                }
+                flpnlDays.Controls.Add(btn);
+            }
+
+            txbTongNgayLam.Text = countTongNgayLam.ToString();
+
+            // Fill the rest with blank
+            for (int i = 0; i < 42 - days - dayOfWeek; i++)
+            {
+                Button btn = new Button();
+                btn.Text = (i + 1).ToString();
+                btn.Size = new Size(btnWidth, btnHeight);
+                btn.Font = new Font(btn.Font.FontFamily, 20);
+                btn.Enabled = false;
+
+                flpnlDays.Controls.Add(btn);
+            }
+        }
+
+        private List<int> GetWorkDates()
+        {
+            List<int> days = new List<int>();
+            foreach(DateTime day in nv.LsLamViec)
+            {
+                if (day.Month == month)
+                {
+                    days.Add(day.Day);
+                }
+            }
+            return days;
+        }
+
+        private void DateComboBoxes_Load()
+        {
+            string[] monthNames = new string[]
+            {
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            };
+            cbbMonth.Items.AddRange(monthNames);
+
+            for (int i = DateTime.Now.Year - 5; i <= DateTime.Now.Year + 5; i++)
+            {
+                cbbYear.Items.Add(i.ToString());
+            }
+            cbbMonth.SelectedIndex = month - 1;
+            cbbYear.SelectedIndex = 0;
+        }
+
+        private void btnNextMonth_Click(object sender, EventArgs e)
+        {
+            month += 1;
+            if (month > 12)
+            {
+                month = 1;
+                year += 1;
+                cbbYear.SelectedIndex = year - DateTime.Now.Year;
+            }
+            cbbMonth.SelectedIndex = month - 1;
+        }
+
+        private void btnPrevMonth_Click(object sender, EventArgs e)
+        {
+            month -= 1;
+            if (month < 1)
+            {
+                month = 12;
+                year -= 1;
+                cbbYear.SelectedIndex = year - DateTime.Now.Year;
+            }
+            cbbMonth.SelectedIndex = month - 1;
+        }
+
+        private void cbbMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            month = cbbMonth.SelectedIndex + 1;
+            Days_Load();
+        }
+
+        private void cbbYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            year = cbbYear.SelectedIndex + DateTime.Now.Year;
+            Days_Load();
+        }
+        private void btnLSQuayLaiCaiDat_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[2];
+        }
+
         #endregion
 
         #region 22. Cài đặt - Xem thông tin NV (Chỉ admin mới sửa được)
@@ -440,6 +795,40 @@ namespace DBMS_BookStore
         // Code here
         #endregion
 
+        // Set style cho dtgv
+        private void SetDTGVStyles()
+        {
+            DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle
+            {
+                Alignment = DataGridViewContentAlignment.MiddleLeft,
+                BackColor = SystemColors.Control,
+                Font = new Font("Microsoft Sans Serif", 18F),
+                ForeColor = SystemColors.WindowText,
+                SelectionBackColor = SystemColors.Highlight,
+                SelectionForeColor = SystemColors.HighlightText,
+                WrapMode = DataGridViewTriState.True
+            };
 
+            DataGridViewCellStyle cellStyle = new DataGridViewCellStyle
+            {
+                Alignment = DataGridViewContentAlignment.MiddleLeft,
+                BackColor = SystemColors.Window,
+                Font = new Font("Microsoft Sans Serif", 15.75F),
+                ForeColor = SystemColors.ControlText,
+                SelectionBackColor = SystemColors.Highlight,
+                SelectionForeColor = SystemColors.HighlightText,
+                WrapMode = DataGridViewTriState.False
+            };
+
+            SetDataGridViewStyles(dtgvGioHang, columnHeaderStyle, cellStyle);
+            SetDataGridViewStyles(dtgvXemLaiTienMat, columnHeaderStyle, cellStyle);
+            SetDataGridViewStyles(dtgvNhapHang, columnHeaderStyle, cellStyle);
+        }
+
+        private void SetDataGridViewStyles(DataGridView dataGridView, DataGridViewCellStyle columnHeaderStyle, DataGridViewCellStyle cellStyle)
+        {
+            dataGridView.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
+            dataGridView.DefaultCellStyle = cellStyle;
+        }
     }
 }

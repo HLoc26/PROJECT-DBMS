@@ -64,3 +64,58 @@ BEGIN
 			END CATCH
 END;
 GO
+
+CREATE TRIGGER CreateReceipt ON dbo.BAN_HANG
+INSTEAD OF INSERT
+AS
+DECLARE @MaHoaDon VARCHAR(10),
+		@MaKH VARCHAR(10),
+		@MaNV VARCHAR(10),
+		@MaHang VARCHAR(20),
+		@SoLuong INT
+SELECT	@MaHoaDon = new.MaHoaDon,
+		@MaKH = new.MaKH,
+		@MaNV = new.MaNVBan,
+		@MaHang = new.MaHang,
+		@SoLuong = new.SoLuong
+		FROM Inserted new
+BEGIN
+	SET XACT_ABORT ON
+	BEGIN TRAN
+		BEGIN TRY
+			-- Nếu mã hoá đơn chưa có trong bảng hoá đơn bán thì thêm vào 
+			IF NOT EXISTS (SELECT * FROM dbo.HOA_DON_BAN WHERE MaHoaDon = @MaHoaDon)
+			BEGIN
+				-- Khuyến mãi lấy tự động
+				DECLARE @Discount REAL
+				SET @Discount = dbo.FUNC_GetDiscount(@MaKH)
+				INSERT dbo.HOA_DON_BAN (MaHoaDon, KhuyenMai, ThoiGianBan)
+				VALUES (@MaHoaDon, @Discount, GETDATE())
+			END
+
+			-- Thêm mã hàng vào trong bảng bán hàng
+			INSERT dbo.BAN_HANG (MaHoaDon, MaNVBan, MaKH, MaHang, SoLuong)
+			VALUES (@MaHoaDon, @MaNV, @MaKH, @MaHang, @SoLuong)
+
+			-- Cộng điểm cho khách hàng nếu có thẻ TV
+			IF EXISTS (SELECT * FROM dbo.THE_TV WHERE MaKH = @MaKH)
+			BEGIN
+				DECLARE @OldDiem INT
+				SELECT @OldDiem = SoDiem FROM dbo.THE_TV WHERE MaKH = @MaKH
+
+				UPDATE dbo.THE_TV 
+				SET SoDiem = @OldDiem + (2 * @SoLuong)
+				WHERE MaKH = @MaKH
+			END
+
+			COMMIT TRAN
+		END TRY
+
+		BEGIN CATCH
+			ROLLBACK
+			DECLARE @err NVARCHAR(MAX)
+			SET @err = 'ERROR FROM Trigger CreateReceipt: ' + ERROR_MESSAGE()
+			RAISERROR(@err, 16, 1)
+		END CATCH
+END;
+GO

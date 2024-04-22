@@ -22,6 +22,8 @@ namespace DBMS_BookStore
             EmployeeDAO dao = new EmployeeDAO();
             Employee emp = dao.Login("nvv1353", "MK123456");
             Application.Run(new FMain(emp));
+
+            //Application.Run(new FLogin_Register());
         }
     }
 }
