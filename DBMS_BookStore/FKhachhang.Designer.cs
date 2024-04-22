@@ -28,38 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tbcCustomer = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tblpCustomer = new System.Windows.Forms.TableLayoutPanel();
             this.lblMembership = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlCustomerID = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.txtCustomerID = new System.Windows.Forms.TextBox();
+            this.btnCustomerID = new System.Windows.Forms.Button();
+            this.lblCustomerID = new System.Windows.Forms.Label();
             this.pnlCustomeName = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.txtCustomerName = new System.Windows.Forms.TextBox();
+            this.lblCustomerName = new System.Windows.Forms.Label();
             this.pnlCustomerDoB = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.txtCustomerDoB = new System.Windows.Forms.TextBox();
+            this.lblCustomerDoB = new System.Windows.Forms.Label();
             this.pnlCustomerGender = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.txtCustomerGender = new System.Windows.Forms.TextBox();
+            this.lblCustomerGender = new System.Windows.Forms.Label();
             this.pnlCustomerScore = new System.Windows.Forms.Panel();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.txtCustomerScore = new System.Windows.Forms.TextBox();
+            this.lblCustomerScore = new System.Windows.Forms.Label();
             this.pnlCustomerLevel = new System.Windows.Forms.Panel();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.txtCustomerLevel = new System.Windows.Forms.TextBox();
+            this.lblCustomerLevel = new System.Windows.Forms.Label();
             this.pnlMembershipID = new System.Windows.Forms.Panel();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.btnMembershipID = new System.Windows.Forms.Button();
+            this.txtMembershipID = new System.Windows.Forms.TextBox();
+            this.lblMembershipID = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnReturn = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button3 = new System.Windows.Forms.Button();
-            this.tabControl1.SuspendLayout();
+            this.btnSignup = new System.Windows.Forms.Button();
+            this.tbcCustomer.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tblpCustomer.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -73,16 +74,16 @@
             this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tbcCustomer
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 450);
-            this.tabControl1.TabIndex = 1;
+            this.tbcCustomer.Controls.Add(this.tabPage1);
+            this.tbcCustomer.Controls.Add(this.tabPage2);
+            this.tbcCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbcCustomer.Location = new System.Drawing.Point(0, 0);
+            this.tbcCustomer.Name = "tbcCustomer";
+            this.tbcCustomer.SelectedIndex = 0;
+            this.tbcCustomer.Size = new System.Drawing.Size(800, 450);
+            this.tbcCustomer.TabIndex = 1;
             // 
             // tabPage1
             // 
@@ -92,7 +93,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(792, 421);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Membeship";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tblpCustomer
@@ -149,213 +150,230 @@
             // 
             // pnlCustomerID
             // 
-            this.pnlCustomerID.Controls.Add(this.textBox1);
-            this.pnlCustomerID.Controls.Add(this.button2);
-            this.pnlCustomerID.Controls.Add(this.label2);
+            this.pnlCustomerID.Controls.Add(this.txtCustomerID);
+            this.pnlCustomerID.Controls.Add(this.btnCustomerID);
+            this.pnlCustomerID.Controls.Add(this.lblCustomerID);
+            this.pnlCustomerID.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlCustomerID.Location = new System.Drawing.Point(3, 3);
             this.pnlCustomerID.Name = "pnlCustomerID";
-            this.pnlCustomerID.Size = new System.Drawing.Size(384, 63);
+            this.pnlCustomerID.Size = new System.Drawing.Size(384, 66);
             this.pnlCustomerID.TabIndex = 2;
             // 
-            // button2
+            // txtCustomerID
             // 
-            this.button2.Location = new System.Drawing.Point(293, 16);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(88, 41);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Tìm kiếm";
-            this.button2.UseVisualStyleBackColor = true;
+            this.txtCustomerID.Location = new System.Drawing.Point(144, 20);
+            this.txtCustomerID.Name = "txtCustomerID";
+            this.txtCustomerID.Size = new System.Drawing.Size(128, 22);
+            this.txtCustomerID.TabIndex = 1;
             // 
-            // textBox1
+            // btnCustomerID
             // 
-            this.textBox1.Location = new System.Drawing.Point(168, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 22);
-            this.textBox1.TabIndex = 1;
+            this.btnCustomerID.Location = new System.Drawing.Point(285, 11);
+            this.btnCustomerID.Name = "btnCustomerID";
+            this.btnCustomerID.Size = new System.Drawing.Size(88, 41);
+            this.btnCustomerID.TabIndex = 1;
+            this.btnCustomerID.Text = "Tìm kiếm";
+            this.btnCustomerID.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // lblCustomerID
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(5, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(167, 25);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Mã khách hàng:";
+            this.lblCustomerID.AutoSize = true;
+            this.lblCustomerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerID.Location = new System.Drawing.Point(5, 19);
+            this.lblCustomerID.Name = "lblCustomerID";
+            this.lblCustomerID.Size = new System.Drawing.Size(85, 25);
+            this.lblCustomerID.TabIndex = 0;
+            this.lblCustomerID.Text = "Mã KH:";
             // 
             // pnlCustomeName
             // 
-            this.pnlCustomeName.Controls.Add(this.textBox2);
-            this.pnlCustomeName.Controls.Add(this.label3);
+            this.pnlCustomeName.Controls.Add(this.txtCustomerName);
+            this.pnlCustomeName.Controls.Add(this.lblCustomerName);
+            this.pnlCustomeName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlCustomeName.Location = new System.Drawing.Point(3, 75);
             this.pnlCustomeName.Name = "pnlCustomeName";
-            this.pnlCustomeName.Size = new System.Drawing.Size(384, 63);
+            this.pnlCustomeName.Size = new System.Drawing.Size(384, 66);
             this.pnlCustomeName.TabIndex = 2;
             // 
-            // textBox2
+            // txtCustomerName
             // 
-            this.textBox2.Location = new System.Drawing.Point(168, 25);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(213, 22);
-            this.textBox2.TabIndex = 1;
+            this.txtCustomerName.Location = new System.Drawing.Point(144, 20);
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.Size = new System.Drawing.Size(229, 22);
+            this.txtCustomerName.TabIndex = 1;
             // 
-            // label3
+            // lblCustomerName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(5, 24);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 25);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Họ và tên:";
+            this.lblCustomerName.AutoSize = true;
+            this.lblCustomerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerName.Location = new System.Drawing.Point(5, 19);
+            this.lblCustomerName.Name = "lblCustomerName";
+            this.lblCustomerName.Size = new System.Drawing.Size(111, 25);
+            this.lblCustomerName.TabIndex = 0;
+            this.lblCustomerName.Text = "Họ và tên:";
             // 
             // pnlCustomerDoB
             // 
-            this.pnlCustomerDoB.Controls.Add(this.textBox3);
-            this.pnlCustomerDoB.Controls.Add(this.label4);
+            this.pnlCustomerDoB.Controls.Add(this.txtCustomerDoB);
+            this.pnlCustomerDoB.Controls.Add(this.lblCustomerDoB);
+            this.pnlCustomerDoB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlCustomerDoB.Location = new System.Drawing.Point(3, 147);
             this.pnlCustomerDoB.Name = "pnlCustomerDoB";
-            this.pnlCustomerDoB.Size = new System.Drawing.Size(384, 63);
+            this.pnlCustomerDoB.Size = new System.Drawing.Size(384, 66);
             this.pnlCustomerDoB.TabIndex = 2;
             // 
-            // textBox3
+            // txtCustomerDoB
             // 
-            this.textBox3.Location = new System.Drawing.Point(168, 25);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(213, 22);
-            this.textBox3.TabIndex = 1;
+            this.txtCustomerDoB.Location = new System.Drawing.Point(144, 25);
+            this.txtCustomerDoB.Name = "txtCustomerDoB";
+            this.txtCustomerDoB.Size = new System.Drawing.Size(229, 22);
+            this.txtCustomerDoB.TabIndex = 1;
             // 
-            // label4
+            // lblCustomerDoB
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(5, 24);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(115, 25);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Ngày sinh:";
+            this.lblCustomerDoB.AutoSize = true;
+            this.lblCustomerDoB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerDoB.Location = new System.Drawing.Point(5, 24);
+            this.lblCustomerDoB.Name = "lblCustomerDoB";
+            this.lblCustomerDoB.Size = new System.Drawing.Size(115, 25);
+            this.lblCustomerDoB.TabIndex = 0;
+            this.lblCustomerDoB.Text = "Ngày sinh:";
             // 
             // pnlCustomerGender
             // 
-            this.pnlCustomerGender.Controls.Add(this.textBox4);
-            this.pnlCustomerGender.Controls.Add(this.label5);
+            this.pnlCustomerGender.Controls.Add(this.txtCustomerGender);
+            this.pnlCustomerGender.Controls.Add(this.lblCustomerGender);
+            this.pnlCustomerGender.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlCustomerGender.Location = new System.Drawing.Point(3, 219);
             this.pnlCustomerGender.Name = "pnlCustomerGender";
-            this.pnlCustomerGender.Size = new System.Drawing.Size(384, 66);
+            this.pnlCustomerGender.Size = new System.Drawing.Size(384, 67);
             this.pnlCustomerGender.TabIndex = 2;
             // 
-            // textBox4
+            // txtCustomerGender
             // 
-            this.textBox4.Location = new System.Drawing.Point(168, 25);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(213, 22);
-            this.textBox4.TabIndex = 1;
+            this.txtCustomerGender.Location = new System.Drawing.Point(144, 25);
+            this.txtCustomerGender.Name = "txtCustomerGender";
+            this.txtCustomerGender.Size = new System.Drawing.Size(229, 22);
+            this.txtCustomerGender.TabIndex = 1;
             // 
-            // label5
+            // lblCustomerGender
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(5, 24);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 25);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Giới tính:";
+            this.lblCustomerGender.AutoSize = true;
+            this.lblCustomerGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerGender.Location = new System.Drawing.Point(5, 24);
+            this.lblCustomerGender.Name = "lblCustomerGender";
+            this.lblCustomerGender.Size = new System.Drawing.Size(98, 25);
+            this.lblCustomerGender.TabIndex = 0;
+            this.lblCustomerGender.Text = "Giới tính:";
             // 
             // pnlCustomerScore
             // 
-            this.pnlCustomerScore.Controls.Add(this.textBox6);
-            this.pnlCustomerScore.Controls.Add(this.label7);
+            this.pnlCustomerScore.Controls.Add(this.txtCustomerScore);
+            this.pnlCustomerScore.Controls.Add(this.lblCustomerScore);
+            this.pnlCustomerScore.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlCustomerScore.Location = new System.Drawing.Point(393, 147);
             this.pnlCustomerScore.Name = "pnlCustomerScore";
-            this.pnlCustomerScore.Size = new System.Drawing.Size(384, 63);
+            this.pnlCustomerScore.Size = new System.Drawing.Size(384, 66);
             this.pnlCustomerScore.TabIndex = 2;
             // 
-            // textBox6
+            // txtCustomerScore
             // 
-            this.textBox6.Location = new System.Drawing.Point(147, 25);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(222, 22);
-            this.textBox6.TabIndex = 1;
+            this.txtCustomerScore.Location = new System.Drawing.Point(155, 25);
+            this.txtCustomerScore.Name = "txtCustomerScore";
+            this.txtCustomerScore.Size = new System.Drawing.Size(201, 22);
+            this.txtCustomerScore.TabIndex = 1;
             // 
-            // label7
+            // lblCustomerScore
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(5, 22);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(142, 25);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Điểm tích lũy:";
+            this.lblCustomerScore.AutoSize = true;
+            this.lblCustomerScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerScore.Location = new System.Drawing.Point(5, 22);
+            this.lblCustomerScore.Name = "lblCustomerScore";
+            this.lblCustomerScore.Size = new System.Drawing.Size(142, 25);
+            this.lblCustomerScore.TabIndex = 0;
+            this.lblCustomerScore.Text = "Điểm tích lũy:";
             // 
             // pnlCustomerLevel
             // 
-            this.pnlCustomerLevel.Controls.Add(this.textBox7);
-            this.pnlCustomerLevel.Controls.Add(this.label8);
+            this.pnlCustomerLevel.Controls.Add(this.txtCustomerLevel);
+            this.pnlCustomerLevel.Controls.Add(this.lblCustomerLevel);
+            this.pnlCustomerLevel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlCustomerLevel.Location = new System.Drawing.Point(393, 75);
             this.pnlCustomerLevel.Name = "pnlCustomerLevel";
-            this.pnlCustomerLevel.Size = new System.Drawing.Size(384, 63);
+            this.pnlCustomerLevel.Size = new System.Drawing.Size(384, 66);
             this.pnlCustomerLevel.TabIndex = 2;
             // 
-            // textBox7
+            // txtCustomerLevel
             // 
-            this.textBox7.Location = new System.Drawing.Point(147, 25);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(222, 22);
-            this.textBox7.TabIndex = 1;
+            this.txtCustomerLevel.Location = new System.Drawing.Point(155, 25);
+            this.txtCustomerLevel.Name = "txtCustomerLevel";
+            this.txtCustomerLevel.Size = new System.Drawing.Size(201, 22);
+            this.txtCustomerLevel.TabIndex = 1;
             // 
-            // label8
+            // lblCustomerLevel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(5, 24);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 25);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Bậc:";
+            this.lblCustomerLevel.AutoSize = true;
+            this.lblCustomerLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerLevel.Location = new System.Drawing.Point(5, 24);
+            this.lblCustomerLevel.Name = "lblCustomerLevel";
+            this.lblCustomerLevel.Size = new System.Drawing.Size(56, 25);
+            this.lblCustomerLevel.TabIndex = 0;
+            this.lblCustomerLevel.Text = "Bậc:";
             // 
             // pnlMembershipID
             // 
-            this.pnlMembershipID.Controls.Add(this.button3);
-            this.pnlMembershipID.Controls.Add(this.textBox8);
-            this.pnlMembershipID.Controls.Add(this.label9);
+            this.pnlMembershipID.Controls.Add(this.btnMembershipID);
+            this.pnlMembershipID.Controls.Add(this.txtMembershipID);
+            this.pnlMembershipID.Controls.Add(this.lblMembershipID);
+            this.pnlMembershipID.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMembershipID.Location = new System.Drawing.Point(393, 3);
             this.pnlMembershipID.Name = "pnlMembershipID";
-            this.pnlMembershipID.Size = new System.Drawing.Size(384, 63);
+            this.pnlMembershipID.Size = new System.Drawing.Size(384, 66);
             this.pnlMembershipID.TabIndex = 2;
             // 
-            // textBox8
+            // btnMembershipID
             // 
-            this.textBox8.Location = new System.Drawing.Point(147, 21);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(128, 22);
-            this.textBox8.TabIndex = 1;
+            this.btnMembershipID.Location = new System.Drawing.Point(289, 13);
+            this.btnMembershipID.Name = "btnMembershipID";
+            this.btnMembershipID.Size = new System.Drawing.Size(88, 41);
+            this.btnMembershipID.TabIndex = 2;
+            this.btnMembershipID.Text = "Tìm kiếm";
+            this.btnMembershipID.UseVisualStyleBackColor = true;
             // 
-            // label9
+            // txtMembershipID
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(5, 20);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(126, 25);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Mã thẻ TV: ";
+            this.txtMembershipID.Location = new System.Drawing.Point(155, 22);
+            this.txtMembershipID.Name = "txtMembershipID";
+            this.txtMembershipID.Size = new System.Drawing.Size(128, 22);
+            this.txtMembershipID.TabIndex = 1;
+            // 
+            // lblMembershipID
+            // 
+            this.lblMembershipID.AutoSize = true;
+            this.lblMembershipID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMembershipID.Location = new System.Drawing.Point(5, 20);
+            this.lblMembershipID.Name = "lblMembershipID";
+            this.lblMembershipID.Size = new System.Drawing.Size(126, 25);
+            this.lblMembershipID.TabIndex = 0;
+            this.lblMembershipID.Text = "Mã thẻ TV: ";
             // 
             // panel12
             // 
-            this.panel12.Controls.Add(this.button1);
+            this.panel12.Controls.Add(this.btnSignup);
+            this.panel12.Controls.Add(this.btnReturn);
             this.panel12.Location = new System.Drawing.Point(3, 348);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(780, 64);
             this.panel12.TabIndex = 3;
             // 
-            // button1
+            // btnReturn
             // 
-            this.button1.Location = new System.Drawing.Point(335, 11);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 41);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Quay lại";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnReturn.Location = new System.Drawing.Point(267, 11);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(119, 41);
+            this.btnReturn.TabIndex = 0;
+            this.btnReturn.Text = "Quay lại";
+            this.btnReturn.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
@@ -364,27 +382,27 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(792, 421);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Create Membership";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnSignup
             // 
-            this.button3.Location = new System.Drawing.Point(281, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(88, 41);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Tìm kiếm";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSignup.Location = new System.Drawing.Point(392, 11);
+            this.btnSignup.Name = "btnSignup";
+            this.btnSignup.Size = new System.Drawing.Size(119, 41);
+            this.btnSignup.TabIndex = 0;
+            this.btnSignup.Text = "Đăng ký";
+            this.btnSignup.UseVisualStyleBackColor = true;
             // 
             // FKhachhang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tbcCustomer);
             this.Name = "FKhachhang";
             this.Text = "Form2";
-            this.tabControl1.ResumeLayout(false);
+            this.tbcCustomer.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tblpCustomer.ResumeLayout(false);
             this.tblpCustomer.PerformLayout();
@@ -409,36 +427,37 @@
         }
 
         #endregion
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tbcCustomer;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TableLayoutPanel tblpCustomer;
         private System.Windows.Forms.Label lblMembership;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel pnlCustomerID;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnCustomerID;
+        private System.Windows.Forms.TextBox txtCustomerID;
+        private System.Windows.Forms.Label lblCustomerID;
         private System.Windows.Forms.Panel pnlCustomeName;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCustomerName;
+        private System.Windows.Forms.Label lblCustomerName;
         private System.Windows.Forms.Panel pnlCustomerDoB;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtCustomerDoB;
+        private System.Windows.Forms.Label lblCustomerDoB;
         private System.Windows.Forms.Panel pnlCustomerGender;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtCustomerGender;
+        private System.Windows.Forms.Label lblCustomerGender;
         private System.Windows.Forms.Panel pnlCustomerScore;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtCustomerScore;
+        private System.Windows.Forms.Label lblCustomerScore;
         private System.Windows.Forms.Panel pnlCustomerLevel;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtCustomerLevel;
+        private System.Windows.Forms.Label lblCustomerLevel;
         private System.Windows.Forms.Panel pnlMembershipID;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtMembershipID;
+        private System.Windows.Forms.Label lblMembershipID;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Button btnMembershipID;
+        private System.Windows.Forms.Button btnSignup;
     }
 }
