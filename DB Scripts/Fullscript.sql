@@ -554,6 +554,7 @@ BEGIN
     JOIN dbo.THE_LOAI tl ON tl.MaLoai = tl_s.MaLoai
     WHERE s.MaSach = @MaHang;
 END;
+GO
 
 -- PROCEDURE tra cứu văn phòng phẩm theo mã hàng
 CREATE PROCEDURE SearchBooksByAuthor
@@ -562,7 +563,7 @@ AS
 BEGIN
     SET NOCOUNT ON;
     SELECT MaSach, tenTG, TieuDe, DonGia, TenLoai 
-    FROM dbo.VIEW_SACH 
+    FROM dbo.VIEW_SACH
     WHERE tenTG = @tenTG;
 END;
 GO
