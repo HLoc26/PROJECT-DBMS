@@ -30,6 +30,7 @@ namespace DBMS_BookStore
             HideAllTabsOnTabControl();
             this.nv = nv;
             DateComboBoxes_Load();
+            SetDTGVStyles();
         }
 
         private void HideAllTabsOnTabControl()
@@ -636,5 +637,41 @@ namespace DBMS_BookStore
         #region 24. Báo cáo - Lương NV
         // Code here
         #endregion
+
+        // Set style cho dtgv
+        private void SetDTGVStyles()
+        {
+            DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle
+            {
+                Alignment = DataGridViewContentAlignment.MiddleLeft,
+                BackColor = SystemColors.Control,
+                Font = new Font("Microsoft Sans Serif", 18F),
+                ForeColor = SystemColors.WindowText,
+                SelectionBackColor = SystemColors.Highlight,
+                SelectionForeColor = SystemColors.HighlightText,
+                WrapMode = DataGridViewTriState.True
+            };
+
+            DataGridViewCellStyle cellStyle = new DataGridViewCellStyle
+            {
+                Alignment = DataGridViewContentAlignment.MiddleLeft,
+                BackColor = SystemColors.Window,
+                Font = new Font("Microsoft Sans Serif", 15.75F),
+                ForeColor = SystemColors.ControlText,
+                SelectionBackColor = SystemColors.Highlight,
+                SelectionForeColor = SystemColors.HighlightText,
+                WrapMode = DataGridViewTriState.False
+            };
+
+            SetDataGridViewStyles(dtgvGioHang, columnHeaderStyle, cellStyle);
+            SetDataGridViewStyles(dtgvXemLaiTienMat, columnHeaderStyle, cellStyle);
+            SetDataGridViewStyles(dtgvNhapHang, columnHeaderStyle, cellStyle);
+        }
+
+        private void SetDataGridViewStyles(DataGridView dataGridView, DataGridViewCellStyle columnHeaderStyle, DataGridViewCellStyle cellStyle)
+        {
+            dataGridView.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
+            dataGridView.DefaultCellStyle = cellStyle;
+        }
     }
 }
