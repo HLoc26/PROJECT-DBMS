@@ -97,15 +97,26 @@
             this.pageGD_KH_TimTT = new System.Windows.Forms.TabPage();
             this.pageGD_KH_TaoThe = new System.Windows.Forms.TabPage();
             this.pageGD_HDBan = new System.Windows.Forms.TabPage();
-            this.tlplGD_HDBan_2 = new System.Windows.Forms.TableLayoutPanel();
-            this.dtgvListHoaDonBan = new System.Windows.Forms.DataGridView();
-            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
-            this.dtpStart = new System.Windows.Forms.DateTimePicker();
-            this.lblEnd = new System.Windows.Forms.Label();
-            this.lblStart = new System.Windows.Forms.Label();
-            this.btnTraCuuHoaDonBan = new System.Windows.Forms.Button();
+            this.tlplGD_HDBan = new System.Windows.Forms.TableLayoutPanel();
             this.btnQuayLai13_0 = new System.Windows.Forms.Button();
+            this.dtgvListHoaDonBan = new System.Windows.Forms.DataGridView();
+            this.tlplGD_HDBan_3 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblStart = new System.Windows.Forms.Label();
+            this.dtpStart = new System.Windows.Forms.DateTimePicker();
+            this.btnTraCuuHoaDonBan = new System.Windows.Forms.Button();
+            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
+            this.lblEnd = new System.Windows.Forms.Label();
             this.pageGD_HDNhap = new System.Windows.Forms.TabPage();
+            this.tlplGD_HDNhap = new System.Windows.Forms.TableLayoutPanel();
+            this.dtgvListHDNhap = new System.Windows.Forms.DataGridView();
+            this.tlplGD_HoaDonNhap_3 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblHDNhapStart = new System.Windows.Forms.Label();
+            this.dtpStartHDNhap = new System.Windows.Forms.DateTimePicker();
+            this.dtpEndHDNhap = new System.Windows.Forms.DateTimePicker();
+            this.lblEndHDNhap = new System.Windows.Forms.Label();
+            this.btnTraCuuHDNhap = new System.Windows.Forms.Button();
+            this.btnQuayLai14_0 = new System.Windows.Forms.Button();
+            this.lblTraCuuHoaDonNhap = new System.Windows.Forms.Label();
             this.pageTC_Sach = new System.Windows.Forms.TabPage();
             this.pageTC_TG = new System.Windows.Forms.TabPage();
             this.pageTC_NXB = new System.Windows.Forms.TabPage();
@@ -123,7 +134,7 @@
             this.btnTraCuu = new System.Windows.Forms.Button();
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnBaoCao = new System.Windows.Forms.Button();
-            this.tlplGD_HDBan = new System.Windows.Forms.TableLayoutPanel();
+            this.lblTraCuuHoaDonBan = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.pageGiaoDich.SuspendLayout();
             this.tblpGiaoDich.SuspendLayout();
@@ -146,11 +157,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvGioHang)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.pageGD_HDBan.SuspendLayout();
-            this.tlplGD_HDBan_2.SuspendLayout();
+            this.tlplGD_HDBan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvListHoaDonBan)).BeginInit();
+            this.tlplGD_HDBan_3.SuspendLayout();
+            this.pageGD_HDNhap.SuspendLayout();
+            this.tlplGD_HDNhap.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvListHDNhap)).BeginInit();
+            this.tlplGD_HoaDonNhap_3.SuspendLayout();
             this.tblpMainContainer.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tlplGD_HDBan.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -256,6 +271,7 @@
             this.btnHoaDonNhap.TabIndex = 4;
             this.btnHoaDonNhap.Text = "HOÁ ĐƠN NHẬP";
             this.btnHoaDonNhap.UseVisualStyleBackColor = true;
+            this.btnHoaDonNhap.Click += new System.EventHandler(this.btnHoaDonNhap_Click);
             // 
             // btnHoaDonBan
             // 
@@ -269,6 +285,7 @@
             this.btnHoaDonBan.TabIndex = 5;
             this.btnHoaDonBan.Text = "HOÁ ĐƠN BÁN";
             this.btnHoaDonBan.UseVisualStyleBackColor = true;
+            this.btnHoaDonBan.Click += new System.EventHandler(this.btnHoaDonBan_Click);
             // 
             // pageTraCuu
             // 
@@ -1054,64 +1071,67 @@
             this.pageGD_HDBan.Text = "GD_HDBan";
             this.pageGD_HDBan.UseVisualStyleBackColor = true;
             // 
-            // tlplGD_HDBan_2
+            // tlplGD_HDBan
             // 
-            this.tlplGD_HDBan_2.ColumnCount = 5;
-            this.tlplGD_HDBan_2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tlplGD_HDBan_2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tlplGD_HDBan_2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tlplGD_HDBan_2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tlplGD_HDBan_2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tlplGD_HDBan_2.Controls.Add(this.lblStart, 0, 0);
-            this.tlplGD_HDBan_2.Controls.Add(this.dtpStart, 1, 0);
-            this.tlplGD_HDBan_2.Controls.Add(this.btnTraCuuHoaDonBan, 4, 0);
-            this.tlplGD_HDBan_2.Controls.Add(this.dtpEnd, 3, 0);
-            this.tlplGD_HDBan_2.Controls.Add(this.lblEnd, 2, 0);
-            this.tlplGD_HDBan_2.Location = new System.Drawing.Point(3, 78);
-            this.tlplGD_HDBan_2.Name = "tlplGD_HDBan_2";
-            this.tlplGD_HDBan_2.RowCount = 1;
-            this.tlplGD_HDBan_2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlplGD_HDBan_2.Size = new System.Drawing.Size(658, 40);
-            this.tlplGD_HDBan_2.TabIndex = 16;
+            this.tlplGD_HDBan.ColumnCount = 1;
+            this.tlplGD_HDBan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlplGD_HDBan.Controls.Add(this.btnQuayLai13_0, 0, 0);
+            this.tlplGD_HDBan.Controls.Add(this.dtgvListHoaDonBan, 0, 3);
+            this.tlplGD_HDBan.Controls.Add(this.tlplGD_HDBan_3, 0, 2);
+            this.tlplGD_HDBan.Controls.Add(this.lblTraCuuHoaDonBan, 0, 1);
+            this.tlplGD_HDBan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlplGD_HDBan.Location = new System.Drawing.Point(3, 3);
+            this.tlplGD_HDBan.Name = "tlplGD_HDBan";
+            this.tlplGD_HDBan.RowCount = 4;
+            this.tlplGD_HDBan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlplGD_HDBan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlplGD_HDBan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlplGD_HDBan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tlplGD_HDBan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlplGD_HDBan.Size = new System.Drawing.Size(1159, 750);
+            this.tlplGD_HDBan.TabIndex = 17;
+            // 
+            // btnQuayLai13_0
+            // 
+            this.btnQuayLai13_0.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnQuayLai13_0.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuayLai13_0.Location = new System.Drawing.Point(3, 3);
+            this.btnQuayLai13_0.Name = "btnQuayLai13_0";
+            this.btnQuayLai13_0.Size = new System.Drawing.Size(104, 31);
+            this.btnQuayLai13_0.TabIndex = 12;
+            this.btnQuayLai13_0.Text = "Quay lại";
+            this.btnQuayLai13_0.UseVisualStyleBackColor = true;
+            this.btnQuayLai13_0.Click += new System.EventHandler(this.btnQuayLai13_0_Click);
             // 
             // dtgvListHoaDonBan
             // 
             this.dtgvListHoaDonBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvListHoaDonBan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgvListHoaDonBan.Location = new System.Drawing.Point(3, 153);
+            this.dtgvListHoaDonBan.Location = new System.Drawing.Point(3, 190);
             this.dtgvListHoaDonBan.Name = "dtgvListHoaDonBan";
-            this.dtgvListHoaDonBan.Size = new System.Drawing.Size(1153, 594);
+            this.dtgvListHoaDonBan.Size = new System.Drawing.Size(1153, 557);
             this.dtgvListHoaDonBan.TabIndex = 15;
             // 
-            // dtpEnd
+            // tlplGD_HDBan_3
             // 
-            this.dtpEnd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtpEnd.CustomFormat = "yyyy-MM-dd";
-            this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEnd.Location = new System.Drawing.Point(429, 5);
-            this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(125, 29);
-            this.dtpEnd.TabIndex = 14;
-            // 
-            // dtpStart
-            // 
-            this.dtpStart.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtpStart.CustomFormat = "yyyy-MM-dd";
-            this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStart.Location = new System.Drawing.Point(200, 5);
-            this.dtpStart.Name = "dtpStart";
-            this.dtpStart.Size = new System.Drawing.Size(125, 29);
-            this.dtpStart.TabIndex = 14;
-            // 
-            // lblEnd
-            // 
-            this.lblEnd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblEnd.AutoSize = true;
-            this.lblEnd.Location = new System.Drawing.Point(338, 9);
-            this.lblEnd.Name = "lblEnd";
-            this.lblEnd.Size = new System.Drawing.Size(77, 21);
-            this.lblEnd.TabIndex = 13;
-            this.lblEnd.Text = "đến ngày:";
+            this.tlplGD_HDBan_3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tlplGD_HDBan_3.ColumnCount = 5;
+            this.tlplGD_HDBan_3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tlplGD_HDBan_3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlplGD_HDBan_3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tlplGD_HDBan_3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlplGD_HDBan_3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tlplGD_HDBan_3.Controls.Add(this.lblStart, 0, 0);
+            this.tlplGD_HDBan_3.Controls.Add(this.dtpStart, 1, 0);
+            this.tlplGD_HDBan_3.Controls.Add(this.btnTraCuuHoaDonBan, 4, 0);
+            this.tlplGD_HDBan_3.Controls.Add(this.dtpEnd, 3, 0);
+            this.tlplGD_HDBan_3.Controls.Add(this.lblEnd, 2, 0);
+            this.tlplGD_HDBan_3.Location = new System.Drawing.Point(250, 129);
+            this.tlplGD_HDBan_3.Name = "tlplGD_HDBan_3";
+            this.tlplGD_HDBan_3.RowCount = 1;
+            this.tlplGD_HDBan_3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlplGD_HDBan_3.Size = new System.Drawing.Size(658, 40);
+            this.tlplGD_HDBan_3.TabIndex = 16;
             // 
             // lblStart
             // 
@@ -1123,6 +1143,16 @@
             this.lblStart.TabIndex = 13;
             this.lblStart.Text = "Bắt đầu từ ngày:";
             // 
+            // dtpStart
+            // 
+            this.dtpStart.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpStart.CustomFormat = "yyyy-MM-dd";
+            this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpStart.Location = new System.Drawing.Point(200, 5);
+            this.dtpStart.Name = "dtpStart";
+            this.dtpStart.Size = new System.Drawing.Size(125, 29);
+            this.dtpStart.TabIndex = 14;
+            // 
             // btnTraCuuHoaDonBan
             // 
             this.btnTraCuuHoaDonBan.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -1131,30 +1161,39 @@
             this.btnTraCuuHoaDonBan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTraCuuHoaDonBan.FlatAppearance.BorderSize = 0;
             this.btnTraCuuHoaDonBan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTraCuuHoaDonBan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTraCuuHoaDonBan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTraCuuHoaDonBan.ForeColor = System.Drawing.Color.White;
-            this.btnTraCuuHoaDonBan.Location = new System.Drawing.Point(572, 4);
+            this.btnTraCuuHoaDonBan.Location = new System.Drawing.Point(569, 4);
             this.btnTraCuuHoaDonBan.Name = "btnTraCuuHoaDonBan";
-            this.btnTraCuuHoaDonBan.Size = new System.Drawing.Size(70, 31);
+            this.btnTraCuuHoaDonBan.Size = new System.Drawing.Size(76, 31);
             this.btnTraCuuHoaDonBan.TabIndex = 12;
             this.btnTraCuuHoaDonBan.Text = "Tra cứu";
             this.btnTraCuuHoaDonBan.UseVisualStyleBackColor = false;
-            this.btnTraCuuHoaDonBan.Click += new System.EventHandler(this.btnQuayLai13_0_Click);
+            this.btnTraCuuHoaDonBan.Click += new System.EventHandler(this.btnTraCuuHoaDonBan_Click);
             // 
-            // btnQuayLai13_0
+            // dtpEnd
             // 
-            this.btnQuayLai13_0.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnQuayLai13_0.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuayLai13_0.Location = new System.Drawing.Point(3, 3);
-            this.btnQuayLai13_0.Name = "btnQuayLai13_0";
-            this.btnQuayLai13_0.Size = new System.Drawing.Size(135, 63);
-            this.btnQuayLai13_0.TabIndex = 12;
-            this.btnQuayLai13_0.Text = "Quay lại";
-            this.btnQuayLai13_0.UseVisualStyleBackColor = true;
-            this.btnQuayLai13_0.Click += new System.EventHandler(this.btnQuayLai13_0_Click);
+            this.dtpEnd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpEnd.CustomFormat = "yyyy-MM-dd";
+            this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpEnd.Location = new System.Drawing.Point(429, 5);
+            this.dtpEnd.Name = "dtpEnd";
+            this.dtpEnd.Size = new System.Drawing.Size(125, 29);
+            this.dtpEnd.TabIndex = 14;
+            // 
+            // lblEnd
+            // 
+            this.lblEnd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblEnd.AutoSize = true;
+            this.lblEnd.Location = new System.Drawing.Point(338, 9);
+            this.lblEnd.Name = "lblEnd";
+            this.lblEnd.Size = new System.Drawing.Size(77, 21);
+            this.lblEnd.TabIndex = 13;
+            this.lblEnd.Text = "đến ngày:";
             // 
             // pageGD_HDNhap
             // 
+            this.pageGD_HDNhap.Controls.Add(this.tlplGD_HDNhap);
             this.pageGD_HDNhap.Location = new System.Drawing.Point(4, 22);
             this.pageGD_HDNhap.Name = "pageGD_HDNhap";
             this.pageGD_HDNhap.Padding = new System.Windows.Forms.Padding(3);
@@ -1162,6 +1201,143 @@
             this.pageGD_HDNhap.TabIndex = 13;
             this.pageGD_HDNhap.Text = "GD_HDNhap";
             this.pageGD_HDNhap.UseVisualStyleBackColor = true;
+            // 
+            // tlplGD_HDNhap
+            // 
+            this.tlplGD_HDNhap.ColumnCount = 1;
+            this.tlplGD_HDNhap.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlplGD_HDNhap.Controls.Add(this.dtgvListHDNhap, 0, 3);
+            this.tlplGD_HDNhap.Controls.Add(this.tlplGD_HoaDonNhap_3, 0, 2);
+            this.tlplGD_HDNhap.Controls.Add(this.btnQuayLai14_0, 0, 0);
+            this.tlplGD_HDNhap.Controls.Add(this.lblTraCuuHoaDonNhap, 0, 1);
+            this.tlplGD_HDNhap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlplGD_HDNhap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tlplGD_HDNhap.Location = new System.Drawing.Point(3, 3);
+            this.tlplGD_HDNhap.Name = "tlplGD_HDNhap";
+            this.tlplGD_HDNhap.RowCount = 4;
+            this.tlplGD_HDNhap.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlplGD_HDNhap.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlplGD_HDNhap.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlplGD_HDNhap.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tlplGD_HDNhap.Size = new System.Drawing.Size(1159, 750);
+            this.tlplGD_HDNhap.TabIndex = 18;
+            // 
+            // dtgvListHDNhap
+            // 
+            this.dtgvListHDNhap.AllowUserToAddRows = false;
+            this.dtgvListHDNhap.AllowUserToDeleteRows = false;
+            this.dtgvListHDNhap.AllowUserToOrderColumns = true;
+            this.dtgvListHDNhap.AllowUserToResizeColumns = false;
+            this.dtgvListHDNhap.AllowUserToResizeRows = false;
+            this.dtgvListHDNhap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvListHDNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvListHDNhap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvListHDNhap.Location = new System.Drawing.Point(3, 190);
+            this.dtgvListHDNhap.Name = "dtgvListHDNhap";
+            this.dtgvListHDNhap.Size = new System.Drawing.Size(1153, 557);
+            this.dtgvListHDNhap.TabIndex = 15;
+            // 
+            // tlplGD_HoaDonNhap_3
+            // 
+            this.tlplGD_HoaDonNhap_3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tlplGD_HoaDonNhap_3.ColumnCount = 5;
+            this.tlplGD_HoaDonNhap_3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tlplGD_HoaDonNhap_3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlplGD_HoaDonNhap_3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tlplGD_HoaDonNhap_3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlplGD_HoaDonNhap_3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tlplGD_HoaDonNhap_3.Controls.Add(this.lblHDNhapStart, 0, 0);
+            this.tlplGD_HoaDonNhap_3.Controls.Add(this.dtpStartHDNhap, 1, 0);
+            this.tlplGD_HoaDonNhap_3.Controls.Add(this.dtpEndHDNhap, 3, 0);
+            this.tlplGD_HoaDonNhap_3.Controls.Add(this.lblEndHDNhap, 2, 0);
+            this.tlplGD_HoaDonNhap_3.Controls.Add(this.btnTraCuuHDNhap, 4, 0);
+            this.tlplGD_HoaDonNhap_3.Location = new System.Drawing.Point(250, 129);
+            this.tlplGD_HoaDonNhap_3.Name = "tlplGD_HoaDonNhap_3";
+            this.tlplGD_HoaDonNhap_3.RowCount = 1;
+            this.tlplGD_HoaDonNhap_3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlplGD_HoaDonNhap_3.Size = new System.Drawing.Size(658, 40);
+            this.tlplGD_HoaDonNhap_3.TabIndex = 16;
+            // 
+            // lblHDNhapStart
+            // 
+            this.lblHDNhapStart.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblHDNhapStart.AutoSize = true;
+            this.lblHDNhapStart.Location = new System.Drawing.Point(73, 9);
+            this.lblHDNhapStart.Name = "lblHDNhapStart";
+            this.lblHDNhapStart.Size = new System.Drawing.Size(121, 21);
+            this.lblHDNhapStart.TabIndex = 13;
+            this.lblHDNhapStart.Text = "Bắt đầu từ ngày:";
+            // 
+            // dtpStartHDNhap
+            // 
+            this.dtpStartHDNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpStartHDNhap.CustomFormat = "yyyy-MM-dd";
+            this.dtpStartHDNhap.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpStartHDNhap.Location = new System.Drawing.Point(200, 5);
+            this.dtpStartHDNhap.Name = "dtpStartHDNhap";
+            this.dtpStartHDNhap.Size = new System.Drawing.Size(125, 29);
+            this.dtpStartHDNhap.TabIndex = 14;
+            // 
+            // dtpEndHDNhap
+            // 
+            this.dtpEndHDNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpEndHDNhap.CustomFormat = "yyyy-MM-dd";
+            this.dtpEndHDNhap.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpEndHDNhap.Location = new System.Drawing.Point(429, 5);
+            this.dtpEndHDNhap.Name = "dtpEndHDNhap";
+            this.dtpEndHDNhap.Size = new System.Drawing.Size(125, 29);
+            this.dtpEndHDNhap.TabIndex = 14;
+            // 
+            // lblEndHDNhap
+            // 
+            this.lblEndHDNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblEndHDNhap.AutoSize = true;
+            this.lblEndHDNhap.Location = new System.Drawing.Point(338, 9);
+            this.lblEndHDNhap.Name = "lblEndHDNhap";
+            this.lblEndHDNhap.Size = new System.Drawing.Size(77, 21);
+            this.lblEndHDNhap.TabIndex = 13;
+            this.lblEndHDNhap.Text = "đến ngày:";
+            // 
+            // btnTraCuuHDNhap
+            // 
+            this.btnTraCuuHDNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnTraCuuHDNhap.AutoSize = true;
+            this.btnTraCuuHDNhap.BackColor = System.Drawing.Color.Green;
+            this.btnTraCuuHDNhap.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTraCuuHDNhap.FlatAppearance.BorderSize = 0;
+            this.btnTraCuuHDNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTraCuuHDNhap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTraCuuHDNhap.ForeColor = System.Drawing.Color.White;
+            this.btnTraCuuHDNhap.Location = new System.Drawing.Point(569, 4);
+            this.btnTraCuuHDNhap.Name = "btnTraCuuHDNhap";
+            this.btnTraCuuHDNhap.Size = new System.Drawing.Size(76, 31);
+            this.btnTraCuuHDNhap.TabIndex = 12;
+            this.btnTraCuuHDNhap.Text = "Tra cứu";
+            this.btnTraCuuHDNhap.UseVisualStyleBackColor = false;
+            // 
+            // btnQuayLai14_0
+            // 
+            this.btnQuayLai14_0.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnQuayLai14_0.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuayLai14_0.Location = new System.Drawing.Point(3, 3);
+            this.btnQuayLai14_0.Name = "btnQuayLai14_0";
+            this.btnQuayLai14_0.Size = new System.Drawing.Size(103, 31);
+            this.btnQuayLai14_0.TabIndex = 12;
+            this.btnQuayLai14_0.Text = "Quay lại";
+            this.btnQuayLai14_0.UseVisualStyleBackColor = true;
+            this.btnQuayLai14_0.Click += new System.EventHandler(this.btnQuayLai14_0_Click);
+            // 
+            // lblTraCuuHoaDonNhap
+            // 
+            this.lblTraCuuHoaDonNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTraCuuHoaDonNhap.AutoSize = true;
+            this.lblTraCuuHoaDonNhap.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTraCuuHoaDonNhap.ForeColor = System.Drawing.Color.Red;
+            this.lblTraCuuHoaDonNhap.Location = new System.Drawing.Point(358, 56);
+            this.lblTraCuuHoaDonNhap.Name = "lblTraCuuHoaDonNhap";
+            this.lblTraCuuHoaDonNhap.Size = new System.Drawing.Size(443, 37);
+            this.lblTraCuuHoaDonNhap.TabIndex = 17;
+            this.lblTraCuuHoaDonNhap.Text = "TRA CỨU HÓA ĐƠN NHẬP HÀNG";
             // 
             // pageTC_Sach
             // 
@@ -1379,23 +1555,17 @@
             this.btnBaoCao.UseVisualStyleBackColor = false;
             this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
             // 
-            // tlplGD_HDBan
+            // lblTraCuuHoaDonBan
             // 
-            this.tlplGD_HDBan.ColumnCount = 1;
-            this.tlplGD_HDBan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlplGD_HDBan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlplGD_HDBan.Controls.Add(this.btnQuayLai13_0, 0, 0);
-            this.tlplGD_HDBan.Controls.Add(this.dtgvListHoaDonBan, 0, 2);
-            this.tlplGD_HDBan.Controls.Add(this.tlplGD_HDBan_2, 0, 1);
-            this.tlplGD_HDBan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlplGD_HDBan.Location = new System.Drawing.Point(3, 3);
-            this.tlplGD_HDBan.Name = "tlplGD_HDBan";
-            this.tlplGD_HDBan.RowCount = 3;
-            this.tlplGD_HDBan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlplGD_HDBan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlplGD_HDBan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tlplGD_HDBan.Size = new System.Drawing.Size(1159, 750);
-            this.tlplGD_HDBan.TabIndex = 17;
+            this.lblTraCuuHoaDonBan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTraCuuHoaDonBan.AutoSize = true;
+            this.lblTraCuuHoaDonBan.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTraCuuHoaDonBan.ForeColor = System.Drawing.Color.Red;
+            this.lblTraCuuHoaDonBan.Location = new System.Drawing.Point(368, 56);
+            this.lblTraCuuHoaDonBan.Name = "lblTraCuuHoaDonBan";
+            this.lblTraCuuHoaDonBan.Size = new System.Drawing.Size(422, 37);
+            this.lblTraCuuHoaDonBan.TabIndex = 17;
+            this.lblTraCuuHoaDonBan.Text = "TRA CỨU HÓA ĐƠN BÁN HÀNG";
             // 
             // FMain
             // 
@@ -1436,12 +1606,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvGioHang)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.pageGD_HDBan.ResumeLayout(false);
-            this.tlplGD_HDBan_2.ResumeLayout(false);
-            this.tlplGD_HDBan_2.PerformLayout();
+            this.tlplGD_HDBan.ResumeLayout(false);
+            this.tlplGD_HDBan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvListHoaDonBan)).EndInit();
+            this.tlplGD_HDBan_3.ResumeLayout(false);
+            this.tlplGD_HDBan_3.PerformLayout();
+            this.pageGD_HDNhap.ResumeLayout(false);
+            this.tlplGD_HDNhap.ResumeLayout(false);
+            this.tlplGD_HDNhap.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvListHDNhap)).EndInit();
+            this.tlplGD_HoaDonNhap_3.ResumeLayout(false);
+            this.tlplGD_HoaDonNhap_3.PerformLayout();
             this.tblpMainContainer.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tlplGD_HDBan.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1539,7 +1716,18 @@
         private System.Windows.Forms.DateTimePicker dtpStart;
         private System.Windows.Forms.Label lblEnd;
         private System.Windows.Forms.DataGridView dtgvListHoaDonBan;
-        private System.Windows.Forms.TableLayoutPanel tlplGD_HDBan_2;
+        private System.Windows.Forms.TableLayoutPanel tlplGD_HDBan_3;
         private System.Windows.Forms.TableLayoutPanel tlplGD_HDBan;
+        private System.Windows.Forms.TableLayoutPanel tlplGD_HDNhap;
+        private System.Windows.Forms.Button btnQuayLai14_0;
+        private System.Windows.Forms.DataGridView dtgvListHDNhap;
+        private System.Windows.Forms.TableLayoutPanel tlplGD_HoaDonNhap_3;
+        private System.Windows.Forms.Label lblHDNhapStart;
+        private System.Windows.Forms.DateTimePicker dtpStartHDNhap;
+        private System.Windows.Forms.Button btnTraCuuHDNhap;
+        private System.Windows.Forms.DateTimePicker dtpEndHDNhap;
+        private System.Windows.Forms.Label lblEndHDNhap;
+        private System.Windows.Forms.Label lblTraCuuHoaDonNhap;
+        private System.Windows.Forms.Label lblTraCuuHoaDonBan;
     }
 }

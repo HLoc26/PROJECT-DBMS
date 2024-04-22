@@ -236,16 +236,36 @@ namespace DBMS_BookStore
         #endregion
 
         #region 13. Giao dịch - Hoá đơn bán hàng (tra cứu hoá đơn bán)
+        private void btnHoaDonBan_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[13];
+        }
+
         private void btnQuayLai13_0_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[0];
+        }
+
+        private void btnTraCuuHoaDonBan_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(dtpStart.Value + " " + dtpEnd.Value);
         }
 
 
         #endregion
 
         #region 14. Giao dịch - Hoá đơn nhập hàng (tra cứu hoá đơn nhập)
-        // Code here
+        private void btnHoaDonNhap_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[14];
+        }
+
+        private void btnQuayLai14_0_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[0];
+        }
+
+
         #endregion
 
         #region 15. Tra cứu - Sách
@@ -288,6 +308,6 @@ namespace DBMS_BookStore
         // Code here
         #endregion
 
-
+        
     }
 }
