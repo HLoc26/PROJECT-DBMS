@@ -33,7 +33,7 @@ namespace DBMS_BookStore.DAO
             return maNV;
         }
 
-        //Tìm kiếm khách hàng theo mã thẻ thành viên
+        //Tìm kiếm khách hàng theo mã khách hàng
         public KhachHang GetInforByCusID (string MaKH)
         {
             string query = "EXEC PROC_GetKH_ByCusID @MaKH = @param";
@@ -43,6 +43,19 @@ namespace DBMS_BookStore.DAO
             DataTable dt = db.ExecuteQuery(cmd);
             if (dt.Rows.Count > 0)
                 return new KhachHang(dt.Rows[0]);
+            else return null;
+        }
+
+        //Tìm kiém khách hàng theo mã thẻ thành viên
+        public KhachHang GetInforByMemID (string MaThe)
+        {
+            string query = "EXEC PROC_GetKH_ByMemID @Mathe = @param";
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.Parameters.AddWithValue("@param", MaThe);
+
+            DataTable dt = db.ExecuteQuery(cmd);
+            if(dt.Rows.Count > 0)
+                   return new KhachHang(dt.Rows[0]);
             else return null;
         }
     }
