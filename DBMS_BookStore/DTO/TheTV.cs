@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DBMS_BookStore.DTO
 {
-    internal class TheTV
+    public class TheTV
 	{
         string maThe;
         int soDiem;

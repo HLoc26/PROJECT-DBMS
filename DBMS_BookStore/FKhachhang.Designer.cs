@@ -58,8 +58,35 @@
             this.lblMembershipID = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.btnReturn = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnSignup = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblCustomer_2 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlCustomerID_2 = new System.Windows.Forms.Panel();
+            this.txtCustomerID_2 = new System.Windows.Forms.TextBox();
+            this.lblCustomerID_2 = new System.Windows.Forms.Label();
+            this.pnlCustormerName_2 = new System.Windows.Forms.Panel();
+            this.txtCustomerName_2 = new System.Windows.Forms.TextBox();
+            this.lblCustomerName_2 = new System.Windows.Forms.Label();
+            this.pnlCustomerDoB_2 = new System.Windows.Forms.Panel();
+            this.txtCustomerDoB_2 = new System.Windows.Forms.TextBox();
+            this.lblCustomerDoB_2 = new System.Windows.Forms.Label();
+            this.pnlCustomerGender_2 = new System.Windows.Forms.Panel();
+            this.txtCustomerGender_2 = new System.Windows.Forms.TextBox();
+            this.lblCustomerGender_2 = new System.Windows.Forms.Label();
+            this.pnlCustomerScore_2 = new System.Windows.Forms.Panel();
+            this.txtCustomerScore_2 = new System.Windows.Forms.TextBox();
+            this.lblCustomerScore_2 = new System.Windows.Forms.Label();
+            this.pnlCustomerLevel_2 = new System.Windows.Forms.Panel();
+            this.txtCustomerLevel_2 = new System.Windows.Forms.TextBox();
+            this.lblCustomerLevel_2 = new System.Windows.Forms.Label();
+            this.pnlMemberShipID_2 = new System.Windows.Forms.Panel();
+            this.txtMembershipID_2 = new System.Windows.Forms.TextBox();
+            this.lblMembershipID_2 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btnReturn_2 = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.tbcCustomer.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tblpCustomer.SuspendLayout();
@@ -72,6 +99,17 @@
             this.pnlCustomerLevel.SuspendLayout();
             this.pnlMembershipID.SuspendLayout();
             this.panel12.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.pnlCustomerID_2.SuspendLayout();
+            this.pnlCustormerName_2.SuspendLayout();
+            this.pnlCustomerDoB_2.SuspendLayout();
+            this.pnlCustomerGender_2.SuspendLayout();
+            this.pnlCustomerScore_2.SuspendLayout();
+            this.pnlCustomerLevel_2.SuspendLayout();
+            this.pnlMemberShipID_2.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbcCustomer
@@ -103,7 +141,6 @@
             this.tblpCustomer.Controls.Add(this.lblMembership, 0, 0);
             this.tblpCustomer.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tblpCustomer.Controls.Add(this.panel12, 0, 2);
-            this.tblpCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblpCustomer.Location = new System.Drawing.Point(3, 3);
             this.tblpCustomer.Name = "tblpCustomer";
             this.tblpCustomer.RowCount = 3;
@@ -165,6 +202,7 @@
             this.txtCustomerID.Name = "txtCustomerID";
             this.txtCustomerID.Size = new System.Drawing.Size(128, 22);
             this.txtCustomerID.TabIndex = 1;
+            this.txtCustomerID.Leave += new System.EventHandler(this.txtCustomerID_Leave);
             // 
             // btnCustomerID
             // 
@@ -174,6 +212,7 @@
             this.btnCustomerID.TabIndex = 1;
             this.btnCustomerID.Text = "Tìm kiếm";
             this.btnCustomerID.UseVisualStyleBackColor = true;
+            this.btnCustomerID.Click += new System.EventHandler(this.btnCustomerID_Click);
             // 
             // lblCustomerID
             // 
@@ -359,8 +398,8 @@
             // 
             // panel12
             // 
-            this.panel12.Controls.Add(this.btnSignup);
             this.panel12.Controls.Add(this.btnReturn);
+            this.panel12.Controls.Add(this.btnSignup);
             this.panel12.Location = new System.Drawing.Point(3, 348);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(780, 64);
@@ -368,15 +407,25 @@
             // 
             // btnReturn
             // 
-            this.btnReturn.Location = new System.Drawing.Point(267, 11);
+            this.btnReturn.Location = new System.Drawing.Point(392, 11);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(119, 41);
             this.btnReturn.TabIndex = 0;
             this.btnReturn.Text = "Quay lại";
             this.btnReturn.UseVisualStyleBackColor = true;
             // 
+            // btnSignup
+            // 
+            this.btnSignup.Location = new System.Drawing.Point(267, 11);
+            this.btnSignup.Name = "btnSignup";
+            this.btnSignup.Size = new System.Drawing.Size(119, 41);
+            this.btnSignup.TabIndex = 0;
+            this.btnSignup.Text = "Đăng ký";
+            this.btnSignup.UseVisualStyleBackColor = true;
+            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.tableLayoutPanel1);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -385,14 +434,273 @@
             this.tabPage2.Text = "Create Membership";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // btnSignup
+            // tableLayoutPanel1
             // 
-            this.btnSignup.Location = new System.Drawing.Point(392, 11);
-            this.btnSignup.Name = "btnSignup";
-            this.btnSignup.Size = new System.Drawing.Size(119, 41);
-            this.btnSignup.TabIndex = 0;
-            this.btnSignup.Text = "Đăng ký";
-            this.btnSignup.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.lblCustomer_2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel8, 0, 2);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(786, 415);
+            this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // lblCustomer_2
+            // 
+            this.lblCustomer_2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblCustomer_2.AutoSize = true;
+            this.lblCustomer_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomer_2.Location = new System.Drawing.Point(197, 0);
+            this.lblCustomer_2.Name = "lblCustomer_2";
+            this.lblCustomer_2.Size = new System.Drawing.Size(392, 46);
+            this.lblCustomer_2.TabIndex = 0;
+            this.lblCustomer_2.Text = "THẺ KHÁCH HÀNG";
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.pnlCustomerID_2, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.pnlCustormerName_2, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.pnlCustomerDoB_2, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.pnlCustomerGender_2, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.pnlCustomerScore_2, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.pnlCustomerLevel_2, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.pnlMemberShipID_2, 1, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 53);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 4;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(780, 289);
+            this.tableLayoutPanel3.TabIndex = 1;
+            // 
+            // pnlCustomerID_2
+            // 
+            this.pnlCustomerID_2.Controls.Add(this.txtCustomerID_2);
+            this.pnlCustomerID_2.Controls.Add(this.lblCustomerID_2);
+            this.pnlCustomerID_2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlCustomerID_2.Location = new System.Drawing.Point(3, 3);
+            this.pnlCustomerID_2.Name = "pnlCustomerID_2";
+            this.pnlCustomerID_2.Size = new System.Drawing.Size(384, 66);
+            this.pnlCustomerID_2.TabIndex = 2;
+            // 
+            // txtCustomerID_2
+            // 
+            this.txtCustomerID_2.Location = new System.Drawing.Point(144, 20);
+            this.txtCustomerID_2.Name = "txtCustomerID_2";
+            this.txtCustomerID_2.Size = new System.Drawing.Size(229, 22);
+            this.txtCustomerID_2.TabIndex = 1;
+            // 
+            // lblCustomerID_2
+            // 
+            this.lblCustomerID_2.AutoSize = true;
+            this.lblCustomerID_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerID_2.Location = new System.Drawing.Point(5, 19);
+            this.lblCustomerID_2.Name = "lblCustomerID_2";
+            this.lblCustomerID_2.Size = new System.Drawing.Size(85, 25);
+            this.lblCustomerID_2.TabIndex = 0;
+            this.lblCustomerID_2.Text = "Mã KH:";
+            // 
+            // pnlCustormerName_2
+            // 
+            this.pnlCustormerName_2.Controls.Add(this.txtCustomerName_2);
+            this.pnlCustormerName_2.Controls.Add(this.lblCustomerName_2);
+            this.pnlCustormerName_2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlCustormerName_2.Location = new System.Drawing.Point(3, 75);
+            this.pnlCustormerName_2.Name = "pnlCustormerName_2";
+            this.pnlCustormerName_2.Size = new System.Drawing.Size(384, 66);
+            this.pnlCustormerName_2.TabIndex = 2;
+            // 
+            // txtCustomerName_2
+            // 
+            this.txtCustomerName_2.Location = new System.Drawing.Point(144, 20);
+            this.txtCustomerName_2.Name = "txtCustomerName_2";
+            this.txtCustomerName_2.Size = new System.Drawing.Size(229, 22);
+            this.txtCustomerName_2.TabIndex = 1;
+            // 
+            // lblCustomerName_2
+            // 
+            this.lblCustomerName_2.AutoSize = true;
+            this.lblCustomerName_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerName_2.Location = new System.Drawing.Point(5, 19);
+            this.lblCustomerName_2.Name = "lblCustomerName_2";
+            this.lblCustomerName_2.Size = new System.Drawing.Size(111, 25);
+            this.lblCustomerName_2.TabIndex = 0;
+            this.lblCustomerName_2.Text = "Họ và tên:";
+            // 
+            // pnlCustomerDoB_2
+            // 
+            this.pnlCustomerDoB_2.Controls.Add(this.txtCustomerDoB_2);
+            this.pnlCustomerDoB_2.Controls.Add(this.lblCustomerDoB_2);
+            this.pnlCustomerDoB_2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlCustomerDoB_2.Location = new System.Drawing.Point(3, 147);
+            this.pnlCustomerDoB_2.Name = "pnlCustomerDoB_2";
+            this.pnlCustomerDoB_2.Size = new System.Drawing.Size(384, 66);
+            this.pnlCustomerDoB_2.TabIndex = 2;
+            // 
+            // txtCustomerDoB_2
+            // 
+            this.txtCustomerDoB_2.Location = new System.Drawing.Point(144, 25);
+            this.txtCustomerDoB_2.Name = "txtCustomerDoB_2";
+            this.txtCustomerDoB_2.Size = new System.Drawing.Size(229, 22);
+            this.txtCustomerDoB_2.TabIndex = 1;
+            // 
+            // lblCustomerDoB_2
+            // 
+            this.lblCustomerDoB_2.AutoSize = true;
+            this.lblCustomerDoB_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerDoB_2.Location = new System.Drawing.Point(5, 24);
+            this.lblCustomerDoB_2.Name = "lblCustomerDoB_2";
+            this.lblCustomerDoB_2.Size = new System.Drawing.Size(115, 25);
+            this.lblCustomerDoB_2.TabIndex = 0;
+            this.lblCustomerDoB_2.Text = "Ngày sinh:";
+            // 
+            // pnlCustomerGender_2
+            // 
+            this.pnlCustomerGender_2.Controls.Add(this.txtCustomerGender_2);
+            this.pnlCustomerGender_2.Controls.Add(this.lblCustomerGender_2);
+            this.pnlCustomerGender_2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlCustomerGender_2.Location = new System.Drawing.Point(3, 219);
+            this.pnlCustomerGender_2.Name = "pnlCustomerGender_2";
+            this.pnlCustomerGender_2.Size = new System.Drawing.Size(384, 67);
+            this.pnlCustomerGender_2.TabIndex = 2;
+            // 
+            // txtCustomerGender_2
+            // 
+            this.txtCustomerGender_2.Location = new System.Drawing.Point(144, 25);
+            this.txtCustomerGender_2.Name = "txtCustomerGender_2";
+            this.txtCustomerGender_2.Size = new System.Drawing.Size(229, 22);
+            this.txtCustomerGender_2.TabIndex = 1;
+            // 
+            // lblCustomerGender_2
+            // 
+            this.lblCustomerGender_2.AutoSize = true;
+            this.lblCustomerGender_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerGender_2.Location = new System.Drawing.Point(5, 24);
+            this.lblCustomerGender_2.Name = "lblCustomerGender_2";
+            this.lblCustomerGender_2.Size = new System.Drawing.Size(98, 25);
+            this.lblCustomerGender_2.TabIndex = 0;
+            this.lblCustomerGender_2.Text = "Giới tính:";
+            // 
+            // pnlCustomerScore_2
+            // 
+            this.pnlCustomerScore_2.Controls.Add(this.txtCustomerScore_2);
+            this.pnlCustomerScore_2.Controls.Add(this.lblCustomerScore_2);
+            this.pnlCustomerScore_2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlCustomerScore_2.Location = new System.Drawing.Point(393, 147);
+            this.pnlCustomerScore_2.Name = "pnlCustomerScore_2";
+            this.pnlCustomerScore_2.Size = new System.Drawing.Size(384, 66);
+            this.pnlCustomerScore_2.TabIndex = 2;
+            // 
+            // txtCustomerScore_2
+            // 
+            this.txtCustomerScore_2.Location = new System.Drawing.Point(155, 25);
+            this.txtCustomerScore_2.Name = "txtCustomerScore_2";
+            this.txtCustomerScore_2.Size = new System.Drawing.Size(214, 22);
+            this.txtCustomerScore_2.TabIndex = 1;
+            // 
+            // lblCustomerScore_2
+            // 
+            this.lblCustomerScore_2.AutoSize = true;
+            this.lblCustomerScore_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerScore_2.Location = new System.Drawing.Point(5, 22);
+            this.lblCustomerScore_2.Name = "lblCustomerScore_2";
+            this.lblCustomerScore_2.Size = new System.Drawing.Size(142, 25);
+            this.lblCustomerScore_2.TabIndex = 0;
+            this.lblCustomerScore_2.Text = "Điểm tích lũy:";
+            // 
+            // pnlCustomerLevel_2
+            // 
+            this.pnlCustomerLevel_2.Controls.Add(this.txtCustomerLevel_2);
+            this.pnlCustomerLevel_2.Controls.Add(this.lblCustomerLevel_2);
+            this.pnlCustomerLevel_2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlCustomerLevel_2.Location = new System.Drawing.Point(393, 75);
+            this.pnlCustomerLevel_2.Name = "pnlCustomerLevel_2";
+            this.pnlCustomerLevel_2.Size = new System.Drawing.Size(384, 66);
+            this.pnlCustomerLevel_2.TabIndex = 2;
+            // 
+            // txtCustomerLevel_2
+            // 
+            this.txtCustomerLevel_2.Location = new System.Drawing.Point(155, 25);
+            this.txtCustomerLevel_2.Name = "txtCustomerLevel_2";
+            this.txtCustomerLevel_2.Size = new System.Drawing.Size(214, 22);
+            this.txtCustomerLevel_2.TabIndex = 1;
+            // 
+            // lblCustomerLevel_2
+            // 
+            this.lblCustomerLevel_2.AutoSize = true;
+            this.lblCustomerLevel_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerLevel_2.Location = new System.Drawing.Point(5, 24);
+            this.lblCustomerLevel_2.Name = "lblCustomerLevel_2";
+            this.lblCustomerLevel_2.Size = new System.Drawing.Size(56, 25);
+            this.lblCustomerLevel_2.TabIndex = 0;
+            this.lblCustomerLevel_2.Text = "Bậc:";
+            // 
+            // pnlMemberShipID_2
+            // 
+            this.pnlMemberShipID_2.Controls.Add(this.txtMembershipID_2);
+            this.pnlMemberShipID_2.Controls.Add(this.lblMembershipID_2);
+            this.pnlMemberShipID_2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMemberShipID_2.Location = new System.Drawing.Point(393, 3);
+            this.pnlMemberShipID_2.Name = "pnlMemberShipID_2";
+            this.pnlMemberShipID_2.Size = new System.Drawing.Size(384, 66);
+            this.pnlMemberShipID_2.TabIndex = 2;
+            // 
+            // txtMembershipID_2
+            // 
+            this.txtMembershipID_2.Location = new System.Drawing.Point(155, 22);
+            this.txtMembershipID_2.Name = "txtMembershipID_2";
+            this.txtMembershipID_2.Size = new System.Drawing.Size(214, 22);
+            this.txtMembershipID_2.TabIndex = 1;
+            // 
+            // lblMembershipID_2
+            // 
+            this.lblMembershipID_2.AutoSize = true;
+            this.lblMembershipID_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMembershipID_2.Location = new System.Drawing.Point(5, 20);
+            this.lblMembershipID_2.Name = "lblMembershipID_2";
+            this.lblMembershipID_2.Size = new System.Drawing.Size(126, 25);
+            this.lblMembershipID_2.TabIndex = 0;
+            this.lblMembershipID_2.Text = "Mã thẻ TV: ";
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.btnReturn_2);
+            this.panel8.Controls.Add(this.btnCreate);
+            this.panel8.Location = new System.Drawing.Point(3, 348);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(780, 64);
+            this.panel8.TabIndex = 3;
+            // 
+            // btnReturn_2
+            // 
+            this.btnReturn_2.Location = new System.Drawing.Point(392, 11);
+            this.btnReturn_2.Name = "btnReturn_2";
+            this.btnReturn_2.Size = new System.Drawing.Size(119, 41);
+            this.btnReturn_2.TabIndex = 0;
+            this.btnReturn_2.Text = "Quay lại";
+            this.btnReturn_2.UseVisualStyleBackColor = true;
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.Location = new System.Drawing.Point(267, 11);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(119, 41);
+            this.btnCreate.TabIndex = 0;
+            this.btnCreate.Text = "Tạo";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // FKhachhang
             // 
@@ -422,6 +730,25 @@
             this.pnlMembershipID.ResumeLayout(false);
             this.pnlMembershipID.PerformLayout();
             this.panel12.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.pnlCustomerID_2.ResumeLayout(false);
+            this.pnlCustomerID_2.PerformLayout();
+            this.pnlCustormerName_2.ResumeLayout(false);
+            this.pnlCustormerName_2.PerformLayout();
+            this.pnlCustomerDoB_2.ResumeLayout(false);
+            this.pnlCustomerDoB_2.PerformLayout();
+            this.pnlCustomerGender_2.ResumeLayout(false);
+            this.pnlCustomerGender_2.PerformLayout();
+            this.pnlCustomerScore_2.ResumeLayout(false);
+            this.pnlCustomerScore_2.PerformLayout();
+            this.pnlCustomerLevel_2.ResumeLayout(false);
+            this.pnlCustomerLevel_2.PerformLayout();
+            this.pnlMemberShipID_2.ResumeLayout(false);
+            this.pnlMemberShipID_2.PerformLayout();
+            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -456,8 +783,35 @@
         private System.Windows.Forms.TextBox txtMembershipID;
         private System.Windows.Forms.Label lblMembershipID;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Button btnReturn;
-        private System.Windows.Forms.Button btnMembershipID;
         private System.Windows.Forms.Button btnSignup;
+        private System.Windows.Forms.Button btnMembershipID;
+        private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label lblCustomer_2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Panel pnlCustomerID_2;
+        private System.Windows.Forms.TextBox txtCustomerID_2;
+        private System.Windows.Forms.Label lblCustomerID_2;
+        private System.Windows.Forms.Panel pnlCustormerName_2;
+        private System.Windows.Forms.TextBox txtCustomerName_2;
+        private System.Windows.Forms.Label lblCustomerName_2;
+        private System.Windows.Forms.Panel pnlCustomerDoB_2;
+        private System.Windows.Forms.TextBox txtCustomerDoB_2;
+        private System.Windows.Forms.Label lblCustomerDoB_2;
+        private System.Windows.Forms.Panel pnlCustomerGender_2;
+        private System.Windows.Forms.TextBox txtCustomerGender_2;
+        private System.Windows.Forms.Label lblCustomerGender_2;
+        private System.Windows.Forms.Panel pnlCustomerScore_2;
+        private System.Windows.Forms.TextBox txtCustomerScore_2;
+        private System.Windows.Forms.Label lblCustomerScore_2;
+        private System.Windows.Forms.Panel pnlCustomerLevel_2;
+        private System.Windows.Forms.TextBox txtCustomerLevel_2;
+        private System.Windows.Forms.Label lblCustomerLevel_2;
+        private System.Windows.Forms.Panel pnlMemberShipID_2;
+        private System.Windows.Forms.TextBox txtMembershipID_2;
+        private System.Windows.Forms.Label lblMembershipID_2;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button btnReturn_2;
+        private System.Windows.Forms.Button btnCreate;
     }
 }

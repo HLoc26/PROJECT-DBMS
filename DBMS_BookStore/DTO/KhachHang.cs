@@ -15,8 +15,9 @@ namespace DBMS_BookStore.DTO
         string ten;
         DateTime ngaySinh;
         string gioiTinh;
+        TheTV thanhVien;
 
-        public KhachHang(string maKH, string ho, string tenLot, string ten, DateTime ngaySinh, string gioiTinh)
+        public KhachHang(string maKH, string ho, string tenLot, string ten, DateTime ngaySinh, string gioiTinh, TheTV thanhVien)
         {
             MaKH = maKH;
             Ho = ho;
@@ -24,6 +25,7 @@ namespace DBMS_BookStore.DTO
             Ten = ten;
             NgaySinh = ngaySinh;
             GioiTinh = gioiTinh;
+            ThanhVien = thanhVien;
         }
 
         public KhachHang(DataRow dr)
@@ -42,5 +44,6 @@ namespace DBMS_BookStore.DTO
         public string Ten { get => ten; set => ten = value; }
         public DateTime NgaySinh { get => ngaySinh; set => ngaySinh = value; }
         public string GioiTinh { get => gioiTinh; set => gioiTinh = value; }
+        public TheTV ThanhVien { get => thanhVien; set => thanhVien = value; }
     }
 }

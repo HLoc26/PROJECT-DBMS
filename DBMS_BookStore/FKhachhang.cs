@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DBMS_BookStore.DAO;
+using DBMS_BookStore.DTO;
 
 namespace DBMS_BookStore
 {
@@ -16,15 +18,29 @@ namespace DBMS_BookStore
         {
             InitializeComponent();
         }
+        private void txtCustomerID_Leave(object sender, EventArgs e)
+        {
+            KhachHangDAO dao = new KhachHangDAO();
 
-        private void textBox6_TextChanged(object sender, EventArgs e)
+            KhachHang kh = dao.ShowMembership(txtCustomerID.Text);
+            
+            txtCustomerName.Text = kh.Ho + " " + kh.TenLot + " " + kh.Ten;
+            txtCustomerDoB.Text = kh.NgaySinh.ToString();
+            txtCustomerGender.Text = kh.GioiTinh;
+            txtMembershipID.Text = kh.ThanhVien.MaThe;
+            txtCustomerLevel.Text = kh.ThanhVien.SoDiem.ToString;
+
+        }
+        private void btnCustomerID_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void btnCreate_Click(object sender, EventArgs e)
         {
 
         }
+
+
     }
 }
