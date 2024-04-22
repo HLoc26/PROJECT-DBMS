@@ -555,10 +555,9 @@ BEGIN
     WHERE s.MaSach = @MaHang;
 END;
 GO
-
 -- PROCEDURE tra cứu văn phòng phẩm theo mã hàng
 CREATE PROCEDURE SearchBooksByAuthor
-    @tenTG VARCHAR(20)
+    @tenTG NVARCHAR(20)
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -567,6 +566,7 @@ BEGIN
     WHERE tenTG = @tenTG;
 END;
 GO
+
 -- PROCEDURE tra cứu văn phòng phẩm theo mã hàng
 CREATE PROCEDURE SearchVPPByMaHang
     @MaHang VARCHAR(20)
@@ -645,6 +645,17 @@ BEGIN
 	VALUES (@MaHoaDon, @MaNV, @MaKH, @MaHang, @SoLuong)
 END;
 GO
+
+CREATE PROC PROC_NhapHang
+@MaDonNhap VARCHAR(10),
+@MaNVNhap VARCHAR(10),
+@MaHang VARCHAR(20),
+@SoLuong INT
+AS
+BEGIN 
+	INSERT dbo.NHAP_HANG (MaDonNhap, MaNVNhap, MaHang, SoLuong)
+	VALUES (@MaDonNhap, @MaNVNhap, @MaHang, @SoLuong)
+END
 
 -- ========================================================================================================================== --
 -- ========================================================================================================================== --
@@ -773,6 +784,44 @@ BEGIN
 			ROLLBACK
 			DECLARE @err NVARCHAR(MAX)
 			SET @err = 'ERROR FROM Trigger CreateReceipt: ' + ERROR_MESSAGE()
+			RAISERROR(@err, 16, 1)
+		END CATCH
+END;
+GO
+
+CREATE TRIGGER TRIG_NhapHang ON dbo.NHAP_HANG
+INSTEAD OF INSERT
+AS
+DECLARE @MaDonNhap VARCHAR(10),
+		@MaNVNhap VARCHAR(10),
+		@MaHang	VARCHAR(20),
+		@SoLuong INT
+SELECT  @MaDonNhap = MaDonNhap,
+		@MaNVNhap = MaNVNhap,
+		@MaHang = MaHang,
+		@SoLuong = SoLuong
+		FROM Inserted
+BEGIN 
+	SET XACT_ABORT ON
+	BEGIN TRAN
+		BEGIN TRY
+			-- Nếu mã hoá đơn chưa có trong bảng hoá đơn bán thì thêm vào 
+			IF NOT EXISTS (SELECT * FROM dbo.HOA_DON_NHAP WHERE MaDonNhap = @MaDonNhap)
+			BEGIN
+				INSERT dbo.HOA_DON_NHAP (MaDonNhap, ThoiGianNhap)
+				VALUES (@MaDonNhap, GETDATE())
+			END
+
+			-- Thêm mã hàng vào trong bảng nhập hàng
+			INSERT dbo.NHAP_HANG (MaDonNhap, MaNVNhap, MaHang, SoLuong)
+			VALUES (@MaDonNhap, @MaNVNhap, @MaHang, @SoLuong)
+
+			COMMIT TRAN
+		END TRY
+		BEGIN CATCH
+			ROLLBACK
+			DECLARE @err NVARCHAR(MAX)
+			SET @err = 'ERROR FROM Trigger TRIG_NhapHang: ' + ERROR_MESSAGE()
 			RAISERROR(@err, 16, 1)
 		END CATCH
 END;
