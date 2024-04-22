@@ -49,7 +49,6 @@ namespace DBMS_BookStore.DAO
             if (dt.Rows.Count > 0)
             {
                 Employee nv = new Employee(dt.Rows[0]);
-                nv.LsLamViec = GetLS(username);
                 return nv;
             }
             else return null;

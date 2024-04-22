@@ -28,5 +28,34 @@ namespace DBMS_BookStore.DAO
             }
             return null;
         }
+
+        // Hàm trả về toàn bộ thông tin sách
+        public DataRow GetSach(string maSach)
+        {
+            string query = "SELECT * FROM dbo.FUNC_Get_TTSach(@param)";
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.Parameters.AddWithValue("@param", maSach);
+
+            DataTable dt = db.ExecuteQuery(cmd);
+            if (dt.Rows.Count > 0)
+            {
+                return dt.Rows[0];
+            }
+            return null;
+        }
+        // Hàm trả về toàn bộ thông tin vpp
+        public DataRow GetVPP(string maSach)
+        {
+            string query = "SELECT * FROM dbo.FUNC_Get_TTVPP(@param)";
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.Parameters.AddWithValue("@param", maSach);
+
+            DataTable dt = db.ExecuteQuery(cmd);
+            if (dt.Rows.Count > 0)
+            {
+                return dt.Rows[0];
+            }
+            return null;
+        }
     }
 }

@@ -100,6 +100,11 @@ namespace DBMS_BookStore
         {
             tabControl.SelectedTab = tabControl.TabPages[4];
         }
+        private void btnNhapHang_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[9];
+            cbbLoaiHangNhap.SelectedIndex = 0;
+        }
         #endregion
 
         #region 1. Tra cứu
@@ -307,7 +312,90 @@ namespace DBMS_BookStore
         #endregion
 
         #region 9. Giao dịch - Nhập hàng (Chỉ admin)
-        // Code here
+
+        // Nhập hàng
+        List<HangHoa> dsHangNhap = new List<HangHoa>();
+        // 1. Chọn loại hàng: ComboBox chọn sách hoặc vpp
+        private void cbbLoaiHang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cbbLoaiHangNhap.SelectedIndex)
+            {
+                case 0:
+                    tlplGD_NHContainer4.Visible = true;
+                    tlplGD_NHContainer7.Visible = true;
+                    tlplGD_NHContainer5.Visible = true;
+
+                    break;
+                case 1:
+                    tlplGD_NHContainer4.Visible = false;
+                    tlplGD_NHContainer7.Visible = false;
+                    tlplGD_NHContainer5.Visible = false;
+                    break;
+            }
+        }
+        private void txbMaHangNhap_TextChanged(object sender, EventArgs e)
+        {
+            numSoLuongNhap.Value = 1;
+            DataRow drSach = hanghoaDAO.GetSach(txbMaHangNhap.Text);
+            DataRow drVPP = hanghoaDAO.GetVPP(txbMaHangNhap.Text);
+
+            if (cbbLoaiHangNhap.SelectedIndex == 0 && drSach != null)
+            {
+                Sach sach = new Sach(drSach);
+                txbTenHangNhap.Text = sach.TenHang;
+                txbDonGiaNhap.Text = sach.DonGia.ToString();
+                txbTacGiaNhap.Text = sach.TacGia;
+                txbTheLoaiNhap.Text = sach.TheLoai;
+                txbNXBNhap.Text = sach.Nxb;
+                txbSoLuongCon_Nhap.Text = drSach["SoLuong"].ToString();
+            }
+            else if (cbbLoaiHangNhap.SelectedIndex == 1 && drVPP != null)
+            {
+                HangHoa vpp = new HangHoa(drVPP);
+                txbTenHangNhap.Text = vpp.TenHang;
+                txbDonGiaNhap.Text = vpp.DonGia.ToString();
+                txbSoLuongCon_Nhap.Text = drVPP["SoLuong"].ToString();
+
+            }
+            else
+            {
+                txbTenHangNhap.Text = string.Empty;
+                txbDonGiaNhap.Text = string.Empty;
+                txbTacGiaNhap.Text = string.Empty;
+                txbTheLoaiNhap.Text = string.Empty;
+                txbNXBNhap.Text = string.Empty;
+            }
+        }
+
+        private void btnThemHangNhap_Click(object sender, EventArgs e)
+        {
+            if (cbbLoaiHangNhap.SelectedIndex == 0)
+            {
+                // Sach nhap
+                Sach sach = new Sach(txbMaHangNhap.Text, txbTenHangNhap.Text, int.Parse(txbDonGiaNhap.Text),
+                                     (int)numSoLuongNhap.Value,
+                                     txbTacGiaNhap.Text, txbNXBNhap.Text, txbTheLoaiNhap.Text
+                                     );
+                dsHangNhap.Add(sach);
+            }
+            else if(cbbLoaiHangNhap.SelectedIndex == 1)
+            {
+                // VPP nhap
+                HangHoa vpp = new HangHoa(txbMaHangNhap.Text, txbTenHangNhap.Text, int.Parse(txbDonGiaNhap.Text), (int)numSoLuongNhap.Value);
+                dsHangNhap.Add(vpp);
+            }
+            LoadDTGVNhap();
+        }
+
+        private void LoadDTGVNhap()
+        {
+        }
+
+        private void btnNhapHangQuayLaiGiaoDich_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[0];
+        }
+
         #endregion
 
         #region 10. Giao dịch - Khách hàng
@@ -534,6 +622,7 @@ namespace DBMS_BookStore
         {
             tabControl.SelectedTab = tabControl.TabPages[2];
         }
+
         #endregion
 
         #region 22. Cài đặt - Xem thông tin NV (Chỉ admin mới sửa được)
