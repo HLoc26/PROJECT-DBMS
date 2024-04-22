@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.pageGiaoDich = new System.Windows.Forms.TabPage();
             this.tblpGiaoDich = new System.Windows.Forms.TableLayoutPanel();
@@ -97,6 +97,14 @@
             this.pageGD_KH_TimTT = new System.Windows.Forms.TabPage();
             this.pageGD_KH_TaoThe = new System.Windows.Forms.TabPage();
             this.pageGD_HDBan = new System.Windows.Forms.TabPage();
+            this.tlplGD_HDBan_2 = new System.Windows.Forms.TableLayoutPanel();
+            this.dtgvListHoaDonBan = new System.Windows.Forms.DataGridView();
+            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
+            this.dtpStart = new System.Windows.Forms.DateTimePicker();
+            this.lblEnd = new System.Windows.Forms.Label();
+            this.lblStart = new System.Windows.Forms.Label();
+            this.btnTraCuuHoaDonBan = new System.Windows.Forms.Button();
+            this.btnQuayLai13_0 = new System.Windows.Forms.Button();
             this.pageGD_HDNhap = new System.Windows.Forms.TabPage();
             this.pageTC_Sach = new System.Windows.Forms.TabPage();
             this.pageTC_TG = new System.Windows.Forms.TabPage();
@@ -115,14 +123,7 @@
             this.btnTraCuu = new System.Windows.Forms.Button();
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnBaoCao = new System.Windows.Forms.Button();
-            this.btnQuayLai13_0 = new System.Windows.Forms.Button();
-            this.btnTraCuuHoaDonBan = new System.Windows.Forms.Button();
-            this.lblStart = new System.Windows.Forms.Label();
-            this.dtpStart = new System.Windows.Forms.DateTimePicker();
-            this.lblEnd = new System.Windows.Forms.Label();
-            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
-            this.dtgvListHoaDonBan = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlplGD_HDBan = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl.SuspendLayout();
             this.pageGiaoDich.SuspendLayout();
             this.tblpGiaoDich.SuspendLayout();
@@ -145,9 +146,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvGioHang)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.pageGD_HDBan.SuspendLayout();
+            this.tlplGD_HDBan_2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvListHoaDonBan)).BeginInit();
             this.tblpMainContainer.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvListHoaDonBan)).BeginInit();
+            this.tlplGD_HDBan.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -273,7 +276,7 @@
             this.pageTraCuu.Location = new System.Drawing.Point(4, 22);
             this.pageTraCuu.Name = "pageTraCuu";
             this.pageTraCuu.Padding = new System.Windows.Forms.Padding(3);
-            this.pageTraCuu.Size = new System.Drawing.Size(1618, 1048);
+            this.pageTraCuu.Size = new System.Drawing.Size(1165, 756);
             this.pageTraCuu.TabIndex = 1;
             this.pageTraCuu.Text = "pageTraCuu";
             this.pageTraCuu.UseVisualStyleBackColor = true;
@@ -295,7 +298,7 @@
             this.tblpTraCuu.RowCount = 2;
             this.tblpTraCuu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblpTraCuu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblpTraCuu.Size = new System.Drawing.Size(1612, 1042);
+            this.tblpTraCuu.Size = new System.Drawing.Size(1159, 750);
             this.tblpTraCuu.TabIndex = 0;
             // 
             // btnTTSach
@@ -306,7 +309,7 @@
             this.btnTTSach.Location = new System.Drawing.Point(20, 20);
             this.btnTTSach.Margin = new System.Windows.Forms.Padding(20);
             this.btnTTSach.Name = "btnTTSach";
-            this.btnTTSach.Size = new System.Drawing.Size(497, 481);
+            this.btnTTSach.Size = new System.Drawing.Size(346, 335);
             this.btnTTSach.TabIndex = 0;
             this.btnTTSach.Text = "SÁCH";
             this.btnTTSach.UseVisualStyleBackColor = true;
@@ -316,10 +319,10 @@
             this.btnTTTacGia.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTTTacGia.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnTTTacGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTTTacGia.Location = new System.Drawing.Point(557, 20);
+            this.btnTTTacGia.Location = new System.Drawing.Point(406, 20);
             this.btnTTTacGia.Margin = new System.Windows.Forms.Padding(20);
             this.btnTTTacGia.Name = "btnTTTacGia";
-            this.btnTTTacGia.Size = new System.Drawing.Size(497, 481);
+            this.btnTTTacGia.Size = new System.Drawing.Size(346, 335);
             this.btnTTTacGia.TabIndex = 1;
             this.btnTTTacGia.Text = "TÁC GIẢ";
             this.btnTTTacGia.UseVisualStyleBackColor = true;
@@ -329,10 +332,10 @@
             this.btnTTNXB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTTNXB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnTTNXB.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTTNXB.Location = new System.Drawing.Point(1094, 20);
+            this.btnTTNXB.Location = new System.Drawing.Point(792, 20);
             this.btnTTNXB.Margin = new System.Windows.Forms.Padding(20);
             this.btnTTNXB.Name = "btnTTNXB";
-            this.btnTTNXB.Size = new System.Drawing.Size(498, 481);
+            this.btnTTNXB.Size = new System.Drawing.Size(347, 335);
             this.btnTTNXB.TabIndex = 2;
             this.btnTTNXB.Text = "NHÀ XUẤT BẢN";
             this.btnTTNXB.UseVisualStyleBackColor = true;
@@ -342,10 +345,10 @@
             this.btnTTTheLoai.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTTTheLoai.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnTTTheLoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTTTheLoai.Location = new System.Drawing.Point(20, 541);
+            this.btnTTTheLoai.Location = new System.Drawing.Point(20, 395);
             this.btnTTTheLoai.Margin = new System.Windows.Forms.Padding(20);
             this.btnTTTheLoai.Name = "btnTTTheLoai";
-            this.btnTTTheLoai.Size = new System.Drawing.Size(497, 481);
+            this.btnTTTheLoai.Size = new System.Drawing.Size(346, 335);
             this.btnTTTheLoai.TabIndex = 3;
             this.btnTTTheLoai.Text = "THỂ LOẠI";
             this.btnTTTheLoai.UseVisualStyleBackColor = true;
@@ -355,10 +358,10 @@
             this.btnTTVPP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTTVPP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnTTVPP.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTTVPP.Location = new System.Drawing.Point(557, 541);
+            this.btnTTVPP.Location = new System.Drawing.Point(406, 395);
             this.btnTTVPP.Margin = new System.Windows.Forms.Padding(20);
             this.btnTTVPP.Name = "btnTTVPP";
-            this.btnTTVPP.Size = new System.Drawing.Size(497, 481);
+            this.btnTTVPP.Size = new System.Drawing.Size(346, 335);
             this.btnTTVPP.TabIndex = 4;
             this.btnTTVPP.Text = "VĂN PHÒNG PHẨM";
             this.btnTTVPP.UseVisualStyleBackColor = true;
@@ -368,7 +371,7 @@
             this.pageCaiDat.Location = new System.Drawing.Point(4, 22);
             this.pageCaiDat.Name = "pageCaiDat";
             this.pageCaiDat.Padding = new System.Windows.Forms.Padding(3);
-            this.pageCaiDat.Size = new System.Drawing.Size(1618, 1048);
+            this.pageCaiDat.Size = new System.Drawing.Size(1165, 756);
             this.pageCaiDat.TabIndex = 3;
             this.pageCaiDat.Text = "pageCaiDat";
             this.pageCaiDat.UseVisualStyleBackColor = true;
@@ -379,7 +382,7 @@
             this.pageBaoCao.Location = new System.Drawing.Point(4, 22);
             this.pageBaoCao.Name = "pageBaoCao";
             this.pageBaoCao.Padding = new System.Windows.Forms.Padding(3);
-            this.pageBaoCao.Size = new System.Drawing.Size(1618, 1048);
+            this.pageBaoCao.Size = new System.Drawing.Size(1165, 756);
             this.pageBaoCao.TabIndex = 2;
             this.pageBaoCao.Text = "pageBaoCao";
             this.pageBaoCao.UseVisualStyleBackColor = true;
@@ -400,7 +403,7 @@
             this.tblpBaoCao.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblpBaoCao.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblpBaoCao.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblpBaoCao.Size = new System.Drawing.Size(1612, 1042);
+            this.tblpBaoCao.Size = new System.Drawing.Size(1159, 750);
             this.tblpBaoCao.TabIndex = 0;
             // 
             // btnBaoCaoDoanhThu
@@ -411,7 +414,7 @@
             this.btnBaoCaoDoanhThu.Location = new System.Drawing.Point(20, 20);
             this.btnBaoCaoDoanhThu.Margin = new System.Windows.Forms.Padding(20);
             this.btnBaoCaoDoanhThu.Name = "btnBaoCaoDoanhThu";
-            this.btnBaoCaoDoanhThu.Size = new System.Drawing.Size(497, 481);
+            this.btnBaoCaoDoanhThu.Size = new System.Drawing.Size(346, 335);
             this.btnBaoCaoDoanhThu.TabIndex = 0;
             this.btnBaoCaoDoanhThu.Text = "DOANH THU";
             this.btnBaoCaoDoanhThu.UseVisualStyleBackColor = true;
@@ -421,10 +424,10 @@
             this.btnBaoCaoKhachHang.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBaoCaoKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnBaoCaoKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBaoCaoKhachHang.Location = new System.Drawing.Point(557, 20);
+            this.btnBaoCaoKhachHang.Location = new System.Drawing.Point(406, 20);
             this.btnBaoCaoKhachHang.Margin = new System.Windows.Forms.Padding(20);
             this.btnBaoCaoKhachHang.Name = "btnBaoCaoKhachHang";
-            this.btnBaoCaoKhachHang.Size = new System.Drawing.Size(497, 481);
+            this.btnBaoCaoKhachHang.Size = new System.Drawing.Size(346, 335);
             this.btnBaoCaoKhachHang.TabIndex = 1;
             this.btnBaoCaoKhachHang.Text = "KHÁCH HÀNG";
             this.btnBaoCaoKhachHang.UseVisualStyleBackColor = true;
@@ -434,10 +437,10 @@
             this.btnBaoCaoNhanVien.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBaoCaoNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnBaoCaoNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBaoCaoNhanVien.Location = new System.Drawing.Point(1094, 20);
+            this.btnBaoCaoNhanVien.Location = new System.Drawing.Point(792, 20);
             this.btnBaoCaoNhanVien.Margin = new System.Windows.Forms.Padding(20);
             this.btnBaoCaoNhanVien.Name = "btnBaoCaoNhanVien";
-            this.btnBaoCaoNhanVien.Size = new System.Drawing.Size(498, 481);
+            this.btnBaoCaoNhanVien.Size = new System.Drawing.Size(347, 335);
             this.btnBaoCaoNhanVien.TabIndex = 2;
             this.btnBaoCaoNhanVien.Text = "NHÂN VIÊN";
             this.btnBaoCaoNhanVien.UseVisualStyleBackColor = true;
@@ -852,14 +855,14 @@
             this.dtgvGioHang.AllowUserToDeleteRows = false;
             this.dtgvGioHang.AllowUserToResizeColumns = false;
             this.dtgvGioHang.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvGioHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvGioHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dtgvGioHang.ColumnHeadersHeight = 40;
             this.dtgvGioHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtgvGioHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -868,27 +871,27 @@
             this.colDonGia,
             this.colSoLuongMua});
             this.tblpGiaoDich_BanHang.SetColumnSpan(this.dtgvGioHang, 3);
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvGioHang.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvGioHang.DefaultCellStyle = dataGridViewCellStyle5;
             this.dtgvGioHang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvGioHang.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dtgvGioHang.Location = new System.Drawing.Point(3, 78);
             this.dtgvGioHang.Name = "dtgvGioHang";
             this.dtgvGioHang.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvGioHang.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvGioHang.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dtgvGioHang.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtgvGioHang.RowTemplate.Height = 30;
             this.dtgvGioHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -965,7 +968,7 @@
             this.pageGD_BH_ThanhToan.Location = new System.Drawing.Point(4, 22);
             this.pageGD_BH_ThanhToan.Name = "pageGD_BH_ThanhToan";
             this.pageGD_BH_ThanhToan.Padding = new System.Windows.Forms.Padding(3);
-            this.pageGD_BH_ThanhToan.Size = new System.Drawing.Size(1618, 1048);
+            this.pageGD_BH_ThanhToan.Size = new System.Drawing.Size(1165, 756);
             this.pageGD_BH_ThanhToan.TabIndex = 5;
             this.pageGD_BH_ThanhToan.Text = "GD_BH_ThanhToan";
             this.pageGD_BH_ThanhToan.UseVisualStyleBackColor = true;
@@ -974,7 +977,7 @@
             // 
             this.page6.Location = new System.Drawing.Point(4, 22);
             this.page6.Name = "page6";
-            this.page6.Size = new System.Drawing.Size(1618, 1048);
+            this.page6.Size = new System.Drawing.Size(1165, 756);
             this.page6.TabIndex = 24;
             this.page6.Text = "6";
             this.page6.UseVisualStyleBackColor = true;
@@ -984,7 +987,7 @@
             this.pageGD_BH_TT_TienMat.Location = new System.Drawing.Point(4, 22);
             this.pageGD_BH_TT_TienMat.Name = "pageGD_BH_TT_TienMat";
             this.pageGD_BH_TT_TienMat.Padding = new System.Windows.Forms.Padding(3);
-            this.pageGD_BH_TT_TienMat.Size = new System.Drawing.Size(1618, 1048);
+            this.pageGD_BH_TT_TienMat.Size = new System.Drawing.Size(1165, 756);
             this.pageGD_BH_TT_TienMat.TabIndex = 6;
             this.pageGD_BH_TT_TienMat.Text = "GD_BH_TT_TienMat";
             this.pageGD_BH_TT_TienMat.UseVisualStyleBackColor = true;
@@ -994,7 +997,7 @@
             this.pageGD_BH_TT_ChuyenKhoan.Location = new System.Drawing.Point(4, 22);
             this.pageGD_BH_TT_ChuyenKhoan.Name = "pageGD_BH_TT_ChuyenKhoan";
             this.pageGD_BH_TT_ChuyenKhoan.Padding = new System.Windows.Forms.Padding(3);
-            this.pageGD_BH_TT_ChuyenKhoan.Size = new System.Drawing.Size(1618, 1048);
+            this.pageGD_BH_TT_ChuyenKhoan.Size = new System.Drawing.Size(1165, 756);
             this.pageGD_BH_TT_ChuyenKhoan.TabIndex = 7;
             this.pageGD_BH_TT_ChuyenKhoan.Text = "GD_BH_TT_ChuyenKhoan";
             this.pageGD_BH_TT_ChuyenKhoan.UseVisualStyleBackColor = true;
@@ -1004,7 +1007,7 @@
             this.pageGD_NhapHang.Location = new System.Drawing.Point(4, 22);
             this.pageGD_NhapHang.Name = "pageGD_NhapHang";
             this.pageGD_NhapHang.Padding = new System.Windows.Forms.Padding(3);
-            this.pageGD_NhapHang.Size = new System.Drawing.Size(1618, 1048);
+            this.pageGD_NhapHang.Size = new System.Drawing.Size(1165, 756);
             this.pageGD_NhapHang.TabIndex = 8;
             this.pageGD_NhapHang.Text = "GD_NhapHang";
             this.pageGD_NhapHang.UseVisualStyleBackColor = true;
@@ -1014,7 +1017,7 @@
             this.pageGD_KhachHang.Location = new System.Drawing.Point(4, 22);
             this.pageGD_KhachHang.Name = "pageGD_KhachHang";
             this.pageGD_KhachHang.Padding = new System.Windows.Forms.Padding(3);
-            this.pageGD_KhachHang.Size = new System.Drawing.Size(1618, 1048);
+            this.pageGD_KhachHang.Size = new System.Drawing.Size(1165, 756);
             this.pageGD_KhachHang.TabIndex = 9;
             this.pageGD_KhachHang.Text = "GD_KhachHang";
             this.pageGD_KhachHang.UseVisualStyleBackColor = true;
@@ -1024,7 +1027,7 @@
             this.pageGD_KH_TimTT.Location = new System.Drawing.Point(4, 22);
             this.pageGD_KH_TimTT.Name = "pageGD_KH_TimTT";
             this.pageGD_KH_TimTT.Padding = new System.Windows.Forms.Padding(3);
-            this.pageGD_KH_TimTT.Size = new System.Drawing.Size(1618, 1048);
+            this.pageGD_KH_TimTT.Size = new System.Drawing.Size(1165, 756);
             this.pageGD_KH_TimTT.TabIndex = 10;
             this.pageGD_KH_TimTT.Text = "GD_KH_TimTT";
             this.pageGD_KH_TimTT.UseVisualStyleBackColor = true;
@@ -1034,21 +1037,14 @@
             this.pageGD_KH_TaoThe.Location = new System.Drawing.Point(4, 22);
             this.pageGD_KH_TaoThe.Name = "pageGD_KH_TaoThe";
             this.pageGD_KH_TaoThe.Padding = new System.Windows.Forms.Padding(3);
-            this.pageGD_KH_TaoThe.Size = new System.Drawing.Size(1618, 1048);
+            this.pageGD_KH_TaoThe.Size = new System.Drawing.Size(1165, 756);
             this.pageGD_KH_TaoThe.TabIndex = 11;
             this.pageGD_KH_TaoThe.Text = "GD_KH_TaoThe";
             this.pageGD_KH_TaoThe.UseVisualStyleBackColor = true;
             // 
             // pageGD_HDBan
             // 
-            this.pageGD_HDBan.Controls.Add(this.tableLayoutPanel12);
-            this.pageGD_HDBan.Controls.Add(this.dtgvListHoaDonBan);
-            this.pageGD_HDBan.Controls.Add(this.dtpEnd);
-            this.pageGD_HDBan.Controls.Add(this.dtpStart);
-            this.pageGD_HDBan.Controls.Add(this.lblEnd);
-            this.pageGD_HDBan.Controls.Add(this.lblStart);
-            this.pageGD_HDBan.Controls.Add(this.btnTraCuuHoaDonBan);
-            this.pageGD_HDBan.Controls.Add(this.btnQuayLai13_0);
+            this.pageGD_HDBan.Controls.Add(this.tlplGD_HDBan);
             this.pageGD_HDBan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pageGD_HDBan.Location = new System.Drawing.Point(4, 22);
             this.pageGD_HDBan.Name = "pageGD_HDBan";
@@ -1057,6 +1053,105 @@
             this.pageGD_HDBan.TabIndex = 12;
             this.pageGD_HDBan.Text = "GD_HDBan";
             this.pageGD_HDBan.UseVisualStyleBackColor = true;
+            // 
+            // tlplGD_HDBan_2
+            // 
+            this.tlplGD_HDBan_2.ColumnCount = 5;
+            this.tlplGD_HDBan_2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tlplGD_HDBan_2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlplGD_HDBan_2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tlplGD_HDBan_2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlplGD_HDBan_2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tlplGD_HDBan_2.Controls.Add(this.lblStart, 0, 0);
+            this.tlplGD_HDBan_2.Controls.Add(this.dtpStart, 1, 0);
+            this.tlplGD_HDBan_2.Controls.Add(this.btnTraCuuHoaDonBan, 4, 0);
+            this.tlplGD_HDBan_2.Controls.Add(this.dtpEnd, 3, 0);
+            this.tlplGD_HDBan_2.Controls.Add(this.lblEnd, 2, 0);
+            this.tlplGD_HDBan_2.Location = new System.Drawing.Point(3, 78);
+            this.tlplGD_HDBan_2.Name = "tlplGD_HDBan_2";
+            this.tlplGD_HDBan_2.RowCount = 1;
+            this.tlplGD_HDBan_2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlplGD_HDBan_2.Size = new System.Drawing.Size(658, 40);
+            this.tlplGD_HDBan_2.TabIndex = 16;
+            // 
+            // dtgvListHoaDonBan
+            // 
+            this.dtgvListHoaDonBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvListHoaDonBan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvListHoaDonBan.Location = new System.Drawing.Point(3, 153);
+            this.dtgvListHoaDonBan.Name = "dtgvListHoaDonBan";
+            this.dtgvListHoaDonBan.Size = new System.Drawing.Size(1153, 594);
+            this.dtgvListHoaDonBan.TabIndex = 15;
+            // 
+            // dtpEnd
+            // 
+            this.dtpEnd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpEnd.CustomFormat = "yyyy-MM-dd";
+            this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpEnd.Location = new System.Drawing.Point(429, 5);
+            this.dtpEnd.Name = "dtpEnd";
+            this.dtpEnd.Size = new System.Drawing.Size(125, 29);
+            this.dtpEnd.TabIndex = 14;
+            // 
+            // dtpStart
+            // 
+            this.dtpStart.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpStart.CustomFormat = "yyyy-MM-dd";
+            this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpStart.Location = new System.Drawing.Point(200, 5);
+            this.dtpStart.Name = "dtpStart";
+            this.dtpStart.Size = new System.Drawing.Size(125, 29);
+            this.dtpStart.TabIndex = 14;
+            // 
+            // lblEnd
+            // 
+            this.lblEnd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblEnd.AutoSize = true;
+            this.lblEnd.Location = new System.Drawing.Point(338, 9);
+            this.lblEnd.Name = "lblEnd";
+            this.lblEnd.Size = new System.Drawing.Size(77, 21);
+            this.lblEnd.TabIndex = 13;
+            this.lblEnd.Text = "đến ngày:";
+            // 
+            // lblStart
+            // 
+            this.lblStart.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblStart.AutoSize = true;
+            this.lblStart.Location = new System.Drawing.Point(73, 9);
+            this.lblStart.Name = "lblStart";
+            this.lblStart.Size = new System.Drawing.Size(121, 21);
+            this.lblStart.TabIndex = 13;
+            this.lblStart.Text = "Bắt đầu từ ngày:";
+            // 
+            // btnTraCuuHoaDonBan
+            // 
+            this.btnTraCuuHoaDonBan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnTraCuuHoaDonBan.AutoSize = true;
+            this.btnTraCuuHoaDonBan.BackColor = System.Drawing.Color.Green;
+            this.btnTraCuuHoaDonBan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTraCuuHoaDonBan.FlatAppearance.BorderSize = 0;
+            this.btnTraCuuHoaDonBan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTraCuuHoaDonBan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTraCuuHoaDonBan.ForeColor = System.Drawing.Color.White;
+            this.btnTraCuuHoaDonBan.Location = new System.Drawing.Point(572, 4);
+            this.btnTraCuuHoaDonBan.Name = "btnTraCuuHoaDonBan";
+            this.btnTraCuuHoaDonBan.Size = new System.Drawing.Size(70, 31);
+            this.btnTraCuuHoaDonBan.TabIndex = 12;
+            this.btnTraCuuHoaDonBan.Text = "Tra cứu";
+            this.btnTraCuuHoaDonBan.UseVisualStyleBackColor = false;
+            this.btnTraCuuHoaDonBan.Click += new System.EventHandler(this.btnQuayLai13_0_Click);
+            // 
+            // btnQuayLai13_0
+            // 
+            this.btnQuayLai13_0.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnQuayLai13_0.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuayLai13_0.Location = new System.Drawing.Point(3, 3);
+            this.btnQuayLai13_0.Name = "btnQuayLai13_0";
+            this.btnQuayLai13_0.Size = new System.Drawing.Size(135, 63);
+            this.btnQuayLai13_0.TabIndex = 12;
+            this.btnQuayLai13_0.Text = "Quay lại";
+            this.btnQuayLai13_0.UseVisualStyleBackColor = true;
+            this.btnQuayLai13_0.Click += new System.EventHandler(this.btnQuayLai13_0_Click);
             // 
             // pageGD_HDNhap
             // 
@@ -1073,7 +1168,7 @@
             this.pageTC_Sach.Location = new System.Drawing.Point(4, 22);
             this.pageTC_Sach.Name = "pageTC_Sach";
             this.pageTC_Sach.Padding = new System.Windows.Forms.Padding(3);
-            this.pageTC_Sach.Size = new System.Drawing.Size(1618, 1048);
+            this.pageTC_Sach.Size = new System.Drawing.Size(1165, 756);
             this.pageTC_Sach.TabIndex = 14;
             this.pageTC_Sach.Text = "TC_Sach";
             this.pageTC_Sach.UseVisualStyleBackColor = true;
@@ -1083,7 +1178,7 @@
             this.pageTC_TG.Location = new System.Drawing.Point(4, 22);
             this.pageTC_TG.Name = "pageTC_TG";
             this.pageTC_TG.Padding = new System.Windows.Forms.Padding(3);
-            this.pageTC_TG.Size = new System.Drawing.Size(1618, 1048);
+            this.pageTC_TG.Size = new System.Drawing.Size(1165, 756);
             this.pageTC_TG.TabIndex = 15;
             this.pageTC_TG.Text = "TC_TG";
             this.pageTC_TG.UseVisualStyleBackColor = true;
@@ -1093,7 +1188,7 @@
             this.pageTC_NXB.Location = new System.Drawing.Point(4, 22);
             this.pageTC_NXB.Name = "pageTC_NXB";
             this.pageTC_NXB.Padding = new System.Windows.Forms.Padding(3);
-            this.pageTC_NXB.Size = new System.Drawing.Size(1618, 1048);
+            this.pageTC_NXB.Size = new System.Drawing.Size(1165, 756);
             this.pageTC_NXB.TabIndex = 16;
             this.pageTC_NXB.Text = "TC_NXB";
             this.pageTC_NXB.UseVisualStyleBackColor = true;
@@ -1103,7 +1198,7 @@
             this.pageTC_TheLoai.Location = new System.Drawing.Point(4, 22);
             this.pageTC_TheLoai.Name = "pageTC_TheLoai";
             this.pageTC_TheLoai.Padding = new System.Windows.Forms.Padding(3);
-            this.pageTC_TheLoai.Size = new System.Drawing.Size(1618, 1048);
+            this.pageTC_TheLoai.Size = new System.Drawing.Size(1165, 756);
             this.pageTC_TheLoai.TabIndex = 17;
             this.pageTC_TheLoai.Text = "TC_TheLoai";
             this.pageTC_TheLoai.UseVisualStyleBackColor = true;
@@ -1113,7 +1208,7 @@
             this.pageTC_VPP.Location = new System.Drawing.Point(4, 22);
             this.pageTC_VPP.Name = "pageTC_VPP";
             this.pageTC_VPP.Padding = new System.Windows.Forms.Padding(3);
-            this.pageTC_VPP.Size = new System.Drawing.Size(1618, 1048);
+            this.pageTC_VPP.Size = new System.Drawing.Size(1165, 756);
             this.pageTC_VPP.TabIndex = 18;
             this.pageTC_VPP.Text = "TC_VPP";
             this.pageTC_VPP.UseVisualStyleBackColor = true;
@@ -1123,7 +1218,7 @@
             this.pageCD_MK.Location = new System.Drawing.Point(4, 22);
             this.pageCD_MK.Name = "pageCD_MK";
             this.pageCD_MK.Padding = new System.Windows.Forms.Padding(3);
-            this.pageCD_MK.Size = new System.Drawing.Size(1618, 1048);
+            this.pageCD_MK.Size = new System.Drawing.Size(1165, 756);
             this.pageCD_MK.TabIndex = 19;
             this.pageCD_MK.Text = "CD_MK";
             this.pageCD_MK.UseVisualStyleBackColor = true;
@@ -1133,7 +1228,7 @@
             this.pageCD_Lich.Location = new System.Drawing.Point(4, 22);
             this.pageCD_Lich.Name = "pageCD_Lich";
             this.pageCD_Lich.Padding = new System.Windows.Forms.Padding(3);
-            this.pageCD_Lich.Size = new System.Drawing.Size(1618, 1048);
+            this.pageCD_Lich.Size = new System.Drawing.Size(1165, 756);
             this.pageCD_Lich.TabIndex = 20;
             this.pageCD_Lich.Text = "CD_Lich";
             this.pageCD_Lich.UseVisualStyleBackColor = true;
@@ -1143,7 +1238,7 @@
             this.pageCD_NV.Location = new System.Drawing.Point(4, 22);
             this.pageCD_NV.Name = "pageCD_NV";
             this.pageCD_NV.Padding = new System.Windows.Forms.Padding(3);
-            this.pageCD_NV.Size = new System.Drawing.Size(1618, 1048);
+            this.pageCD_NV.Size = new System.Drawing.Size(1165, 756);
             this.pageCD_NV.TabIndex = 21;
             this.pageCD_NV.Text = "CD_NV";
             this.pageCD_NV.UseVisualStyleBackColor = true;
@@ -1153,7 +1248,7 @@
             this.pageBC_DoanhThu.Location = new System.Drawing.Point(4, 22);
             this.pageBC_DoanhThu.Name = "pageBC_DoanhThu";
             this.pageBC_DoanhThu.Padding = new System.Windows.Forms.Padding(3);
-            this.pageBC_DoanhThu.Size = new System.Drawing.Size(1618, 1048);
+            this.pageBC_DoanhThu.Size = new System.Drawing.Size(1165, 756);
             this.pageBC_DoanhThu.TabIndex = 22;
             this.pageBC_DoanhThu.Text = "BC_DoanhThu";
             this.pageBC_DoanhThu.UseVisualStyleBackColor = true;
@@ -1163,7 +1258,7 @@
             this.pageBC_LuongNV.Location = new System.Drawing.Point(4, 22);
             this.pageBC_LuongNV.Name = "pageBC_LuongNV";
             this.pageBC_LuongNV.Padding = new System.Windows.Forms.Padding(3);
-            this.pageBC_LuongNV.Size = new System.Drawing.Size(1618, 1048);
+            this.pageBC_LuongNV.Size = new System.Drawing.Size(1165, 756);
             this.pageBC_LuongNV.TabIndex = 23;
             this.pageBC_LuongNV.Text = "BC_LuongNV";
             this.pageBC_LuongNV.UseVisualStyleBackColor = true;
@@ -1284,93 +1379,23 @@
             this.btnBaoCao.UseVisualStyleBackColor = false;
             this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
             // 
-            // btnQuayLai13_0
+            // tlplGD_HDBan
             // 
-            this.btnQuayLai13_0.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnQuayLai13_0.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuayLai13_0.Location = new System.Drawing.Point(53, 6);
-            this.btnQuayLai13_0.Name = "btnQuayLai13_0";
-            this.btnQuayLai13_0.Size = new System.Drawing.Size(135, 63);
-            this.btnQuayLai13_0.TabIndex = 12;
-            this.btnQuayLai13_0.Text = "Quay lại";
-            this.btnQuayLai13_0.UseVisualStyleBackColor = true;
-            this.btnQuayLai13_0.Click += new System.EventHandler(this.btnQuayLai13_0_Click);
-            // 
-            // btnTraCuuHoaDonBan
-            // 
-            this.btnTraCuuHoaDonBan.AutoSize = true;
-            this.btnTraCuuHoaDonBan.BackColor = System.Drawing.Color.Green;
-            this.btnTraCuuHoaDonBan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTraCuuHoaDonBan.FlatAppearance.BorderSize = 0;
-            this.btnTraCuuHoaDonBan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTraCuuHoaDonBan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTraCuuHoaDonBan.ForeColor = System.Drawing.Color.White;
-            this.btnTraCuuHoaDonBan.Location = new System.Drawing.Point(551, 81);
-            this.btnTraCuuHoaDonBan.Name = "btnTraCuuHoaDonBan";
-            this.btnTraCuuHoaDonBan.Size = new System.Drawing.Size(70, 31);
-            this.btnTraCuuHoaDonBan.TabIndex = 12;
-            this.btnTraCuuHoaDonBan.Text = "Tra cứu";
-            this.btnTraCuuHoaDonBan.UseVisualStyleBackColor = false;
-            this.btnTraCuuHoaDonBan.Click += new System.EventHandler(this.btnQuayLai13_0_Click);
-            // 
-            // lblStart
-            // 
-            this.lblStart.AutoSize = true;
-            this.lblStart.Location = new System.Drawing.Point(67, 86);
-            this.lblStart.Name = "lblStart";
-            this.lblStart.Size = new System.Drawing.Size(121, 21);
-            this.lblStart.TabIndex = 13;
-            this.lblStart.Text = "Bắt đầu từ ngày:";
-            // 
-            // dtpStart
-            // 
-            this.dtpStart.CustomFormat = "yyyy-MM-dd";
-            this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStart.Location = new System.Drawing.Point(194, 80);
-            this.dtpStart.Name = "dtpStart";
-            this.dtpStart.Size = new System.Drawing.Size(126, 29);
-            this.dtpStart.TabIndex = 14;
-            // 
-            // lblEnd
-            // 
-            this.lblEnd.AutoSize = true;
-            this.lblEnd.Location = new System.Drawing.Point(326, 86);
-            this.lblEnd.Name = "lblEnd";
-            this.lblEnd.Size = new System.Drawing.Size(77, 21);
-            this.lblEnd.TabIndex = 13;
-            this.lblEnd.Text = "đến ngày:";
-            // 
-            // dtpEnd
-            // 
-            this.dtpEnd.CustomFormat = "yyyy-MM-dd";
-            this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEnd.Location = new System.Drawing.Point(409, 80);
-            this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(126, 29);
-            this.dtpEnd.TabIndex = 14;
-            // 
-            // dtgvListHoaDonBan
-            // 
-            this.dtgvListHoaDonBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvListHoaDonBan.Location = new System.Drawing.Point(102, 166);
-            this.dtgvListHoaDonBan.Name = "dtgvListHoaDonBan";
-            this.dtgvListHoaDonBan.Size = new System.Drawing.Size(640, 179);
-            this.dtgvListHoaDonBan.TabIndex = 15;
-            // 
-            // tableLayoutPanel12
-            // 
-            this.tableLayoutPanel12.ColumnCount = 5;
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(194, 120);
-            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
-            this.tableLayoutPanel12.RowCount = 1;
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(469, 40);
-            this.tableLayoutPanel12.TabIndex = 16;
+            this.tlplGD_HDBan.ColumnCount = 1;
+            this.tlplGD_HDBan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlplGD_HDBan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlplGD_HDBan.Controls.Add(this.btnQuayLai13_0, 0, 0);
+            this.tlplGD_HDBan.Controls.Add(this.dtgvListHoaDonBan, 0, 2);
+            this.tlplGD_HDBan.Controls.Add(this.tlplGD_HDBan_2, 0, 1);
+            this.tlplGD_HDBan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlplGD_HDBan.Location = new System.Drawing.Point(3, 3);
+            this.tlplGD_HDBan.Name = "tlplGD_HDBan";
+            this.tlplGD_HDBan.RowCount = 3;
+            this.tlplGD_HDBan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlplGD_HDBan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlplGD_HDBan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tlplGD_HDBan.Size = new System.Drawing.Size(1159, 750);
+            this.tlplGD_HDBan.TabIndex = 17;
             // 
             // FMain
             // 
@@ -1411,10 +1436,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvGioHang)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.pageGD_HDBan.ResumeLayout(false);
-            this.pageGD_HDBan.PerformLayout();
+            this.tlplGD_HDBan_2.ResumeLayout(false);
+            this.tlplGD_HDBan_2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvListHoaDonBan)).EndInit();
             this.tblpMainContainer.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvListHoaDonBan)).EndInit();
+            this.tlplGD_HDBan.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1512,6 +1539,7 @@
         private System.Windows.Forms.DateTimePicker dtpStart;
         private System.Windows.Forms.Label lblEnd;
         private System.Windows.Forms.DataGridView dtgvListHoaDonBan;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
+        private System.Windows.Forms.TableLayoutPanel tlplGD_HDBan_2;
+        private System.Windows.Forms.TableLayoutPanel tlplGD_HDBan;
     }
 }
