@@ -44,5 +44,15 @@ namespace DBMS_BookStore.DAO
             DataTable dt = db.ExecuteQuery(cmd);
             return dt;
         }
+
+        public int GetTongTienBan(DateTime start, DateTime end)
+        {
+            string query = "SELECT dbo.FUNC_TOTAL_SALE_AMOUNT (@param1, @param2)";
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.Parameters.AddWithValue("@param1", start);
+            cmd.Parameters.AddWithValue("@param2", end);
+
+            return (int)db.ExecuteScalar(cmd);
+        }
     }
 }

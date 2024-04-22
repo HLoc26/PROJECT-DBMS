@@ -52,6 +52,8 @@
     <Compile Include="DAO\DBConnection.cs" />
     <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\HangHoaDAO.cs" />
+    <Compile Include="DAO\HoaDonBanDAO.cs" />
+    <Compile Include="DAO\HoaDonNhapDAO.cs" />
     <Compile Include="DAO\KhachHangDAO.cs" />
     <Compile Include="DTO\Employee.cs" />
     <Compile Include="DTO\KhachHang.cs" />
