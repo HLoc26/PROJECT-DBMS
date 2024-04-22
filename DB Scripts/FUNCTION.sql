@@ -61,7 +61,7 @@ AS
 	RETURN (SELECT * FROM dbo.LS_DANG_NHAP WHERE TenDN = @TenDN)
 GO
 
--- Function tạo mã hoá đơn tự động
+-- Function tạo mã hoá đơn bán tự động
 CREATE FUNCTION FUNC_Create_MaHoaDonBan()
 RETURNS VARCHAR(10)
 AS
@@ -69,3 +69,25 @@ BEGIN
 	RETURN 'HDB-' + FORMAT((SELECT COUNT(MaHoaDon) FROM dbo.HOA_DON_BAN) + 1, '0000')
 END;
 GO
+
+-- Function tạo mã hoá đơn nhập tự động
+CREATE FUNCTION FUNC_Create_MaHoaDonNhap()
+RETURNS VARCHAR(10)
+AS
+BEGIN
+	RETURN 'HDN-' + FORMAT((SELECT COUNT(MaDonNhap) FROM dbo.HOA_DON_NHAP) + 1, '0000')
+END;
+GO
+
+-- Function trả về thông tin sách
+CREATE FUNCTION FUNC_Get_TTSach(@MaSach VARCHAR(20))
+RETURNS TABLE
+AS
+	RETURN (SELECT * FROM dbo.VIEW_SACH WHERE MaSach = @MaSach)
+GO
+
+CREATE FUNCTION FUNC_Get_TTVPP(@MaHang VARCHAR(20))
+RETURNS TABLE
+AS
+	RETURN (SELECT * FROM dbo.VIEW_VPP WHERE MaHang = @MaHang)
+GO	

@@ -286,6 +286,8 @@ GO
 -- ========================================================================================================================== --
 -- ========================================================================================================================== --
 
+USE Proj_DBMS_BookStore
+GO
 -- Tự động tạo mã nhân viên
 CREATE FUNCTION FUNC_Create_MaNV()
 RETURNS VARCHAR(10)
@@ -320,10 +322,6 @@ BEGIN
 END;
 GO
 
-ALTER TABLE dbo.THE_TV
-ADD TenBacTV AS dbo.FUNC_Get_TenBac(SoDiem)
-GO
-
 -- Hàm lấy giá trị giảm dựa vào điểm thành viên
 CREATE FUNCTION FUNC_GetDiscount(@MaKH VARCHAR(10))
 RETURNS REAL
@@ -342,7 +340,24 @@ BEGIN
 		END
 	RETURN @Discount
 END;
-GO 
+GO
+
+-- Function trả về bảng lịch sử đăng nhập của 1 nv
+CREATE FUNCTION FUNC_GetLoginHistory(@TenDN VARCHAR(20))
+RETURNS TABLE
+AS
+	RETURN (SELECT * FROM dbo.LS_DANG_NHAP WHERE TenDN = @TenDN)
+GO
+
+-- Function tạo mã hoá đơn bán tự động
+CREATE FUNCTION FUNC_Create_MaHoaDonBan()
+RETURNS VARCHAR(10)
+AS
+BEGIN
+	RETURN 'HDB-' + FORMAT((SELECT COUNT(MaHoaDon) FROM dbo.HOA_DON_BAN) + 1, '0000')
+END;
+GO
+
 -- =========================================================================================================================== --
 -- =========================================================================================================================== --
 -- ====================================  ____  ____   ___   ____ ____  _   _ ____  _____  ==================================== --
@@ -353,6 +368,8 @@ GO
 -- =========================================================================================================================== --
 -- =========================================================================================================================== --
 
+USE Proj_DBMS_BookStore
+GO
 -- Register
 CREATE PROC PROC_Register
 @CMND VARCHAR(15),
@@ -452,6 +469,41 @@ BEGIN
 	END
 END;
 GO
+
+CREATE PROC PROC_ChangePass
+@MaNV VARCHAR(10),
+@NewPass VARCHAR(30)
+AS
+BEGIN
+	SET XACT_ABORT ON
+	BEGIN TRAN
+		BEGIN TRY
+			UPDATE dbo.TAI_KHOAN_DN
+			SET MK = @NewPass 
+			WHERE MaNV = @MaNV
+		COMMIT TRAN
+		END TRY
+		BEGIN CATCH
+			DECLARE @Err NVARCHAR(MAX)
+			SET @Err = 'ERROR CHANGE PASS: ' + ERROR_MESSAGE()
+			RAISERROR(@Err, 16, 1)
+		END CATCH
+END;
+GO
+
+CREATE PROC PROC_AddGioHangVaoHoaDon
+@MaHoaDon VARCHAR(10),
+@MaKH VARCHAR(10),
+@MaNV VARCHAR(10),
+@MaHang VARCHAR(20),
+@SoLuong INT
+AS
+BEGIN
+	INSERT dbo.BAN_HANG(MaHoaDon, MaNVBan, MaKH, MaHang, SoLuong)
+	VALUES (@MaHoaDon, @MaNV, @MaKH, @MaHang, @SoLuong)
+END;
+GO
+
 -- ========================================================================================================================== --
 -- ========================================================================================================================== --
 -- ========================================  _____ ____  ___ ____  ____ _____ ____   ======================================== --
@@ -550,6 +602,7 @@ BEGIN
 			-- Nếu mã hoá đơn chưa có trong bảng hoá đơn bán thì thêm vào 
 			IF NOT EXISTS (SELECT * FROM dbo.HOA_DON_BAN WHERE MaHoaDon = @MaHoaDon)
 			BEGIN
+				-- Khuyến mãi lấy tự động
 				DECLARE @Discount REAL
 				SET @Discount = dbo.FUNC_GetDiscount(@MaKH)
 				INSERT dbo.HOA_DON_BAN (MaHoaDon, KhuyenMai, ThoiGianBan)
@@ -559,6 +612,17 @@ BEGIN
 			-- Thêm mã hàng vào trong bảng bán hàng
 			INSERT dbo.BAN_HANG (MaHoaDon, MaNVBan, MaKH, MaHang, SoLuong)
 			VALUES (@MaHoaDon, @MaNV, @MaKH, @MaHang, @SoLuong)
+
+			-- Cộng điểm cho khách hàng nếu có thẻ TV
+			IF EXISTS (SELECT * FROM dbo.THE_TV WHERE MaKH = @MaKH)
+			BEGIN
+				DECLARE @OldDiem INT
+				SELECT @OldDiem = SoDiem FROM dbo.THE_TV WHERE MaKH = @MaKH
+
+				UPDATE dbo.THE_TV 
+				SET SoDiem = @OldDiem + (2 * @SoLuong)
+				WHERE MaKH = @MaKH
+			END
 
 			COMMIT TRAN
 		END TRY
@@ -714,47 +778,47 @@ GO
 
 INSERT dbo.VAN_PHONG_PHAM(MaHang, TenHang)
 VALUES
-('TL-079', 'Bút bi Thiên Long TL-079'), -- Bút bi thiên long 
-('TL-089', 'Bút bi Thiên Long TL-089'),
-('TL-090', 'Bút bi Thiên Long TL-090'),
-('TL-093', 'Bút bi Thiên Long TL-093'),
-('TL-095', 'Bút bi Thiên Long TL-095'),
-('TL-097', 'Bút bi Thiên Long TL-097'),
-('TL-008', 'Bút bi Thiên Long TL-008'),
-('SR-002', 'Thước kẻ Thiên Long nhựa cứng 15cm'), -- Thước kẻ
-('SR-003', 'Thước kẻ Thiên Long nhựa cứng 20cm'),
-('SR-024', 'Thước kẻ Thiên Long nhựa dẻo 20cm'),
-('SR-026', 'Thước kẻ Thiên Long nhựa cứng 50cm'),
-('SR-031', 'Thước kẻ Thiên Long nhựa cứng 30cm'),
-('GP-027', 'Bút chì gỗ 2B lục giác'), -- Bút chì gỗ 2B
-('GP-026', 'Bút chì gỗ HB lục giác'), -- HB
-('GP-025', 'Bút chì gỗ 6B lục giác'), -- 6B
-('GP-024', 'Bút chì gỗ 5B lục giác'), -- 5B
-('GP-023', 'Bút chì gỗ 4B lục giác'), -- 4B
-('GP-022', 'Bút chì gỗ 3B lục giác'), -- 3B
-('GP-020', 'Bút chì gỗ 2B lục giác'), -- 2B
-('GP-018', 'Bút chì gỗ 2B tam giác'), -- 2B
-('GP-016', 'Bút chì gỗ HB tam giác'), -- HB
-('GP-004', 'Bút chì gỗ HB lục giác'), -- HB
-('PC-024', 'Bút chì bấm HB 0.05mm'), -- Bút chì bấm HB
-('PC-026', 'Bút chì bấm 2B 0.5mm'), -- Bút chì bấm 2B
-('PC-018', 'Bút chì bấm HB 0.07mm'), -- HB
-('NB-096', 'Tập học sinh kẻ ngang 200 trang'), -- Tập học sinh
-('NB-095', 'Tập học sinh kẻ ngang 98 trang'),
-('NB-094', 'Tập học sinh kẻ ô 200 trang'),
-('NB-066', 'Tập học sinh kẻ ô 98 trang'),
-('NB-061', 'Tập học sinh kẻ ô 98 trang'),
-('NB-053', 'Tập học sinh kẻ ô 98 trang'),
-('NB-039', 'Tập học sinh kẻ ô 98 trang'),
-('E-033', 'Gôm hình Pikachu'), -- Gôm
-('E-032', 'Gôm hình gấu Pooh'),
-('E-031', 'Gôm hình BlackPink'),
-('E-026', 'Gôm hình Pikachu'),
-('E-010', 'Gôm hình Bạch Tuyết'),
-('E-011', 'Gôm hình Gấu Lotso'),
-('E-030', 'Gôm hình Buzz Lightyear'),
-('E-028', 'Gôm vệ sinh LifeBouy'),
-('E-029', 'Gôm hình Doraemon')
+('TL-079', N'Bút bi Thiên Long TL-079'), -- Bút bi thiên long 
+('TL-089', N'Bút bi Thiên Long TL-089'),
+('TL-090', N'Bút bi Thiên Long TL-090'),
+('TL-093', N'Bút bi Thiên Long TL-093'),
+('TL-095', N'Bút bi Thiên Long TL-095'),
+('TL-097', N'Bút bi Thiên Long TL-097'),
+('TL-008', N'Bút bi Thiên Long TL-008'),
+('SR-002', N'Thước kẻ Thiên Long nhựa cứng 15cm'), -- Thước kẻ
+('SR-003', N'Thước kẻ Thiên Long nhựa cứng 20cm'),
+('SR-024', N'Thước kẻ Thiên Long nhựa dẻo 20cm'),
+('SR-026', N'Thước kẻ Thiên Long nhựa cứng 50cm'),
+('SR-031', N'Thước kẻ Thiên Long nhựa cứng 30cm'),
+('GP-027', N'Bút chì gỗ 2B lục giác'), -- Bút chì gỗ 2B
+('GP-026', N'Bút chì gỗ HB lục giác'), -- HB
+('GP-025', N'Bút chì gỗ 6B lục giác'), -- 6B
+('GP-024', N'Bút chì gỗ 5B lục giác'), -- 5B
+('GP-023', N'Bút chì gỗ 4B lục giác'), -- 4B
+('GP-022', N'Bút chì gỗ 3B lục giác'), -- 3B
+('GP-020', N'Bút chì gỗ 2B lục giác'), -- 2B
+('GP-018', N'Bút chì gỗ 2B tam giác'), -- 2B
+('GP-016', N'Bút chì gỗ HB tam giác'), -- HB
+('GP-004', N'Bút chì gỗ HB lục giác'), -- HB
+('PC-024', N'Bút chì bấm HB 0.05mm'), -- Bút chì bấm HB
+('PC-026', N'Bút chì bấm 2B 0.5mm'), -- Bút chì bấm 2B
+('PC-018', N'Bút chì bấm HB 0.07mm'), -- HB
+('NB-096', N'Tập học sinh kẻ ngang 200 trang'), -- Tập học sinh
+('NB-095', N'Tập học sinh kẻ ngang 98 trang'),
+('NB-094', N'Tập học sinh kẻ ô 200 trang'),
+('NB-066', N'Tập học sinh kẻ ô 98 trang'),
+('NB-061', N'Tập học sinh kẻ ô 98 trang'),
+('NB-053', N'Tập học sinh kẻ ô 98 trang'),
+('NB-039', N'Tập học sinh kẻ ô 98 trang'),
+('E-033', N'Gôm hình Pikachu'), -- Gôm
+('E-032', N'Gôm hình gấu Pooh'),
+('E-031', N'Gôm hình BlackPink'),
+('E-026', N'Gôm hình Pikachu'),
+('E-010', N'Gôm hình Bạch Tuyết'),
+('E-011', N'Gôm hình Gấu Lotso'),
+('E-030', N'Gôm hình Buzz Lightyear'),
+('E-028', N'Gôm vệ sinh LifeBouy'),
+('E-029', N'Gôm hình Doraemon')
 GO
 
 INSERT dbo.SACH(MaSach, TieuDe, MaNXB, NamXB)
@@ -931,11 +995,11 @@ GO
 
 INSERT dbo.THE_LOAI (MaLoai, TenLoai)
 VALUES
-('TT','Tiểu thuyết'),
-('TTr','Truyện tranh'),
-('KD','Kinh doanh'),
-('SGK','Sách giáo khoa'),
-('NN','Ngoại ngữ')
+('TT', N'Tiểu thuyết'),
+('TTr',N'Truyện tranh'),
+('KD',N'Kinh doanh'),
+('SGK',N'Sách giáo khoa'),
+('NN',N'Ngoại ngữ')
 GO
 
 INSERT dbo.THE_LOAI_SACH (MaSach, MaLoai)
@@ -1017,7 +1081,7 @@ GO
 
 INSERT dbo.NHAN_VIEN(MaNV, CMND, Ho, TenLot, Ten, GioiTinh, Luong, TinhTrangLamViec)
 VALUES
-('NV-001', '045203001353', N'Nguyễn', N'Văn', 'Vũ', N'Nam', 4000000, 1),
+('NV-001', '045203001353', N'Nguyễn', N'Văn', N'Vũ', N'Nam', 4000000, 1),
 ('NV-002', '014201003245', N'Hoàng', N'Ngọc Quang', N'Minh', N'Nam',4500000, 1),
 ('NV-003', '045302001521', N'Nguyễn', N'Trần Bảo', N'Ngọc', N'Nữ', 4500000, 1),
 ('NV-004', '035301003241', N'Trần', N'Thị', N'Nghỉ', N'Nữ', 3500000, 1),
@@ -1041,3 +1105,6 @@ VALUES
 ('ttn3241','2024-03-06'),
 ('nvnn7671','2024-03-01')
 GO
+
+INSERT dbo.KHACH_HANG (MaKH, Ho, TenLot, Ten, GioiTinh, NgaySinh)
+VALUES ('0000000000', N'Khách', N'Vãng', N'Lai', N'Nam', '2000-01-01')
