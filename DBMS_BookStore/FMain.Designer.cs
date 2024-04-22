@@ -2200,14 +2200,6 @@
             // 
             // dtgvTCSACH
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvTCSACH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dtgvTCSACH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvTCSACH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaSachS,
@@ -2218,14 +2210,6 @@
             this.TheLoaiS,
             this.NXBS});
             this.tableLayoutPanelTCMS.SetColumnSpan(this.dtgvTCSACH, 2);
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvTCSACH.DefaultCellStyle = dataGridViewCellStyle6;
             this.dtgvTCSACH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvTCSACH.Location = new System.Drawing.Point(3, 127);
             this.dtgvTCSACH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

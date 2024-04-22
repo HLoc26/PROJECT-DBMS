@@ -816,6 +816,7 @@ namespace DBMS_BookStore
             SetDataGridViewStyles(dtgvGioHang, columnHeaderStyle, cellStyle);
             SetDataGridViewStyles(dtgvXemLaiTienMat, columnHeaderStyle, cellStyle);
             SetDataGridViewStyles(dtgvNhapHang, columnHeaderStyle, cellStyle);
+            SetDataGridViewStyles(dtgvTCSACH, columnHeaderStyle, cellStyle);
         }
 
         private void SetDataGridViewStyles(DataGridView dataGridView, DataGridViewCellStyle columnHeaderStyle, DataGridViewCellStyle cellStyle)
