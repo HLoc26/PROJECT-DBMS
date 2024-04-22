@@ -3330,21 +3330,23 @@
             // 
             // btnTCNV
             // 
-            this.btnTCNV.Location = new System.Drawing.Point(163, 2);
+            this.btnTCNV.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnTCNV.Location = new System.Drawing.Point(163, 32);
             this.btnTCNV.Margin = new System.Windows.Forms.Padding(2);
             this.btnTCNV.Name = "btnTCNV";
             this.btnTCNV.Size = new System.Drawing.Size(169, 39);
             this.btnTCNV.TabIndex = 5;
-            this.btnTCNV.Text = "button1";
+            this.btnTCNV.Text = "Tìm";
             this.btnTCNV.UseVisualStyleBackColor = true;
             this.btnTCNV.Click += new System.EventHandler(this.btnTCNV_Click);
             // 
             // txtbTCNV
             // 
-            this.txtbTCNV.Location = new System.Drawing.Point(2, 2);
+            this.txtbTCNV.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtbTCNV.Location = new System.Drawing.Point(2, 42);
             this.txtbTCNV.Margin = new System.Windows.Forms.Padding(2);
             this.txtbTCNV.Name = "txtbTCNV";
-            this.txtbTCNV.Size = new System.Drawing.Size(146, 20);
+            this.txtbTCNV.Size = new System.Drawing.Size(157, 20);
             this.txtbTCNV.TabIndex = 4;
             this.txtbTCNV.TextChanged += new System.EventHandler(this.txtbTCNV_TextChanged);
             // 
