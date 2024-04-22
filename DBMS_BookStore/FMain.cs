@@ -248,10 +248,9 @@ namespace DBMS_BookStore
 
         private void btnTraCuuHoaDonBan_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(dtpStart.Value + " " + dtpEnd.Value);
+            HoaDonBanDAO hoaDonBanDAO = new HoaDonBanDAO();
+            dtgvListHoaDonBan.DataSource = hoaDonBanDAO.GetListSaleReceipt(dtpStartHDBan.Value, dtpEndHDBan.Value);
         }
-
-
         #endregion
 
         #region 14. Giao dịch - Hoá đơn nhập hàng (tra cứu hoá đơn nhập)
@@ -264,8 +263,11 @@ namespace DBMS_BookStore
         {
             tabControl.SelectedTab = tabControl.TabPages[0];
         }
-
-
+        private void btnTraCuuHDNhap_Click(object sender, EventArgs e)
+        {
+            HoaDonNhapDAO hoaDonNhapDAO = new HoaDonNhapDAO();
+            dtgvListHoaDonBan.DataSource = hoaDonNhapDAO.GetListGoodReceipt(dtpStartHDBan.Value, dtpEndHDBan.Value);
+        }
         #endregion
 
         #region 15. Tra cứu - Sách
@@ -307,7 +309,5 @@ namespace DBMS_BookStore
         #region 24. Báo cáo - Lương NV
         // Code here
         #endregion
-
-        
     }
 }
