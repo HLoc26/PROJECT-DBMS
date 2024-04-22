@@ -491,22 +491,40 @@ BEGIN
 	-- Tạo mã thẻ thành viên tự động
 	DECLARE @NewMaThe VARCHAR(10) = dbo.FUNC_Create_MaThe()
 
-	-- Thêm vào bảng NHAN_VIEN
+	-- Thêm vào bảng KHACH_HANG
 	INSERT dbo.KHACH_HANG(MaKH, Ho, TenLot, Ten, NgaySinh, GioiTinh)
 	VALUES(@MaKH, @Ho, @TenLot, @Ten, @NgaySinh, @GioiTinh)
 
 	-- Thêm vào bảng THE_TV
 	INSERT dbo.THE_TV(MaThe, SoDiem, MaKH)
-	VALUES(@NewMaThe, @SoDiem, @MaKH)
+	VALUES(@NewMaThe, 0, @MaKH)
 
 	SELECT MaThe FROM dbo.THE_TV WHERE MaThe = @NewMaThe
 END;
 GO
 
 CREATE PROCEDURE PROC_GetKH_ByCusID
-@MaThe VARCHAR(10)
+@MaKH VARCHAR(10)
 AS
 BEGIN
+	IF EXISTS (SELECT MaKH FROM THE_TV WHERE MaKH != @MaKH)
+	BEGIN
+		RAISERROR('Does not exist customer ID, Please create account!', 16, 1)
+		RETURN -1;
+	END
+	SELECT * FROM dbo.THE_TV WHERE MaKH = @MaKH
+END;
+GO
+
+CREATE PROCEDURE PROC_GetKH_ByMemID
+@MaThe VARCHAR(10)
+AS 
+BEGIN
+	IF EXISTS (SELECT MaKH FROM THE_TV WHERE MaThe != @MaThe)
+	BEGIN
+		RAISERROR('Does not exist Membership ID, Please create account!', 16, 1)
+		RETURN -1;
+	END
 	SELECT * FROM dbo.THE_TV WHERE MaThe = @MaThe
 END;
 GO
