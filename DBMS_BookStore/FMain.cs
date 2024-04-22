@@ -236,7 +236,12 @@ namespace DBMS_BookStore
         #endregion
 
         #region 13. Giao dịch - Hoá đơn bán hàng (tra cứu hoá đơn bán)
-        // Code here
+        private void btnQuayLai13_0_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[0];
+        }
+
+
         #endregion
 
         #region 14. Giao dịch - Hoá đơn nhập hàng (tra cứu hoá đơn nhập)
@@ -282,5 +287,7 @@ namespace DBMS_BookStore
         #region 24. Báo cáo - Lương NV
         // Code here
         #endregion
+
+
     }
 }
