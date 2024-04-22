@@ -109,5 +109,12 @@ namespace DBMS_BookStore.DAO
             sqlCommand.Parameters.AddWithValue("@Input", input);
             return db.ExecuteQuery(sqlCommand);
         }
+
+        public DataTable GetDSNV()
+        {
+            SqlCommand sqlCommand = new SqlCommand("SELECT * FROM dbo.VIEW_NV");
+
+            return db.ExecuteQuery(sqlCommand);
+        }
     }
 }

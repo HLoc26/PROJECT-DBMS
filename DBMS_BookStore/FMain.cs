@@ -176,6 +176,7 @@ namespace DBMS_BookStore
         private void btnCD_XemNV_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[22];
+            LoadTCNV();
         }
         #endregion
 
@@ -844,10 +845,33 @@ namespace DBMS_BookStore
             // Add rows to the DataGridView based on the DataTable
             foreach (DataRow row in nhanVienData.Rows)
             {
-                dtgvTCNV.Rows.Add(row["MaNV"], row["CMND"], row["Ho"], row["TenLot"], row["Ten"], row["GioiTinh"], row["Luong"], row["TinhTrangLamViec"]);
+                string ttlv = "Nghỉ việc";
+                if ((bool)row["TinhTrangLamViec"]) ttlv = "Đang làm việc";
+                dtgvTCNV.Rows.Add(row["MaNV"], row["CMND"], row["Ho"], row["TenLot"], row["Ten"], row["GioiTinh"], row["Luong"], ttlv);
             }
         }
 
+        private void LoadTCNV()
+        {
+            DataTable nhanVienData = employeeDAO.GetDSNV();
+            foreach (DataRow row in nhanVienData.Rows)
+            {
+                string ttlv = "Nghỉ việc";
+                if ((bool)row["TinhTrangLamViec"]) ttlv = "Đang làm việc";
+                dtgvTCNV.Rows.Add(row["MaNV"], row["CMND"], row["Ho"], row["TenLot"], row["Ten"], row["GioiTinh"], row["Luong"], ttlv);
+            }
+        }
+        private void txtbTCNV_TextChanged(object sender, EventArgs e)
+        {
+            if (txtbTCNV.Text == string.Empty)
+            {
+                LoadTCNV();
+            }
+            else
+            {
+                btnTCNV_Click(sender, e);
+            }
+        }
         #endregion
 
         #region 23. Báo cáo - Doanh thu
@@ -887,6 +911,7 @@ namespace DBMS_BookStore
             SetDataGridViewStyles(dtgvXemLaiTienMat, columnHeaderStyle, cellStyle);
             SetDataGridViewStyles(dtgvNhapHang, columnHeaderStyle, cellStyle);
             SetDataGridViewStyles(dtgvTCSACH, columnHeaderStyle, cellStyle);
+            SetDataGridViewStyles(dtgvTCNV, columnHeaderStyle, cellStyle);
         }
 
         private void SetDataGridViewStyles(DataGridView dataGridView, DataGridViewCellStyle columnHeaderStyle, DataGridViewCellStyle cellStyle)
