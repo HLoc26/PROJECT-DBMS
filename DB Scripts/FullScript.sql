@@ -552,13 +552,13 @@ BEGIN
     END
 
     -- Nếu không tìm thấy tên NXB trong bảng dbo.NXB, tạo mã mới
-    DECLARE @FilteredTenNXB NVARCHAR(50) = REPLACE(@TenNXB, 'Nhà xuất bản', '') -- Loại bỏ từ "Nhà xuất bản"
+    DECLARE @FilteredTenNXB NVARCHAR(50) = dbo.FUNC_BoDau((REPLACE(@TenNXB, N'Nhà xuất bản', ''))) -- Loại bỏ từ "Nhà xuất bản"
     SET @MaNXB = dbo.FUNC_GetInitials(@FilteredTenNXB)
     
     -- Kiểm tra xem mã NXB mới tạo đã tồn tại chưa, nếu có thì thêm số đếm vào sau mã
     IF EXISTS (SELECT * FROM dbo.NXB WHERE MaNXB  = @MaNXB)
     BEGIN 
-        SET @MaNXB = @MaNXB + (SELECT COUNT(@MaNXB) FROM dbo.NXB WHERE @MaNXB = MaNXB)
+        SET @MaNXB = @MaNXB + FORMAT((SELECT COUNT(@MaNXB) FROM dbo.NXB WHERE @MaNXB = MaNXB), '0')
     END
     
     RETURN @MaNXB
@@ -587,11 +587,52 @@ BEGIN
     -- Kiểm tra xem mã tác giả mới tạo đã tồn tại chưa, nếu có thì thêm số đếm vào sau mã
     IF EXISTS (SELECT * FROM dbo.TAC_GIA WHERE MaTG = @MaTG)
     BEGIN 
-        SET @MaTG = @MaTG + (SELECT COUNT(@MaTG) FROM dbo.TAC_GIA WHERE @MaTG = MaTG)
+        SET @MaTG = @MaTG + FORMAT((SELECT COUNT(@MaTG) FROM dbo.TAC_GIA WHERE @MaTG = MaTG), '0')
     END
     
     RETURN @MaTG
 END;
+GO
+
+-- Function trả về mã sách
+CREATE FUNCTION FUNC_CreateMaSach(@TieuDe NVARCHAR(50))
+RETURNS VARCHAR(20)
+AS
+BEGIN
+    DECLARE @MaSach VARCHAR(20)
+
+    -- Kiểm tra xem tiêu đề sách đã tồn tại trong bảng dbo.SACH chưa
+    SELECT @MaSach = MaSach FROM dbo.SACH WHERE TieuDe = @TieuDe
+
+    -- Nếu tiêu đề sách đã tồn tại, trả về mã của sách đó
+    IF @MaSach IS NOT NULL
+    BEGIN
+        RETURN 'FOUND'
+    END
+
+    -- Nếu không tìm thấy tiêu đề sách trong bảng dbo.SACH, tạo mã mới
+    SET @MaSach = dbo.FUNC_GetInitials(dbo.FUNC_BoDau(@TieuDe))
+    
+    -- Kiểm tra xem mã sách mới tạo đã tồn tại chưa, nếu có thì thêm số đếm vào sau mã
+    IF EXISTS (SELECT * FROM dbo.SACH WHERE MaSach = @MaSach)
+    BEGIN 
+        SET @MaSach = @MaSach + FORMAT((SELECT COUNT(@MaSach) FROM dbo.SACH WHERE @MaSach = MaSach) + 1, '00')
+    END
+    
+    RETURN @MaSach
+END;
+GO
+
+CREATE FUNCTION FUNC_GetTTNXB(@MaNXB VARCHAR(10))
+RETURNS TABLE
+AS
+	RETURN (SELECT * FROM dbo.NXB WHERE MaNXB = @MaNXB)
+GO
+
+CREATE FUNCTION FUNC_GetTTacGia(@MaTG VARCHAR(10))
+RETURNS TABLE
+AS
+	RETURN (SELECT * FROM dbo.TAC_GIA WHERE MaTG = @MaTG)
 GO
 
 -- =========================================================================================================================== --
@@ -770,17 +811,11 @@ CREATE PROCEDURE SearchSACHByMaHang
 AS
 BEGIN
     SET NOCOUNT ON;
-    SELECT s.MaSach, s.TieuDe, hh.DonGia, hh.SoLuong, tg.TenTG, tl.TenLoai, nxb.TenNXB
-    FROM dbo.SACH s
-    JOIN dbo.HANG_HOA hh ON s.MaSach = hh.MaHang
-    JOIN dbo.NXB nxb ON nxb.MaNXB = s.MaNXB
-    JOIN dbo.TAC_GIA_SACH tg_s ON tg_s.MaSach = s.MaSach
-    JOIN dbo.TAC_GIA tg ON tg.MaTG = tg_s.MaTG
-    JOIN dbo.THE_LOAI_SACH tl_s ON tl_s.MaSach = s.MaSach 
-    JOIN dbo.THE_LOAI tl ON tl.MaLoai = tl_s.MaLoai
-    WHERE s.MaSach = @MaHang;
+    SELECT * FROM dbo.VIEW_SACH
+    WHERE MaSach = @MaHang;
 END;
 GO
+
 -- PROCEDURE tra cứu văn phòng phẩm theo mã hàng
 CREATE PROCEDURE SearchBooksByAuthor
     @tenTG NVARCHAR(20)
@@ -806,8 +841,7 @@ END;
 GO
 
 --Kiểm tra input nếu tìm thấy bằng mã nhân viên hoặc tên nv
-CREATE PROCEDURE SearchNhanVienByMaNVOrTen
-    @Input NVARCHAR(100)
+CREATE PROCEDURE SearchNhanVienByMaNVOrTen @Input NVARCHAR(100)
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -815,26 +849,36 @@ BEGIN
     DECLARE @FoundTen NVARCHAR(100);
     -- Check if the input is MaNV
     SELECT @FoundMaNV = MaNV
-    FROM NHAN_VIEN
-    WHERE MaNV = @Input;
+    FROM
+        NHAN_VIEN
+    WHERE
+        MaNV = @Input;
     -- Check if the input is Ten
     SELECT @FoundTen = Ten
-    FROM NHAN_VIEN
-    WHERE Ten = @Input;
+    FROM
+        NHAN_VIEN
+    WHERE
+        Ten = @Input;
     -- Return the employee information if either MaNV or Ten is found
-    IF @FoundMaNV IS NOT NULL OR @FoundTen IS NOT NULL
+    IF @FoundMaNV IS NOT NULL
+       OR @FoundTen IS NOT NULL
     BEGIN
         SELECT *
-        FROM VIEW_NV
-        WHERE MaNV = @FoundMaNV OR Ten = @FoundTen;
-    END
+        FROM
+            VIEW_NV
+        WHERE
+            MaNV = @FoundMaNV
+            OR Ten = @FoundTen;
+    END;
     ELSE
     BEGIN
         -- If neither MaNV nor Ten matches the input, return an empty result set
         SELECT *
-        FROM VIEW_NV
-        WHERE 1 = 0; -- This condition ensures an empty result set
-    END
+        FROM
+            VIEW_NV
+        WHERE
+            1 = 0; -- This condition ensures an empty result set
+    END;
 END;
 GO
 
@@ -881,6 +925,72 @@ AS
 BEGIN 
 	INSERT dbo.NHAP_HANG (MaDonNhap, MaNVNhap, MaHang, SoLuong)
 	VALUES (@MaDonNhap, @MaNVNhap, @MaHang, @SoLuong)
+END;
+GO
+
+CREATE PROCEDURE PROC_AddBookInfo
+    @MaNXB VARCHAR(10),
+    @TenNXB NVARCHAR(100),
+    @DiaChi NVARCHAR(100),
+    @SDT VARCHAR(20),
+    @MaHang VARCHAR(20),
+    @DonGia DECIMAL(18,2),
+    @SoLuongNhap INT,
+    @TieuDe NVARCHAR(100),
+    @NamXB INT,
+    @MaTG VARCHAR(10),
+    @TenTG NVARCHAR(100),
+    @TheLoai NVARCHAR(50)
+AS
+BEGIN
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        -- Add NXB if it doesn't exist
+        IF NOT EXISTS (SELECT * FROM dbo.NXB WHERE MaNXB = @MaNXB)
+        BEGIN
+            INSERT INTO dbo.NXB (MaNXB, TenNXB, DiaChi, SDT)
+            VALUES (@MaNXB, @TenNXB, @DiaChi, @SDT)
+        END
+
+        -- Add book to Hang_Hoa
+        INSERT INTO dbo.HANG_HOA (MaHang, DonGia, SoLuong)
+        VALUES (@MaHang, @DonGia, @SoLuongNhap)
+
+        -- Add book to SACH
+        INSERT INTO dbo.SACH (MaSach, TieuDe, MaNXB, NamXB)
+        VALUES (@MaHang, @TieuDe, @MaNXB, @NamXB)
+
+        -- Add author if it doesn't exist
+        IF NOT EXISTS (SELECT * FROM dbo.TAC_GIA WHERE MaTG = @MaTG)
+        BEGIN
+            INSERT INTO dbo.TAC_GIA (MaTG, TenTG)
+            VALUES (@MaTG, @TenTG)
+        END
+
+        -- Add author-book relation
+        INSERT INTO dbo.TAC_GIA_SACH (MaSach, MaTG)
+        VALUES (@MaHang, @MaTG)
+
+        -- Add category-book relation
+        DECLARE @MaLoai VARCHAR(10)
+        SELECT @MaLoai = MaLoai FROM dbo.THE_LOAI WHERE TenLoai = @TheLoai
+        INSERT INTO dbo.THE_LOAI_SACH (MaSach, MaLoai)
+        VALUES (@MaHang, @MaLoai)
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0
+            ROLLBACK TRANSACTION;
+        
+        -- Raise the error
+        DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE();
+        DECLARE @ErrorSeverity INT = ERROR_SEVERITY();
+        DECLARE @ErrorState INT = ERROR_STATE();
+
+        RAISERROR(@ErrorMessage, @ErrorSeverity, @ErrorState);
+    END CATCH;
 END;
 GO
 
@@ -1242,12 +1352,12 @@ GO
 INSERT dbo.SACH(MaSach, TieuDe, MaNXB, NamXB)
 VALUES
 ('HP01', N'Harry Potter và Hòn Đá Phù Thuỷ', 'TRE', 2020), -- Harry Potter - Trẻ
-('HP02', N'Hary Potter và Phòng Chứa Bí Mật', 'TRE', 2020),
-('HP03', N'Hary Potter và Tên Tù Nhân Ngục Azkaban', 'TRE', 2020),
-('HP04', N'Hary Potter và Chiếc Cốc Lửa', 'TRE', 2020),
-('HP05', N'Hary Potter và Hội Phượng Hoàng', 'TRE', 2020),
-('HP06', N'Hary Potter và Hoàng Tử Lai', 'TRE', 2020),
-('HP07', N'Hary Potter và Bảo Bối Tử Thần', 'TRE', 2020),
+('HP02', N'Harry Potter và Phòng Chứa Bí Mật', 'TRE', 2020),
+('HP03', N'Harry Potter và Tên Tù Nhân Ngục Azkaban', 'TRE', 2020),
+('HP04', N'Harry Potter và Chiếc Cốc Lửa', 'TRE', 2020),
+('HP05', N'Harry Potter và Hội Phượng Hoàng', 'TRE', 2020),
+('HP06', N'Harry Potter và Hoàng Tử Lai', 'TRE', 2020),
+('HP07', N'Harry Potter và Bảo Bối Tử Thần', 'TRE', 2020),
 ('TLCC', N'Nhứng tấm lòng cao cả', 'KD', 2018), -- Những tấm lòng cao cả - Kim đồng
 ('CB01', N'Charlie Bone 1', 'TRE', 2010), -- Charlie Bone - Trẻ
 ('CB02', N'Charlie Bone 2', 'TRE', 2010),
@@ -1317,7 +1427,7 @@ GO
 
 INSERT dbo.TAC_GIA(MaTG, TenTG)
 VALUES
-('JKR', N'J.K.Rowling'),
+('JKR', N'J. K. Rowling'),
 ('EDA', N'Edmondo De Amicis'),
 ('JN', N'Jenny Nimmo'),
 ('MLH', N'Mai Lan Hương'),
@@ -1547,3 +1657,4 @@ VALUES
 ('MB-0005', '0', '0892172333'),
 ('MB-0006', '440', '0888998903'),
 ('MB-0007', '230', '0972377456')
+
