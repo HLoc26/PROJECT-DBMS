@@ -241,18 +241,8 @@
             this.btnLSQuayLaiCaiDat = new System.Windows.Forms.Button();
             this.lblLSLamViec = new System.Windows.Forms.Label();
             this.pageCD_NV = new System.Windows.Forms.TabPage();
-            this.pageBC_DoanhThu = new System.Windows.Forms.TabPage();
-            this.pageBC_LuongNV = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnGiaoDich = new System.Windows.Forms.Button();
-            this.btnTraCuu = new System.Windows.Forms.Button();
-            this.btnSetting = new System.Windows.Forms.Button();
-            this.btnBaoCao = new System.Windows.Forms.Button();
-            this.btnTCNV = new System.Windows.Forms.Button();
-            this.txtbTCNV = new System.Windows.Forms.TextBox();
-            this.dtgvTCNV = new System.Windows.Forms.DataGridView();
             this.tlplCD_NV = new System.Windows.Forms.TableLayoutPanel();
+            this.dtgvTCNV = new System.Windows.Forms.DataGridView();
             this.MaNVTCNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CMNDTCNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoTCNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -261,6 +251,16 @@
             this.GioiTinhTCNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LuongTCNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TinhTrangLamViecTCNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtbTCNV = new System.Windows.Forms.TextBox();
+            this.btnTCNV = new System.Windows.Forms.Button();
+            this.pageBC_DoanhThu = new System.Windows.Forms.TabPage();
+            this.pageBC_LuongNV = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnGiaoDich = new System.Windows.Forms.Button();
+            this.btnTraCuu = new System.Windows.Forms.Button();
+            this.btnSetting = new System.Windows.Forms.Button();
+            this.btnBaoCao = new System.Windows.Forms.Button();
             this.tblpMainContainer.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.pageGiaoDich.SuspendLayout();
@@ -336,9 +336,9 @@
             this.tlplCD_LichContainer5.SuspendLayout();
             this.tlplCD_LichContainer6.SuspendLayout();
             this.pageCD_NV.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvTCNV)).BeginInit();
             this.tlplCD_NV.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvTCNV)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tblpMainContainer
@@ -1763,6 +1763,7 @@
             this.txbMaHangNhap.Size = new System.Drawing.Size(253, 38);
             this.txbMaHangNhap.TabIndex = 1;
             this.txbMaHangNhap.TextChanged += new System.EventHandler(this.txbMaHangNhap_TextChanged);
+            this.txbMaHangNhap.Leave += new System.EventHandler(this.txbMaHangNhap_Leave);
             // 
             // lblGD_NH_MaHang
             // 
@@ -3207,6 +3208,140 @@
             this.pageCD_NV.Text = "CD_NV";
             this.pageCD_NV.UseVisualStyleBackColor = true;
             // 
+            // tlplCD_NV
+            // 
+            this.tlplCD_NV.ColumnCount = 2;
+            this.tlplCD_NV.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlplCD_NV.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tlplCD_NV.Controls.Add(this.dtgvTCNV, 0, 1);
+            this.tlplCD_NV.Controls.Add(this.txtbTCNV, 0, 0);
+            this.tlplCD_NV.Controls.Add(this.btnTCNV, 1, 0);
+            this.tlplCD_NV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlplCD_NV.Location = new System.Drawing.Point(3, 3);
+            this.tlplCD_NV.Name = "tlplCD_NV";
+            this.tlplCD_NV.RowCount = 2;
+            this.tlplCD_NV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlplCD_NV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tlplCD_NV.Size = new System.Drawing.Size(1612, 1042);
+            this.tlplCD_NV.TabIndex = 6;
+            // 
+            // dtgvTCNV
+            // 
+            this.dtgvTCNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvTCNV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaNVTCNV,
+            this.CMNDTCNV,
+            this.HoTCNV,
+            this.TenLotTCNV,
+            this.TenTCNV,
+            this.GioiTinhTCNV,
+            this.LuongTCNV,
+            this.TinhTrangLamViecTCNV});
+            this.tlplCD_NV.SetColumnSpan(this.dtgvTCNV, 2);
+            this.dtgvTCNV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvTCNV.Location = new System.Drawing.Point(2, 106);
+            this.dtgvTCNV.Margin = new System.Windows.Forms.Padding(2);
+            this.dtgvTCNV.Name = "dtgvTCNV";
+            this.dtgvTCNV.RowHeadersWidth = 51;
+            this.dtgvTCNV.RowTemplate.Height = 35;
+            this.dtgvTCNV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgvTCNV.Size = new System.Drawing.Size(1608, 934);
+            this.dtgvTCNV.TabIndex = 3;
+            // 
+            // MaNVTCNV
+            // 
+            this.MaNVTCNV.Frozen = true;
+            this.MaNVTCNV.HeaderText = "Mã NV";
+            this.MaNVTCNV.MinimumWidth = 6;
+            this.MaNVTCNV.Name = "MaNVTCNV";
+            this.MaNVTCNV.ReadOnly = true;
+            this.MaNVTCNV.Width = 125;
+            // 
+            // CMNDTCNV
+            // 
+            this.CMNDTCNV.Frozen = true;
+            this.CMNDTCNV.HeaderText = "CMND";
+            this.CMNDTCNV.MinimumWidth = 6;
+            this.CMNDTCNV.Name = "CMNDTCNV";
+            this.CMNDTCNV.ReadOnly = true;
+            this.CMNDTCNV.Width = 200;
+            // 
+            // HoTCNV
+            // 
+            this.HoTCNV.Frozen = true;
+            this.HoTCNV.HeaderText = "Họ";
+            this.HoTCNV.MinimumWidth = 6;
+            this.HoTCNV.Name = "HoTCNV";
+            this.HoTCNV.ReadOnly = true;
+            this.HoTCNV.Width = 250;
+            // 
+            // TenLotTCNV
+            // 
+            this.TenLotTCNV.Frozen = true;
+            this.TenLotTCNV.HeaderText = "Tên Lót";
+            this.TenLotTCNV.MinimumWidth = 6;
+            this.TenLotTCNV.Name = "TenLotTCNV";
+            this.TenLotTCNV.ReadOnly = true;
+            this.TenLotTCNV.Width = 250;
+            // 
+            // TenTCNV
+            // 
+            this.TenTCNV.Frozen = true;
+            this.TenTCNV.HeaderText = "Tên";
+            this.TenTCNV.MinimumWidth = 6;
+            this.TenTCNV.Name = "TenTCNV";
+            this.TenTCNV.ReadOnly = true;
+            this.TenTCNV.Width = 250;
+            // 
+            // GioiTinhTCNV
+            // 
+            this.GioiTinhTCNV.Frozen = true;
+            this.GioiTinhTCNV.HeaderText = "Giới tính";
+            this.GioiTinhTCNV.MinimumWidth = 6;
+            this.GioiTinhTCNV.Name = "GioiTinhTCNV";
+            this.GioiTinhTCNV.ReadOnly = true;
+            this.GioiTinhTCNV.Width = 125;
+            // 
+            // LuongTCNV
+            // 
+            this.LuongTCNV.Frozen = true;
+            this.LuongTCNV.HeaderText = "Lương";
+            this.LuongTCNV.MinimumWidth = 6;
+            this.LuongTCNV.Name = "LuongTCNV";
+            this.LuongTCNV.ReadOnly = true;
+            this.LuongTCNV.Width = 200;
+            // 
+            // TinhTrangLamViecTCNV
+            // 
+            this.TinhTrangLamViecTCNV.Frozen = true;
+            this.TinhTrangLamViecTCNV.HeaderText = "Tình Trạng Làm Việc";
+            this.TinhTrangLamViecTCNV.MinimumWidth = 6;
+            this.TinhTrangLamViecTCNV.Name = "TinhTrangLamViecTCNV";
+            this.TinhTrangLamViecTCNV.ReadOnly = true;
+            this.TinhTrangLamViecTCNV.Width = 250;
+            // 
+            // txtbTCNV
+            // 
+            this.txtbTCNV.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtbTCNV.Location = new System.Drawing.Point(2, 42);
+            this.txtbTCNV.Margin = new System.Windows.Forms.Padding(2);
+            this.txtbTCNV.Name = "txtbTCNV";
+            this.txtbTCNV.Size = new System.Drawing.Size(157, 20);
+            this.txtbTCNV.TabIndex = 4;
+            this.txtbTCNV.TextChanged += new System.EventHandler(this.txtbTCNV_TextChanged);
+            // 
+            // btnTCNV
+            // 
+            this.btnTCNV.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnTCNV.Location = new System.Drawing.Point(163, 32);
+            this.btnTCNV.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTCNV.Name = "btnTCNV";
+            this.btnTCNV.Size = new System.Drawing.Size(169, 39);
+            this.btnTCNV.TabIndex = 5;
+            this.btnTCNV.Text = "Tìm";
+            this.btnTCNV.UseVisualStyleBackColor = true;
+            this.btnTCNV.Click += new System.EventHandler(this.btnTCNV_Click);
+            // 
             // pageBC_DoanhThu
             // 
             this.pageBC_DoanhThu.Location = new System.Drawing.Point(4, 22);
@@ -3328,140 +3463,6 @@
             this.btnBaoCao.UseVisualStyleBackColor = false;
             this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
             // 
-            // btnTCNV
-            // 
-            this.btnTCNV.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnTCNV.Location = new System.Drawing.Point(163, 32);
-            this.btnTCNV.Margin = new System.Windows.Forms.Padding(2);
-            this.btnTCNV.Name = "btnTCNV";
-            this.btnTCNV.Size = new System.Drawing.Size(169, 39);
-            this.btnTCNV.TabIndex = 5;
-            this.btnTCNV.Text = "Tìm";
-            this.btnTCNV.UseVisualStyleBackColor = true;
-            this.btnTCNV.Click += new System.EventHandler(this.btnTCNV_Click);
-            // 
-            // txtbTCNV
-            // 
-            this.txtbTCNV.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtbTCNV.Location = new System.Drawing.Point(2, 42);
-            this.txtbTCNV.Margin = new System.Windows.Forms.Padding(2);
-            this.txtbTCNV.Name = "txtbTCNV";
-            this.txtbTCNV.Size = new System.Drawing.Size(157, 20);
-            this.txtbTCNV.TabIndex = 4;
-            this.txtbTCNV.TextChanged += new System.EventHandler(this.txtbTCNV_TextChanged);
-            // 
-            // dtgvTCNV
-            // 
-            this.dtgvTCNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvTCNV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaNVTCNV,
-            this.CMNDTCNV,
-            this.HoTCNV,
-            this.TenLotTCNV,
-            this.TenTCNV,
-            this.GioiTinhTCNV,
-            this.LuongTCNV,
-            this.TinhTrangLamViecTCNV});
-            this.tlplCD_NV.SetColumnSpan(this.dtgvTCNV, 2);
-            this.dtgvTCNV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgvTCNV.Location = new System.Drawing.Point(2, 106);
-            this.dtgvTCNV.Margin = new System.Windows.Forms.Padding(2);
-            this.dtgvTCNV.Name = "dtgvTCNV";
-            this.dtgvTCNV.RowHeadersWidth = 51;
-            this.dtgvTCNV.RowTemplate.Height = 35;
-            this.dtgvTCNV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvTCNV.Size = new System.Drawing.Size(1608, 934);
-            this.dtgvTCNV.TabIndex = 3;
-            // 
-            // tlplCD_NV
-            // 
-            this.tlplCD_NV.ColumnCount = 2;
-            this.tlplCD_NV.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlplCD_NV.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tlplCD_NV.Controls.Add(this.dtgvTCNV, 0, 1);
-            this.tlplCD_NV.Controls.Add(this.txtbTCNV, 0, 0);
-            this.tlplCD_NV.Controls.Add(this.btnTCNV, 1, 0);
-            this.tlplCD_NV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlplCD_NV.Location = new System.Drawing.Point(3, 3);
-            this.tlplCD_NV.Name = "tlplCD_NV";
-            this.tlplCD_NV.RowCount = 2;
-            this.tlplCD_NV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlplCD_NV.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tlplCD_NV.Size = new System.Drawing.Size(1612, 1042);
-            this.tlplCD_NV.TabIndex = 6;
-            // 
-            // MaNVTCNV
-            // 
-            this.MaNVTCNV.Frozen = true;
-            this.MaNVTCNV.HeaderText = "Mã NV";
-            this.MaNVTCNV.MinimumWidth = 6;
-            this.MaNVTCNV.Name = "MaNVTCNV";
-            this.MaNVTCNV.ReadOnly = true;
-            this.MaNVTCNV.Width = 125;
-            // 
-            // CMNDTCNV
-            // 
-            this.CMNDTCNV.Frozen = true;
-            this.CMNDTCNV.HeaderText = "CMND";
-            this.CMNDTCNV.MinimumWidth = 6;
-            this.CMNDTCNV.Name = "CMNDTCNV";
-            this.CMNDTCNV.ReadOnly = true;
-            this.CMNDTCNV.Width = 200;
-            // 
-            // HoTCNV
-            // 
-            this.HoTCNV.Frozen = true;
-            this.HoTCNV.HeaderText = "Họ";
-            this.HoTCNV.MinimumWidth = 6;
-            this.HoTCNV.Name = "HoTCNV";
-            this.HoTCNV.ReadOnly = true;
-            this.HoTCNV.Width = 250;
-            // 
-            // TenLotTCNV
-            // 
-            this.TenLotTCNV.Frozen = true;
-            this.TenLotTCNV.HeaderText = "Tên Lót";
-            this.TenLotTCNV.MinimumWidth = 6;
-            this.TenLotTCNV.Name = "TenLotTCNV";
-            this.TenLotTCNV.ReadOnly = true;
-            this.TenLotTCNV.Width = 250;
-            // 
-            // TenTCNV
-            // 
-            this.TenTCNV.Frozen = true;
-            this.TenTCNV.HeaderText = "Tên";
-            this.TenTCNV.MinimumWidth = 6;
-            this.TenTCNV.Name = "TenTCNV";
-            this.TenTCNV.ReadOnly = true;
-            this.TenTCNV.Width = 250;
-            // 
-            // GioiTinhTCNV
-            // 
-            this.GioiTinhTCNV.Frozen = true;
-            this.GioiTinhTCNV.HeaderText = "Giới tính";
-            this.GioiTinhTCNV.MinimumWidth = 6;
-            this.GioiTinhTCNV.Name = "GioiTinhTCNV";
-            this.GioiTinhTCNV.ReadOnly = true;
-            this.GioiTinhTCNV.Width = 125;
-            // 
-            // LuongTCNV
-            // 
-            this.LuongTCNV.Frozen = true;
-            this.LuongTCNV.HeaderText = "Lương";
-            this.LuongTCNV.MinimumWidth = 6;
-            this.LuongTCNV.Name = "LuongTCNV";
-            this.LuongTCNV.ReadOnly = true;
-            this.LuongTCNV.Width = 200;
-            // 
-            // TinhTrangLamViecTCNV
-            // 
-            this.TinhTrangLamViecTCNV.Frozen = true;
-            this.TinhTrangLamViecTCNV.HeaderText = "Tình Trạng Làm Việc";
-            this.TinhTrangLamViecTCNV.MinimumWidth = 6;
-            this.TinhTrangLamViecTCNV.Name = "TinhTrangLamViecTCNV";
-            this.TinhTrangLamViecTCNV.ReadOnly = true;
-            this.TinhTrangLamViecTCNV.Width = 250;
-            // 
             // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3574,10 +3575,10 @@
             this.tlplCD_LichContainer6.ResumeLayout(false);
             this.tlplCD_LichContainer6.PerformLayout();
             this.pageCD_NV.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvTCNV)).EndInit();
             this.tlplCD_NV.ResumeLayout(false);
             this.tlplCD_NV.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvTCNV)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

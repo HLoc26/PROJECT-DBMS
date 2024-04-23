@@ -428,13 +428,6 @@ namespace DBMS_BookStore
                 txbTheLoaiNhap.Text = string.Empty;
                 txbNXBNhap.Text = string.Empty;
                 txbSoLuongCon_Nhap.Text = "0";
-
-                DialogResult notfound = MessageBox.Show("Information not found!\nCreate new information?", "Not found", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-                
-                if(notfound = DialogResult.OK)
-                {
-
-                }
             }
         }
 
@@ -482,6 +475,29 @@ namespace DBMS_BookStore
             foreach (HangHoa item in dsHangNhap)
             {
                 dtgvNhapHang.Rows.Add(item.MaHang, item.TenHang, item.DonGia, item.SoLuongNhap);
+            }
+        }
+        private void txbMaHangNhap_Leave(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty(txbMaHangNhap.Text)) { return; }
+            DataRow drSach = hanghoaDAO.GetSach(txbMaHangNhap.Text);
+            DataRow drVPP = hanghoaDAO.GetVPP(txbMaHangNhap.Text);
+
+            if (cbbLoaiHangNhap.SelectedIndex == 0 && drSach == null)
+            {
+                DialogResult notfound = MessageBox.Show("Information not found!\nCreate new information?", "Not found", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+
+                if (notfound == DialogResult.OK)
+                {
+                    FThemTTSach fThemTT = new FThemTTSach();
+                    fThemTT.ShowDialog();
+                    txbMaHangNhap.Focus();
+                    txbMaHangNhap_TextChanged(sender, e);
+                }
+            }
+            else if (cbbLoaiHangNhap.SelectedIndex == 1 && drVPP == null)
+            {
+                DialogResult notfound = MessageBox.Show("Information not found!\nCreate new information?", "Not found", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
         }
         private void btnSuaHangNhap_Click(object sender, EventArgs e)

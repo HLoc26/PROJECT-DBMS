@@ -55,10 +55,13 @@
     <Compile Include="DAO\HoaDonBanDAO.cs" />
     <Compile Include="DAO\HoaDonNhapDAO.cs" />
     <Compile Include="DAO\KhachHangDAO.cs" />
+    <Compile Include="DAO\ThemTTSachDAO.cs" />
     <Compile Include="DAO\TraCuuDAO.cs" />
     <Compile Include="DTO\Employee.cs" />
     <Compile Include="DTO\HangHoa.cs" />
+    <Compile Include="DTO\NXB.cs" />
     <Compile Include="DTO\Sach.cs" />
+    <Compile Include="DTO\TacGia.cs" />
     <Compile Include="DTO\VatPham.cs" />
     <Compile Include="DTO\KhachHang.cs" />
     <Compile Include="DTO\TheTV.cs" />
