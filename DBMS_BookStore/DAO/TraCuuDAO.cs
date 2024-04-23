@@ -43,6 +43,28 @@ namespace DBMS_BookStore.DAO
             }
             return null;
         }
+        public DataTable LoadTCNXB()
+        {
+            string query = "SELECT * FROM dbo.VIEW_SACH_NXB";
+            SqlCommand sqlCommand = new SqlCommand(query);
+            DataTable dt = dbConnection.ExecuteQuery(sqlCommand);
+            if (dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            return null;
+        }
+        public DataTable LoadTCTL()
+        {
+            string query = "SELECT * FROM dbo.VIEW_THELOAISACH";
+            SqlCommand sqlCommand = new SqlCommand(query);
+            DataTable dt = dbConnection.ExecuteQuery(sqlCommand);
+            if (dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            return null;
+        }
         public DataRow GetTCTG(string tenTG)
         {
             string query = "SELECT * FROM dbo.PROC_TCTG(@param)";
