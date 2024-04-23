@@ -535,6 +535,65 @@ BEGIN
 END;
 GO
 
+-- Function tạo mã NXB từ tên
+CREATE FUNCTION FUNC_CreateMaNXB(@TenNXB NVARCHAR(50))
+RETURNS VARCHAR(10)
+AS
+BEGIN
+    DECLARE @MaNXB VARCHAR(10)
+
+    -- Kiểm tra xem tên NXB đã tồn tại trong bảng dbo.NXB chưa
+    SELECT @MaNXB = MaNXB FROM dbo.NXB WHERE TenNXB = @TenNXB
+
+    -- Nếu tên NXB đã tồn tại, trả về mã của NXB đó
+    IF @MaNXB IS NOT NULL
+    BEGIN
+        RETURN @MaNXB
+    END
+
+    -- Nếu không tìm thấy tên NXB trong bảng dbo.NXB, tạo mã mới
+    DECLARE @FilteredTenNXB NVARCHAR(50) = REPLACE(@TenNXB, 'Nhà xuất bản', '') -- Loại bỏ từ "Nhà xuất bản"
+    SET @MaNXB = dbo.FUNC_GetInitials(@FilteredTenNXB)
+    
+    -- Kiểm tra xem mã NXB mới tạo đã tồn tại chưa, nếu có thì thêm số đếm vào sau mã
+    IF EXISTS (SELECT * FROM dbo.NXB WHERE MaNXB  = @MaNXB)
+    BEGIN 
+        SET @MaNXB = @MaNXB + (SELECT COUNT(@MaNXB) FROM dbo.NXB WHERE @MaNXB = MaNXB)
+    END
+    
+    RETURN @MaNXB
+END;
+GO
+
+-- Function tạo mã TG từ tên
+CREATE FUNCTION FUNC_CreateMaTG(@TenTG NVARCHAR(50))
+RETURNS VARCHAR(10)
+AS
+BEGIN
+    DECLARE @MaTG VARCHAR(10)
+
+    -- Kiểm tra xem tên tác giả đã tồn tại trong bảng dbo.TAC_GIA chưa
+    SELECT @MaTG = MaTG FROM dbo.TAC_GIA WHERE TenTG = @TenTG
+
+    -- Nếu tên tác giả đã tồn tại, trả về mã của tác giả đó
+    IF @MaTG IS NOT NULL
+    BEGIN
+        RETURN @MaTG
+    END
+
+    -- Nếu không tìm thấy tên tác giả trong bảng dbo.TAC_GIA, tạo mã mới
+    SET @MaTG = dbo.FUNC_GetInitials(@TenTG)
+    
+    -- Kiểm tra xem mã tác giả mới tạo đã tồn tại chưa, nếu có thì thêm số đếm vào sau mã
+    IF EXISTS (SELECT * FROM dbo.TAC_GIA WHERE MaTG = @MaTG)
+    BEGIN 
+        SET @MaTG = @MaTG + (SELECT COUNT(@MaTG) FROM dbo.TAC_GIA WHERE @MaTG = MaTG)
+    END
+    
+    RETURN @MaTG
+END;
+GO
+
 -- =========================================================================================================================== --
 -- =========================================================================================================================== --
 -- ====================================  ____  ____   ___   ____ ____  _   _ ____  _____  ==================================== --
@@ -825,56 +884,6 @@ BEGIN
 END;
 GO
 
--- PROC thêm thông tin nxb
-CREATE PROC PROC_AddNXB
-@TenNXB NVARCHAR(50),
-@DiaChi NVARCHAR(100),
-@SDT VARCHAR(15)
-AS
-BEGIN
-	SET XACT_ABORT ON
-	BEGIN TRAN
-		IF EXISTS (SELECT * FROM dbo.NXB WHERE @TenNXB = TenNXB OR @SDT = SDT)
-		BEGIN 
-			RAISERROR('ERR AddNXB: Information duplicated', 16, 1)
-		END
-
-		DECLARE @MaNXB VARCHAR(10)
-		SET @MaNXB = dbo.FUNC_GetInitials(@MaNXB)
-		INSERT dbo.NXB (MaNXB, TenNXB, DiaChi, SDT)
-		VALUES(@MaNXB, @TenNXB, @DiaChi, @SDT)
-	COMMIT TRAN
-
-END;
-GO
-
--- PROC thêm thông tin tác giả
-CREATE PROC PROC_AddTG
-@TenTG NVARCHAR(50)
-AS
-BEGIN
-	SET XACT_ABORT ON
-	BEGIN TRY
-		BEGIN TRAN
-			IF EXISTS (SELECT * FROM dbo.TAC_GIA WHERE TenTG = @TenTG)
-			BEGIN 
-				RAISERROR('ERR AddTG: Information duplicated', 16, 1)
-			END
-
-			DECLARE @MaTG VARCHAR(10)
-			SET @MaTG = dbo.FUNC_GetInitials(@MaTG)
-			INSERT dbo.TAC_GIA (MaTG, TenTG)
-			VALUES (@MaTG, @TenTG)
-
-		COMMIT TRAN
-	END TRY
-	BEGIN CATCH
-		DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE();
-        RAISERROR(@ErrorMessage, 16, 1);
-	END CATCH
-
-END;
-GO
 -- ========================================================================================================================== --
 -- ========================================================================================================================== --
 -- ========================================  _____ ____  ___ ____  ____ _____ ____   ======================================== --
