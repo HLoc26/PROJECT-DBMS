@@ -457,7 +457,83 @@ CREATE FUNCTION FUNC_Get_TTVPP(@MaHang VARCHAR(20))
 RETURNS TABLE
 AS
 	RETURN (SELECT * FROM dbo.VIEW_VPP WHERE MaHang = @MaHang)
-GO	
+GO
+
+-- Function bỏ dấu tiếng việt (để tìm tên tác giả, nxb, nv, ...)
+CREATE FUNCTION FUNC_BoDau
+(
+    @strInput NVARCHAR(MAX)
+)
+RETURNS NVARCHAR(30)
+AS
+BEGIN
+    IF @strInput IS NULL
+        RETURN @strInput;
+    IF @strInput = ''
+        RETURN @strInput;
+    DECLARE @RT NVARCHAR(30);
+    DECLARE @SIGN_CHARS NCHAR(136);
+    DECLARE @UNSIGN_CHARS NCHAR(136);
+    SET @SIGN_CHARS
+        = N'ăâđêôơưàảãạáằẳẵặắầẩẫậấèẻẽẹéềểễệếìỉĩịíòỏõọóồổỗộốờởỡợớùủũụúừửữựứỳỷỹỵýĂÂĐÊÔƠƯÀẢÃẠÁẰẲẴẶẮẦẨẪẬẤÈẺẼẸÉỀỂỄỆẾÌỈĨỊÍÒỎÕỌÓỒỔỖỘỐỜỞỠỢỚÙỦŨỤÚỪỬỮỰỨỲỶỸỴÝ'
+          + NCHAR(272) + NCHAR(208);
+    SET @UNSIGN_CHARS
+        = N'aadeoouaaaaaaaaaaaaaaaeeeeeeeeeeiiiiiooooooooooooooouuuuuuuuuuyyyyyAADEOOUAAAAAAAAAAAAAAAEEEEEEEEEEIIIIIOOOOOOOOOOOOOOOUUUUUUUUUUYYYYYDD';
+    DECLARE @COUNTER INT;
+    DECLARE @COUNTER1 INT;
+    SET @COUNTER = 1;
+    WHILE (@COUNTER <= LEN(@strInput))
+    BEGIN
+        SET @COUNTER1 = 1;
+        WHILE (@COUNTER1 <= LEN(@SIGN_CHARS) + 1)
+        BEGIN
+            IF UNICODE(SUBSTRING(@SIGN_CHARS, @COUNTER1, 1)) = UNICODE(SUBSTRING(@strInput, @COUNTER, 1))
+            BEGIN
+                IF @COUNTER = 1
+                    SET @strInput
+                        = SUBSTRING(@UNSIGN_CHARS, @COUNTER1, 1)
+                          + SUBSTRING(@strInput, @COUNTER + 1, LEN(@strInput) - 1);
+                ELSE
+                    SET @strInput
+                        = SUBSTRING(@strInput, 1, @COUNTER - 1) + SUBSTRING(@UNSIGN_CHARS, @COUNTER1, 1)
+                          + SUBSTRING(@strInput, @COUNTER + 1, LEN(@strInput) - @COUNTER);
+                BREAK;
+            END;
+            SET @COUNTER1 = @COUNTER1 + 1;
+        END;
+        SET @COUNTER = @COUNTER + 1;
+    END;
+    --SET @strInput = replace(@strInput,' ','-')
+    RETURN @strInput;
+END;
+GO
+
+-- Function trả về chữ cái đầu tiên của các từ (tạo mã nxb, mã tác giả)
+CREATE FUNCTION FUNC_GetInitials
+(
+    @inputString NVARCHAR(MAX)
+)
+RETURNS NVARCHAR(MAX)
+AS
+BEGIN
+    DECLARE @outputString NVARCHAR(MAX) = N'';
+    DECLARE @pos INT = 1;
+    DECLARE @length INT = LEN(@inputString);
+
+    WHILE @pos <= @length
+    BEGIN
+        IF @pos = 1
+           OR SUBSTRING(@inputString, @pos - 1, 1) = ' '
+        BEGIN
+            SET @outputString = @outputString + UPPER(SUBSTRING(@inputString, @pos, 1));
+        END;
+
+        SET @pos = @pos + 1;
+    END;
+
+    RETURN @outputString;
+END;
+GO
 
 -- =========================================================================================================================== --
 -- =========================================================================================================================== --
@@ -749,6 +825,56 @@ BEGIN
 END;
 GO
 
+-- PROC thêm thông tin nxb
+CREATE PROC PROC_AddNXB
+@TenNXB NVARCHAR(50),
+@DiaChi NVARCHAR(100),
+@SDT VARCHAR(15)
+AS
+BEGIN
+	SET XACT_ABORT ON
+	BEGIN TRAN
+		IF EXISTS (SELECT * FROM dbo.NXB WHERE @TenNXB = TenNXB OR @SDT = SDT)
+		BEGIN 
+			RAISERROR('ERR AddNXB: Information duplicated', 16, 1)
+		END
+
+		DECLARE @MaNXB VARCHAR(10)
+		SET @MaNXB = dbo.FUNC_GetInitials(@MaNXB)
+		INSERT dbo.NXB (MaNXB, TenNXB, DiaChi, SDT)
+		VALUES(@MaNXB, @TenNXB, @DiaChi, @SDT)
+	COMMIT TRAN
+
+END;
+GO
+
+-- PROC thêm thông tin tác giả
+CREATE PROC PROC_AddTG
+@TenTG NVARCHAR(50)
+AS
+BEGIN
+	SET XACT_ABORT ON
+	BEGIN TRY
+		BEGIN TRAN
+			IF EXISTS (SELECT * FROM dbo.TAC_GIA WHERE TenTG = @TenTG)
+			BEGIN 
+				RAISERROR('ERR AddTG: Information duplicated', 16, 1)
+			END
+
+			DECLARE @MaTG VARCHAR(10)
+			SET @MaTG = dbo.FUNC_GetInitials(@MaTG)
+			INSERT dbo.TAC_GIA (MaTG, TenTG)
+			VALUES (@MaTG, @TenTG)
+
+		COMMIT TRAN
+	END TRY
+	BEGIN CATCH
+		DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE();
+        RAISERROR(@ErrorMessage, 16, 1);
+	END CATCH
+
+END;
+GO
 -- ========================================================================================================================== --
 -- ========================================================================================================================== --
 -- ========================================  _____ ____  ___ ____  ____ _____ ____   ======================================== --
