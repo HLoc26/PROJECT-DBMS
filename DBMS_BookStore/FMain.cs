@@ -428,6 +428,13 @@ namespace DBMS_BookStore
                 txbTheLoaiNhap.Text = string.Empty;
                 txbNXBNhap.Text = string.Empty;
                 txbSoLuongCon_Nhap.Text = "0";
+
+                DialogResult notfound = MessageBox.Show("Information not found!\nCreate new information?", "Not found", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                
+                if(notfound = DialogResult.OK)
+                {
+
+                }
             }
         }
 
