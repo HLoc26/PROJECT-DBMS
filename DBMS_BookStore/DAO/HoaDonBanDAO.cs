@@ -45,12 +45,11 @@ namespace DBMS_BookStore.DAO
             return dt;
         }
 
-        public int GetTongTienBan(DateTime start, DateTime end)
+        public int GetTongTienBan(DateTime date)
         {
-            string query = "SELECT dbo.FUNC_TOTAL_SALE_AMOUNT (@param1, @param2)";
+            string query = "SELECT dbo.FUNC_TOTAL_SALE_AMOUNT (@param)";
             SqlCommand cmd = new SqlCommand(query);
-            cmd.Parameters.AddWithValue("@param1", start);
-            cmd.Parameters.AddWithValue("@param2", end);
+            cmd.Parameters.AddWithValue("@param", date);
 
             return (int)db.ExecuteScalar(cmd);
         }

@@ -67,5 +67,15 @@ namespace DBMS_BookStore.DAO
             string maNV = (string)db.ExecuteScalar(cmd);
             return maNV;
         }
+
+        public DataTable GetBangLuongTheoThang(DateTime date)
+        {
+            string query = "SELECT dbo.FUNC_BangLuongTheoThang (@param)";
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.Parameters.AddWithValue("@param", date);
+
+            DataTable dt = db.ExecuteQuery(cmd);
+            return dt;
+        }
     }
 }

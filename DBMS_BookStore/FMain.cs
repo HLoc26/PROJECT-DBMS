@@ -306,7 +306,6 @@ namespace DBMS_BookStore
         private void btnBaoCaoDoanhThu_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[23];
-            loadDtpDoanhThu();
         }
 
         private void btnQuayLai_23_3_Click(object sender, EventArgs e)
@@ -317,24 +316,17 @@ namespace DBMS_BookStore
         private void btnTraCuuBCDoanhThu_Click(object sender, EventArgs e)
         {
             HoaDonBanDAO ban = new HoaDonBanDAO();
-            tbTongBan.Text = ban.GetTongTienBan(dtpStartBCDoanhThu.Value, dtpEndBCDoanhThu.Value) + "";
+            tbTongBan.Text = ban.GetTongTienBan(dtpBCDoanhThuThang.Value) + "";
             HoaDonNhapDAO nhap = new HoaDonNhapDAO();
-            tbTongNhap.Text = nhap.GetTongTienNhap(dtpStartBCDoanhThu.Value, dtpEndBCDoanhThu.Value) + "";
+            tbTongNhap.Text = nhap.GetTongTienNhap(dtpBCDoanhThuThang.Value) + "";
         }
 
-        void loadDtpDoanhThu()
-        {
-            DateTime today = DateTime.Now;
-            dtpStartBCDoanhThu.Value = new DateTime(today.Year, today.Month, 1);
-            dtpEndBCDoanhThu.Value = dtpStartBCDoanhThu.Value.AddMonths(1).AddDays(-1);
-        }
         #endregion
 
         #region 24. Báo cáo - Lương NV
         private void btnBaoCaoKhachHang_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[24];
-            loadDtpLuong();
         }
 
         private void btnQuayLai_24_3_Click(object sender, EventArgs e)
@@ -344,13 +336,8 @@ namespace DBMS_BookStore
 
         private void btnTraCuuBCLuong_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Éc éc éc");
-        }
-        void loadDtpLuong()
-        {
-            DateTime today = DateTime.Now;
-            dtpStartBCDoanhThu.Value = new DateTime(today.Year, today.Month, 1);
-            dtpEndBCDoanhThu.Value = dtpStartBCDoanhThu.Value.AddMonths(1).AddDays(-1);
+            EmployeeDAO employeeDAO = new EmployeeDAO();
+            dtgvListLuong.DataSource = employeeDAO.GetBangLuongTheoThang(dtpTraCuuLuong.Value);
         }
         #endregion
     }
