@@ -552,7 +552,7 @@ BEGIN
     JOIN dbo.TAC_GIA tg ON tg.MaTG = tg_s.MaTG
     JOIN dbo.THE_LOAI_SACH tl_s ON tl_s.MaSach = s.MaSach 
     JOIN dbo.THE_LOAI tl ON tl.MaLoai = tl_s.MaLoai
-    WHERE s.MaSach = @MaHang;
+    WHERE s.TieuDe = @MaHang;
 END;
 
 -- PROCEDURE tra cứu văn phòng phẩm theo mã hàng

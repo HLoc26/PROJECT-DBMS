@@ -140,12 +140,26 @@ namespace DBMS_BookStore
         private void btnTTNXB_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[17];
-        }
+            DataTable dt = traCuuDAO.LoadTCNXB();
+            foreach (DataRow row in dt.Rows)
+            {
+                dtgvTCNXB.Rows.Add(row.ItemArray);
+            }
+            dtgvTCNXB.Refresh();
+            dtgvTCNXB.Update();
+        
+    }
         private void btnTTTheLoai_Click(object sender, EventArgs e)
         {
 
             tabControl.SelectedTab = tabControl.TabPages[18];
-
+            DataTable dt = traCuuDAO.LoadTCTL();
+            foreach (DataRow row in dt.Rows)
+            {
+                dtgvTCTL.Rows.Add(row.ItemArray);
+            }
+            dtgvTCTL.Refresh();
+            dtgvTCTL.Update();
         }
         private void btnTTVPP_Click(object sender, EventArgs e)
         {
