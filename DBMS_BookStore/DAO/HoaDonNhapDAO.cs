@@ -10,7 +10,6 @@ namespace DBMS_BookStore.DAO
 {
     internal class HoaDonNhapDAO
     {
-        DBConnection db = new DBConnection();
 
         public int InsertNhapHang(string maDonNhap, string maNVNhap, HangHoa hang)
         {
@@ -21,7 +20,7 @@ namespace DBMS_BookStore.DAO
             cmd.Parameters.AddWithValue("@param3", hang.MaHang);
             cmd.Parameters.AddWithValue("@param4", hang.SoLuongNhap);
 
-            int succeed = db.ExecuteNonQuery(cmd);
+            int succeed = DBConnection.ExecuteNonQuery(cmd);
             return succeed;
         }
 
@@ -30,7 +29,7 @@ namespace DBMS_BookStore.DAO
             string query = "SELECT dbo.FUNC_Create_MaHoaDonNhap()";
             SqlCommand cmd = new SqlCommand(query);
             
-            return (string)db.ExecuteScalar(cmd);
+            return (string)DBConnection.ExecuteScalar(cmd);
         }
     }
 }

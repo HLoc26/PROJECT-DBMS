@@ -13,7 +13,6 @@ namespace DBMS_BookStore.DAO
 {
     internal class ThemTTSachDAO
     {
-        DBConnection db = new DBConnection();
 
         public NXB CheckMaNXB(string maNXB)
         {
@@ -21,7 +20,7 @@ namespace DBMS_BookStore.DAO
             SqlCommand cmd = new SqlCommand(query);
 
             cmd.Parameters.AddWithValue("@param", maNXB);
-            DataTable dt = db.ExecuteQuery(cmd);
+            DataTable dt = DBConnection.ExecuteQuery(cmd);
             if (dt.Rows.Count > 0)
             {
                 return new NXB(dt.Rows[0]);
@@ -34,7 +33,7 @@ namespace DBMS_BookStore.DAO
             SqlCommand cmd = new SqlCommand(query);
 
             cmd.Parameters.AddWithValue("@param", maTG);
-            DataTable dt = db.ExecuteQuery(cmd);
+            DataTable dt = DBConnection.ExecuteQuery(cmd);
             if (dt.Rows.Count > 0)
             {
                 return new TacGia(dt.Rows[0]);
@@ -48,7 +47,7 @@ namespace DBMS_BookStore.DAO
             SqlCommand cmd = new SqlCommand(query);
             cmd.Parameters.AddWithValue("@param", tenNXB);
 
-            string maNXB = (string)db.ExecuteScalar(cmd);
+            string maNXB = (string)DBConnection.ExecuteScalar(cmd);
             return maNXB;
         }
 
@@ -58,7 +57,7 @@ namespace DBMS_BookStore.DAO
             SqlCommand cmd = new SqlCommand(query);
             cmd.Parameters.AddWithValue("@param", tenTacGia);
 
-            string maTG = (string)db.ExecuteScalar(cmd);
+            string maTG = (string)DBConnection.ExecuteScalar(cmd);
             return maTG;
         }
 
@@ -68,7 +67,7 @@ namespace DBMS_BookStore.DAO
             SqlCommand cmd = new SqlCommand(query);
             cmd.Parameters.AddWithValue("@param", tieuDe);
 
-            string maSach = (string)db.ExecuteScalar(cmd);
+            string maSach = (string)DBConnection.ExecuteScalar(cmd);
             return maSach;
         }
 
@@ -76,7 +75,7 @@ namespace DBMS_BookStore.DAO
         {
             string query = $"SELECT MaLoai FROM dbo.THE_LOAI WHERE TenLoai = {tenLoai}";
             SqlCommand cmd = new SqlCommand(query);
-            string maLoai = (string)db.ExecuteScalar(cmd);
+            string maLoai = (string)DBConnection.ExecuteScalar(cmd);
             return maLoai;
         }
 
@@ -99,7 +98,7 @@ namespace DBMS_BookStore.DAO
             command.Parameters.AddWithValue("@TenTG", tg.TenTG);
             command.Parameters.AddWithValue("@TheLoai", sach.TheLoai);
 
-            db.ExecuteNonQuery(command);
+            DBConnection.ExecuteNonQuery(command);
         }
     }
 }

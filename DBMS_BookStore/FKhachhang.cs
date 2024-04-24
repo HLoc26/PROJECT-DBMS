@@ -25,7 +25,7 @@ namespace DBMS_BookStore
             KhachHang check = dao.GetInforByCusID(txtCustomerID.Text);
             if (check == null)
             {
-                KhachHang kh = dao.ShowCustomer(txtCustomerID.Text);
+                //KhachHang kh = dao.ShowCustomer(txtCustomerID.Text);
                 txtCustomerName.Text = kh.Ho + " " + kh.TenLot + " " + kh.Ten;
                 txtCustomerDoB.Text = kh.NgaySinh.ToString();
                 txtCustomerGender.Text = kh.GioiTinh;
@@ -50,17 +50,17 @@ namespace DBMS_BookStore
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            bool succeed = dao.createCustomer(txtCustomerID_2.Text, txtMembershipID_2.Text);
-            if (succeed)
-            {
-                // Cập nhật lại nv hiện tại
-                //kh = dao.createCustomer(txtCustomerID.Text, txtMembershipID.Text);
-            }
-            else
-            {
-                MessageBox.Show("ERROR CHANGE PASS!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            return;
+            //bool succeed = dao.createCustomer(txtCustomerID_2.Text, txtMembershipID_2.Text);
+            //if (succeed)
+            //{
+            //    // Cập nhật lại nv hiện tại
+            //    //kh = dao.createCustomer(txtCustomerID.Text, txtMembershipID.Text);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("ERROR CHANGE PASS!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            //return;
         }
 
 

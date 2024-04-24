@@ -13,19 +13,11 @@ namespace DBMS_BookStore.DAO
 {
     internal class TraCuuDAO
     {
-        DBConnection dbConnection;
-        DBConnection db = new DBConnection();
-        public TraCuuDAO()
-        {
-            dbConnection = new DBConnection();
-            
-        }
-
         public DataTable LoadTCSach()
         {
             string query = "SELECT * FROM dbo.VIEW_SACH";
             SqlCommand sql = new SqlCommand(query);
-            DataTable dt = dbConnection.ExecuteQuery(sql);
+            DataTable dt = DBConnection.ExecuteQuery(sql);
             if(dt.Rows.Count > 0)
             {
                 return dt;
@@ -36,7 +28,7 @@ namespace DBMS_BookStore.DAO
         {
             string query = "SELECT MaSach, tenTG, TieuDe, DonGia, TenLoai FROM dbo.VIEW_SACH";
             SqlCommand sql = new SqlCommand(query);
-            DataTable dt = dbConnection.ExecuteQuery(sql);
+            DataTable dt = DBConnection.ExecuteQuery(sql);
             if (dt.Rows.Count > 0)
             {
                 return dt;
@@ -47,7 +39,7 @@ namespace DBMS_BookStore.DAO
         {
             string query = "SELECT * FROM dbo.VIEW_SACH_NXB";
             SqlCommand sqlCommand = new SqlCommand(query);
-            DataTable dt = dbConnection.ExecuteQuery(sqlCommand);
+            DataTable dt = DBConnection.ExecuteQuery(sqlCommand);
             if (dt.Rows.Count > 0)
             {
                 return dt;
@@ -58,7 +50,7 @@ namespace DBMS_BookStore.DAO
         {
             string query = "SELECT * FROM dbo.VIEW_THELOAISACH";
             SqlCommand sqlCommand = new SqlCommand(query);
-            DataTable dt = dbConnection.ExecuteQuery(sqlCommand);
+            DataTable dt = DBConnection.ExecuteQuery(sqlCommand);
             if (dt.Rows.Count > 0)
             {
                 return dt;
@@ -71,7 +63,7 @@ namespace DBMS_BookStore.DAO
             SqlCommand cmd = new SqlCommand(query);
             cmd.Parameters.AddWithValue("@param", tenTG);
 
-            DataTable dt = db.ExecuteQuery(cmd);
+            DataTable dt = DBConnection.ExecuteQuery(cmd);
             if (dt.Rows.Count > 0)
             {
                 return dt.Rows[0];
@@ -82,7 +74,7 @@ namespace DBMS_BookStore.DAO
         {
             string query = "SELECT * FROM dbo.VIEW_VPP";
             SqlCommand sql = new SqlCommand(query);
-            DataTable dt = dbConnection.ExecuteQuery(sql);
+            DataTable dt = DBConnection.ExecuteQuery(sql);
             if (dt.Rows.Count > 0)
             {
                 return dt;
@@ -96,7 +88,7 @@ namespace DBMS_BookStore.DAO
                 SqlCommand sqlCommand = new SqlCommand("SearchSACHByMaHang");
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.AddWithValue("@MaHang", maHang);
-                return dbConnection.ExecuteQuery(sqlCommand);
+                return DBConnection.ExecuteQuery(sqlCommand);
             }
             catch (Exception ex)
             {
@@ -112,7 +104,7 @@ namespace DBMS_BookStore.DAO
             sqlCommand.Parameters.AddWithValue("@tenTG", authorName);
 
             // Execute the query using DBConnection and return the result
-            return dbConnection.ExecuteQuery(sqlCommand);
+            return DBConnection.ExecuteQuery(sqlCommand);
         }
 
         public DataTable SearchSachByNXB(string TenNXB)
@@ -120,7 +112,7 @@ namespace DBMS_BookStore.DAO
             SqlCommand sqlCommand = new SqlCommand("SELECT * FROM VIEW_SACHNXB WHERE TenNXB = @TenNXB");
             sqlCommand.Parameters.AddWithValue("@TenNXB", TenNXB);
 
-            return dbConnection.ExecuteQuery(sqlCommand);
+            return DBConnection.ExecuteQuery(sqlCommand);
         }
 
         public DataTable SearchVPPByMaHang(string maHang)
@@ -129,14 +121,14 @@ namespace DBMS_BookStore.DAO
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("@MaHang", maHang);
 
-            return dbConnection.ExecuteQuery(sqlCommand);
+            return DBConnection.ExecuteQuery(sqlCommand);
         }
         public DataTable SearchSachByTenLoai(string tenLoai)
         {
             SqlCommand sqlCommand = new SqlCommand("SELECT * FROM VIEW_THELOAISACH WHERE TenLoai = @TenLoai");
             sqlCommand.Parameters.AddWithValue("@TenLoai", tenLoai);
 
-            return dbConnection.ExecuteQuery(sqlCommand);
+            return DBConnection.ExecuteQuery(sqlCommand);
         }
     }
 }

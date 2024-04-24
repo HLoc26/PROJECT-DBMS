@@ -12,7 +12,6 @@ namespace DBMS_BookStore.DAO
 {
     internal class KhachHangDAO
     {
-        DBConnection db = new DBConnection();
 
         //Tạo khách hàng mới
         public string createCustomer(KhachHang khachHang, TheTV theTV)
@@ -29,7 +28,7 @@ namespace DBMS_BookStore.DAO
             cmd.Parameters.AddWithValue("@param7", theTV.MaThe);
             cmd.Parameters.AddWithValue("@param7", theTV.SoDiem);
 
-            string maNV = (string)db.ExecuteScalar(cmd);
+            string maNV = (string)DBConnection.ExecuteScalar(cmd);
             return maNV;
         }
 
@@ -40,7 +39,7 @@ namespace DBMS_BookStore.DAO
             SqlCommand cmd = new SqlCommand(query);
             cmd.Parameters.AddWithValue("@param", MaKH);
 
-            DataTable dt = db.ExecuteQuery(cmd);
+            DataTable dt = DBConnection.ExecuteQuery(cmd);
             if (dt.Rows.Count > 0)
                 return new KhachHang(dt.Rows[0]);
             else return null;
@@ -53,7 +52,7 @@ namespace DBMS_BookStore.DAO
             SqlCommand cmd = new SqlCommand(query);
             cmd.Parameters.AddWithValue("@param", MaThe);
 
-            DataTable dt = db.ExecuteQuery(cmd);
+            DataTable dt = DBConnection.ExecuteQuery(cmd);
             if (dt.Rows.Count > 0)
                 return new KhachHang(dt.Rows[0]);
             else return null;
@@ -65,7 +64,7 @@ namespace DBMS_BookStore.DAO
             string query = "SELECT * FROM dbo.FUNC_GetKH (@param)";
             SqlCommand cmd = new SqlCommand(query);
             cmd.Parameters.AddWithValue("@param", MaKH);
-            DataTable dt = db.ExecuteQuery(cmd);
+            DataTable dt = DBConnection.ExecuteQuery(cmd);
             if (dt.Rows.Count > 0)
                 return new KhachHang(dt.Rows[0]);
             else return null;

@@ -9,11 +9,14 @@ using System.Windows.Forms;
 
 namespace DBMS_BookStore.DAO
 {
-    internal class DBConnection
+    public static class DBConnection
     {
-        SqlConnection SqlConn = new SqlConnection("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=Proj_DBMS_BookStore;Integrated Security=True");
+        public static string username;
+        public static string password;
+        static SqlConnection SqlConn = new SqlConnection($"Data Source=(localdb)\\mssqllocaldb;" +
+            $"Initial Catalog=Proj_DBMS_BookStore;User ID = \"{username}\";Password = \"{password}\";Integrated Security=True");
 
-        public DataTable ExecuteQuery(SqlCommand sqlCommand)
+        public static DataTable ExecuteQuery(SqlCommand sqlCommand)
         {
             DataTable dataTable = new DataTable();
             try
@@ -34,7 +37,7 @@ namespace DBMS_BookStore.DAO
             return dataTable;
         }
 
-        public int ExecuteNonQuery(SqlCommand sqlCommand)
+        public static int ExecuteNonQuery(SqlCommand sqlCommand)
         {
             int succeed = 0;
             try
@@ -58,7 +61,7 @@ namespace DBMS_BookStore.DAO
         }
 
         // Trả về dòng cột đầu tiên của bảng trả về, những dòng, cột khác kệ
-        public object ExecuteScalar(SqlCommand sqlCommand)
+        public static object ExecuteScalar(SqlCommand sqlCommand)
         {
             object obj = new object();
             try
