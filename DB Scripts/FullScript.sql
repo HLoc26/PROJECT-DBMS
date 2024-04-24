@@ -324,6 +324,40 @@ AS
     FROM dbo.NHAN_VIEN nv;
 GO
 
+-- View xem tổng tiền của 1 hóa đơn bán
+CREATE VIEW VIEW_TONG_TIEN_BAN
+AS
+	SELECT bh.MaHoaDon, SUM(DonGia * bh.SoLuong * KhuyenMai) 'TongTien'
+	FROM dbo.BAN_HANG bh
+	LEFT JOIN dbo.HANG_HOA ON HANG_HOA.MaHang = bh.MaHang
+	LEFT JOIN dbo.HOA_DON_BAN ON HOA_DON_BAN.MaHoaDon = bh.MaHoaDon
+	GROUP BY bh.MaHoaDon
+GO
+
+-- View xem tổng tiền của 1 hóa đơn nhập
+CREATE VIEW VIEW_TONG_TIEN_NHAP
+AS
+	SELECT nh.MaDonNhap, SUM(nh.SoLuong * DonGia * 0.5) 'TongTien'
+	FROM dbo.NHAP_HANG nh
+	LEFT JOIN dbo.HANG_HOA ON HANG_HOA.MaHang = nh.MaHang
+	GROUP BY nh.MaDonNhap
+GO
+
+-- DS các ngày đăng nhập của nv
+CREATE VIEW VIEW_NgayDangNhap
+AS
+	SELECT MaNV, ls.TenDN, CONVERT(DATE, ThoiGianDN) AS UniqueDate
+	FROM LS_DANG_NHAP ls LEFT JOIN dbo.TAI_KHOAN_DN tk ON tk.TenDN = ls.TenDN
+	GROUP BY MaNV, ls.TenDN, CONVERT(DATE, ThoiGianDN)
+GO
+
+-- DS số ngày đã làm việc theo tháng
+CREATE VIEW VIEW_XemSoNgayLamViecTheoThang
+AS
+	SELECT MaNV, TenDN, COUNT(UniqueDate) AS SoNgay, MONTH(UniqueDate) AS Thang
+	FROM VIEW_NgayDangNhap 
+	GROUP BY MONTH(UniqueDate), MaNV, TenDN
+GO
 -- ========================================================================================================================== --
 -- ========================================================================================================================== --
 -- =====================================  _____ _   _ _   _  ____ _____ ___ ___  _   _  ===================================== --
@@ -636,6 +670,38 @@ AS
 	RETURN (SELECT * FROM dbo.TAC_GIA WHERE MaTG = @MaTG)
 GO
 
+--Function lấy tổng tiền các hóa đơn BÁN theo tháng
+CREATE FUNCTION FUNC_TOTAL_SALE_AMOUNT (@Date DATE)
+RETURNS INT
+AS
+BEGIN
+	RETURN (SELECT SUM(TongTien) FROM VIEW_TONG_TIEN_BAN tb LEFT JOIN dbo.HOA_DON_BAN hdb ON hdb.MaHoaDon = tb.MaHoaDon
+	WHERE MONTH(ThoiGianBan) = MONTH(@DATE) AND YEAR(ThoiGianBan) = YEAR(@DATE))
+END;
+GO
+
+--Function lấy tổng tiền các hóa đơn NHẬP theo tháng
+CREATE FUNCTION FUNC_TOTAL_EXPENSES (@Date DATE)
+RETURNS INT
+AS
+BEGIN
+	RETURN (SELECT SUM(TongTien) FROM VIEW_TONG_TIEN_NHAP tn LEFT JOIN dbo.HOA_DON_NHAP hdn ON hdn.MaDonNhap = tn.MaDonNhap
+	WHERE MONTH(ThoiGianNhap) = MONTH(@DATE) AND YEAR(ThoiGianNhap) = YEAR(@DATE))
+END;
+GO
+
+-- Bảng lương theo tháng
+CREATE FUNCTION FUNC_BangLuongTheoThang (@Date DATE)
+RETURNS TABLE
+AS
+	RETURN (SELECT nv.MaNV, Ho, TenLot, GioiTinh, CMND, TinhTrangLamViec,
+				CASE
+					WHEN SoNgay != DAY(EOMONTH(@Date)) THEN (Luong - 500)
+					ELSE Luong
+				END AS 'LuongThang'
+			FROM dbo.NHAN_VIEN nv LEFT JOIN VIEW_XemSoNgayLamViecTheoThang snlv ON snlv.MaNV = nv.MaNV
+			WHERE Thang = MONTH(@DATE))
+GO
 -- =========================================================================================================================== --
 -- =========================================================================================================================== --
 -- ====================================  ____  ____   ___   ____ ____  _   _ ____  _____  ==================================== --
@@ -995,6 +1061,30 @@ BEGIN
 END;
 GO
 
+CREATE PROC PROC_GetListSaleReceiptByDate
+@NgayBatDau DATE, @NgayKetThuc DATE
+AS
+BEGIN
+	SELECT hdb.MaHoaDon AS [Mã hóa đơn], ThoiGianBan AS [Thời gian], KhuyenMai AS [Khuyến mãi],
+			TongTien AS [Tổng tiền], MaKH AS [Mã KH mua], MaNVBan AS [Mã NV bán]
+	FROM dbo.HOA_DON_BAN hdb
+	LEFT JOIN dbo.VIEW_TONG_TIEN_BAN vtt ON hdb.MaHoaDon = vtt.MaHoaDon
+	LEFT JOIN dbo.BAN_HANG bh ON bh.MaHoaDon = hdb.MaHoaDon
+	WHERE ThoiGianBan >= @NgayBatDau AND ThoiGianBan <= @NgayKetThuc
+END;
+GO
+
+CREATE PROC PROC_GetListGoodReceiptByDate
+@NgayBatDau DATE, @NgayKetThuc DATE
+AS
+BEGIN
+	SELECT hdn.MaDonNhap AS [Mã hóa đơn], ThoiGianNhap AS [Thời gian], TongTien AS [Tổng tiền], MaNVNhap [Mã nhân viên nhập]
+	FROM dbo.HOA_DON_NHAP hdn
+	LEFT JOIN dbo.VIEW_TONG_TIEN_NHAP vtt ON vtt.MaDonNhap = hdn.MaDonNhap
+	LEFT JOIN dbo.NHAP_HANG nh ON nh.MaDonNhap = hdn.MaDonNhap
+	WHERE hdn.ThoiGianNhap >= @NgayBatDau AND hdn.ThoiGianNhap <= @NgayKetThuc
+END;
+GO
 -- ========================================================================================================================== --
 -- ========================================================================================================================== --
 -- ========================================  _____ ____  ___ ____  ____ _____ ____   ======================================== --

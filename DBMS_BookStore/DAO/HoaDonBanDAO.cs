@@ -10,8 +10,6 @@ namespace DBMS_BookStore.DAO
 {
     internal class HoaDonBanDAO
     {
-        DBConnection db = new DBConnection();
-
         public int InsertBanHang(VatPham vatpham)
         {
             string query = "EXEC dbo.PROC_AddGioHangVaoHoaDon @param1 , @param2 , @param3 , @param4 , @param5";
@@ -22,7 +20,7 @@ namespace DBMS_BookStore.DAO
             cmd.Parameters.AddWithValue("@param4", vatpham.MaHang);
             cmd.Parameters.AddWithValue("@param5", vatpham.SoLuong);
 
-            int succeed = db.ExecuteNonQuery(cmd);
+            int succeed = DBConnection.ExecuteNonQuery(cmd);
             return succeed;
         }
 
@@ -31,7 +29,7 @@ namespace DBMS_BookStore.DAO
             string query = "SELECT dbo.FUNC_Create_MaHoaDonBan()";
             SqlCommand cmd = new SqlCommand(query);
 
-            return (string)db.ExecuteScalar(cmd);
+            return (string)DBConnection.ExecuteScalar(cmd);
         }
 
     }

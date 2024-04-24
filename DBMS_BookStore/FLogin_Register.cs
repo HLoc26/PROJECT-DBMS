@@ -54,6 +54,8 @@ namespace DBMS_BookStore
                 // MessageBox.Show("Login Success\n" + employee.ToString(), "Login Success");
                 FMain main = new FMain(employee);
                 Hide();
+                DBConnection.username = txbUsername.Text;
+                DBConnection.password = txbPassword.Text;
                 main.ShowDialog();
                 txbUsername.Text = "";
                 txbPassword.Text = "";

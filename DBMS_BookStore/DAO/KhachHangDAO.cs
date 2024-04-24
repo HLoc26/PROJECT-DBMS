@@ -10,26 +10,27 @@ using System.Windows.Forms;
 
 namespace DBMS_BookStore.DAO
 {
-    internal class KhachHangDAO
+ 
+    public class KhachHangDAO
     {
-        DBConnection db = new DBConnection();
-
+        KhachHang khachHang;
+        TheTV theTV;
         //Tạo khách hàng mới
-        public string createCustomer(KhachHang khachHang, TheTV theTV)
+        public string createCustomer(string MaKH, string MaThe)
         {
             string query = "EXEC dbo.PROC_Create_Customer @MaKH = @param1 , @Ho = @param2 , @TenLot = @param3 ," +
                 "@Ten = @param4 , @NgaySinh = @param5 , @GioiTinh = @param6 ,@MaThe = @param7, @SoDiem = @param8 ";
             SqlCommand cmd = new SqlCommand(query);
-            cmd.Parameters.AddWithValue("@param1", khachHang.MaKH);
+            cmd.Parameters.AddWithValue("@param1", MaKH);
             cmd.Parameters.AddWithValue("@param2", khachHang.Ho);
             cmd.Parameters.AddWithValue("@param3", khachHang.TenLot);
             cmd.Parameters.AddWithValue("@param4", khachHang.Ten);
             cmd.Parameters.AddWithValue("@param5", khachHang.NgaySinh);
             cmd.Parameters.AddWithValue("@param6", khachHang.GioiTinh);
-            cmd.Parameters.AddWithValue("@param7", theTV.MaThe);
+            cmd.Parameters.AddWithValue("@param7", MaThe);
             cmd.Parameters.AddWithValue("@param7", theTV.SoDiem);
 
-            string maNV = (string)db.ExecuteScalar(cmd);
+            string maNV = (string)DBConnection.ExecuteScalar(cmd);
             return maNV;
         }
 
@@ -40,7 +41,7 @@ namespace DBMS_BookStore.DAO
             SqlCommand cmd = new SqlCommand(query);
             cmd.Parameters.AddWithValue("@param", MaKH);
 
-            DataTable dt = db.ExecuteQuery(cmd);
+            DataTable dt = DBConnection.ExecuteQuery(cmd);
             if (dt.Rows.Count > 0)
                 return new KhachHang(dt.Rows[0]);
             else return null;
@@ -53,7 +54,7 @@ namespace DBMS_BookStore.DAO
             SqlCommand cmd = new SqlCommand(query);
             cmd.Parameters.AddWithValue("@param", MaThe);
 
-            DataTable dt = db.ExecuteQuery(cmd);
+            DataTable dt = DBConnection.ExecuteQuery(cmd);
             if (dt.Rows.Count > 0)
                 return new KhachHang(dt.Rows[0]);
             else return null;
@@ -65,7 +66,7 @@ namespace DBMS_BookStore.DAO
             string query = "SELECT * FROM dbo.FUNC_GetKH (@param)";
             SqlCommand cmd = new SqlCommand(query);
             cmd.Parameters.AddWithValue("@param", MaKH);
-            DataTable dt = db.ExecuteQuery(cmd);
+            DataTable dt = DBConnection.ExecuteQuery(cmd);
             if (dt.Rows.Count > 0)
                 return new KhachHang(dt.Rows[0]);
             else return null;

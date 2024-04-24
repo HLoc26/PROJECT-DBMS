@@ -13,15 +13,13 @@ namespace DBMS_BookStore.DAO
 {
     internal class EmployeeDAO
     {
-        DBConnection db = new DBConnection();
-
         public Employee GetInfoByCityZID(string cmnd)
         {
             string query = "EXEC PROC_GetNV_ByCityZID @CMND = @param";
             SqlCommand cmd = new SqlCommand(query);
             cmd.Parameters.AddWithValue("@param", cmnd);
 
-            DataTable dt = db.ExecuteQuery(cmd);
+            DataTable dt = DBConnection.ExecuteQuery(cmd);
             if (dt.Rows.Count > 0)
                 return new Employee(dt.Rows[0]);
             else return null;
@@ -33,7 +31,7 @@ namespace DBMS_BookStore.DAO
             SqlCommand cmd = new SqlCommand(query);
             cmd.Parameters.AddWithValue("@param", username);
 
-            DataTable dt = db.ExecuteQuery(cmd);
+            DataTable dt = DBConnection.ExecuteQuery(cmd);
             if(dt.Rows.Count > 0)
                 return new Employee(dt.Rows[0]);
             else return null;
@@ -46,7 +44,7 @@ namespace DBMS_BookStore.DAO
             cmd.Parameters.AddWithValue("@param1", username);
             cmd.Parameters.AddWithValue("@param2", password);
 
-            DataTable dt = db.ExecuteQuery(cmd);
+            DataTable dt = DBConnection.ExecuteQuery(cmd);
             if (dt.Rows.Count > 0)
             {
                 Employee nv = new Employee(dt.Rows[0]);
@@ -69,7 +67,7 @@ namespace DBMS_BookStore.DAO
             cmd.Parameters.AddWithValue("@param6", emp.TenDN);
             cmd.Parameters.AddWithValue("@param7", emp.Mk);
             
-            string maNV = (string)db.ExecuteScalar(cmd);
+            string maNV = (string)DBConnection.ExecuteScalar(cmd);
             return maNV;
         }
 
@@ -81,7 +79,7 @@ namespace DBMS_BookStore.DAO
             cmd.Parameters.AddWithValue("@param1", MaNV);
             cmd.Parameters.AddWithValue("@param2", newPass);
 
-            int succeed = db.ExecuteNonQuery(cmd);
+            int succeed = DBConnection.ExecuteNonQuery(cmd);
             return succeed == 1;
         }
 
@@ -92,7 +90,7 @@ namespace DBMS_BookStore.DAO
             SqlCommand cmd = new SqlCommand(query);
             cmd.Parameters.AddWithValue("@param", tenDN);
 
-            DataTable dt = db.ExecuteQuery(cmd);
+            DataTable dt = DBConnection.ExecuteQuery(cmd);
 
             List<DateTime> ls = new List<DateTime>();
             foreach (DataRow dr in dt.Rows)
@@ -107,14 +105,14 @@ namespace DBMS_BookStore.DAO
             SqlCommand sqlCommand = new SqlCommand("SearchNhanVienByMaNVOrTen");
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("@Input", input);
-            return db.ExecuteQuery(sqlCommand);
+            return DBConnection.ExecuteQuery(sqlCommand);
         }
 
         public DataTable GetDSNV()
         {
             SqlCommand sqlCommand = new SqlCommand("SELECT * FROM dbo.VIEW_NV");
 
-            return db.ExecuteQuery(sqlCommand);
+            return DBConnection.ExecuteQuery(sqlCommand);
         }
     }
 }

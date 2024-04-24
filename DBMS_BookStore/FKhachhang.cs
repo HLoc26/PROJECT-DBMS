@@ -50,17 +50,13 @@ namespace DBMS_BookStore
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            //bool succeed = dao.createCustomer(txtCustomerID_2.Text, txtMembershipID_2.Text);
-            //if (succeed)
-            //{
-            //    // Cập nhật lại nv hiện tại
-            //    //kh = dao.createCustomer(txtCustomerID.Text, txtMembershipID.Text);
-            //}
-            //else
-            //{
-            //    MessageBox.Show("ERROR CHANGE PASS!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-            //return;
+            string succeed = dao.createCustomer(txtCustomerID_2.Text, txtMembershipID_2.Text);
+            if (succeed != null)
+            {
+                // Cập nhật lại nv hiện tại
+                MessageBox.Show("Complete!");
+            }
+            return;
         }
 
 

@@ -10,7 +10,6 @@ namespace DBMS_BookStore.DAO
 {
     internal class HangHoaDAO
     {
-        DBConnection db = new DBConnection();
 
 
         // Hàm trả về một datarow của hàng hoá dựa vào mã hàng
@@ -21,7 +20,7 @@ namespace DBMS_BookStore.DAO
             SqlCommand cmd = new SqlCommand(query);
             cmd.Parameters.AddWithValue("@param", maHang);
 
-            DataTable dt = db.ExecuteQuery(cmd);
+            DataTable dt = DBConnection.ExecuteQuery(cmd);
             if (dt.Rows.Count > 0)
             {
                 return dt.Rows[0];
@@ -36,7 +35,7 @@ namespace DBMS_BookStore.DAO
             SqlCommand cmd = new SqlCommand(query);
             cmd.Parameters.AddWithValue("@param", maSach);
 
-            DataTable dt = db.ExecuteQuery(cmd);
+            DataTable dt = DBConnection.ExecuteQuery(cmd);
             if (dt.Rows.Count > 0)
             {
                 return dt.Rows[0];
@@ -50,7 +49,7 @@ namespace DBMS_BookStore.DAO
             SqlCommand cmd = new SqlCommand(query);
             cmd.Parameters.AddWithValue("@param", maSach);
 
-            DataTable dt = db.ExecuteQuery(cmd);
+            DataTable dt = DBConnection.ExecuteQuery(cmd);
             if (dt.Rows.Count > 0)
             {
                 return dt.Rows[0];
