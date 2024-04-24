@@ -303,12 +303,12 @@ AS
 	GROUP BY MaNV, ls.TenDN, CONVERT(DATE, ThoiGianDN)
 GO
 
--- DS số ngày đã làm việc
-CREATE VIEW VIEW_XemSoNgayLamViec
+-- DS số ngày đã làm việc theo tháng
+CREATE VIEW VIEW_XemSoNgayLamViecTheoThang
 AS
-	SELECT TenDN, COUNT(UniqueDate) AS SoNgay
-	FROM VIEW_NgayDangNhap
-	GROUP BY TenDN
+	SELECT MaNV, TenDN, COUNT(UniqueDate) AS SoNgay, MONTH(UniqueDate) AS Thang
+	FROM VIEW_NgayDangNhap 
+	GROUP BY MONTH(UniqueDate), MaNV, TenDN
 GO
 
 -- ========================================================================================================================== --
@@ -418,10 +418,14 @@ GO
 CREATE FUNCTION FUNC_BangLuongTheoThang (@Date DATE)
 RETURNS TABLE
 AS
-	RETURN (SELECT nv.MaNV, Ho, TenLot, GioiTinh, CMND, Luong, TinhTrangLamViec
-			FROM dbo.NHAN_VIEN nv LEFT JOIN VIEW_NgayDangNhap dn ON dn.MaNV = nv.MaNV
-			WHERE MONTH(dn.UniqueDate) = MONTH(@DATE) AND YEAR(dn.UniqueDate) = YEAR(@DATE))
-Go
+	RETURN (SELECT nv.MaNV, Ho, TenLot, GioiTinh, CMND, TinhTrangLamViec,
+				CASE
+					WHEN SoNgay != DAY(EOMONTH(@Date)) THEN (Luong - 500)
+					ELSE Luong
+				END AS 'LuongThang'
+			FROM dbo.NHAN_VIEN nv LEFT JOIN VIEW_XemSoNgayLamViecTheoThang snlv ON snlv.MaNV = nv.MaNV
+			WHERE Thang = MONTH(@DATE))
+GO
 -- =========================================================================================================================== --
 -- =========================================================================================================================== --
 -- ====================================  ____  ____   ___   ____ ____  _   _ ____  _____  ==================================== --
