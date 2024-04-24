@@ -17,6 +17,7 @@ CREATE DATABASE Proj_DBMS_BookStore
 GO
 USE Proj_DBMS_BookStore;
 GO
+CREATE ROLE NV
 
 -- MaNXB VARCHAR(10)
 -- MaHang VARCHAR(20)
@@ -1212,6 +1213,25 @@ BEGIN
 END;
 GO
 
+
+-- ===========================================================================================================================--
+-- ===========================================================================================================================--
+-- ===========================================================================================================================--
+-- ===========================================================================================================================--
+-- ===========================================================================================================================--
+
+GRANT UPDATE (SoLuong) ON dbo.HANG_HOA TO NV;
+GRANT SELECT, REFERENCES ON dbo.NXB TO NV;
+GRANT SELECT, REFERENCES ON dbo.VAN_PHONG_PHAM TO NV;
+GRANT SELECT, INSERT, REFERENCES ON dbo.KHACH_HANG TO NV;
+GRANT SELECT, UPDATE (SoDiem) ON dbo.THE_TV TO NV;
+GRANT SELECT, REFERENCES ON dbo.NHAN_VIEN TO NV;
+GRANT SELECT, REFERENCES ON dbo.TAI_KHOAN_DN TO NV;
+GRANT SELECT, INSERT, REFERENCES ON dbo.LS_DANG_NHAP TO NV;
+GRANT SELECT, INSERT, REFERENCES ON dbo.TAO_TV TO NV;
+GRANT SELECT, INSERT, REFERENCES ON dbo.HOA_DON_BAN TO NV;
+GRANT SELECT, INSERT, REFERENCES ON dbo.BAN_HANG TO NV;
+
 -- =========================================================================================================================== --
 -- =========================================================================================================================== --
 -- ===============================  ___ _   _ ____  _____ ____ _____   ____    _  _____  _     =============================== --
@@ -1666,10 +1686,18 @@ GO
 
 INSERT dbo.TAI_KHOAN_DN (MaNV, TenDN, MK)
 VALUES
-('NV-001', 'nvv1353', 'MK123456'),
-('NV-002', 'hnqm3245', 'MK123456'),
-('NV-003', 'ntbn1521','MK123456'),
-('NV-004', 'ttn3241','MK123456'),
+('NV-001', 'nvv1353', 'MK123456')
+INSERT dbo.TAI_KHOAN_DN (MaNV, TenDN, MK)
+VALUES
+('NV-002', 'hnqm3245', 'MK123456')
+INSERT dbo.TAI_KHOAN_DN (MaNV, TenDN, MK)
+VALUES
+('NV-003', 'ntbn1521','MK123456')
+INSERT dbo.TAI_KHOAN_DN (MaNV, TenDN, MK)
+VALUES
+('NV-004', 'ttn3241','MK123456')
+INSERT dbo.TAI_KHOAN_DN (MaNV, TenDN, MK)
+VALUES
 ('NV-005', 'nvnn7671','MK123456')
 GO
 
