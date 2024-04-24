@@ -54,7 +54,8 @@ namespace DBMS_BookStore
             if (succeed)
             {
                 // Cập nhật lại nv hiện tại
-                kh = dao.createCustomer(txtCustomerID.Text, txtMembershipID.Text);
+                //kh = dao.createCustomer(txtCustomerID.Text, txtMembershipID.Text);
+            }
             else
             {
                 MessageBox.Show("ERROR CHANGE PASS!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
