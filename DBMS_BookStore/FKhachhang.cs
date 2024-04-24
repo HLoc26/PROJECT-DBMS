@@ -14,31 +14,52 @@ namespace DBMS_BookStore
 {
     public partial class FKhachhang : Form
     {
+        KhachHangDAO dao = new KhachHangDAO();
+        KhachHang kh;
         public FKhachhang()
         {
             InitializeComponent();
         }
         private void txtCustomerID_Leave(object sender, EventArgs e)
         {
-            KhachHangDAO dao = new KhachHangDAO();
-
-            KhachHang kh = dao.ShowMembership(txtCustomerID.Text);
-            
-            txtCustomerName.Text = kh.Ho + " " + kh.TenLot + " " + kh.Ten;
-            txtCustomerDoB.Text = kh.NgaySinh.ToString();
-            txtCustomerGender.Text = kh.GioiTinh;
-            txtMembershipID.Text = kh.ThanhVien.MaThe;
-            txtCustomerLevel.Text = kh.ThanhVien.SoDiem.ToString();
+            KhachHang check = dao.GetInforByCusID(txtCustomerID.Text);
+            if (check == null)
+            {
+                KhachHang kh = dao.ShowCustomer(txtCustomerID.Text);
+                txtCustomerName.Text = kh.Ho + " " + kh.TenLot + " " + kh.Ten;
+                txtCustomerDoB.Text = kh.NgaySinh.ToString();
+                txtCustomerGender.Text = kh.GioiTinh;
+                txtMembershipID.Text = kh.ThanhVien.MaThe;
+                txtCustomerLevel.Text = kh.ThanhVien.SoDiem.ToString();
+            }
 
         }
         private void btnCustomerID_Click(object sender, EventArgs e)
         {
-
+            KhachHang check = dao.GetInforByMemID(txtMembershipID.Text);
+            if (check == null)
+            {
+                KhachHang kh = dao.ShowMembership(txtMembershipID.Text);
+                txtCustomerID.Text = kh.MaKH;
+                txtCustomerName.Text = kh.Ho + " " + kh.TenLot + " " + kh.Ten;
+                txtCustomerDoB.Text = kh.NgaySinh.ToString();
+                txtCustomerGender.Text = kh.GioiTinh;
+                txtCustomerLevel.Text = kh.ThanhVien.SoDiem.ToString();
+            }
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-
+            bool succeed = dao.createCustomer(txtCustomerID_2.Text, txtMembershipID_2.Text);
+            if (succeed)
+            {
+                // Cập nhật lại nv hiện tại
+                kh = dao.createCustomer(txtCustomerID.Text, txtMembershipID.Text);
+            else
+            {
+                MessageBox.Show("ERROR CHANGE PASS!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return;
         }
 
 
