@@ -1053,12 +1053,22 @@ BEGIN
 				-- Chỉnh sửa tình trạng làm việc của nhân viên thành 'nghỉ làm'
 				UPDATE dbo.NHAN_VIEN SET TinhTrangLamViec = 0 WHERE MaNV = @MaNVXoa
 
+				DECLARE @tenUser VARCHAR(10)
+				SELECT @tenUser = TenDN FROM dbo.TAI_KHOAN_DN WHERE MaNV = @MaNVXoa
+				-- Xoá User của nhân viên
+				DECLARE @sql varchar(100)
+				SET @sql = 'DROP USER '+ @tenUser
+				exec @sql
+				-- Xóa tài khoản login của nhân viên khỏi server
+				SET @sql = 'DROP LOGIN '+ @tenUser
+				exec @sql
+
 				-- Xoá lịch sử đăng nhập của nhân viên
 				DECLARE @username VARCHAR(20)
 				SELECT @username = TenDN FROM TAI_KHOAN_DN WHERE MaNV = @MaNVXoa
 				DELETE FROM dbo.LS_DANG_NHAP WHERE TenDN = @username
 
-				-- Xoá tên đăng nhập
+				-- Xoá tên đăng nhập trong bảng TAI_KHOAN_DN
 				DELETE FROM TAI_KHOAN_DN WHERE MaNV = @MaNVXoa
 
 				COMMIT TRAN
@@ -1161,6 +1171,44 @@ BEGIN
 			SET @err = 'ERROR FROM Trigger TRIG_NhapHang: ' + ERROR_MESSAGE()
 			RAISERROR(@err, 16, 1)
 		END CATCH
+END;
+GO
+
+-- TRIGGER tạo tài khoản login và user khi tạo tài khoản
+CREATE TRIGGER TRIG_CreateSQLAccount
+ON dbo.TAI_KHOAN_DN
+AFTER INSERT
+AS
+DECLARE @userName NVARCHAR(30), @passWord NVARCHAR(10);
+SELECT @userName = new.TenDN, @passWord = new.MK
+FROM
+    inserted new;
+BEGIN
+	SET XACT_ABORT ON
+    BEGIN TRY
+        BEGIN TRAN;
+        DECLARE @sqlString NVARCHAR(2000);
+        -- Tạo tài khoản login cho nhân viên, tên người dùng và mật khẩu là tài khoản được tạo trên bảng Đăng nhập
+        SET @sqlString
+            = N'CREATE LOGIN [' + @userName + N'] WITH PASSWORD=''' + @passWord
+              + N''', DEFAULT_DATABASE=[Proj_DBMS_Bookstore], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF';
+        EXEC (@sqlString);
+        -- Tạo tài khoản người dùng đối với nhân viên đó trên database (tên người dùng trùng với tên login)
+        SET @sqlString = N'CREATE USER ' + @userName + N' FOR LOGIN ' + @userName;
+        EXEC (@sqlString);
+        -- Thêm User vào Role NV
+		SET @sqlString = 'ALTER ROLE NV ADD MEMBER ' + @userName
+		EXEC(@sqlString)
+
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+        DECLARE @err NVARCHAR(MAX);
+        SET @err = N'ERROR FROM Trigger TRIG_NhapHang: ' + ERROR_MESSAGE();
+        RAISERROR(@err, 16, 1);
+    END CATCH;
+
 END;
 GO
 
