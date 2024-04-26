@@ -46,7 +46,7 @@ namespace DBMS_BookStore.DAO
 
         public int GetTongTienNhap(DateTime date)
         {
-            string query = "SELECT dbo.FUNC_TOTAL_SALE_AMOUNT (@param)";
+            string query = "SELECT dbo.FUNC_TOTAL_EXPENSES (@param)";
             SqlCommand cmd = new SqlCommand(query);
             cmd.Parameters.AddWithValue("@param", date);
 

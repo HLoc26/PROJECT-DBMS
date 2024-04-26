@@ -585,7 +585,7 @@ namespace DBMS_BookStore
         private void btnTraCuuHoaDonBan_Click(object sender, EventArgs e)
         {
             HoaDonBanDAO hoaDonBanDAO = new HoaDonBanDAO();
-            dtgvListHoaDonBan.DataSource = hoaDonBanDAO.GetListSaleReceipt(dtpStartHDBan.Value, dtpEndHDBan.Value);
+            dtgvListHoaDonBan.DataSource = hoaDonBanDAO.GetListSaleReceipt(dtpStartHDBan.Value, (dtpEndHDBan.Value).AddDays(1));
         }
         #endregion
 
@@ -602,7 +602,7 @@ namespace DBMS_BookStore
         private void btnTraCuuHDNhap_Click(object sender, EventArgs e)
         {
             HoaDonNhapDAO hoaDonNhapDAO = new HoaDonNhapDAO();
-            dtgvListHoaDonBan.DataSource = hoaDonNhapDAO.GetListGoodReceipt(dtpStartHDBan.Value, dtpEndHDBan.Value);
+            dtgvListHDNhap.DataSource = hoaDonNhapDAO.GetListGoodReceipt(dtpStartHDNhap.Value, (dtpEndHDNhap.Value).AddDays(1));
         }
         #endregion
 

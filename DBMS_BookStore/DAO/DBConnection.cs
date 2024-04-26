@@ -13,7 +13,7 @@ namespace DBMS_BookStore.DAO
     {
         public static string username;
         public static string password;
-        static SqlConnection SqlConn = new SqlConnection($"Data Source=(localdb)\\mssqllocaldb;" +
+        static SqlConnection SqlConn = new SqlConnection($"Data Source=DESKTOP-OJM3T9C\\SQLEXPRESS;" +
             $"Initial Catalog=Proj_DBMS_BookStore;User ID = \"{username}\";Password = \"{password}\";Integrated Security=True");
 
         public static DataTable ExecuteQuery(SqlCommand sqlCommand)

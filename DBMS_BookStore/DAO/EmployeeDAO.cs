@@ -117,7 +117,7 @@ namespace DBMS_BookStore.DAO
 
         public DataTable GetBangLuongTheoThang(DateTime date)
         {
-            string query = "SELECT dbo.FUNC_BangLuongTheoThang (@param)";
+            string query = "SELECT * FROM dbo.FUNC_BangLuongTheoThang (@param)";
             SqlCommand cmd = new SqlCommand(query);
             cmd.Parameters.AddWithValue("@param", date);
 
