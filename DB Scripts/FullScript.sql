@@ -702,6 +702,30 @@ AS
 			FROM dbo.NHAN_VIEN nv LEFT JOIN VIEW_XemSoNgayLamViecTheoThang snlv ON snlv.MaNV = nv.MaNV
 			WHERE Thang = MONTH(@DATE))
 GO
+
+CREATE FUNCTION FUNC_TongTienHoaDonDaBan ()
+RETURNS INT
+AS
+BEGIN
+	RETURN (SELECT SUM(TongTien) FROM VIEW_TONG_TIEN_BAN)
+END;
+GO
+
+CREATE FUNCTION FUNC_TongTienThuDuocThucTe ()
+RETURNS INT
+AS
+BEGIN
+	RETURN (SELECT SUM(TongTien * 0.5) FROM VIEW_TONG_TIEN_BAN)
+END;
+GO
+
+CREATE FUNCTION FUNC_SoLuongKH ()
+RETURNS INT
+AS
+BEGIN
+	RETURN (SELECT COUNT(MaKH) FROM dbo.KHACH_HANG)
+END;
+GO
 -- =========================================================================================================================== --
 -- =========================================================================================================================== --
 -- ====================================  ____  ____   ___   ____ ____  _   _ ____  _____  ==================================== --

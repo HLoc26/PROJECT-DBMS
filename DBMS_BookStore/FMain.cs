@@ -942,6 +942,7 @@ namespace DBMS_BookStore
         private void btnBaoCaoDoanhThu_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[23];
+            loadDataBC_DoanhThu();
         }
 
         private void btnQuayLai_23_3_Click(object sender, EventArgs e)
@@ -955,6 +956,15 @@ namespace DBMS_BookStore
             tbTongBan.Text = ban.GetTongTienBan(dtpBCDoanhThuThang.Value) + "";
             HoaDonNhapDAO nhap = new HoaDonNhapDAO();
             tbTongNhap.Text = nhap.GetTongTienNhap(dtpBCDoanhThuThang.Value) + "";
+        }
+
+        void loadDataBC_DoanhThu()
+        {
+            HoaDonBanDAO ban = new HoaDonBanDAO();
+            lblOutputTongTienHDBan.Text = ban.GetTongTienHDDaBan() + "";
+            lblOutputTongLoiNhuan.Text = ban.GetTongLoiNhuan() + "";
+            KhachHangDAO kh = new KhachHangDAO();
+            lblOutputSoLuongKH.Text = kh.GetSoLuongKH() + "";
         }
 
         #endregion

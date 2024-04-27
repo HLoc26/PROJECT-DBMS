@@ -52,5 +52,21 @@ namespace DBMS_BookStore.DAO
 
             return (int)DBConnection.ExecuteScalar(cmd);
         }
+
+        public int GetTongTienHDDaBan()
+        {
+            string query = "SELECT dbo.FUNC_TongTienHoaDonDaBan ()";
+            SqlCommand cmd = new SqlCommand(query);
+
+            return (int)DBConnection.ExecuteScalar(cmd);
+        }
+
+        public int GetTongLoiNhuan()
+        {
+            string query = "SELECT dbo.FUNC_TongTienThuDuocThucTe ()";
+            SqlCommand cmd = new SqlCommand(query);
+
+            return (int)DBConnection.ExecuteScalar(cmd);
+        }
     }
 }
