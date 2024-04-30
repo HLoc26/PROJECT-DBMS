@@ -1,4 +1,5 @@
-﻿using DBMS_BookStore.DTO;
+﻿using DBMS_BookStore.DAO;
+using DBMS_BookStore.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,16 +12,84 @@ using System.Windows.Forms;
 
 namespace DBMS_BookStore
 {
-    public partial class TenDN : Form
+    public partial class FRegis : Form
     {
-        public TenDN()
+        EmployeeDAO empDAO = new EmployeeDAO();
+        public FRegis()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnDK_Click(object sender, EventArgs e)
         {
-            Employee nv = new Employee("000", txtbCMND.Text, txtbHo.Text, TenLot.Text, Ten.Text, textBox6.Text, MK);
+            if (!checkTxb())
+            {
+                return;
+            }
+            // CMND
+            string cmnd = txbCMND.Text;
+
+            // Ho, TenLot, Ten
+            string[] HoTen = txbHoTen.Text.Split();
+            string ho = HoTen.First();
+            string ten = HoTen.Last();
+            string tenLot = string.Join(" ", HoTen.Skip(1).Take(HoTen.Length - 2));
+
+            // Gioi Tinh
+            string sex = rbtnNam.Checked ? rbtnNam.Text : rbtnNu.Text;
+
+            // TenDN
+            string tenDN = txbTenDN.Text;
+
+            // MK
+            string mk = txbMK.Text;
+
+            Employee emp = new Employee(cmnd, ho, ten, tenLot, sex, tenDN, mk);
+
+            string maNV = empDAO.Register(emp);
+            if(maNV != null)
+            {
+                MessageBox.Show($"Đăng ký thành công!\n\rMã nhân viên vừa mới tạo là {maNV}", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show($"Đăng ký thất bại!", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
+
+        // Kiem tra cac txb co dung yeu cau khong:
+        /*
+         * CMND: Phai co it nhat 8 so, khong duoc chua chu cai
+         * Ho Ten: Khong duoc chua so
+         * ten DN: Dai vua du
+         * MK: It nhat 8 ky tu
+         * confirm: giong MK
+         */
+
+        private bool checkTxb()
+        {
+            if(txbCMND.Text.Length < 8 && !(int.TryParse(txbCMND.Text, out _)))
+            {
+                return false;
+            }
+            if(txbHoTen.Text.Length < 5)
+            {
+                return false;
+            }
+            if(txbTenDN.Text.Length < 5)
+            {
+                return false;
+            }
+            if(txbMK.Text.Length < 8)
+            {
+                return false;
+            }
+            if(!string.Equals(txbMK.Text, txbConfirmMK.Text))
+            { 
+                return false;
+            }
+            return true;
+        }
+
     }
 }
