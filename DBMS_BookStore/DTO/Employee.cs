@@ -23,9 +23,8 @@ namespace DBMS_BookStore.DTO
         bool tinhTrangLamViec;
         List<DateTime> lsLamViec;
 
-        public Employee(string maNV, string cmnd, string ho, string tenLot, string ten, string gioiTinh, string tenDN, string mk)
+        public Employee(string cmnd, string ho, string tenLot, string ten, string gioiTinh, string tenDN, string mk)
         { 
-            MaNV = maNV;
             Cmnd = cmnd;
             Ho = ho;
             TenLot = tenLot;
