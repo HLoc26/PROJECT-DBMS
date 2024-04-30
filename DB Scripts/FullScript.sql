@@ -734,16 +734,24 @@ BEGIN
 
 	-- Tạo mã NV tự động	
 	DECLARE @NewMaNV VARCHAR(10) = dbo.FUNC_Create_MaNV()
-	
-	-- Thêm vào bảng NHAN_VIEN
-	INSERT dbo.NHAN_VIEN(MaNV, CMND, Ho, TenLot, Ten, GioiTinh, TinhTrangLamViec)
-	VALUES(@NewMaNV, @CMND, @Ho, @TenLot, @Ten, @GioiTinh, 1)
+	BEGIN TRY
+		BEGIN TRAN
+		-- Thêm vào bảng NHAN_VIEN
+		INSERT dbo.NHAN_VIEN(MaNV, CMND, Ho, TenLot, Ten, GioiTinh, TinhTrangLamViec)
+		VALUES(@NewMaNV, @CMND, @Ho, @TenLot, @Ten, @GioiTinh, 1)
 
-	-- Thêm vào bảng TAI_KHOAN_DN
-	INSERT dbo.TAI_KHOAN_DN (MaNV, TenDN, MK)
-	VALUES(@NewMaNV, @TenDN, @MK)
-
-	SELECT MaNV FROM dbo.NHAN_VIEN WHERE MaNV = @NewMaNV
+		-- Thêm vào bảng TAI_KHOAN_DN
+		INSERT dbo.TAI_KHOAN_DN (MaNV, TenDN, MK)
+		VALUES(@NewMaNV, @TenDN, @MK)
+		COMMIT TRAN
+		SELECT MaNV FROM dbo.NHAN_VIEN WHERE MaNV = @NewMaNV
+	END TRY
+	BEGIN CATCH
+		ROLLBACK
+			DECLARE @Err NVARCHAR(MAX)
+			SET @Err = 'ERROR Register: ' + ERROR_MESSAGE()
+			RAISERROR(@Err, 16, 1)
+	END CATCH
 END;
 GO
 
