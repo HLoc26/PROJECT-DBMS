@@ -29,6 +29,7 @@ namespace DBMS_BookStore
         TraCuuDAO traCuuDAO = new TraCuuDAO();
         HoaDonBanDAO hoaDonBanDAO = new HoaDonBanDAO();
         HoaDonNhapDAO hoaDonNhapDAO = new HoaDonNhapDAO();
+        private Button currentButton;
         public FMain(Employee nv)
         {
             InitializeComponent();
@@ -36,8 +37,13 @@ namespace DBMS_BookStore
             this.nv = nv;
             DateComboBoxes_Load();
             SetDTGVStyles();
+            LoadUser();
         }
-
+        private void LoadUser()
+        {
+            lblOutputTen.Text = nv.Ho + " " + nv.TenLot + " " + nv.Ten;
+            lblOutputRole.Text = "Nhân viên";
+        }
         private void HideAllTabsOnTabControl()
         {
             tabControl.Appearance = TabAppearance.FlatButtons;
@@ -86,18 +92,22 @@ namespace DBMS_BookStore
         private void btnGiaoDich_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[0];
+            ActivateButton(sender);
         }
         private void btnTraCuu_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[1];
+            ActivateButton(sender);
         }
         private void btnCaiDat_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[2];
+            ActivateButton(sender);
         }
         private void btnBaoCao_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[3];
+            ActivateButton(sender);
         }
 
         #endregion
@@ -584,7 +594,6 @@ namespace DBMS_BookStore
 
         private void btnTraCuuHoaDonBan_Click(object sender, EventArgs e)
         {
-            HoaDonBanDAO hoaDonBanDAO = new HoaDonBanDAO();
             dtgvListHoaDonBan.DataSource = hoaDonBanDAO.GetListSaleReceipt(dtpStartHDBan.Value, (dtpEndHDBan.Value).AddDays(1));
         }
         #endregion
@@ -601,7 +610,6 @@ namespace DBMS_BookStore
         }
         private void btnTraCuuHDNhap_Click(object sender, EventArgs e)
         {
-            HoaDonNhapDAO hoaDonNhapDAO = new HoaDonNhapDAO();
             dtgvListHDNhap.DataSource = hoaDonNhapDAO.GetListGoodReceipt(dtpStartHDNhap.Value, (dtpEndHDNhap.Value).AddDays(1));
         }
         #endregion
@@ -952,17 +960,14 @@ namespace DBMS_BookStore
 
         private void btnTraCuuBCDoanhThu_Click(object sender, EventArgs e)
         {
-            HoaDonBanDAO ban = new HoaDonBanDAO();
-            tbTongBan.Text = ban.GetTongTienBan(dtpBCDoanhThuThang.Value) + "";
-            HoaDonNhapDAO nhap = new HoaDonNhapDAO();
-            tbTongNhap.Text = nhap.GetTongTienNhap(dtpBCDoanhThuThang.Value) + "";
+            tbTongBan.Text = hoaDonBanDAO.GetTongTienBan(dtpBCDoanhThuThang.Value) + "";
+            tbTongNhap.Text = hoaDonNhapDAO.GetTongTienNhap(dtpBCDoanhThuThang.Value) + "";
         }
 
         void loadDataBC_DoanhThu()
         {
-            HoaDonBanDAO ban = new HoaDonBanDAO();
-            lblOutputTongTienHDBan.Text = ban.GetTongTienHDDaBan() + "";
-            lblOutputTongLoiNhuan.Text = ban.GetTongLoiNhuan() + "";
+            lblOutputTongTienHDBan.Text = hoaDonBanDAO.GetTongTienHDDaBan() + "";
+            lblOutputTongLoiNhuan.Text = hoaDonBanDAO.GetTongLoiNhuan() + "";
             KhachHangDAO kh = new KhachHangDAO();
             lblOutputSoLuongKH.Text = kh.GetSoLuongKH() + "";
         }
@@ -982,7 +987,6 @@ namespace DBMS_BookStore
 
         private void btnTraCuuBCLuong_Click(object sender, EventArgs e)
         {
-            EmployeeDAO employeeDAO = new EmployeeDAO();
             dtgvListLuong.DataSource = employeeDAO.GetBangLuongTheoThang(dtpTraCuuLuong.Value);
         }
         #endregion
@@ -993,11 +997,11 @@ namespace DBMS_BookStore
             DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle
             {
                 Alignment = DataGridViewContentAlignment.MiddleLeft,
-                BackColor = SystemColors.Control,
-                Font = new Font("Microsoft Sans Serif", 18F),
-                ForeColor = SystemColors.WindowText,
-                SelectionBackColor = SystemColors.Highlight,
-                SelectionForeColor = SystemColors.HighlightText,
+                BackColor = Color.FromArgb(0, 80, 131),
+                Font = new Font("Segoe UI", 18F),
+                ForeColor = Color.White,
+                SelectionBackColor = Color.FromArgb(0, 80, 131),
+                SelectionForeColor = Color.White,
                 WrapMode = DataGridViewTriState.True
             };
 
@@ -1005,7 +1009,7 @@ namespace DBMS_BookStore
             {
                 Alignment = DataGridViewContentAlignment.MiddleLeft,
                 BackColor = SystemColors.Window,
-                Font = new Font("Microsoft Sans Serif", 15.75F),
+                Font = new Font("Segoe UI", 15.75F),
                 ForeColor = SystemColors.ControlText,
                 SelectionBackColor = SystemColors.Highlight,
                 SelectionForeColor = SystemColors.HighlightText,
@@ -1023,6 +1027,30 @@ namespace DBMS_BookStore
         {
             dataGridView.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
             dataGridView.DefaultCellStyle = cellStyle;
+        }
+
+        private void ActivateButton(object btnSender)
+        {
+            if (btnSender != null) {
+                if (currentButton != (Button)btnSender) {
+                    DisableButton();
+                    currentButton = (Button)btnSender;
+                    currentButton.BackColor = Color.White;
+                    currentButton.ForeColor = Color.FromArgb(3, 4, 94);
+                }
+            }
+        }
+
+        private void DisableButton()
+        {
+            foreach (Control previousBtn in pnlDashboard.Controls)
+            {
+                if(previousBtn.GetType() == typeof(Button))
+                {
+                    previousBtn.BackColor = Color.Transparent;
+                    previousBtn.ForeColor = Color.White;
+                }
+            }
         }
     }
 }
