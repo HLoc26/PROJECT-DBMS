@@ -98,5 +98,9 @@ namespace DBMS_BookStore
             return true;
         }
 
+        private void BTNQuayLai_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -183,12 +183,13 @@
             // 
             // btnDK
             // 
+            this.btnDK.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDK.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDK.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.btnDK.Location = new System.Drawing.Point(25, 10);
-            this.btnDK.Margin = new System.Windows.Forms.Padding(25, 10, 25, 10);
+            this.btnDK.Location = new System.Drawing.Point(25, 5);
+            this.btnDK.Margin = new System.Windows.Forms.Padding(25, 5, 25, 5);
             this.btnDK.Name = "btnDK";
-            this.btnDK.Size = new System.Drawing.Size(168, 35);
+            this.btnDK.Size = new System.Drawing.Size(168, 45);
             this.btnDK.TabIndex = 12;
             this.btnDK.Text = "Đăng ký";
             this.btnDK.UseVisualStyleBackColor = true;
@@ -196,15 +197,17 @@
             // 
             // BTNQuayLai
             // 
+            this.BTNQuayLai.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BTNQuayLai.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BTNQuayLai.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.BTNQuayLai.Location = new System.Drawing.Point(243, 10);
-            this.BTNQuayLai.Margin = new System.Windows.Forms.Padding(25, 10, 25, 10);
+            this.BTNQuayLai.Location = new System.Drawing.Point(243, 5);
+            this.BTNQuayLai.Margin = new System.Windows.Forms.Padding(25, 5, 25, 5);
             this.BTNQuayLai.Name = "BTNQuayLai";
-            this.BTNQuayLai.Size = new System.Drawing.Size(169, 35);
+            this.BTNQuayLai.Size = new System.Drawing.Size(169, 45);
             this.BTNQuayLai.TabIndex = 12;
             this.BTNQuayLai.Text = "Quay lại";
             this.BTNQuayLai.UseVisualStyleBackColor = true;
+            this.BTNQuayLai.Click += new System.EventHandler(this.BTNQuayLai_Click);
             // 
             // label2
             // 
