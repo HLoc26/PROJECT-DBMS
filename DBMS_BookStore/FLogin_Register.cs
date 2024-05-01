@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -45,6 +46,8 @@ namespace DBMS_BookStore
                 txbPassword.Focus();
                 return;
             }
+            DBConnection.username = txbUsername.Text;
+            DBConnection.password = txbPassword.Text;
             EmployeeDAO employeeDAO = new EmployeeDAO();
             Employee employee = employeeDAO.Login(txbUsername.Text, txbPassword.Text);
 
@@ -54,8 +57,6 @@ namespace DBMS_BookStore
                 // MessageBox.Show("Login Success\n" + employee.ToString(), "Login Success");
                 FMain main = new FMain(employee);
                 Hide();
-                DBConnection.username = txbUsername.Text;
-                DBConnection.password = txbPassword.Text;
                 main.ShowDialog();
                 txbUsername.Text = "";
                 txbPassword.Text = "";
