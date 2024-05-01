@@ -376,7 +376,7 @@ CREATE FUNCTION FUNC_Create_MaNV()
 RETURNS VARCHAR(10)
 AS
 BEGIN
-	RETURN 'NV-' + FORMAT((SELECT COUNT(CMND) FROM dbo.NHAN_VIEN) + 1, '0000')
+	RETURN 'NV-' + FORMAT((SELECT COUNT(CMND) FROM dbo.NHAN_VIEN) + 1, '000')
 END;
 GO
 
@@ -782,7 +782,15 @@ CREATE PROC PROC_GetNV_ByEmpID
 @MaNV VARCHAR(10)
 AS
 BEGIN
-	SELECT * FROM dbo.NHAN_VIEN WHERE MaNV = @MaNV
+	SELECT * FROM dbo.NHAN_VIEN WHERE MaNV LIKE (@MaNV + '%')
+END;
+GO
+
+CREATE PROC PROC_GetNV_ByName
+@HoVaTen NVARCHAR(45)
+AS
+BEGIN
+	SELECT * FROM dbo.NHAN_VIEN WHERE dbo.FUNC_BoDau(CONCAT(Ho, ' ', TenLot, ' ', Ten)) LIKE dbo.FUNC_BoDau(@HoVaTen) + '%'
 END;
 GO
 
@@ -1093,6 +1101,16 @@ BEGIN
 	WHERE hdn.ThoiGianNhap >= @NgayBatDau AND hdn.ThoiGianNhap <= @NgayKetThuc
 END;
 GO
+
+-- PROC Xoá nhân viên (Cho nghỉ việc)
+CREATE PROC PROC_Delete_NV
+@MaNV VARCHAR(10)
+AS
+BEGIN
+	DELETE FROM dbo.NHAN_VIEN WHERE MaNV = @MaNV
+END;
+GO
+
 -- ========================================================================================================================== --
 -- ========================================================================================================================== --
 -- ========================================  _____ ____  ___ ____  ____ _____ ____   ======================================== --
@@ -1146,37 +1164,36 @@ SELECT @MaNVXoa = ol.MaNV FROM Deleted ol
 BEGIN
 	-- Tự động rollback nếu gặp lỗi
 	SET XACT_ABORT ON
-		BEGIN TRAN
-			-- TRY - CATCH
-			BEGIN TRY
-				-- Chỉnh sửa tình trạng làm việc của nhân viên thành 'nghỉ làm'
-				UPDATE dbo.NHAN_VIEN SET TinhTrangLamViec = 0 WHERE MaNV = @MaNVXoa
+	-- TRY - CATCH
+	BEGIN TRAN
+	BEGIN TRY
+		-- Chỉnh sửa tình trạng làm việc của nhân viên thành 'nghỉ làm'
+		UPDATE dbo.NHAN_VIEN SET TinhTrangLamViec = 0 WHERE MaNV = @MaNVXoa
 
-				DECLARE @tenUser VARCHAR(10)
-				SELECT @tenUser = TenDN FROM dbo.TAI_KHOAN_DN WHERE MaNV = @MaNVXoa
-				-- Xoá User của nhân viên
-				DECLARE @sql varchar(100)
-				SET @sql = 'DROP USER '+ @tenUser
-				exec @sql
-				-- Xóa tài khoản login của nhân viên khỏi server
-				SET @sql = 'DROP LOGIN '+ @tenUser
-				exec @sql
+		DECLARE @tenUser VARCHAR(10)
+		SELECT @tenUser = TenDN FROM dbo.TAI_KHOAN_DN WHERE MaNV = @MaNVXoa
+		-- Xoá User của nhân viên
+		DECLARE @sql nvarchar(100)
+		SET @sql = 'DROP USER '+ @tenUser
+		EXEC sp_executesql @sql
+		-- Xóa tài khoản login của nhân viên khỏi server
+		SET @sql = 'DROP LOGIN '+ @tenUser
+		EXEC sp_executesql @sql
 
-				-- Xoá lịch sử đăng nhập của nhân viên
-				DECLARE @username VARCHAR(20)
-				SELECT @username = TenDN FROM TAI_KHOAN_DN WHERE MaNV = @MaNVXoa
-				DELETE FROM dbo.LS_DANG_NHAP WHERE TenDN = @username
+		-- Xoá lịch sử đăng nhập của nhân viên
+		DECLARE @username VARCHAR(20)
+		SELECT @username = TenDN FROM TAI_KHOAN_DN WHERE MaNV = @MaNVXoa
+		DELETE FROM dbo.LS_DANG_NHAP WHERE TenDN = @username
 
-				-- Xoá tên đăng nhập trong bảng TAI_KHOAN_DN
-				DELETE FROM TAI_KHOAN_DN WHERE MaNV = @MaNVXoa
+		-- Xoá tên đăng nhập trong bảng TAI_KHOAN_DN
+		DELETE FROM TAI_KHOAN_DN WHERE MaNV = @MaNVXoa
 
-				COMMIT TRAN
-			END TRY
-			-- CATCH Lỗi
-			BEGIN CATCH
-				ROLLBACK
-				SELECT @Err = 'ERR: ' + ERROR_MESSAGE()
-			END CATCH
+		COMMIT TRAN
+	END TRY
+	-- CATCH Lỗi
+	BEGIN CATCH
+		PRINT 'ERR: ' + ERROR_MESSAGE()
+	END CATCH
 END;
 GO
 
