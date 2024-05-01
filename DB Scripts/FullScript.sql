@@ -18,7 +18,7 @@ GO
 USE Proj_DBMS_BookStore;
 GO
 CREATE ROLE NV
-
+	
 -- MaNXB VARCHAR(10)
 -- MaHang VARCHAR(20)
 -- MaTG VARCHAR(10)
@@ -694,11 +694,11 @@ GO
 CREATE FUNCTION FUNC_BangLuongTheoThang (@Date DATE)
 RETURNS TABLE
 AS
-	RETURN (SELECT nv.MaNV, Ho, TenLot, GioiTinh, CMND, TinhTrangLamViec,
+	RETURN (SELECT nv.MaNV 'Mã NV', Ho 'Họ', TenLot 'Tên Lót', Ten 'Tên', GioiTinh 'Giới Tính', CMND, TinhTrangLamViec 'Tình Trạng',
 				CASE
 					WHEN SoNgay != DAY(EOMONTH(@Date)) THEN (Luong - 500000)
 					ELSE Luong
-				END AS 'LuongThang'
+				END AS 'Lương Tháng'
 			FROM dbo.NHAN_VIEN nv LEFT JOIN VIEW_XemSoNgayLamViecTheoThang snlv ON snlv.MaNV = nv.MaNV
 			WHERE Thang = MONTH(@DATE))
 GO
@@ -802,7 +802,7 @@ BEGIN
 END;
 GO
 
--- Get NV by Cityzen ID
+-- Get NV by Citizen ID
 CREATE PROC PROC_GetNV_ByCityZID
 @CMND VARCHAR(15)
 AS
@@ -817,24 +817,6 @@ CREATE PROC PROC_GetNV_ByUsername
 AS
 BEGIN
 	SELECT * FROM dbo.VIEW_NV_TK WHERE TenDN = @TenDN
-END;
-GO
-
--- Lấy thông tin hàng hoá dựa vào mã
-CREATE PROC PROC_GetProduct_Info_ByID
-@MaHang VARCHAR(20)
-AS
-BEGIN
-	-- Kiểm tra mã đó là của vpp hay sách
-	IF EXISTS (SELECT * FROM VIEW_VPP WHERE MaHang = @MaHang)
-	BEGIN
-		SELECT * FROM VIEW_VPP WHERE MaHang = @MaHang
-	END
-
-	ELSE IF EXISTS (SELECT * FROM VIEW_SACH WHERE MaSach = @MaHang)
-	BEGIN
-		SELECT * FROM VIEW_SACH WHERE MaSach = @MaHang
-	END
 END;
 GO
 
@@ -907,7 +889,7 @@ BEGIN
 END;
 GO
 
--- PROCEDURE tra cứu văn phòng phẩm theo mã hàng
+-- PROCEDURE tra cứu sách theo tên tác giả
 CREATE PROCEDURE SearchBooksByAuthor
     @tenTG NVARCHAR(20)
 AS
