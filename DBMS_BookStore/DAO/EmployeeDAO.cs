@@ -147,5 +147,15 @@ namespace DBMS_BookStore.DAO
             return DBConnection.ExecuteNonQuery(cmd);
         }
 
+
+        public DataTable GetBangLuongTheoThang(DateTime date)
+        {
+            string query = "SELECT * FROM dbo.FUNC_BangLuongTheoThang (@param)";
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.Parameters.AddWithValue("@param", date);
+
+            DataTable dt = DBConnection.ExecuteQuery(cmd);
+            return dt;
+        }
     }
 }

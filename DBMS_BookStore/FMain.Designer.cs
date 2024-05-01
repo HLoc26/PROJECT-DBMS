@@ -159,7 +159,27 @@
             this.pageGD_KH_TimTT = new System.Windows.Forms.TabPage();
             this.pageGD_KH_TaoThe = new System.Windows.Forms.TabPage();
             this.pageGD_HDBan = new System.Windows.Forms.TabPage();
+            this.tlplGD_HDBan = new System.Windows.Forms.TableLayoutPanel();
+            this.btnQuayLai13_0 = new System.Windows.Forms.Button();
+            this.dtgvListHoaDonBan = new System.Windows.Forms.DataGridView();
+            this.tlplGD_HDBan_3 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblStart = new System.Windows.Forms.Label();
+            this.dtpStartHDBan = new System.Windows.Forms.DateTimePicker();
+            this.btnTraCuuHoaDonBan = new System.Windows.Forms.Button();
+            this.dtpEndHDBan = new System.Windows.Forms.DateTimePicker();
+            this.lblEnd = new System.Windows.Forms.Label();
+            this.lblTraCuuHoaDonBan = new System.Windows.Forms.Label();
             this.pageGD_HDNhap = new System.Windows.Forms.TabPage();
+            this.tlplGD_HDNhap = new System.Windows.Forms.TableLayoutPanel();
+            this.dtgvListHDNhap = new System.Windows.Forms.DataGridView();
+            this.tlplGD_HoaDonNhap_3 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblHDNhapStart = new System.Windows.Forms.Label();
+            this.dtpStartHDNhap = new System.Windows.Forms.DateTimePicker();
+            this.dtpEndHDNhap = new System.Windows.Forms.DateTimePicker();
+            this.lblEndHDNhap = new System.Windows.Forms.Label();
+            this.btnTraCuuHDNhap = new System.Windows.Forms.Button();
+            this.btnQuayLai14_0 = new System.Windows.Forms.Button();
+            this.lblTraCuuHoaDonNhap = new System.Windows.Forms.Label();
             this.pageTC_Sach = new System.Windows.Forms.TabPage();
             this.tableLayoutPanelTCMS = new System.Windows.Forms.TableLayoutPanel();
             this.btnTCSACHID = new System.Windows.Forms.Button();
@@ -277,7 +297,34 @@
             this.btnCD_NV_NghiViec = new System.Windows.Forms.Button();
             this.btnCD_NV_ThemNV = new System.Windows.Forms.Button();
             this.pageBC_DoanhThu = new System.Windows.Forms.TabPage();
+            this.tlplBCDoanhThu = new System.Windows.Forms.TableLayoutPanel();
+            this.btnQuayLai_23_3 = new System.Windows.Forms.Button();
+            this.lblBaoCaoDoanhThu = new System.Windows.Forms.Label();
+            this.tlplBCDoanhThu3 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblBCDoanhThuThang = new System.Windows.Forms.Label();
+            this.dtpBCDoanhThuThang = new System.Windows.Forms.DateTimePicker();
+            this.btnTraCuuBCDoanhThu = new System.Windows.Forms.Button();
+            this.tlplBCTong = new System.Windows.Forms.TableLayoutPanel();
+            this.lblTongTienHDBan = new System.Windows.Forms.Label();
+            this.lblTongLoiNhuan = new System.Windows.Forms.Label();
+            this.lblSoLuongKH = new System.Windows.Forms.Label();
+            this.lblOutputTongTienHDBan = new System.Windows.Forms.Label();
+            this.lblOutputTongLoiNhuan = new System.Windows.Forms.Label();
+            this.lblOutputSoLuongKH = new System.Windows.Forms.Label();
+            this.tlplBCDoanhThu4 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblTongNhap = new System.Windows.Forms.Label();
+            this.lblTongBan = new System.Windows.Forms.Label();
+            this.tbTongBan = new System.Windows.Forms.TextBox();
+            this.tbTongNhap = new System.Windows.Forms.TextBox();
             this.pageBC_LuongNV = new System.Windows.Forms.TabPage();
+            this.tlplBCLuong = new System.Windows.Forms.TableLayoutPanel();
+            this.tlplBCLuong3 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblThangBCLuong = new System.Windows.Forms.Label();
+            this.dtpTraCuuLuong = new System.Windows.Forms.DateTimePicker();
+            this.btnTraCuuBCLuong = new System.Windows.Forms.Button();
+            this.btnQuayLai_24_3 = new System.Windows.Forms.Button();
+            this.lblBCLuong = new System.Windows.Forms.Label();
+            this.dtgvListLuong = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnGiaoDich = new System.Windows.Forms.Button();
@@ -334,6 +381,14 @@
             this.tlplGD_NHContainer12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvNhapHang)).BeginInit();
             this.tlplGD_NHContainer13.SuspendLayout();
+            this.pageGD_HDBan.SuspendLayout();
+            this.tlplGD_HDBan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvListHoaDonBan)).BeginInit();
+            this.tlplGD_HDBan_3.SuspendLayout();
+            this.pageGD_HDNhap.SuspendLayout();
+            this.tlplGD_HDNhap.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvListHDNhap)).BeginInit();
+            this.tlplGD_HoaDonNhap_3.SuspendLayout();
             this.pageTC_Sach.SuspendLayout();
             this.tableLayoutPanelTCMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTCSACH)).BeginInit();
@@ -362,6 +417,15 @@
             this.pageCD_NV.SuspendLayout();
             this.tlplCD_NV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTCNV)).BeginInit();
+            this.pageBC_DoanhThu.SuspendLayout();
+            this.tlplBCDoanhThu.SuspendLayout();
+            this.tlplBCDoanhThu3.SuspendLayout();
+            this.tlplBCTong.SuspendLayout();
+            this.tlplBCDoanhThu4.SuspendLayout();
+            this.pageBC_LuongNV.SuspendLayout();
+            this.tlplBCLuong.SuspendLayout();
+            this.tlplBCLuong3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvListLuong)).BeginInit();
             this.tableLayoutPanel16.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
@@ -490,6 +554,7 @@
             this.btnHoaDonNhap.TabIndex = 4;
             this.btnHoaDonNhap.Text = "HOÁ ĐƠN NHẬP";
             this.btnHoaDonNhap.UseVisualStyleBackColor = true;
+            this.btnHoaDonNhap.Click += new System.EventHandler(this.btnHoaDonNhap_Click);
             // 
             // btnHoaDonBan
             // 
@@ -503,6 +568,7 @@
             this.btnHoaDonBan.TabIndex = 5;
             this.btnHoaDonBan.Text = "HOÁ ĐƠN BÁN";
             this.btnHoaDonBan.UseVisualStyleBackColor = true;
+            this.btnHoaDonBan.Click += new System.EventHandler(this.btnHoaDonBan_Click);
             // 
             // pageTraCuu
             // 
@@ -719,6 +785,7 @@
             this.btnBaoCaoDoanhThu.TabIndex = 0;
             this.btnBaoCaoDoanhThu.Text = "DOANH THU";
             this.btnBaoCaoDoanhThu.UseVisualStyleBackColor = true;
+            this.btnBaoCaoDoanhThu.Click += new System.EventHandler(this.btnBaoCaoDoanhThu_Click);
             // 
             // btnBaoCaoKhachHang
             // 
@@ -732,6 +799,7 @@
             this.btnBaoCaoKhachHang.TabIndex = 1;
             this.btnBaoCaoKhachHang.Text = "KHÁCH HÀNG";
             this.btnBaoCaoKhachHang.UseVisualStyleBackColor = true;
+            this.btnBaoCaoKhachHang.Click += new System.EventHandler(this.btnBaoCaoKhachHang_Click);
             // 
             // btnBaoCaoNhanVien
             // 
@@ -2217,7 +2285,10 @@
             // 
             // pageGD_HDBan
             // 
+            this.pageGD_HDBan.Controls.Add(this.tlplGD_HDBan);
+            this.pageGD_HDBan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pageGD_HDBan.Location = new System.Drawing.Point(4, 22);
+            this.pageGD_HDBan.Margin = new System.Windows.Forms.Padding(2);
             this.pageGD_HDBan.Name = "pageGD_HDBan";
             this.pageGD_HDBan.Padding = new System.Windows.Forms.Padding(3);
             this.pageGD_HDBan.Size = new System.Drawing.Size(1223, 862);
@@ -2225,15 +2296,308 @@
             this.pageGD_HDBan.Text = "GD_HDBan";
             this.pageGD_HDBan.UseVisualStyleBackColor = true;
             // 
+            // tlplGD_HDBan
+            // 
+            this.tlplGD_HDBan.ColumnCount = 1;
+            this.tlplGD_HDBan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlplGD_HDBan.Controls.Add(this.btnQuayLai13_0, 0, 0);
+            this.tlplGD_HDBan.Controls.Add(this.dtgvListHoaDonBan, 0, 3);
+            this.tlplGD_HDBan.Controls.Add(this.tlplGD_HDBan_3, 0, 2);
+            this.tlplGD_HDBan.Controls.Add(this.lblTraCuuHoaDonBan, 0, 1);
+            this.tlplGD_HDBan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlplGD_HDBan.Location = new System.Drawing.Point(2, 2);
+            this.tlplGD_HDBan.Margin = new System.Windows.Forms.Padding(2);
+            this.tlplGD_HDBan.Name = "tlplGD_HDBan";
+            this.tlplGD_HDBan.RowCount = 4;
+            this.tlplGD_HDBan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlplGD_HDBan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlplGD_HDBan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlplGD_HDBan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tlplGD_HDBan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tlplGD_HDBan.Size = new System.Drawing.Size(866, 604);
+            this.tlplGD_HDBan.TabIndex = 17;
+            // 
+            // btnQuayLai13_0
+            // 
+            this.btnQuayLai13_0.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnQuayLai13_0.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuayLai13_0.Location = new System.Drawing.Point(2, 2);
+            this.btnQuayLai13_0.Margin = new System.Windows.Forms.Padding(2);
+            this.btnQuayLai13_0.Name = "btnQuayLai13_0";
+            this.btnQuayLai13_0.Size = new System.Drawing.Size(78, 25);
+            this.btnQuayLai13_0.TabIndex = 12;
+            this.btnQuayLai13_0.Text = "Quay lại";
+            this.btnQuayLai13_0.UseVisualStyleBackColor = true;
+            this.btnQuayLai13_0.Click += new System.EventHandler(this.btnQuayLai13_0_Click);
+            // 
+            // dtgvListHoaDonBan
+            // 
+            this.dtgvListHoaDonBan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvListHoaDonBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvListHoaDonBan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvListHoaDonBan.Location = new System.Drawing.Point(2, 152);
+            this.dtgvListHoaDonBan.Margin = new System.Windows.Forms.Padding(2);
+            this.dtgvListHoaDonBan.Name = "dtgvListHoaDonBan";
+            this.dtgvListHoaDonBan.Size = new System.Drawing.Size(862, 450);
+            this.dtgvListHoaDonBan.TabIndex = 15;
+            // 
+            // tlplGD_HDBan_3
+            // 
+            this.tlplGD_HDBan_3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tlplGD_HDBan_3.ColumnCount = 5;
+            this.tlplGD_HDBan_3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tlplGD_HDBan_3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlplGD_HDBan_3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tlplGD_HDBan_3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlplGD_HDBan_3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tlplGD_HDBan_3.Controls.Add(this.lblStart, 0, 0);
+            this.tlplGD_HDBan_3.Controls.Add(this.dtpStartHDBan, 1, 0);
+            this.tlplGD_HDBan_3.Controls.Add(this.btnTraCuuHoaDonBan, 4, 0);
+            this.tlplGD_HDBan_3.Controls.Add(this.dtpEndHDBan, 3, 0);
+            this.tlplGD_HDBan_3.Controls.Add(this.lblEnd, 2, 0);
+            this.tlplGD_HDBan_3.Location = new System.Drawing.Point(186, 104);
+            this.tlplGD_HDBan_3.Margin = new System.Windows.Forms.Padding(2);
+            this.tlplGD_HDBan_3.Name = "tlplGD_HDBan_3";
+            this.tlplGD_HDBan_3.RowCount = 1;
+            this.tlplGD_HDBan_3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlplGD_HDBan_3.Size = new System.Drawing.Size(494, 32);
+            this.tlplGD_HDBan_3.TabIndex = 16;
+            // 
+            // lblStart
+            // 
+            this.lblStart.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblStart.AutoSize = true;
+            this.lblStart.Location = new System.Drawing.Point(25, 5);
+            this.lblStart.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblStart.Name = "lblStart";
+            this.lblStart.Size = new System.Drawing.Size(121, 21);
+            this.lblStart.TabIndex = 13;
+            this.lblStart.Text = "Bắt đầu từ ngày:";
+            // 
+            // dtpStartHDBan
+            // 
+            this.dtpStartHDBan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpStartHDBan.CustomFormat = "dd/MM/yyyy";
+            this.dtpStartHDBan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpStartHDBan.Location = new System.Drawing.Point(150, 2);
+            this.dtpStartHDBan.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpStartHDBan.Name = "dtpStartHDBan";
+            this.dtpStartHDBan.Size = new System.Drawing.Size(94, 29);
+            this.dtpStartHDBan.TabIndex = 14;
+            // 
+            // btnTraCuuHoaDonBan
+            // 
+            this.btnTraCuuHoaDonBan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnTraCuuHoaDonBan.AutoSize = true;
+            this.btnTraCuuHoaDonBan.BackColor = System.Drawing.Color.Green;
+            this.btnTraCuuHoaDonBan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTraCuuHoaDonBan.FlatAppearance.BorderSize = 0;
+            this.btnTraCuuHoaDonBan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTraCuuHoaDonBan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTraCuuHoaDonBan.ForeColor = System.Drawing.Color.White;
+            this.btnTraCuuHoaDonBan.Location = new System.Drawing.Point(420, 2);
+            this.btnTraCuuHoaDonBan.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTraCuuHoaDonBan.Name = "btnTraCuuHoaDonBan";
+            this.btnTraCuuHoaDonBan.Size = new System.Drawing.Size(72, 28);
+            this.btnTraCuuHoaDonBan.TabIndex = 12;
+            this.btnTraCuuHoaDonBan.Text = "Tra cứu";
+            this.btnTraCuuHoaDonBan.UseVisualStyleBackColor = false;
+            this.btnTraCuuHoaDonBan.Click += new System.EventHandler(this.btnTraCuuHoaDonBan_Click);
+            // 
+            // dtpEndHDBan
+            // 
+            this.dtpEndHDBan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpEndHDBan.CustomFormat = "dd/MM/yyyy";
+            this.dtpEndHDBan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpEndHDBan.Location = new System.Drawing.Point(322, 2);
+            this.dtpEndHDBan.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpEndHDBan.Name = "dtpEndHDBan";
+            this.dtpEndHDBan.Size = new System.Drawing.Size(94, 29);
+            this.dtpEndHDBan.TabIndex = 14;
+            // 
+            // lblEnd
+            // 
+            this.lblEnd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblEnd.AutoSize = true;
+            this.lblEnd.Location = new System.Drawing.Point(259, 0);
+            this.lblEnd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEnd.Name = "lblEnd";
+            this.lblEnd.Size = new System.Drawing.Size(47, 32);
+            this.lblEnd.TabIndex = 13;
+            this.lblEnd.Text = "đến ngày:";
+            // 
+            // lblTraCuuHoaDonBan
+            // 
+            this.lblTraCuuHoaDonBan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTraCuuHoaDonBan.AutoSize = true;
+            this.lblTraCuuHoaDonBan.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTraCuuHoaDonBan.ForeColor = System.Drawing.Color.Red;
+            this.lblTraCuuHoaDonBan.Location = new System.Drawing.Point(222, 41);
+            this.lblTraCuuHoaDonBan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTraCuuHoaDonBan.Name = "lblTraCuuHoaDonBan";
+            this.lblTraCuuHoaDonBan.Size = new System.Drawing.Size(422, 37);
+            this.lblTraCuuHoaDonBan.TabIndex = 17;
+            this.lblTraCuuHoaDonBan.Text = "TRA CỨU HÓA ĐƠN BÁN HÀNG";
+            // 
             // pageGD_HDNhap
             // 
+            this.pageGD_HDNhap.Controls.Add(this.tlplGD_HDNhap);
             this.pageGD_HDNhap.Location = new System.Drawing.Point(4, 22);
+            this.pageGD_HDNhap.Margin = new System.Windows.Forms.Padding(2);
             this.pageGD_HDNhap.Name = "pageGD_HDNhap";
             this.pageGD_HDNhap.Padding = new System.Windows.Forms.Padding(3);
             this.pageGD_HDNhap.Size = new System.Drawing.Size(1223, 862);
             this.pageGD_HDNhap.TabIndex = 13;
             this.pageGD_HDNhap.Text = "GD_HDNhap";
             this.pageGD_HDNhap.UseVisualStyleBackColor = true;
+            // 
+            // tlplGD_HDNhap
+            // 
+            this.tlplGD_HDNhap.ColumnCount = 1;
+            this.tlplGD_HDNhap.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlplGD_HDNhap.Controls.Add(this.dtgvListHDNhap, 0, 3);
+            this.tlplGD_HDNhap.Controls.Add(this.tlplGD_HoaDonNhap_3, 0, 2);
+            this.tlplGD_HDNhap.Controls.Add(this.btnQuayLai14_0, 0, 0);
+            this.tlplGD_HDNhap.Controls.Add(this.lblTraCuuHoaDonNhap, 0, 1);
+            this.tlplGD_HDNhap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlplGD_HDNhap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tlplGD_HDNhap.Location = new System.Drawing.Point(2, 2);
+            this.tlplGD_HDNhap.Margin = new System.Windows.Forms.Padding(2);
+            this.tlplGD_HDNhap.Name = "tlplGD_HDNhap";
+            this.tlplGD_HDNhap.RowCount = 4;
+            this.tlplGD_HDNhap.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlplGD_HDNhap.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlplGD_HDNhap.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlplGD_HDNhap.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tlplGD_HDNhap.Size = new System.Drawing.Size(866, 604);
+            this.tlplGD_HDNhap.TabIndex = 18;
+            // 
+            // dtgvListHDNhap
+            // 
+            this.dtgvListHDNhap.AllowUserToAddRows = false;
+            this.dtgvListHDNhap.AllowUserToDeleteRows = false;
+            this.dtgvListHDNhap.AllowUserToOrderColumns = true;
+            this.dtgvListHDNhap.AllowUserToResizeColumns = false;
+            this.dtgvListHDNhap.AllowUserToResizeRows = false;
+            this.dtgvListHDNhap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvListHDNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvListHDNhap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvListHDNhap.Location = new System.Drawing.Point(2, 152);
+            this.dtgvListHDNhap.Margin = new System.Windows.Forms.Padding(2);
+            this.dtgvListHDNhap.Name = "dtgvListHDNhap";
+            this.dtgvListHDNhap.Size = new System.Drawing.Size(862, 450);
+            this.dtgvListHDNhap.TabIndex = 15;
+            // 
+            // tlplGD_HoaDonNhap_3
+            // 
+            this.tlplGD_HoaDonNhap_3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tlplGD_HoaDonNhap_3.ColumnCount = 5;
+            this.tlplGD_HoaDonNhap_3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tlplGD_HoaDonNhap_3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlplGD_HoaDonNhap_3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tlplGD_HoaDonNhap_3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlplGD_HoaDonNhap_3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tlplGD_HoaDonNhap_3.Controls.Add(this.lblHDNhapStart, 0, 0);
+            this.tlplGD_HoaDonNhap_3.Controls.Add(this.dtpStartHDNhap, 1, 0);
+            this.tlplGD_HoaDonNhap_3.Controls.Add(this.dtpEndHDNhap, 3, 0);
+            this.tlplGD_HoaDonNhap_3.Controls.Add(this.lblEndHDNhap, 2, 0);
+            this.tlplGD_HoaDonNhap_3.Controls.Add(this.btnTraCuuHDNhap, 4, 0);
+            this.tlplGD_HoaDonNhap_3.Location = new System.Drawing.Point(186, 104);
+            this.tlplGD_HoaDonNhap_3.Margin = new System.Windows.Forms.Padding(2);
+            this.tlplGD_HoaDonNhap_3.Name = "tlplGD_HoaDonNhap_3";
+            this.tlplGD_HoaDonNhap_3.RowCount = 1;
+            this.tlplGD_HoaDonNhap_3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlplGD_HoaDonNhap_3.Size = new System.Drawing.Size(494, 32);
+            this.tlplGD_HoaDonNhap_3.TabIndex = 16;
+            // 
+            // lblHDNhapStart
+            // 
+            this.lblHDNhapStart.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblHDNhapStart.AutoSize = true;
+            this.lblHDNhapStart.Location = new System.Drawing.Point(25, 5);
+            this.lblHDNhapStart.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblHDNhapStart.Name = "lblHDNhapStart";
+            this.lblHDNhapStart.Size = new System.Drawing.Size(121, 21);
+            this.lblHDNhapStart.TabIndex = 13;
+            this.lblHDNhapStart.Text = "Bắt đầu từ ngày:";
+            // 
+            // dtpStartHDNhap
+            // 
+            this.dtpStartHDNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpStartHDNhap.CustomFormat = "dd/MM/yyyy";
+            this.dtpStartHDNhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpStartHDNhap.Location = new System.Drawing.Point(150, 2);
+            this.dtpStartHDNhap.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpStartHDNhap.Name = "dtpStartHDNhap";
+            this.dtpStartHDNhap.Size = new System.Drawing.Size(94, 29);
+            this.dtpStartHDNhap.TabIndex = 14;
+            // 
+            // dtpEndHDNhap
+            // 
+            this.dtpEndHDNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpEndHDNhap.CustomFormat = "dd/MM/yyyy";
+            this.dtpEndHDNhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpEndHDNhap.Location = new System.Drawing.Point(322, 2);
+            this.dtpEndHDNhap.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpEndHDNhap.Name = "dtpEndHDNhap";
+            this.dtpEndHDNhap.Size = new System.Drawing.Size(94, 29);
+            this.dtpEndHDNhap.TabIndex = 14;
+            // 
+            // lblEndHDNhap
+            // 
+            this.lblEndHDNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblEndHDNhap.AutoSize = true;
+            this.lblEndHDNhap.Location = new System.Drawing.Point(259, 0);
+            this.lblEndHDNhap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEndHDNhap.Name = "lblEndHDNhap";
+            this.lblEndHDNhap.Size = new System.Drawing.Size(47, 32);
+            this.lblEndHDNhap.TabIndex = 13;
+            this.lblEndHDNhap.Text = "đến ngày:";
+            // 
+            // btnTraCuuHDNhap
+            // 
+            this.btnTraCuuHDNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnTraCuuHDNhap.AutoSize = true;
+            this.btnTraCuuHDNhap.BackColor = System.Drawing.Color.Green;
+            this.btnTraCuuHDNhap.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTraCuuHDNhap.FlatAppearance.BorderSize = 0;
+            this.btnTraCuuHDNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTraCuuHDNhap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTraCuuHDNhap.ForeColor = System.Drawing.Color.White;
+            this.btnTraCuuHDNhap.Location = new System.Drawing.Point(420, 2);
+            this.btnTraCuuHDNhap.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTraCuuHDNhap.Name = "btnTraCuuHDNhap";
+            this.btnTraCuuHDNhap.Size = new System.Drawing.Size(72, 28);
+            this.btnTraCuuHDNhap.TabIndex = 12;
+            this.btnTraCuuHDNhap.Text = "Tra cứu";
+            this.btnTraCuuHDNhap.UseVisualStyleBackColor = false;
+            this.btnTraCuuHDNhap.Click += new System.EventHandler(this.btnTraCuuHDNhap_Click);
+            // 
+            // btnQuayLai14_0
+            // 
+            this.btnQuayLai14_0.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnQuayLai14_0.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuayLai14_0.Location = new System.Drawing.Point(2, 2);
+            this.btnQuayLai14_0.Margin = new System.Windows.Forms.Padding(2);
+            this.btnQuayLai14_0.Name = "btnQuayLai14_0";
+            this.btnQuayLai14_0.Size = new System.Drawing.Size(77, 26);
+            this.btnQuayLai14_0.TabIndex = 12;
+            this.btnQuayLai14_0.Text = "Quay lại";
+            this.btnQuayLai14_0.UseVisualStyleBackColor = true;
+            this.btnQuayLai14_0.Click += new System.EventHandler(this.btnQuayLai14_0_Click);
+            // 
+            // lblTraCuuHoaDonNhap
+            // 
+            this.lblTraCuuHoaDonNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTraCuuHoaDonNhap.AutoSize = true;
+            this.lblTraCuuHoaDonNhap.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTraCuuHoaDonNhap.ForeColor = System.Drawing.Color.Red;
+            this.lblTraCuuHoaDonNhap.Location = new System.Drawing.Point(211, 41);
+            this.lblTraCuuHoaDonNhap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTraCuuHoaDonNhap.Name = "lblTraCuuHoaDonNhap";
+            this.lblTraCuuHoaDonNhap.Size = new System.Drawing.Size(443, 37);
+            this.lblTraCuuHoaDonNhap.TabIndex = 17;
+            this.lblTraCuuHoaDonNhap.Text = "TRA CỨU HÓA ĐƠN NHẬP HÀNG";
             // 
             // pageTC_Sach
             // 
@@ -3663,7 +4027,10 @@
             // 
             // pageBC_DoanhThu
             // 
+            this.pageBC_DoanhThu.Controls.Add(this.tlplBCDoanhThu);
+            this.pageBC_DoanhThu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pageBC_DoanhThu.Location = new System.Drawing.Point(4, 22);
+            this.pageBC_DoanhThu.Margin = new System.Windows.Forms.Padding(2);
             this.pageBC_DoanhThu.Name = "pageBC_DoanhThu";
             this.pageBC_DoanhThu.Padding = new System.Windows.Forms.Padding(3);
             this.pageBC_DoanhThu.Size = new System.Drawing.Size(1223, 862);
@@ -3671,15 +4038,405 @@
             this.pageBC_DoanhThu.Text = "BC_DoanhThu";
             this.pageBC_DoanhThu.UseVisualStyleBackColor = true;
             // 
+            // tlplBCDoanhThu
+            // 
+            this.tlplBCDoanhThu.ColumnCount = 1;
+            this.tlplBCDoanhThu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlplBCDoanhThu.Controls.Add(this.btnQuayLai_23_3, 0, 0);
+            this.tlplBCDoanhThu.Controls.Add(this.lblBaoCaoDoanhThu, 0, 1);
+            this.tlplBCDoanhThu.Controls.Add(this.tlplBCDoanhThu3, 0, 3);
+            this.tlplBCDoanhThu.Controls.Add(this.tlplBCTong, 0, 2);
+            this.tlplBCDoanhThu.Controls.Add(this.tlplBCDoanhThu4, 0, 4);
+            this.tlplBCDoanhThu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlplBCDoanhThu.Location = new System.Drawing.Point(2, 2);
+            this.tlplBCDoanhThu.Margin = new System.Windows.Forms.Padding(2);
+            this.tlplBCDoanhThu.Name = "tlplBCDoanhThu";
+            this.tlplBCDoanhThu.RowCount = 6;
+            this.tlplBCDoanhThu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlplBCDoanhThu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tlplBCDoanhThu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlplBCDoanhThu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tlplBCDoanhThu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tlplBCDoanhThu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlplBCDoanhThu.Size = new System.Drawing.Size(866, 604);
+            this.tlplBCDoanhThu.TabIndex = 21;
+            // 
+            // btnQuayLai_23_3
+            // 
+            this.btnQuayLai_23_3.AutoSize = true;
+            this.btnQuayLai_23_3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnQuayLai_23_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuayLai_23_3.Location = new System.Drawing.Point(2, 2);
+            this.btnQuayLai_23_3.Margin = new System.Windows.Forms.Padding(2);
+            this.btnQuayLai_23_3.Name = "btnQuayLai_23_3";
+            this.btnQuayLai_23_3.Size = new System.Drawing.Size(108, 35);
+            this.btnQuayLai_23_3.TabIndex = 13;
+            this.btnQuayLai_23_3.Text = "Quay lại";
+            this.btnQuayLai_23_3.UseVisualStyleBackColor = true;
+            this.btnQuayLai_23_3.Click += new System.EventHandler(this.btnQuayLai_23_3_Click);
+            // 
+            // lblBaoCaoDoanhThu
+            // 
+            this.lblBaoCaoDoanhThu.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblBaoCaoDoanhThu.AutoSize = true;
+            this.lblBaoCaoDoanhThu.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBaoCaoDoanhThu.ForeColor = System.Drawing.Color.Red;
+            this.lblBaoCaoDoanhThu.Location = new System.Drawing.Point(248, 82);
+            this.lblBaoCaoDoanhThu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblBaoCaoDoanhThu.Name = "lblBaoCaoDoanhThu";
+            this.lblBaoCaoDoanhThu.Size = new System.Drawing.Size(370, 45);
+            this.lblBaoCaoDoanhThu.TabIndex = 14;
+            this.lblBaoCaoDoanhThu.Text = "BÁO CÁO DOANH THU";
+            // 
+            // tlplBCDoanhThu3
+            // 
+            this.tlplBCDoanhThu3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.tlplBCDoanhThu3.ColumnCount = 3;
+            this.tlplBCDoanhThu3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tlplBCDoanhThu3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlplBCDoanhThu3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tlplBCDoanhThu3.Controls.Add(this.lblBCDoanhThuThang, 0, 0);
+            this.tlplBCDoanhThu3.Controls.Add(this.dtpBCDoanhThuThang, 1, 0);
+            this.tlplBCDoanhThu3.Controls.Add(this.btnTraCuuBCDoanhThu, 2, 0);
+            this.tlplBCDoanhThu3.Location = new System.Drawing.Point(178, 272);
+            this.tlplBCDoanhThu3.Margin = new System.Windows.Forms.Padding(2);
+            this.tlplBCDoanhThu3.Name = "tlplBCDoanhThu3";
+            this.tlplBCDoanhThu3.RowCount = 1;
+            this.tlplBCDoanhThu3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlplBCDoanhThu3.Size = new System.Drawing.Size(510, 86);
+            this.tlplBCDoanhThu3.TabIndex = 17;
+            // 
+            // lblBCDoanhThuThang
+            // 
+            this.lblBCDoanhThuThang.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblBCDoanhThuThang.AutoSize = true;
+            this.lblBCDoanhThuThang.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBCDoanhThuThang.Location = new System.Drawing.Point(3, 28);
+            this.lblBCDoanhThuThang.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblBCDoanhThuThang.Name = "lblBCDoanhThuThang";
+            this.lblBCDoanhThuThang.Size = new System.Drawing.Size(199, 30);
+            this.lblBCDoanhThuThang.TabIndex = 13;
+            this.lblBCDoanhThuThang.Text = "Tra cứu theo tháng:";
+            // 
+            // dtpBCDoanhThuThang
+            // 
+            this.dtpBCDoanhThuThang.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpBCDoanhThuThang.CustomFormat = "MM-yyyy";
+            this.dtpBCDoanhThuThang.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpBCDoanhThuThang.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpBCDoanhThuThang.Location = new System.Drawing.Point(207, 25);
+            this.dtpBCDoanhThuThang.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpBCDoanhThuThang.Name = "dtpBCDoanhThuThang";
+            this.dtpBCDoanhThuThang.ShowUpDown = true;
+            this.dtpBCDoanhThuThang.Size = new System.Drawing.Size(95, 36);
+            this.dtpBCDoanhThuThang.TabIndex = 14;
+            // 
+            // btnTraCuuBCDoanhThu
+            // 
+            this.btnTraCuuBCDoanhThu.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnTraCuuBCDoanhThu.AutoSize = true;
+            this.btnTraCuuBCDoanhThu.BackColor = System.Drawing.Color.Green;
+            this.btnTraCuuBCDoanhThu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTraCuuBCDoanhThu.FlatAppearance.BorderSize = 0;
+            this.btnTraCuuBCDoanhThu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTraCuuBCDoanhThu.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTraCuuBCDoanhThu.ForeColor = System.Drawing.Color.White;
+            this.btnTraCuuBCDoanhThu.Location = new System.Drawing.Point(308, 23);
+            this.btnTraCuuBCDoanhThu.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTraCuuBCDoanhThu.Name = "btnTraCuuBCDoanhThu";
+            this.btnTraCuuBCDoanhThu.Size = new System.Drawing.Size(100, 40);
+            this.btnTraCuuBCDoanhThu.TabIndex = 12;
+            this.btnTraCuuBCDoanhThu.Text = "Tra cứu";
+            this.btnTraCuuBCDoanhThu.UseVisualStyleBackColor = false;
+            this.btnTraCuuBCDoanhThu.Click += new System.EventHandler(this.btnTraCuuBCDoanhThu_Click);
+            // 
+            // tlplBCTong
+            // 
+            this.tlplBCTong.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tlplBCTong.ColumnCount = 3;
+            this.tlplBCTong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlplBCTong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlplBCTong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlplBCTong.Controls.Add(this.lblTongTienHDBan, 0, 0);
+            this.tlplBCTong.Controls.Add(this.lblTongLoiNhuan, 1, 0);
+            this.tlplBCTong.Controls.Add(this.lblSoLuongKH, 2, 0);
+            this.tlplBCTong.Controls.Add(this.lblOutputTongTienHDBan, 0, 1);
+            this.tlplBCTong.Controls.Add(this.lblOutputTongLoiNhuan, 1, 1);
+            this.tlplBCTong.Controls.Add(this.lblOutputSoLuongKH, 2, 1);
+            this.tlplBCTong.Location = new System.Drawing.Point(3, 160);
+            this.tlplBCTong.Name = "tlplBCTong";
+            this.tlplBCTong.RowCount = 2;
+            this.tlplBCTong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlplBCTong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlplBCTong.Size = new System.Drawing.Size(860, 100);
+            this.tlplBCTong.TabIndex = 21;
+            // 
+            // lblTongTienHDBan
+            // 
+            this.lblTongTienHDBan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTongTienHDBan.AutoSize = true;
+            this.lblTongTienHDBan.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTongTienHDBan.Location = new System.Drawing.Point(11, 10);
+            this.lblTongTienHDBan.Name = "lblTongTienHDBan";
+            this.lblTongTienHDBan.Size = new System.Drawing.Size(263, 30);
+            this.lblTongTienHDBan.TabIndex = 0;
+            this.lblTongTienHDBan.Text = "Tổng tiền hóa đơn đã bán";
+            // 
+            // lblTongLoiNhuan
+            // 
+            this.lblTongLoiNhuan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTongLoiNhuan.AutoSize = true;
+            this.lblTongLoiNhuan.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTongLoiNhuan.Location = new System.Drawing.Point(290, 10);
+            this.lblTongLoiNhuan.Name = "lblTongLoiNhuan";
+            this.lblTongLoiNhuan.Size = new System.Drawing.Size(277, 30);
+            this.lblTongLoiNhuan.TabIndex = 0;
+            this.lblTongLoiNhuan.Text = "Tổng số lợi nhuận thu được";
+            // 
+            // lblSoLuongKH
+            // 
+            this.lblSoLuongKH.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblSoLuongKH.AutoSize = true;
+            this.lblSoLuongKH.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoLuongKH.Location = new System.Drawing.Point(608, 10);
+            this.lblSoLuongKH.Name = "lblSoLuongKH";
+            this.lblSoLuongKH.Size = new System.Drawing.Size(216, 30);
+            this.lblSoLuongKH.TabIndex = 0;
+            this.lblSoLuongKH.Text = "Số lượng khách hàng";
+            // 
+            // lblOutputTongTienHDBan
+            // 
+            this.lblOutputTongTienHDBan.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblOutputTongTienHDBan.AutoSize = true;
+            this.lblOutputTongTienHDBan.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOutputTongTienHDBan.Location = new System.Drawing.Point(54, 50);
+            this.lblOutputTongTienHDBan.Name = "lblOutputTongTienHDBan";
+            this.lblOutputTongTienHDBan.Size = new System.Drawing.Size(177, 37);
+            this.lblOutputTongTienHDBan.TabIndex = 0;
+            this.lblOutputTongTienHDBan.Text = "1000000000";
+            // 
+            // lblOutputTongLoiNhuan
+            // 
+            this.lblOutputTongLoiNhuan.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblOutputTongLoiNhuan.AutoSize = true;
+            this.lblOutputTongLoiNhuan.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOutputTongLoiNhuan.Location = new System.Drawing.Point(340, 50);
+            this.lblOutputTongLoiNhuan.Name = "lblOutputTongLoiNhuan";
+            this.lblOutputTongLoiNhuan.Size = new System.Drawing.Size(177, 37);
+            this.lblOutputTongLoiNhuan.TabIndex = 0;
+            this.lblOutputTongLoiNhuan.Text = "1000000000";
+            // 
+            // lblOutputSoLuongKH
+            // 
+            this.lblOutputSoLuongKH.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblOutputSoLuongKH.AutoSize = true;
+            this.lblOutputSoLuongKH.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOutputSoLuongKH.Location = new System.Drawing.Point(627, 50);
+            this.lblOutputSoLuongKH.Name = "lblOutputSoLuongKH";
+            this.lblOutputSoLuongKH.Size = new System.Drawing.Size(177, 37);
+            this.lblOutputSoLuongKH.TabIndex = 0;
+            this.lblOutputSoLuongKH.Text = "1000000000";
+            // 
+            // tlplBCDoanhThu4
+            // 
+            this.tlplBCDoanhThu4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tlplBCDoanhThu4.ColumnCount = 2;
+            this.tlplBCDoanhThu4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this.tlplBCDoanhThu4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tlplBCDoanhThu4.Controls.Add(this.lblTongNhap, 0, 0);
+            this.tlplBCDoanhThu4.Controls.Add(this.lblTongBan, 0, 1);
+            this.tlplBCDoanhThu4.Controls.Add(this.tbTongBan, 1, 1);
+            this.tlplBCDoanhThu4.Controls.Add(this.tbTongNhap, 1, 0);
+            this.tlplBCDoanhThu4.Location = new System.Drawing.Point(160, 370);
+            this.tlplBCDoanhThu4.Margin = new System.Windows.Forms.Padding(2);
+            this.tlplBCDoanhThu4.Name = "tlplBCDoanhThu4";
+            this.tlplBCDoanhThu4.RowCount = 2;
+            this.tlplBCDoanhThu4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlplBCDoanhThu4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlplBCDoanhThu4.Size = new System.Drawing.Size(545, 160);
+            this.tlplBCDoanhThu4.TabIndex = 20;
+            // 
+            // lblTongNhap
+            // 
+            this.lblTongNhap.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblTongNhap.AutoSize = true;
+            this.lblTongNhap.BackColor = System.Drawing.Color.Transparent;
+            this.lblTongNhap.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTongNhap.ForeColor = System.Drawing.Color.Black;
+            this.lblTongNhap.Location = new System.Drawing.Point(2, 21);
+            this.lblTongNhap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTongNhap.Name = "lblTongNhap";
+            this.lblTongNhap.Size = new System.Drawing.Size(325, 37);
+            this.lblTongNhap.TabIndex = 18;
+            this.lblTongNhap.Text = "Tổng số tiền nhập hàng:";
+            // 
+            // lblTongBan
+            // 
+            this.lblTongBan.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblTongBan.AutoSize = true;
+            this.lblTongBan.BackColor = System.Drawing.Color.Transparent;
+            this.lblTongBan.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTongBan.ForeColor = System.Drawing.Color.Black;
+            this.lblTongBan.Location = new System.Drawing.Point(2, 101);
+            this.lblTongBan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTongBan.Name = "lblTongBan";
+            this.lblTongBan.Size = new System.Drawing.Size(349, 37);
+            this.lblTongBan.TabIndex = 18;
+            this.lblTongBan.Text = "Tổng số tiền đã bán được:";
+            // 
+            // tbTongBan
+            // 
+            this.tbTongBan.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbTongBan.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTongBan.Location = new System.Drawing.Point(356, 98);
+            this.tbTongBan.Margin = new System.Windows.Forms.Padding(2);
+            this.tbTongBan.Name = "tbTongBan";
+            this.tbTongBan.ReadOnly = true;
+            this.tbTongBan.Size = new System.Drawing.Size(161, 43);
+            this.tbTongBan.TabIndex = 19;
+            // 
+            // tbTongNhap
+            // 
+            this.tbTongNhap.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbTongNhap.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTongNhap.Location = new System.Drawing.Point(356, 18);
+            this.tbTongNhap.Margin = new System.Windows.Forms.Padding(2);
+            this.tbTongNhap.Name = "tbTongNhap";
+            this.tbTongNhap.ReadOnly = true;
+            this.tbTongNhap.Size = new System.Drawing.Size(161, 43);
+            this.tbTongNhap.TabIndex = 19;
+            // 
             // pageBC_LuongNV
             // 
+            this.pageBC_LuongNV.Controls.Add(this.tlplBCLuong);
+            this.pageBC_LuongNV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pageBC_LuongNV.Location = new System.Drawing.Point(4, 22);
+            this.pageBC_LuongNV.Margin = new System.Windows.Forms.Padding(2);
             this.pageBC_LuongNV.Name = "pageBC_LuongNV";
             this.pageBC_LuongNV.Padding = new System.Windows.Forms.Padding(3);
             this.pageBC_LuongNV.Size = new System.Drawing.Size(1223, 862);
             this.pageBC_LuongNV.TabIndex = 23;
             this.pageBC_LuongNV.Text = "BC_LuongNV";
             this.pageBC_LuongNV.UseVisualStyleBackColor = true;
+            // 
+            // tlplBCLuong
+            // 
+            this.tlplBCLuong.ColumnCount = 1;
+            this.tlplBCLuong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlplBCLuong.Controls.Add(this.tlplBCLuong3, 0, 2);
+            this.tlplBCLuong.Controls.Add(this.btnQuayLai_24_3, 0, 0);
+            this.tlplBCLuong.Controls.Add(this.lblBCLuong, 0, 1);
+            this.tlplBCLuong.Controls.Add(this.dtgvListLuong, 0, 3);
+            this.tlplBCLuong.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlplBCLuong.Location = new System.Drawing.Point(2, 2);
+            this.tlplBCLuong.Margin = new System.Windows.Forms.Padding(2);
+            this.tlplBCLuong.Name = "tlplBCLuong";
+            this.tlplBCLuong.RowCount = 5;
+            this.tlplBCLuong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tlplBCLuong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlplBCLuong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlplBCLuong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this.tlplBCLuong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlplBCLuong.Size = new System.Drawing.Size(866, 604);
+            this.tlplBCLuong.TabIndex = 20;
+            // 
+            // tlplBCLuong3
+            // 
+            this.tlplBCLuong3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tlplBCLuong3.ColumnCount = 3;
+            this.tlplBCLuong3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlplBCLuong3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlplBCLuong3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlplBCLuong3.Controls.Add(this.lblThangBCLuong, 0, 0);
+            this.tlplBCLuong3.Controls.Add(this.dtpTraCuuLuong, 1, 0);
+            this.tlplBCLuong3.Controls.Add(this.btnTraCuuBCLuong, 2, 0);
+            this.tlplBCLuong3.Location = new System.Drawing.Point(186, 104);
+            this.tlplBCLuong3.Margin = new System.Windows.Forms.Padding(2);
+            this.tlplBCLuong3.Name = "tlplBCLuong3";
+            this.tlplBCLuong3.RowCount = 1;
+            this.tlplBCLuong3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlplBCLuong3.Size = new System.Drawing.Size(494, 32);
+            this.tlplBCLuong3.TabIndex = 18;
+            // 
+            // lblThangBCLuong
+            // 
+            this.lblThangBCLuong.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblThangBCLuong.AutoSize = true;
+            this.lblThangBCLuong.Location = new System.Drawing.Point(20, 5);
+            this.lblThangBCLuong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblThangBCLuong.Name = "lblThangBCLuong";
+            this.lblThangBCLuong.Size = new System.Drawing.Size(142, 21);
+            this.lblThangBCLuong.TabIndex = 13;
+            this.lblThangBCLuong.Text = "Tra cứu theo tháng:";
+            // 
+            // dtpTraCuuLuong
+            // 
+            this.dtpTraCuuLuong.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpTraCuuLuong.CustomFormat = "MM-yyyy";
+            this.dtpTraCuuLuong.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTraCuuLuong.Location = new System.Drawing.Point(198, 2);
+            this.dtpTraCuuLuong.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpTraCuuLuong.Name = "dtpTraCuuLuong";
+            this.dtpTraCuuLuong.ShowUpDown = true;
+            this.dtpTraCuuLuong.Size = new System.Drawing.Size(95, 29);
+            this.dtpTraCuuLuong.TabIndex = 14;
+            // 
+            // btnTraCuuBCLuong
+            // 
+            this.btnTraCuuBCLuong.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnTraCuuBCLuong.AutoSize = true;
+            this.btnTraCuuBCLuong.BackColor = System.Drawing.Color.Green;
+            this.btnTraCuuBCLuong.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTraCuuBCLuong.FlatAppearance.BorderSize = 0;
+            this.btnTraCuuBCLuong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTraCuuBCLuong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTraCuuBCLuong.ForeColor = System.Drawing.Color.White;
+            this.btnTraCuuBCLuong.Location = new System.Drawing.Point(373, 2);
+            this.btnTraCuuBCLuong.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTraCuuBCLuong.Name = "btnTraCuuBCLuong";
+            this.btnTraCuuBCLuong.Size = new System.Drawing.Size(76, 28);
+            this.btnTraCuuBCLuong.TabIndex = 12;
+            this.btnTraCuuBCLuong.Text = "Tra cứu";
+            this.btnTraCuuBCLuong.UseVisualStyleBackColor = false;
+            this.btnTraCuuBCLuong.Click += new System.EventHandler(this.btnTraCuuBCLuong_Click);
+            // 
+            // btnQuayLai_24_3
+            // 
+            this.btnQuayLai_24_3.AutoSize = true;
+            this.btnQuayLai_24_3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnQuayLai_24_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuayLai_24_3.Location = new System.Drawing.Point(2, 2);
+            this.btnQuayLai_24_3.Margin = new System.Windows.Forms.Padding(2);
+            this.btnQuayLai_24_3.Name = "btnQuayLai_24_3";
+            this.btnQuayLai_24_3.Size = new System.Drawing.Size(101, 26);
+            this.btnQuayLai_24_3.TabIndex = 14;
+            this.btnQuayLai_24_3.Text = "Quay lại";
+            this.btnQuayLai_24_3.UseVisualStyleBackColor = true;
+            this.btnQuayLai_24_3.Click += new System.EventHandler(this.btnQuayLai_24_3_Click);
+            // 
+            // lblBCLuong
+            // 
+            this.lblBCLuong.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblBCLuong.AutoSize = true;
+            this.lblBCLuong.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBCLuong.ForeColor = System.Drawing.Color.Red;
+            this.lblBCLuong.Location = new System.Drawing.Point(234, 41);
+            this.lblBCLuong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblBCLuong.Name = "lblBCLuong";
+            this.lblBCLuong.Size = new System.Drawing.Size(397, 37);
+            this.lblBCLuong.TabIndex = 19;
+            this.lblBCLuong.Text = "BÁO CÁO LƯƠNG NHÂN VIÊN";
+            // 
+            // dtgvListLuong
+            // 
+            this.dtgvListLuong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvListLuong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvListLuong.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvListLuong.Location = new System.Drawing.Point(2, 152);
+            this.dtgvListLuong.Margin = new System.Windows.Forms.Padding(2);
+            this.dtgvListLuong.Name = "dtgvListLuong";
+            this.dtgvListLuong.Size = new System.Drawing.Size(862, 388);
+            this.dtgvListLuong.TabIndex = 20;
             // 
             // tableLayoutPanel2
             // 
@@ -3871,6 +4628,18 @@
             this.tlplGD_NHContainer12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvNhapHang)).EndInit();
             this.tlplGD_NHContainer13.ResumeLayout(false);
+            this.pageGD_HDBan.ResumeLayout(false);
+            this.tlplGD_HDBan.ResumeLayout(false);
+            this.tlplGD_HDBan.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvListHoaDonBan)).EndInit();
+            this.tlplGD_HDBan_3.ResumeLayout(false);
+            this.tlplGD_HDBan_3.PerformLayout();
+            this.pageGD_HDNhap.ResumeLayout(false);
+            this.tlplGD_HDNhap.ResumeLayout(false);
+            this.tlplGD_HDNhap.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvListHDNhap)).EndInit();
+            this.tlplGD_HoaDonNhap_3.ResumeLayout(false);
+            this.tlplGD_HoaDonNhap_3.PerformLayout();
             this.pageTC_Sach.ResumeLayout(false);
             this.tableLayoutPanelTCMS.ResumeLayout(false);
             this.tableLayoutPanelTCMS.PerformLayout();
@@ -3909,6 +4678,21 @@
             this.pageCD_NV.ResumeLayout(false);
             this.tlplCD_NV.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTCNV)).EndInit();
+            this.pageBC_DoanhThu.ResumeLayout(false);
+            this.tlplBCDoanhThu.ResumeLayout(false);
+            this.tlplBCDoanhThu.PerformLayout();
+            this.tlplBCDoanhThu3.ResumeLayout(false);
+            this.tlplBCDoanhThu3.PerformLayout();
+            this.tlplBCTong.ResumeLayout(false);
+            this.tlplBCTong.PerformLayout();
+            this.tlplBCDoanhThu4.ResumeLayout(false);
+            this.tlplBCDoanhThu4.PerformLayout();
+            this.pageBC_LuongNV.ResumeLayout(false);
+            this.tlplBCLuong.ResumeLayout(false);
+            this.tlplBCLuong.PerformLayout();
+            this.tlplBCLuong3.ResumeLayout(false);
+            this.tlplBCLuong3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvListLuong)).EndInit();
             this.tableLayoutPanel16.ResumeLayout(false);
             this.tableLayoutPanel13.ResumeLayout(false);
             this.tableLayoutPanel13.PerformLayout();
@@ -4200,6 +4984,53 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn GioiTinhTCNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn LuongTCNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn TinhTrangLamViecTCNV;
+        private System.Windows.Forms.Button btnQuayLai13_0;
+        private System.Windows.Forms.Label lblStart;
+        private System.Windows.Forms.Button btnTraCuuHoaDonBan;
+        private System.Windows.Forms.DateTimePicker dtpEndHDBan;
+        private System.Windows.Forms.DateTimePicker dtpStartHDBan;
+        private System.Windows.Forms.Label lblEnd;
+        private System.Windows.Forms.DataGridView dtgvListHoaDonBan;
+        private System.Windows.Forms.TableLayoutPanel tlplGD_HDBan_3;
+        private System.Windows.Forms.TableLayoutPanel tlplGD_HDBan;
+        private System.Windows.Forms.TableLayoutPanel tlplGD_HDNhap;
+        private System.Windows.Forms.Button btnQuayLai14_0;
+        private System.Windows.Forms.DataGridView dtgvListHDNhap;
+        private System.Windows.Forms.TableLayoutPanel tlplGD_HoaDonNhap_3;
+        private System.Windows.Forms.Label lblHDNhapStart;
+        private System.Windows.Forms.DateTimePicker dtpStartHDNhap;
+        private System.Windows.Forms.Button btnTraCuuHDNhap;
+        private System.Windows.Forms.DateTimePicker dtpEndHDNhap;
+        private System.Windows.Forms.Label lblEndHDNhap;
+        private System.Windows.Forms.Label lblTraCuuHoaDonNhap;
+        private System.Windows.Forms.Label lblTraCuuHoaDonBan;
+        private System.Windows.Forms.Button btnQuayLai_23_3;
+        private System.Windows.Forms.Button btnQuayLai_24_3;
+        private System.Windows.Forms.Label lblBaoCaoDoanhThu;
+        private System.Windows.Forms.TableLayoutPanel tlplBCDoanhThu3;
+        private System.Windows.Forms.Label lblBCDoanhThuThang;
+        private System.Windows.Forms.DateTimePicker dtpBCDoanhThuThang;
+        private System.Windows.Forms.Button btnTraCuuBCDoanhThu;
+        private System.Windows.Forms.TextBox tbTongNhap;
+        private System.Windows.Forms.Label lblTongBan;
+        private System.Windows.Forms.TextBox tbTongBan;
+        private System.Windows.Forms.Label lblTongNhap;
+        private System.Windows.Forms.Label lblBCLuong;
+        private System.Windows.Forms.TableLayoutPanel tlplBCLuong3;
+        private System.Windows.Forms.Label lblThangBCLuong;
+        private System.Windows.Forms.DateTimePicker dtpTraCuuLuong;
+        private System.Windows.Forms.Button btnTraCuuBCLuong;
+        private System.Windows.Forms.TableLayoutPanel tlplBCDoanhThu;
+        private System.Windows.Forms.TableLayoutPanel tlplBCDoanhThu4;
+        private System.Windows.Forms.TableLayoutPanel tlplBCLuong;
+        private System.Windows.Forms.DataGridView dtgvListLuong;
+        private System.Windows.Forms.TableLayoutPanel tlplBCTong;
+        private System.Windows.Forms.Label lblTongTienHDBan;
+        private System.Windows.Forms.Label lblTongLoiNhuan;
+        private System.Windows.Forms.Label lblSoLuongKH;
+        private System.Windows.Forms.Label lblOutputTongTienHDBan;
+        private System.Windows.Forms.Label lblOutputTongLoiNhuan;
+        private System.Windows.Forms.Label lblOutputSoLuongKH;
         private System.Windows.Forms.Button btnCD_NV_QuayLai;
     }
 }

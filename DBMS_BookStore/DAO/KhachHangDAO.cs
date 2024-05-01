@@ -71,5 +71,12 @@ namespace DBMS_BookStore.DAO
                 return new KhachHang(dt.Rows[0]);
             else return null;
         }
+        public int GetSoLuongKH()
+        {
+            string query = "SELECT dbo.FUNC_SoLuongKH ()";
+            SqlCommand cmd = new SqlCommand(query);
+
+            return (int)DBConnection.ExecuteScalar(cmd);
+        }
     }
 }

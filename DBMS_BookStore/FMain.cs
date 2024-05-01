@@ -573,11 +573,38 @@ namespace DBMS_BookStore
         #endregion
 
         #region 13. Giao dịch - Hoá đơn bán hàng (tra cứu hoá đơn bán)
-        // Code here
+        private void btnHoaDonBan_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[13];
+        }
+
+        private void btnQuayLai13_0_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[0];
+        }
+
+        private void btnTraCuuHoaDonBan_Click(object sender, EventArgs e)
+        {
+            HoaDonBanDAO hoaDonBanDAO = new HoaDonBanDAO();
+            dtgvListHoaDonBan.DataSource = hoaDonBanDAO.GetListSaleReceipt(dtpStartHDBan.Value, (dtpEndHDBan.Value).AddDays(1));
+        }
         #endregion
 
         #region 14. Giao dịch - Hoá đơn nhập hàng (tra cứu hoá đơn nhập)
-        // Code here
+        private void btnHoaDonNhap_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[14];
+        }
+
+        private void btnQuayLai14_0_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[0];
+        }
+        private void btnTraCuuHDNhap_Click(object sender, EventArgs e)
+        {
+            HoaDonNhapDAO hoaDonNhapDAO = new HoaDonNhapDAO();
+            dtgvListHDNhap.DataSource = hoaDonNhapDAO.GetListGoodReceipt(dtpStartHDNhap.Value, (dtpEndHDNhap.Value).AddDays(1));
+        }
         #endregion
 
         #region 15. Tra cứu - Sách
@@ -1011,11 +1038,52 @@ namespace DBMS_BookStore
         #endregion
 
         #region 23. Báo cáo - Doanh thu
-        // Code here
+        private void btnBaoCaoDoanhThu_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[23];
+            loadDataBC_DoanhThu();
+        }
+
+        private void btnQuayLai_23_3_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[3];
+        }
+
+        private void btnTraCuuBCDoanhThu_Click(object sender, EventArgs e)
+        {
+            HoaDonBanDAO ban = new HoaDonBanDAO();
+            tbTongBan.Text = ban.GetTongTienBan(dtpBCDoanhThuThang.Value) + "";
+            HoaDonNhapDAO nhap = new HoaDonNhapDAO();
+            tbTongNhap.Text = nhap.GetTongTienNhap(dtpBCDoanhThuThang.Value) + "";
+        }
+
+        void loadDataBC_DoanhThu()
+        {
+            HoaDonBanDAO ban = new HoaDonBanDAO();
+            lblOutputTongTienHDBan.Text = ban.GetTongTienHDDaBan() + "";
+            lblOutputTongLoiNhuan.Text = ban.GetTongLoiNhuan() + "";
+            KhachHangDAO kh = new KhachHangDAO();
+            lblOutputSoLuongKH.Text = kh.GetSoLuongKH() + "";
+        }
+
         #endregion
 
         #region 24. Báo cáo - Lương NV
-        // Code here
+        private void btnBaoCaoKhachHang_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[24];
+        }
+
+        private void btnQuayLai_24_3_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[3];
+        }
+
+        private void btnTraCuuBCLuong_Click(object sender, EventArgs e)
+        {
+            EmployeeDAO employeeDAO = new EmployeeDAO();
+            dtgvListLuong.DataSource = employeeDAO.GetBangLuongTheoThang(dtpTraCuuLuong.Value);
+        }
         #endregion
 
         // Set style cho dtgv
