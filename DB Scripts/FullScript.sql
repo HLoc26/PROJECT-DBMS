@@ -929,10 +929,16 @@ CREATE PROCEDURE SearchSACHByMaHang
 AS
 BEGIN
     SET NOCOUNT ON;
-    SELECT * FROM dbo.VIEW_SACH
-    WHERE MaSach = @MaHang;
+    SELECT s.MaSach, s.TieuDe, hh.DonGia, hh.SoLuong, tg.TenTG, tl.TenLoai, nxb.TenNXB
+    FROM dbo.SACH s
+    JOIN dbo.HANG_HOA hh ON s.MaSach = hh.MaHang
+    JOIN dbo.NXB nxb ON nxb.MaNXB = s.MaNXB
+    JOIN dbo.TAC_GIA_SACH tg_s ON tg_s.MaSach = s.MaSach
+    JOIN dbo.TAC_GIA tg ON tg.MaTG = tg_s.MaTG
+    JOIN dbo.THE_LOAI_SACH tl_s ON tl_s.MaSach = s.MaSach 
+    JOIN dbo.THE_LOAI tl ON tl.MaLoai = tl_s.MaLoai
+    WHERE s.TieuDe = @MaHang;
 END;
-GO
 
 -- PROCEDURE tra cứu văn phòng phẩm theo mã hàng
 CREATE PROCEDURE SearchBooksByAuthor
@@ -946,7 +952,8 @@ BEGIN
 END;
 GO
 
--- PROCEDURE tra cứu văn phòng phẩm theo mã hàng
+-- Update
+-- PROCEDURE tra cứu văn phòng phẩm theo mã hàng 
 CREATE PROCEDURE SearchVPPByMaHang
     @MaHang VARCHAR(20)
 AS
@@ -954,7 +961,7 @@ BEGIN
     SET NOCOUNT ON;
     SELECT MaHang, TenHang, DonGia, SoLuong
     FROM VIEW_VPP
-    WHERE MaHang = @MaHang;
+    WHERE TenHang = @MaHang;
 END;
 GO
 
