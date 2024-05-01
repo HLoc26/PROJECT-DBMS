@@ -99,13 +99,35 @@ namespace DBMS_BookStore.DAO
             }
             return ls;
         }
-        //Tìm kiếm bằng mã nv hoặc bằng tên nhân viên
-        public DataTable SearchNhanVienByMaNVOrTen(string input)
+        //Tìm kiếm gần đúng bằng mã nv
+        public DataTable GetInfoByMaNV(string tenNV)
         {
-            SqlCommand sqlCommand = new SqlCommand("SearchNhanVienByMaNVOrTen");
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("@Input", input);
-            return DBConnection.ExecuteQuery(sqlCommand);
+            string query = "EXEC dbo.PROC_GetNV_ByEmpID @MaNV = @param";
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.Parameters.AddWithValue("@param", tenNV);
+            return DBConnection.ExecuteQuery(cmd);
+        }
+
+        //Tìm kiếm gần đúng bằng tên NV
+        public DataTable GetInfoByTen(string tenNV)
+        {
+            string query = "EXEC dbo.PROC_GetNV_ByName @HoVaTen = @param";
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.Parameters.AddWithValue("@param", tenNV);
+            return DBConnection.ExecuteQuery(cmd);
+        }
+
+        // Lấy thông tin liên quan đến nv
+        public Employee GetNV(string MaNV)
+        {
+            string query = $"SELECT * FROM dbo.VIEW_NV_TK WHERE MaNV = '{MaNV}'";
+            SqlCommand cmd = new SqlCommand(query);
+            DataTable dt = DBConnection.ExecuteQuery(cmd);
+            if (dt.Rows.Count > 0)
+            {
+                return new Employee(dt.Rows[0]);
+            }
+            return null;
         }
 
         public DataTable GetDSNV()
@@ -114,5 +136,16 @@ namespace DBMS_BookStore.DAO
 
             return DBConnection.ExecuteQuery(sqlCommand);
         }
+
+        // Xoá thông tin nhân viên (cho nghỉ việc, set tình trạng làm việc thành nghỉ việc)
+        public int XoaNV(string MaNV)
+        {
+            string query = "EXEC PROC_Delete_NV @MaNV = @param";
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.Parameters.AddWithValue("@param", MaNV);
+
+            return DBConnection.ExecuteNonQuery(cmd);
+        }
+
     }
 }

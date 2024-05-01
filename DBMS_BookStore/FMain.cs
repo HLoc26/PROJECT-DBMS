@@ -9,6 +9,7 @@ using System.Data.Odbc;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -869,27 +870,10 @@ namespace DBMS_BookStore
         #endregion
 
         #region 22. Cài đặt - Xem thông tin NV (Chỉ admin mới sửa được)
-        private void btnTCNV_Click(object sender, EventArgs e)
-        {
-            string input = txtbTCNV.Text; // Assuming txtInput is the TextBox for input
-
-            // Call SearchNhanVienByMaNVOrTen method to retrieve data of employees
-            DataTable nhanVienData = employeeDAO.SearchNhanVienByMaNVOrTen(input);
-
-            // Clear existing rows in the DataGridView
-            dtgvTCNV.Rows.Clear();
-
-            // Add rows to the DataGridView based on the DataTable
-            foreach (DataRow row in nhanVienData.Rows)
-            {
-                string ttlv = "Nghỉ việc";
-                if ((bool)row["TinhTrangLamViec"]) ttlv = "Đang làm việc";
-                dtgvTCNV.Rows.Add(row["MaNV"], row["CMND"], row["Ho"], row["TenLot"], row["Ten"], row["GioiTinh"], row["Luong"], ttlv);
-            }
-        }
 
         private void LoadTCNV()
         {
+            dtgvTCNV.Rows.Clear();
             DataTable nhanVienData = employeeDAO.GetDSNV();
             foreach (DataRow row in nhanVienData.Rows)
             {
@@ -897,18 +881,132 @@ namespace DBMS_BookStore
                 if ((bool)row["TinhTrangLamViec"]) ttlv = "Đang làm việc";
                 dtgvTCNV.Rows.Add(row["MaNV"], row["CMND"], row["Ho"], row["TenLot"], row["Ten"], row["GioiTinh"], row["Luong"], ttlv);
             }
+            dtgvTCNV.ClearSelection();
         }
-        private void txtbTCNV_TextChanged(object sender, EventArgs e)
+        private void txbCD_NV_MaNV_TextChanged(object sender, EventArgs e)
         {
-            if (txtbTCNV.Text == string.Empty)
+            dtgvTCNV.ClearSelection();
+            if (string.IsNullOrEmpty(txbCD_NV_MaNV.Text))
             {
-                LoadTCNV();
+                foreach (DataGridViewRow row in dtgvTCNV.Rows)
+                {
+                    row.DefaultCellStyle.BackColor = Color.White;
+                }
+                return;
+            }
+            DataTable dsnv = employeeDAO.GetInfoByMaNV(txbCD_NV_MaNV.Text);
+            InputFieldChanged(dsnv);
+
+        }
+
+        private void txbCD_NV_HoTen_TextChanged(object sender, EventArgs e)
+        {
+            dtgvTCNV.ClearSelection();
+            if (string.IsNullOrEmpty(txbCD_NV_HoTen.Text))
+            {
+                foreach (DataGridViewRow row in dtgvTCNV.Rows)
+                {
+                    row.DefaultCellStyle.BackColor = Color.White;
+                }
+                return;
+            }
+
+            DataTable dsnv = employeeDAO.GetInfoByTen(txbCD_NV_HoTen.Text);
+            InputFieldChanged(dsnv);
+        }
+        private void InputFieldChanged(DataTable dsnv)
+        {
+            List<string> dsMaNV = new List<string>();
+
+            for (int i = 0; i < dsnv.Rows.Count; i++)
+            {
+                dsMaNV.Add(dsnv.Rows[i][0].ToString());
+            }
+
+            foreach (DataGridViewRow row in dtgvTCNV.Rows)
+            {
+                if (row.Cells[0].Value != null && dsMaNV.Contains(row.Cells[0].Value.ToString()))
+                {
+                    row.DefaultCellStyle.BackColor = Color.Yellow;
+                }
+                else
+                {
+                    row.DefaultCellStyle.BackColor = Color.White;
+
+                }
+            }
+        }
+        private void dtgvTCNV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow selectedRow = dtgvTCNV.SelectedRows[0];
+            Employee nv = employeeDAO.GetNV(selectedRow.Cells[0].Value.ToString());
+            if (nv != null)
+            {
+                txbCD_NV_MaNV.Text = nv.MaNV;
+                txbCD_NV_CMND.Text = nv.Cmnd;
+                txbCD_NV_HoTen.Text = nv.Ho + " " + nv.TenLot + " " + nv.Ten;
+                txbCD_NV_GioiTinh.Text = nv.GioiTinh;
+                txbCD_NV_Luong.Text = nv.Luong.ToString();
+                txbCD_NV_TenDN.Text = nv.TenDN;
+                txbCD_NV_MK.Text = nv.Mk;
+                string ttLamViec = "Đang làm việc";
+                if (nv.TinhTrangLamViec == false)
+                {
+                    ttLamViec = "Nghỉ việc";
+                }
+                txbCD_NV_TTLamViec.Text = ttLamViec;
             }
             else
             {
-                btnTCNV_Click(sender, e);
+                txbCD_NV_MaNV.Text = selectedRow.Cells[0].Value.ToString();
+                txbCD_NV_CMND.Text = selectedRow.Cells[1].Value.ToString();
+                txbCD_NV_HoTen.Text = selectedRow.Cells[2].Value.ToString()
+                    + " " + selectedRow.Cells[3].Value.ToString()
+                    + " " + selectedRow.Cells[4].Value.ToString();
+                txbCD_NV_GioiTinh.Text = selectedRow.Cells[5].Value.ToString();
+                txbCD_NV_Luong.Text = selectedRow.Cells[6].Value.ToString();
+                txbCD_NV_TTLamViec.Text = "Nghỉ việc";
+
             }
         }
+
+        private void btnCD_NV_ThemNV_Click(object sender, EventArgs e)
+        {
+            FRegis regis = new FRegis();
+            regis.ShowDialog();
+            LoadTCNV();
+        }
+
+        private void btnCD_NV_NghiViec_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txbCD_NV_MaNV.Text))
+            {
+                DialogResult confirm = MessageBox.Show($"Chắc chắn muốn đuổi việc {txbCD_NV_HoTen.Text}({txbCD_NV_MaNV.Text})?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (confirm == DialogResult.OK)
+                {
+                    int succeed = employeeDAO.XoaNV(txbCD_NV_MaNV.Text);
+                    if (succeed == 1)
+                    {
+                        MessageBox.Show($"Đã cho nhân viên {txbCD_NV_HoTen.Text}({txbCD_NV_MaNV.Text}) nghỉ việc!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Có lỗi trong quá trình cho nhân viên {txbCD_NV_HoTen.Text}({txbCD_NV_MaNV.Text}) nghỉ việc!", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nhập mã nhân viên muốn cho nghỉ việc", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCD_NV_QuayLai_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabControl.TabPages[2];
+        }
+
         #endregion
 
         #region 23. Báo cáo - Doanh thu
