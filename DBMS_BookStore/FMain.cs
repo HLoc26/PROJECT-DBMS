@@ -985,7 +985,7 @@ namespace DBMS_BookStore
                 if (confirm == DialogResult.OK)
                 {
                     int succeed = employeeDAO.XoaNV(txbCD_NV_MaNV.Text);
-                    if (succeed == 1)
+                    if (succeed > 1)
                     {
                         MessageBox.Show($"Đã cho nhân viên {txbCD_NV_HoTen.Text}({txbCD_NV_MaNV.Text}) nghỉ việc!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -1000,6 +1000,7 @@ namespace DBMS_BookStore
             {
                 MessageBox.Show("Nhập mã nhân viên muốn cho nghỉ việc", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            LoadTCNV();
         }
 
         private void btnCD_NV_QuayLai_Click(object sender, EventArgs e)

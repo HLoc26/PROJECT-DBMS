@@ -31,9 +31,16 @@ namespace DBMS_BookStore
 
             // Ho, TenLot, Ten
             string[] HoTen = txbHoTen.Text.Split();
+
+            // Ho
             string ho = HoTen.First();
+
+            // Ten
             string ten = HoTen.Last();
-            string tenLot = string.Join(" ", HoTen.Skip(1).Take(HoTen.Length - 2));
+
+            // TenLot
+            string tenLot = HoTen.Length > 2 ? string.Join(" ", HoTen.Skip(1).Take(HoTen.Length - 2)) : "";
+
 
             // Gioi Tinh
             string sex = rbtnNam.Checked ? rbtnNam.Text : rbtnNu.Text;
@@ -44,7 +51,7 @@ namespace DBMS_BookStore
             // MK
             string mk = txbMK.Text;
 
-            Employee emp = new Employee(cmnd, ho, ten, tenLot, sex, tenDN, mk);
+            Employee emp = new Employee(cmnd, ho, tenLot, ten, sex, tenDN, mk);
 
             string maNV = empDAO.Register(emp);
             if(maNV != null)
