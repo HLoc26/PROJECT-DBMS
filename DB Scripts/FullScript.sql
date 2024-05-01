@@ -697,7 +697,7 @@ RETURNS TABLE
 AS
 	RETURN (SELECT nv.MaNV, Ho, TenLot, GioiTinh, CMND, TinhTrangLamViec,
 				CASE
-					WHEN SoNgay != DAY(EOMONTH(@Date)) THEN (Luong - 500000)
+					WHEN SoNgay != DAY(EOMONTH(@Date)) THEN (Luong - 500)
 					ELSE Luong
 				END AS 'LuongThang'
 			FROM dbo.NHAN_VIEN nv LEFT JOIN VIEW_XemSoNgayLamViecTheoThang snlv ON snlv.MaNV = nv.MaNV
@@ -708,7 +708,7 @@ CREATE FUNCTION FUNC_TongTienHoaDonDaBan ()
 RETURNS INT
 AS
 BEGIN
-	RETURN (SELECT SUM(TongTien) FROM VIEW_TONG_TIEN_BAN)
+	RETURN (SELECT SUM(TongTien) FROM dbo.VIEW_TONG_TIEN_BAN)
 END;
 GO
 
@@ -716,17 +716,11 @@ CREATE FUNCTION FUNC_TongTienThuDuocThucTe ()
 RETURNS INT
 AS
 BEGIN
-	RETURN (SELECT SUM(TongTien * 0.5) FROM VIEW_TONG_TIEN_BAN)
+	RETURN (SELECT SUM(TongTien * 0.5) FROM dbo.VIEW_TONG_TIEN_BAN)
 END;
 GO
 
-CREATE FUNCTION FUNC_SoLuongKH ()
-RETURNS INT
-AS
-BEGIN
-	RETURN (SELECT COUNT(MaKH) FROM dbo.KHACH_HANG)
-END;
-GO
+
 -- =========================================================================================================================== --
 -- =========================================================================================================================== --
 -- ====================================  ____  ____   ___   ____ ____  _   _ ____  _____  ==================================== --
@@ -1112,7 +1106,6 @@ BEGIN
 	LEFT JOIN dbo.VIEW_TONG_TIEN_BAN vtt ON hdb.MaHoaDon = vtt.MaHoaDon
 	LEFT JOIN dbo.BAN_HANG bh ON bh.MaHoaDon = hdb.MaHoaDon
 	WHERE ThoiGianBan >= @NgayBatDau AND ThoiGianBan <= @NgayKetThuc
-	GROUP BY hdb.MaHoaDon, ThoiGianBan, KhuyenMai, TongTien, MaKH, MaNVBan
 END;
 GO
 
@@ -1125,7 +1118,6 @@ BEGIN
 	LEFT JOIN dbo.VIEW_TONG_TIEN_NHAP vtt ON vtt.MaDonNhap = hdn.MaDonNhap
 	LEFT JOIN dbo.NHAP_HANG nh ON nh.MaDonNhap = hdn.MaDonNhap
 	WHERE hdn.ThoiGianNhap >= @NgayBatDau AND hdn.ThoiGianNhap <= @NgayKetThuc
-	GROUP BY hdn.MaDonNhap, ThoiGianNhap, TongTien, MaNVNhap
 END;
 GO
 
