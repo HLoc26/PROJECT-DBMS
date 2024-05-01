@@ -13,11 +13,12 @@ USE master;
 IF DB_ID('Proj_DBMS_BookStore') IS NOT NULL
 	DROP DATABASE Proj_DBMS_BookStore
 GO
+SET XACT_ABORT ON
 CREATE DATABASE Proj_DBMS_BookStore
 GO
 USE Proj_DBMS_BookStore;
 GO
-CREATE ROLE NV
+BEGIN TRAN
 
 -- MaNXB VARCHAR(10)
 -- MaHang VARCHAR(20)
@@ -1321,7 +1322,7 @@ BEGIN
     BEGIN CATCH
         ROLLBACK;
         DECLARE @err NVARCHAR(MAX);
-        SET @err = N'ERROR FROM Trigger TRIG_NhapHang: ' + ERROR_MESSAGE();
+        SET @err = N'ERROR FROM Trigger Create SQL Account: ' + ERROR_MESSAGE();
         RAISERROR(@err, 16, 1);
     END CATCH;
 
@@ -1335,17 +1336,29 @@ GO
 -- ===========================================================================================================================--
 -- ===========================================================================================================================--
 
+USE Proj_DBMS_BookStore
+SET XACT_ABORT ON
+BEGIN TRAN
+CREATE ROLE NV
 GRANT UPDATE (SoLuong) ON dbo.HANG_HOA TO NV;
 GRANT SELECT, REFERENCES ON dbo.NXB TO NV;
 GRANT SELECT, REFERENCES ON dbo.VAN_PHONG_PHAM TO NV;
 GRANT SELECT, INSERT, REFERENCES ON dbo.KHACH_HANG TO NV;
 GRANT SELECT, UPDATE (SoDiem) ON dbo.THE_TV TO NV;
-GRANT SELECT, REFERENCES ON dbo.NHAN_VIEN TO NV;
+GRANT REFERENCES ON dbo.NHAN_VIEN TO NV;
 GRANT SELECT, REFERENCES ON dbo.TAI_KHOAN_DN TO NV;
 GRANT SELECT, INSERT, REFERENCES ON dbo.LS_DANG_NHAP TO NV;
 GRANT SELECT, INSERT, REFERENCES ON dbo.TAO_TV TO NV;
 GRANT SELECT, INSERT, REFERENCES ON dbo.HOA_DON_BAN TO NV;
 GRANT SELECT, INSERT, REFERENCES ON dbo.BAN_HANG TO NV;
+
+DENY SELECT ON dbo.VIEW_NV_TK TO NV;
+DENY EXECUTE ON PROC_Register TO NV;
+DENY EXECUTE ON PROC_NhapHang TO NV;
+DENY EXECUTE ON FUNC_Create_MaHoaDonNhap TO NV;
+COMMIT TRAN
+
+
 
 -- =========================================================================================================================== --
 -- =========================================================================================================================== --
@@ -1796,7 +1809,8 @@ VALUES
 ('NV-002', '014201003245', N'Hoàng', N'Ngọc Quang', N'Minh', N'Nam',4500000, 1),
 ('NV-003', '045302001521', N'Nguyễn', N'Trần Bảo', N'Ngọc', N'Nữ', 4500000, 1),
 ('NV-004', '035301003241', N'Trần', N'Thị', N'Nghỉ', N'Nữ', 3500000, 1),
-('NV-005', '045599007671', N'Lê', N'Văn', N'Ngọc', N'Nam', 5000000, 1)
+('NV-005', '045599007671', N'Lê', N'Văn', N'Ngọc', N'Nam', 5000000, 1),
+('ADMIN', 'ADMIN', N'ADMIN',N'ADMIN',N'ADMIN', N'Nam', DEFAULT, 1)
 GO
 
 INSERT dbo.TAI_KHOAN_DN (MaNV, TenDN, MK)
@@ -1815,6 +1829,12 @@ INSERT dbo.TAI_KHOAN_DN (MaNV, TenDN, MK)
 VALUES
 ('NV-005', 'nvnn7671','MK123456')
 GO
+
+INSERT dbo.TAI_KHOAN_DN (MaNV, TenDN, MK)
+VALUES
+('ADMIN', 'admin','admin123')
+GO
+ALTER SERVER ROLE sysadmin ADD MEMBER admin
 
 INSERT dbo.LS_DANG_NHAP(TenDN, ThoiGianDN)
 VALUES
@@ -1849,3 +1869,4 @@ VALUES
 ('MB-0006', '440', '0888998903'),
 ('MB-0007', '230', '0972377456')
 
+COMMIT TRAN
