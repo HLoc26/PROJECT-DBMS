@@ -675,8 +675,13 @@ CREATE FUNCTION FUNC_TOTAL_SALE_AMOUNT (@Date DATE)
 RETURNS INT
 AS
 BEGIN
-	RETURN (SELECT SUM(TongTien) FROM VIEW_TONG_TIEN_BAN tb LEFT JOIN dbo.HOA_DON_BAN hdb ON hdb.MaHoaDon = tb.MaHoaDon
-	WHERE MONTH(ThoiGianBan) = MONTH(@DATE) AND YEAR(ThoiGianBan) = YEAR(@DATE))
+	DECLARE @TotalAmount INT;
+
+	SELECT @TotalAmount = ISNULL(SUM(TongTien), 0)
+	FROM VIEW_TONG_TIEN_BAN tb LEFT JOIN dbo.HOA_DON_BAN hdb ON hdb.MaHoaDon = tb.MaHoaDon
+	WHERE MONTH(ThoiGianBan) = MONTH(@DATE) AND YEAR(ThoiGianBan) = YEAR(@DATE);
+
+	RETURN @TotalAmount;
 END;
 GO
 
@@ -685,8 +690,13 @@ CREATE FUNCTION FUNC_TOTAL_EXPENSES (@Date DATE)
 RETURNS INT
 AS
 BEGIN
-	RETURN (SELECT SUM(TongTien) FROM VIEW_TONG_TIEN_NHAP tn LEFT JOIN dbo.HOA_DON_NHAP hdn ON hdn.MaDonNhap = tn.MaDonNhap
-	WHERE MONTH(ThoiGianNhap) = MONTH(@DATE) AND YEAR(ThoiGianNhap) = YEAR(@DATE))
+	DECLARE @TotalExpenses INT;
+
+	SELECT @TotalExpenses = ISNULL(SUM(TongTien), 0)
+	FROM VIEW_TONG_TIEN_NHAP tn LEFT JOIN dbo.HOA_DON_NHAP hdn ON hdn.MaDonNhap = tn.MaDonNhap
+	WHERE MONTH(ThoiGianNhap) = MONTH(@Date) AND YEAR(ThoiGianNhap) = YEAR(@Date);
+
+	RETURN @TotalExpenses;
 END;
 GO
 
