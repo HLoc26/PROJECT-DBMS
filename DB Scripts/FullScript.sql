@@ -939,8 +939,9 @@ BEGIN
     JOIN dbo.THE_LOAI tl ON tl.MaLoai = tl_s.MaLoai
     WHERE s.TieuDe = @MaHang;
 END;
+GO
 
--- PROCEDURE tra cứu văn phòng phẩm theo mã hàng
+-- PROCEDURE tra cứu sách theo tên tác giả
 CREATE PROCEDURE SearchBooksByAuthor
     @tenTG NVARCHAR(20)
 AS
