@@ -59,7 +59,7 @@
             this.tblpPassword.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tblpPassword.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tblpPassword.Size = new System.Drawing.Size(274, 64);
-            this.tblpPassword.TabIndex = 2;
+            this.tblpPassword.TabIndex = 17;
             // 
             // lblIncorrectPassword
             // 
@@ -69,7 +69,7 @@
             this.lblIncorrectPassword.Location = new System.Drawing.Point(3, 44);
             this.lblIncorrectPassword.Name = "lblIncorrectPassword";
             this.lblIncorrectPassword.Size = new System.Drawing.Size(235, 20);
-            this.lblIncorrectPassword.TabIndex = 2;
+            this.lblIncorrectPassword.TabIndex = 18;
             this.lblIncorrectPassword.Text = "Incorrect Username or Password";
             // 
             // txbPassword
@@ -95,7 +95,7 @@
             this.tblpUsername.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tblpUsername.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tblpUsername.Size = new System.Drawing.Size(274, 64);
-            this.tblpUsername.TabIndex = 0;
+            this.tblpUsername.TabIndex = 21;
             // 
             // lblIncorrectUsername
             // 
@@ -105,7 +105,7 @@
             this.lblIncorrectUsername.Location = new System.Drawing.Point(3, 44);
             this.lblIncorrectUsername.Name = "lblIncorrectUsername";
             this.lblIncorrectUsername.Size = new System.Drawing.Size(236, 20);
-            this.lblIncorrectUsername.TabIndex = 1;
+            this.lblIncorrectUsername.TabIndex = 12;
             this.lblIncorrectUsername.Text = "Incorrect Username or password";
             // 
             // txbUsername
@@ -126,7 +126,7 @@
             this.label1.Location = new System.Drawing.Point(63, 273);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(136, 28);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 11;
             this.label1.Text = "Tên đăng nhập";
             // 
             // label2
@@ -137,7 +137,7 @@
             this.label2.Location = new System.Drawing.Point(63, 371);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 28);
-            this.label2.TabIndex = 3;
+            this.label2.TabIndex = 20;
             this.label2.Text = "Mật khẩu";
             // 
             // btnLogin
@@ -195,7 +195,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(400, 700);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.TabIndex = 16;
             // 
             // label3
             // 
@@ -205,7 +205,7 @@
             this.label3.Location = new System.Drawing.Point(63, 179);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(264, 48);
-            this.label3.TabIndex = 5;
+            this.label3.TabIndex = 13;
             this.label3.Text = "Welcome Back";
             // 
             // btnExit
@@ -222,7 +222,7 @@
             this.btnExit.Location = new System.Drawing.Point(343, 3);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(54, 61);
-            this.btnExit.TabIndex = 2;
+            this.btnExit.TabIndex = 14;
             this.btnExit.Text = "x";
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnExit.UseVisualStyleBackColor = false;

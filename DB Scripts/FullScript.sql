@@ -392,7 +392,7 @@ GO
 CREATE FUNCTION FUNC_Get_HangHoa(@MaHang VARCHAR(20))
 RETURNS TABLE
 AS
-	RETURN (SELECT * FROM VIEW_HANG_HOA WHERE MaHang = @MaHang)
+	RETURN (SELECT * FROM dbo.VIEW_HANG_HOA WHERE MaHang = @MaHang)
 GO
 
 -- Hàm tạo mã thẻ thành viên tự động
@@ -1379,7 +1379,6 @@ GO
 -- ===========================================================================================================================--
 -- ===========================================================================================================================--
 -- ===========================================================================================================================--
-
 USE Proj_DBMS_BookStore
 SET XACT_ABORT ON
 BEGIN TRAN
@@ -1400,7 +1399,7 @@ GRANT SELECT ON dbo.FUNC_GetLoginHistory TO NV;
 GRANT SELECT ON dbo.VIEW_SACH TO NV;
 GRANT SELECT ON dbo.VIEW_THELOAISACH TO NV;
 GRANT SELECT ON dbo.VIEW_VPP TO NV;
-
+GRANT SELECT ON dbo.FUNC_Get_HangHoa TO NV;
 
 DENY SELECT ON dbo.VIEW_NV TO NV;
 DENY SELECT ON dbo.VIEW_NV_TK TO NV;
@@ -1408,7 +1407,6 @@ DENY EXECUTE ON PROC_Register TO NV;
 DENY EXECUTE ON PROC_NhapHang TO NV;
 DENY EXECUTE ON FUNC_Create_MaHoaDonNhap TO NV;
 COMMIT TRAN
-
 -- =========================================================================================================================== --
 -- =========================================================================================================================== --
 -- ===============================  ___ _   _ ____  _____ ____ _____   ____    _  _____  _     =============================== --
