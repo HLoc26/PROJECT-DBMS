@@ -623,6 +623,15 @@ namespace DBMS_BookStore
             tabControl.SelectedTab = tabControl.TabPages[1];
         }
 
+        private void txtb_TCSACH_Enter(object sender, EventArgs e)
+        {
+            if (txtb_TCSACH.Text == "Tra cứu Sách theo Tiêu đề...")
+            {
+                txtb_TCSACH.Text = "";
+                txtb_TCSACH.ForeColor = Color.FromArgb(0, 80, 131);
+            }
+        }
+
         private void btnTCSACHID_Click(object sender, EventArgs e)
         {
             string maHang = txtb_TCSACH.Text;
@@ -640,14 +649,21 @@ namespace DBMS_BookStore
                 dtgvTCSACH.Rows.Add(row["MaSach"], row["TieuDe"], row["DonGia"], row["SoLuong"], row["TenTG"], row["TenLoai"], row["TenNXB"]);
             }
         }
-
-
         #endregion
 
         #region 16. Tra cứu - Tác giả
         private void btnQuayLaiTCTG_TC_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[1];
+        }
+
+        private void txtbTCTG_Enter(object sender, EventArgs e)
+        {
+            if (txtb_TCSACH.Text == "Tra cứu theo tên Tác giả...")
+            {
+                txtb_TCSACH.Text = "";
+                txtb_TCSACH.ForeColor = Color.FromArgb(0, 80, 131);
+            }
         }
 
         private void btnTCTG_Click(object sender, EventArgs e)
@@ -674,6 +690,15 @@ namespace DBMS_BookStore
             tabControl.SelectedTab = tabControl.TabPages[1];
         }
 
+        private void txtbTCNXB_Enter(object sender, EventArgs e)
+        {
+            if (txtb_TCSACH.Text == "Tra cứu theo tên Nhà Xuất Bản...")
+            {
+                txtb_TCSACH.Text = "";
+                txtb_TCSACH.ForeColor = Color.FromArgb(0, 80, 131);
+            }
+        }
+
         private void btnTCNXB_Click(object sender, EventArgs e)
         {
             string TenNXB = txtbTCNXB.Text;
@@ -697,6 +722,15 @@ namespace DBMS_BookStore
             tabControl.SelectedTab = tabControl.TabPages[1];
         }
 
+        private void txtbTCTL_Enter(object sender, EventArgs e)
+        {
+            if (txtb_TCSACH.Text == "Tra cứu theo Thể loại...")
+            {
+                txtb_TCSACH.Text = "";
+                txtb_TCSACH.ForeColor = Color.FromArgb(0, 80, 131);
+            }
+        }
+
         private void btnTCTL_Click(object sender, EventArgs e)
         {
             string tenLoai = txtbTCTL.Text; 
@@ -714,6 +748,15 @@ namespace DBMS_BookStore
         private void btnQuayLaiTCVPP_TC_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[1];
+        }
+
+        private void txtbTCVPP_Enter(object sender, EventArgs e)
+        {
+            if (txtb_TCSACH.Text == "Tra cứu Văn phòng phẩm theo Tên hàng...")
+            {
+                txtb_TCSACH.Text = "";
+                txtb_TCSACH.ForeColor = Color.FromArgb(0, 80, 131);
+            }
         }
 
         private void btnTCVPP_Click(object sender, EventArgs e)
@@ -870,8 +913,8 @@ namespace DBMS_BookStore
         {
             string[] monthNames = new string[]
             {
-                "January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December"
+                "1", "2", "3", "4", "5", "6",
+                "7", "8", "9", "10", "11", "12"
             };
             cbbMonth.Items.AddRange(monthNames);
 
@@ -1107,7 +1150,13 @@ namespace DBMS_BookStore
 
         private void btnTraCuuBCLuong_Click(object sender, EventArgs e)
         {
-            dtgvListLuong.DataSource = employeeDAO.GetBangLuongTheoThang(dtpTraCuuLuong.Value);
+            DataTable dt = employeeDAO.GetBangLuongTheoThang(dtpTraCuuLuong.Value);
+            foreach(DataRow row in dt.Rows)
+            {
+                dtgvListLuong.Rows.Add(row.ItemArray);
+            }
+            dtgvListLuong.Refresh();
+            dtgvListLuong.Update();
         }
         #endregion
 

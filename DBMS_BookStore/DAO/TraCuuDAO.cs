@@ -37,7 +37,7 @@ namespace DBMS_BookStore.DAO
         }
         public DataTable LoadTCNXB()
         {
-            string query = "SELECT * FROM dbo.VIEW_SACH_NXB";
+            string query = "SELECT * FROM dbo.VIEW_SACHNXB";
             SqlCommand sqlCommand = new SqlCommand(query);
             DataTable dt = DBConnection.ExecuteQuery(sqlCommand);
             if (dt.Rows.Count > 0)
