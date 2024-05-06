@@ -13,25 +13,22 @@ namespace DBMS_BookStore.DAO
  
     public class KhachHangDAO
     {
-        KhachHang khachHang;
-        TheTV theTV;
         //Tạo khách hàng mới
-        public string createCustomer(string MaKH, string MaThe)
+        public string createCustomer(KhachHang kh, TheTV tv)
         {
             string query = "EXEC dbo.PROC_Create_Customer @MaKH = @param1 , @Ho = @param2 , @TenLot = @param3 ," +
-                "@Ten = @param4 , @NgaySinh = @param5 , @GioiTinh = @param6 ,@MaThe = @param7, @SoDiem = @param8 ";
+                "@Ten = @param4 , @NgaySinh = @param5 , @GioiTinh = @param6, @SoDiem = @param7 ";
             SqlCommand cmd = new SqlCommand(query);
-            cmd.Parameters.AddWithValue("@param1", MaKH);
-            cmd.Parameters.AddWithValue("@param2", khachHang.Ho);
-            cmd.Parameters.AddWithValue("@param3", khachHang.TenLot);
-            cmd.Parameters.AddWithValue("@param4", khachHang.Ten);
-            cmd.Parameters.AddWithValue("@param5", khachHang.NgaySinh);
-            cmd.Parameters.AddWithValue("@param6", khachHang.GioiTinh);
-            cmd.Parameters.AddWithValue("@param7", MaThe);
-            cmd.Parameters.AddWithValue("@param7", theTV.SoDiem);
+            cmd.Parameters.AddWithValue("@param1", kh.MaKH);
+            cmd.Parameters.AddWithValue("@param2", kh.Ho);
+            cmd.Parameters.AddWithValue("@param3", kh.TenLot);
+            cmd.Parameters.AddWithValue("@param4", kh.Ten);
+            cmd.Parameters.AddWithValue("@param5", kh.NgaySinh);
+            cmd.Parameters.AddWithValue("@param6", kh.GioiTinh);
+            cmd.Parameters.AddWithValue("@param7", tv.SoDiem);
 
-            string maNV = (string)DBConnection.ExecuteScalar(cmd);
-            return maNV;
+            string MaThe = (string)DBConnection.ExecuteScalar(cmd);
+            return MaThe;
         }
 
         //Tìm kiếm khách hàng theo mã khách hàng

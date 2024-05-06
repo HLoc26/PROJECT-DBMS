@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace DBMS_BookStore
 {
     public partial class FKhachhang : Form
     {
-        KhachHangDAO dao = new KhachHangDAO();
+        KhachHangDAO KhDAO = new KhachHangDAO();
         KhachHang kh;
         public FKhachhang()
         {
@@ -22,7 +23,7 @@ namespace DBMS_BookStore
         }
         private void txtCustomerID_Leave(object sender, EventArgs e)
         {
-            KhachHang check = dao.GetInforByCusID(txtCustomerID.Text);
+            KhachHang check = KhDAO.GetInforByCusID(txtCustomerID.Text);
             if (check == null)
             {
                 //KhachHang kh = dao.ShowCustomer(txtCustomerID.Text);
@@ -36,10 +37,10 @@ namespace DBMS_BookStore
         }
         private void btnCustomerID_Click(object sender, EventArgs e)
         {
-            KhachHang check = dao.GetInforByMemID(txtMembershipID.Text);
+            KhachHang check = KhDAO.GetInforByMemID(txtMembershipID.Text);
             if (check == null)
             {
-                KhachHang kh = dao.ShowMembership(txtMembershipID.Text);
+                KhachHang kh = KhDAO.ShowMembership(txtMembershipID.Text);
                 txtCustomerID.Text = kh.MaKH;
                 txtCustomerName.Text = kh.Ho + " " + kh.TenLot + " " + kh.Ten;
                 txtCustomerDoB.Text = kh.NgaySinh.ToString();
@@ -50,15 +51,66 @@ namespace DBMS_BookStore
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            string succeed = dao.createCustomer(txtCustomerID_2.Text, txtMembershipID_2.Text);
-            if (succeed != null)
+            if (!checkTxb())
             {
-                // Cập nhật lại nv hiện tại
-                MessageBox.Show("Complete!");
+                return;
             }
-            return;
+            //customer ID
+            string cusID = txtCustomerID_2.Text;
+            // Ho, TenLot, Ten
+            string[] HoTen = txtCustomerName.Text.Split();
+
+            // Ho
+            string ho = HoTen.First();
+
+            // Ten
+            string ten = HoTen.Last();
+
+            // TenLot
+            string tenLot = HoTen.Length > 2 ? string.Join(" ", HoTen.Skip(1).Take(HoTen.Length - 2)) : "";
+
+            //Bac
+            string bac = txtCustomerLevel_2.Text;
+
+            //NgaySinh
+            DateTime ngaySinh = DateTime.ParseExact(txtCustomerDoB_2.Text, "dd,MM,yyyy", CultureInfo.InvariantCulture);
+
+            //Diem Tich Luy
+            int soDiem = 0;
+
+            // Gioi Tinh
+            string gender = rbtnMale.Checked ? rbtnMale.Text : rbtnFemale.Text;
+
+            TheTV tv = new TheTV(soDiem, bac, cusID);
+            KhachHang kh = new KhachHang(cusID, ho, tenLot, ten, ngaySinh, gender, tv);
+
+            string maKH = KhDAO.createCustomer(kh, tv);
+            if (maKH != null)
+            {
+                MessageBox.Show($"Đăng ký thành công!\n\rMã khách hàng vừa mới tạo là {maKH}", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show($"Đăng ký thất bại!", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
+        private bool checkTxb ()
+        {
+            if(txtCustomerID_2.Text.Length < 10)
+            {
+                return false;
+            }
+            if(txtCustomerName_2.Text.Length < 5) 
+            {
+                return false;
+            }
+            return true;
+        }
 
+        private void btnReturn_2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

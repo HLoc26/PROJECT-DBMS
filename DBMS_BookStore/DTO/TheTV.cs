@@ -13,17 +13,12 @@ namespace DBMS_BookStore.DTO
         string maThe;
         int soDiem;
         string tenBacTV;
-        DateTime ngayBatDau;
-        DateTime ngayKetThuc;
         string maKH;
 
-        public TheTV(string maThe, int soDiem, string tenBacTV, DateTime ngayBatDau, DateTime ngayKetThuc, string maKH)
+        public TheTV(int soDiem, string tenBacTV, string maKH)
         {
-            MaThe = maThe;
             SoDiem = 0;
             TenBacTV = tenBacTV;
-            NgayBatDau = ngayBatDau;
-            NgayKetThuc = ngayKetThuc;
             MaKH = maKH;
         }
         public TheTV(DataRow dr)
@@ -31,16 +26,12 @@ namespace DBMS_BookStore.DTO
             MaThe = dr["MaThe"].ToString();
             SoDiem = (int)dr["SoDiem"];
             TenBacTV = dr["TenBacTV"].ToString();
-            NgayBatDau = (DateTime)dr["NgayBatDau"];
-            NgayKetThuc = (DateTime)dr["NgayKetThuc"];
             MaKH = dr["MaKH"].ToString();
 
         }
         public string MaThe { get => maThe; set => maThe = value; }
         public int SoDiem { get => soDiem; set => soDiem = value; }
         public string TenBacTV { get => tenBacTV; set => tenBacTV = value; }
-        public DateTime NgayBatDau { get => ngayBatDau; set => ngayBatDau = value; }
-        public DateTime NgayKetThuc { get => ngayKetThuc; set => ngayKetThuc = value; }
         public string MaKH { get => maKH; set => maKH = value; }
     }
 

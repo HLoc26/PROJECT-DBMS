@@ -73,7 +73,9 @@
             this.txtCustomerDoB_2 = new System.Windows.Forms.TextBox();
             this.lblCustomerDoB_2 = new System.Windows.Forms.Label();
             this.pnlCustomerGender_2 = new System.Windows.Forms.Panel();
-            this.txtCustomerGender_2 = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.rbtnFemale = new System.Windows.Forms.RadioButton();
+            this.rbtnMale = new System.Windows.Forms.RadioButton();
             this.lblCustomerGender_2 = new System.Windows.Forms.Label();
             this.pnlCustomerScore_2 = new System.Windows.Forms.Panel();
             this.txtCustomerScore_2 = new System.Windows.Forms.TextBox();
@@ -106,6 +108,7 @@
             this.pnlCustormerName_2.SuspendLayout();
             this.pnlCustomerDoB_2.SuspendLayout();
             this.pnlCustomerGender_2.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.pnlCustomerScore_2.SuspendLayout();
             this.pnlCustomerLevel_2.SuspendLayout();
             this.pnlMemberShipID_2.SuspendLayout();
@@ -568,7 +571,7 @@
             // 
             // pnlCustomerGender_2
             // 
-            this.pnlCustomerGender_2.Controls.Add(this.txtCustomerGender_2);
+            this.pnlCustomerGender_2.Controls.Add(this.tableLayoutPanel4);
             this.pnlCustomerGender_2.Controls.Add(this.lblCustomerGender_2);
             this.pnlCustomerGender_2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlCustomerGender_2.Location = new System.Drawing.Point(3, 219);
@@ -576,12 +579,46 @@
             this.pnlCustomerGender_2.Size = new System.Drawing.Size(384, 67);
             this.pnlCustomerGender_2.TabIndex = 2;
             // 
-            // txtCustomerGender_2
+            // tableLayoutPanel4
             // 
-            this.txtCustomerGender_2.Location = new System.Drawing.Point(144, 25);
-            this.txtCustomerGender_2.Name = "txtCustomerGender_2";
-            this.txtCustomerGender_2.Size = new System.Drawing.Size(229, 22);
-            this.txtCustomerGender_2.TabIndex = 1;
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.rbtnFemale, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.rbtnMale, 0, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(144, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(229, 64);
+            this.tableLayoutPanel4.TabIndex = 1;
+            // 
+            // rbtnFemale
+            // 
+            this.rbtnFemale.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rbtnFemale.AutoSize = true;
+            this.rbtnFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnFemale.Location = new System.Drawing.Point(141, 17);
+            this.rbtnFemale.Name = "rbtnFemale";
+            this.rbtnFemale.Size = new System.Drawing.Size(61, 30);
+            this.rbtnFemale.TabIndex = 1;
+            this.rbtnFemale.TabStop = true;
+            this.rbtnFemale.Text = "Nữ";
+            this.rbtnFemale.UseVisualStyleBackColor = true;
+            // 
+            // rbtnMale
+            // 
+            this.rbtnMale.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rbtnMale.AutoSize = true;
+            this.rbtnMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnMale.Location = new System.Drawing.Point(17, 17);
+            this.rbtnMale.Name = "rbtnMale";
+            this.rbtnMale.Size = new System.Drawing.Size(80, 30);
+            this.rbtnMale.TabIndex = 1;
+            this.rbtnMale.TabStop = true;
+            this.rbtnMale.Text = "Nam";
+            this.rbtnMale.UseVisualStyleBackColor = true;
             // 
             // lblCustomerGender_2
             // 
@@ -691,6 +728,7 @@
             this.btnReturn_2.TabIndex = 0;
             this.btnReturn_2.Text = "Quay lại";
             this.btnReturn_2.UseVisualStyleBackColor = true;
+            this.btnReturn_2.Click += new System.EventHandler(this.btnReturn_2_Click);
             // 
             // btnCreate
             // 
@@ -742,6 +780,8 @@
             this.pnlCustomerDoB_2.PerformLayout();
             this.pnlCustomerGender_2.ResumeLayout(false);
             this.pnlCustomerGender_2.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.pnlCustomerScore_2.ResumeLayout(false);
             this.pnlCustomerScore_2.PerformLayout();
             this.pnlCustomerLevel_2.ResumeLayout(false);
@@ -799,7 +839,6 @@
         private System.Windows.Forms.TextBox txtCustomerDoB_2;
         private System.Windows.Forms.Label lblCustomerDoB_2;
         private System.Windows.Forms.Panel pnlCustomerGender_2;
-        private System.Windows.Forms.TextBox txtCustomerGender_2;
         private System.Windows.Forms.Label lblCustomerGender_2;
         private System.Windows.Forms.Panel pnlCustomerScore_2;
         private System.Windows.Forms.TextBox txtCustomerScore_2;
@@ -813,5 +852,8 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button btnReturn_2;
         private System.Windows.Forms.Button btnCreate;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.RadioButton rbtnFemale;
+        private System.Windows.Forms.RadioButton rbtnMale;
     }
 }
