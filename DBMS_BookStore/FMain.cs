@@ -669,8 +669,8 @@ namespace DBMS_BookStore
             string maHang = txtb_TCSACH.Text;
 
 
-            // Call SearchSACHByMaHang method to retrieve books by maHang
-            DataTable booksByMaHang = traCuuDAO.SearchSACHByMaHang(maHang);
+            // Call SearchSACHByPartialMaSachOrTieuDe method to retrieve books by maHang
+            DataTable booksByMaHang = traCuuDAO.SearchSACHByPartialMaSachOrTieuDe(maHang);
 
             // Clear existing rows in the DataGridView
             dtgvTCSACH.Rows.Clear();
@@ -703,7 +703,7 @@ namespace DBMS_BookStore
             string authorName = txtbTCTG.Text;
 
             // Call SearchBooksByAuthor method to retrieve books by author
-            DataTable booksByAuthor = traCuuDAO.SearchBooksByAuthor(authorName);
+            DataTable booksByAuthor = traCuuDAO.SearchBooksByPartialAuthor(authorName);
 
             // Clear existing rows in the DataGridView
             dtgvTCTG.Rows.Clear();
@@ -736,7 +736,7 @@ namespace DBMS_BookStore
             string TenNXB = txtbTCNXB.Text;
             TraCuuDAO traCuuDAO = new TraCuuDAO();
 
-            DataTable sachNXBData = traCuuDAO.SearchSachByNXB(TenNXB);
+            DataTable sachNXBData = traCuuDAO.SearchSachByPartialNXB(TenNXB);
 
             dtgvTCNXB.Rows.Clear();
 
@@ -767,7 +767,7 @@ namespace DBMS_BookStore
         {
             string tenLoai = txtbTCTL.Text; 
             TraCuuDAO traCuuDAO = new TraCuuDAO();
-            DataTable sachByTenLoaiData = traCuuDAO.SearchSachByTenLoai(tenLoai);
+            DataTable sachByTenLoaiData = traCuuDAO.SearchSachByPartialTenLoai(tenLoai);
             dtgvTCTL.Rows.Clear();
             foreach (DataRow row in sachByTenLoaiData.Rows)
             {
@@ -793,12 +793,12 @@ namespace DBMS_BookStore
 
         private void btnTCVPP_Click(object sender, EventArgs e)
         {
-            string maHang = txtbTCVPP.Text; 
+            string maHang = txtbTCVPP.Text;
 
 
 
-            // Call SearchVPPByMaHang method to retrieve VPP items by MaHang
-            DataTable vppByMaHang = traCuuDAO.SearchVPPByMaHang(maHang);
+            // Call SearchVPPByPartialTenHang method to retrieve VPP items by MaHang
+            DataTable vppByMaHang = traCuuDAO.SearchVPPByPartialTenHang(maHang);
 
             // Clear existing rows in the DataGridView
             dtgvTCVPP.Rows.Clear();
