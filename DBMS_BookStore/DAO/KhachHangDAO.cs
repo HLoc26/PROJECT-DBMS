@@ -75,5 +75,13 @@ namespace DBMS_BookStore.DAO
 
             return (int)DBConnection.ExecuteScalar(cmd);
         }
+
+        public double GetDiscountValue(string MaKH)
+        {
+            string query = "SELECT FUNC_GetDiscount(@param)";
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.Parameters.AddWithValue("@param", MaKH);
+            return (double)DBConnection.ExecuteScalar(cmd);
+        }
     }
 }
