@@ -449,8 +449,8 @@ BEGIN
 			WHEN @SoDiem = 0 THEN 0.0
 			WHEN @SoDiem > 0 AND @SoDiem < 200 THEN 0.1
 			WHEN @SoDiem >= 200 AND @SoDiem < 400 THEN 0.2
-			WHEN @SoDiem >= 400 AND @SoDiem < 600 THEN 0.3
-			ELSE 0.4
+			WHEN @SoDiem >= 400 THEN 0.3
+			ELSE 0.0
 		END
 	RETURN @Discount
 END;
