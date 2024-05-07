@@ -14,7 +14,7 @@ namespace DBMS_BookStore.DAO
     public class KhachHangDAO
     {
         //Tạo khách hàng mới
-        public string createCustomer(KhachHang kh, TheTV tv)
+        public string createCustomer(KhachHang kh)
         {
             string query = "EXEC dbo.PROC_Create_Customer @MaKH = @param1 , @Ho = @param2 , @TenLot = @param3 ," +
                 "@Ten = @param4 , @NgaySinh = @param5 , @GioiTinh = @param6, @SoDiem = @param7 ";
@@ -25,44 +25,25 @@ namespace DBMS_BookStore.DAO
             cmd.Parameters.AddWithValue("@param4", kh.Ten);
             cmd.Parameters.AddWithValue("@param5", kh.NgaySinh);
             cmd.Parameters.AddWithValue("@param6", kh.GioiTinh);
-            cmd.Parameters.AddWithValue("@param7", tv.SoDiem);
+            cmd.Parameters.AddWithValue("@param7", kh.SoDiem);
 
             string MaThe = (string)DBConnection.ExecuteScalar(cmd);
             return MaThe;
         }
 
         //Tìm kiếm khách hàng theo mã khách hàng
-        public KhachHang GetInforByCusID(string MaKH)
+        public DataTable GetInforByCusID(string MaKH)
         {
             string query = "EXEC PROC_GetKH_ByCusID @MaKH = @param";
             SqlCommand cmd = new SqlCommand(query);
             cmd.Parameters.AddWithValue("@param", MaKH);
-
-            DataTable dt = DBConnection.ExecuteQuery(cmd);
-            if (dt.Rows.Count > 0)
-                return new KhachHang(dt.Rows[0]);
-            else return null;
+            return DBConnection.ExecuteQuery(cmd);
         }
-
-        //Tìm kiém khách hàng theo mã thẻ thành viên
-        public KhachHang GetInforByMemID(string MaThe)
-        {
-            string query = "EXEC PROC_GetKH_ByMemID @Mathe = @param";
-            SqlCommand cmd = new SqlCommand(query);
-            cmd.Parameters.AddWithValue("@param", MaThe);
-
-            DataTable dt = DBConnection.ExecuteQuery(cmd);
-            if (dt.Rows.Count > 0)
-                return new KhachHang(dt.Rows[0]);
-            else return null;
-        }
-
         //Show thông tin thẻ thành viên
         public KhachHang ShowMembership(string MaKH)
         {
-            string query = "SELECT * FROM dbo.FUNC_GetKH (@param)";
+            string query = $"SELECT * FROM dbo.FUNC_GetKH WHERE MaNV = '{MaKH}'";
             SqlCommand cmd = new SqlCommand(query);
-            cmd.Parameters.AddWithValue("@param", MaKH);
             DataTable dt = DBConnection.ExecuteQuery(cmd);
             if (dt.Rows.Count > 0)
                 return new KhachHang(dt.Rows[0]);
@@ -74,6 +55,12 @@ namespace DBMS_BookStore.DAO
             SqlCommand cmd = new SqlCommand(query);
 
             return (int)DBConnection.ExecuteScalar(cmd);
+        }
+        public DataTable GetDSKH()
+        {
+            SqlCommand sqlCommand = new SqlCommand("SELECT * FROM dbo.VIEW_KH");
+
+            return DBConnection.ExecuteQuery(sqlCommand);
         }
     }
 }
