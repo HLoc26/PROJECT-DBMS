@@ -189,6 +189,13 @@
             this.pageTC_Sach = new System.Windows.Forms.TabPage();
             this.tableLayoutPanelTCMS = new System.Windows.Forms.TableLayoutPanel();
             this.dtgvTCSACH = new System.Windows.Forms.DataGridView();
+            this.MaSachS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TieuDeS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonGiaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuongS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenTGS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TheLoaiS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NXBS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlplTitleTCSach = new System.Windows.Forms.TableLayoutPanel();
             this.btnQuayLaiTCS_TC = new System.Windows.Forms.Button();
             this.lblTitleTCSach = new System.Windows.Forms.Label();
@@ -349,6 +356,14 @@
             this.btnQuayLai_24_3 = new System.Windows.Forms.Button();
             this.lblBCLuong = new System.Windows.Forms.Label();
             this.dtgvListLuong = new System.Windows.Forms.DataGridView();
+            this.colMaNV_BangLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHo_BangLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTenLot_BangLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTen_BangLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGioiTinh_BangLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCMND_BangLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTinhTrangLamViec_BangLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLuongThang_BangLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGiaoDich = new System.Windows.Forms.Button();
             this.btnTraCuu = new System.Windows.Forms.Button();
             this.btnSetting = new System.Windows.Forms.Button();
@@ -366,21 +381,6 @@
             this.pnlLine = new System.Windows.Forms.Panel();
             this.pnlInfo = new System.Windows.Forms.Panel();
             this.lblSystem = new System.Windows.Forms.Label();
-            this.MaSachS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TieuDeS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonGiaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuongS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenTGS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TheLoaiS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NXBS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaNV_BangLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHo_BangLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTenLot_BangLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTen_BangLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGioiTinh_BangLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCMND_BangLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTinhTrangLamViec_BangLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLuongThang_BangLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.pageGiaoDich.SuspendLayout();
             this.tblpGiaoDich.SuspendLayout();
@@ -1042,6 +1042,7 @@
             this.txbMaKH.Name = "txbMaKH";
             this.txbMaKH.Size = new System.Drawing.Size(113, 29);
             this.txbMaKH.TabIndex = 3;
+            this.txbMaKH.Leave += new System.EventHandler(this.txbMaKH_Leave);
             // 
             // lblGD_BH_MaKH
             // 
@@ -2851,6 +2852,69 @@
             this.dtgvTCSACH.Size = new System.Drawing.Size(1022, 499);
             this.dtgvTCSACH.TabIndex = 0;
             // 
+            // MaSachS
+            // 
+            this.MaSachS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.MaSachS.Frozen = true;
+            this.MaSachS.HeaderText = "Mã sách";
+            this.MaSachS.MinimumWidth = 6;
+            this.MaSachS.Name = "MaSachS";
+            this.MaSachS.ReadOnly = true;
+            this.MaSachS.Width = 74;
+            // 
+            // TieuDeS
+            // 
+            this.TieuDeS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TieuDeS.HeaderText = "Tiêu đề";
+            this.TieuDeS.MinimumWidth = 6;
+            this.TieuDeS.Name = "TieuDeS";
+            this.TieuDeS.ReadOnly = true;
+            // 
+            // DonGiaS
+            // 
+            this.DonGiaS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.DonGiaS.HeaderText = "Đơn giá";
+            this.DonGiaS.MinimumWidth = 6;
+            this.DonGiaS.Name = "DonGiaS";
+            this.DonGiaS.ReadOnly = true;
+            this.DonGiaS.Width = 73;
+            // 
+            // SoLuongS
+            // 
+            this.SoLuongS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.SoLuongS.HeaderText = "Số lượng";
+            this.SoLuongS.MinimumWidth = 6;
+            this.SoLuongS.Name = "SoLuongS";
+            this.SoLuongS.ReadOnly = true;
+            this.SoLuongS.Width = 79;
+            // 
+            // TenTGS
+            // 
+            this.TenTGS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TenTGS.HeaderText = "Tên tác giả";
+            this.TenTGS.MinimumWidth = 6;
+            this.TenTGS.Name = "TenTGS";
+            this.TenTGS.ReadOnly = true;
+            this.TenTGS.Width = 87;
+            // 
+            // TheLoaiS
+            // 
+            this.TheLoaiS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TheLoaiS.HeaderText = "Thể loại";
+            this.TheLoaiS.MinimumWidth = 6;
+            this.TheLoaiS.Name = "TheLoaiS";
+            this.TheLoaiS.ReadOnly = true;
+            this.TheLoaiS.Width = 73;
+            // 
+            // NXBS
+            // 
+            this.NXBS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.NXBS.HeaderText = "NXB";
+            this.NXBS.MinimumWidth = 6;
+            this.NXBS.Name = "NXBS";
+            this.NXBS.ReadOnly = true;
+            this.NXBS.Width = 52;
+            // 
             // tlplTitleTCSach
             // 
             this.tlplTitleTCSach.ColumnCount = 3;
@@ -4548,6 +4612,7 @@
             this.btnCD_NV_ShowMK.TabIndex = 0;
             this.btnCD_NV_ShowMK.Text = "Xem";
             this.btnCD_NV_ShowMK.UseVisualStyleBackColor = true;
+            this.btnCD_NV_ShowMK.Click += new System.EventHandler(this.btnCD_NV_ShowMK_Click);
             // 
             // txbCD_NV_MK
             // 
@@ -5058,6 +5123,76 @@
             this.dtgvListLuong.Size = new System.Drawing.Size(1024, 452);
             this.dtgvListLuong.TabIndex = 20;
             // 
+            // colMaNV_BangLuong
+            // 
+            this.colMaNV_BangLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colMaNV_BangLuong.Frozen = true;
+            this.colMaNV_BangLuong.HeaderText = "Mã NV";
+            this.colMaNV_BangLuong.Name = "colMaNV_BangLuong";
+            this.colMaNV_BangLuong.ReadOnly = true;
+            this.colMaNV_BangLuong.Width = 83;
+            // 
+            // colHo_BangLuong
+            // 
+            this.colHo_BangLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colHo_BangLuong.Frozen = true;
+            this.colHo_BangLuong.HeaderText = "Họ";
+            this.colHo_BangLuong.Name = "colHo_BangLuong";
+            this.colHo_BangLuong.ReadOnly = true;
+            this.colHo_BangLuong.Width = 55;
+            // 
+            // colTenLot_BangLuong
+            // 
+            this.colTenLot_BangLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colTenLot_BangLuong.Frozen = true;
+            this.colTenLot_BangLuong.HeaderText = "Tên lót";
+            this.colTenLot_BangLuong.Name = "colTenLot_BangLuong";
+            this.colTenLot_BangLuong.ReadOnly = true;
+            this.colTenLot_BangLuong.Width = 58;
+            // 
+            // colTen_BangLuong
+            // 
+            this.colTen_BangLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colTen_BangLuong.Frozen = true;
+            this.colTen_BangLuong.HeaderText = "Tên";
+            this.colTen_BangLuong.Name = "colTen_BangLuong";
+            this.colTen_BangLuong.ReadOnly = true;
+            this.colTen_BangLuong.Width = 58;
+            // 
+            // colGioiTinh_BangLuong
+            // 
+            this.colGioiTinh_BangLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colGioiTinh_BangLuong.Frozen = true;
+            this.colGioiTinh_BangLuong.HeaderText = "Giới tính";
+            this.colGioiTinh_BangLuong.Name = "colGioiTinh_BangLuong";
+            this.colGioiTinh_BangLuong.ReadOnly = true;
+            this.colGioiTinh_BangLuong.Width = 88;
+            // 
+            // colCMND_BangLuong
+            // 
+            this.colCMND_BangLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colCMND_BangLuong.Frozen = true;
+            this.colCMND_BangLuong.HeaderText = "CMND";
+            this.colCMND_BangLuong.Name = "colCMND_BangLuong";
+            this.colCMND_BangLuong.ReadOnly = true;
+            this.colCMND_BangLuong.Width = 82;
+            // 
+            // colTinhTrangLamViec_BangLuong
+            // 
+            this.colTinhTrangLamViec_BangLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colTinhTrangLamViec_BangLuong.Frozen = true;
+            this.colTinhTrangLamViec_BangLuong.HeaderText = "Tình trạng";
+            this.colTinhTrangLamViec_BangLuong.Name = "colTinhTrangLamViec_BangLuong";
+            this.colTinhTrangLamViec_BangLuong.ReadOnly = true;
+            this.colTinhTrangLamViec_BangLuong.Width = 97;
+            // 
+            // colLuongThang_BangLuong
+            // 
+            this.colLuongThang_BangLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colLuongThang_BangLuong.HeaderText = "Lương tháng";
+            this.colLuongThang_BangLuong.Name = "colLuongThang_BangLuong";
+            this.colLuongThang_BangLuong.ReadOnly = true;
+            // 
             // btnGiaoDich
             // 
             this.btnGiaoDich.BackColor = System.Drawing.Color.White;
@@ -5280,139 +5415,6 @@
             this.lblSystem.Size = new System.Drawing.Size(742, 54);
             this.lblSystem.TabIndex = 5;
             this.lblSystem.Text = "HỆ THỐNG QUẢN LÝ NHÀ SÁCH HLBS";
-            // 
-            // MaSachS
-            // 
-            this.MaSachS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.MaSachS.Frozen = true;
-            this.MaSachS.HeaderText = "Mã sách";
-            this.MaSachS.MinimumWidth = 6;
-            this.MaSachS.Name = "MaSachS";
-            this.MaSachS.ReadOnly = true;
-            this.MaSachS.Width = 74;
-            // 
-            // TieuDeS
-            // 
-            this.TieuDeS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TieuDeS.HeaderText = "Tiêu đề";
-            this.TieuDeS.MinimumWidth = 6;
-            this.TieuDeS.Name = "TieuDeS";
-            this.TieuDeS.ReadOnly = true;
-            // 
-            // DonGiaS
-            // 
-            this.DonGiaS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.DonGiaS.HeaderText = "Đơn giá";
-            this.DonGiaS.MinimumWidth = 6;
-            this.DonGiaS.Name = "DonGiaS";
-            this.DonGiaS.ReadOnly = true;
-            this.DonGiaS.Width = 73;
-            // 
-            // SoLuongS
-            // 
-            this.SoLuongS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.SoLuongS.HeaderText = "Số lượng";
-            this.SoLuongS.MinimumWidth = 6;
-            this.SoLuongS.Name = "SoLuongS";
-            this.SoLuongS.ReadOnly = true;
-            this.SoLuongS.Width = 79;
-            // 
-            // TenTGS
-            // 
-            this.TenTGS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.TenTGS.HeaderText = "Tên tác giả";
-            this.TenTGS.MinimumWidth = 6;
-            this.TenTGS.Name = "TenTGS";
-            this.TenTGS.ReadOnly = true;
-            this.TenTGS.Width = 87;
-            // 
-            // TheLoaiS
-            // 
-            this.TheLoaiS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.TheLoaiS.HeaderText = "Thể loại";
-            this.TheLoaiS.MinimumWidth = 6;
-            this.TheLoaiS.Name = "TheLoaiS";
-            this.TheLoaiS.ReadOnly = true;
-            this.TheLoaiS.Width = 73;
-            // 
-            // NXBS
-            // 
-            this.NXBS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.NXBS.HeaderText = "NXB";
-            this.NXBS.MinimumWidth = 6;
-            this.NXBS.Name = "NXBS";
-            this.NXBS.ReadOnly = true;
-            this.NXBS.Width = 52;
-            // 
-            // colMaNV_BangLuong
-            // 
-            this.colMaNV_BangLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colMaNV_BangLuong.Frozen = true;
-            this.colMaNV_BangLuong.HeaderText = "Mã NV";
-            this.colMaNV_BangLuong.Name = "colMaNV_BangLuong";
-            this.colMaNV_BangLuong.ReadOnly = true;
-            this.colMaNV_BangLuong.Width = 83;
-            // 
-            // colHo_BangLuong
-            // 
-            this.colHo_BangLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colHo_BangLuong.Frozen = true;
-            this.colHo_BangLuong.HeaderText = "Họ";
-            this.colHo_BangLuong.Name = "colHo_BangLuong";
-            this.colHo_BangLuong.ReadOnly = true;
-            this.colHo_BangLuong.Width = 55;
-            // 
-            // colTenLot_BangLuong
-            // 
-            this.colTenLot_BangLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colTenLot_BangLuong.Frozen = true;
-            this.colTenLot_BangLuong.HeaderText = "Tên lót";
-            this.colTenLot_BangLuong.Name = "colTenLot_BangLuong";
-            this.colTenLot_BangLuong.ReadOnly = true;
-            this.colTenLot_BangLuong.Width = 80;
-            // 
-            // colTen_BangLuong
-            // 
-            this.colTen_BangLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colTen_BangLuong.Frozen = true;
-            this.colTen_BangLuong.HeaderText = "Tên";
-            this.colTen_BangLuong.Name = "colTen_BangLuong";
-            this.colTen_BangLuong.ReadOnly = true;
-            this.colTen_BangLuong.Width = 58;
-            // 
-            // colGioiTinh_BangLuong
-            // 
-            this.colGioiTinh_BangLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colGioiTinh_BangLuong.Frozen = true;
-            this.colGioiTinh_BangLuong.HeaderText = "Giới tính";
-            this.colGioiTinh_BangLuong.Name = "colGioiTinh_BangLuong";
-            this.colGioiTinh_BangLuong.ReadOnly = true;
-            this.colGioiTinh_BangLuong.Width = 95;
-            // 
-            // colCMND_BangLuong
-            // 
-            this.colCMND_BangLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colCMND_BangLuong.Frozen = true;
-            this.colCMND_BangLuong.HeaderText = "CMND";
-            this.colCMND_BangLuong.Name = "colCMND_BangLuong";
-            this.colCMND_BangLuong.ReadOnly = true;
-            this.colCMND_BangLuong.Width = 82;
-            // 
-            // colTinhTrangLamViec_BangLuong
-            // 
-            this.colTinhTrangLamViec_BangLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colTinhTrangLamViec_BangLuong.Frozen = true;
-            this.colTinhTrangLamViec_BangLuong.HeaderText = "Tình trạng";
-            this.colTinhTrangLamViec_BangLuong.Name = "colTinhTrangLamViec_BangLuong";
-            this.colTinhTrangLamViec_BangLuong.ReadOnly = true;
-            this.colTinhTrangLamViec_BangLuong.Width = 106;
-            // 
-            // colLuongThang_BangLuong
-            // 
-            this.colLuongThang_BangLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colLuongThang_BangLuong.HeaderText = "Lương tháng";
-            this.colLuongThang_BangLuong.Name = "colLuongThang_BangLuong";
-            this.colLuongThang_BangLuong.ReadOnly = true;
             // 
             // FMain
             // 

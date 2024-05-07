@@ -30,6 +30,7 @@ namespace DBMS_BookStore
         TraCuuDAO traCuuDAO = new TraCuuDAO();
         HoaDonBanDAO hoaDonBanDAO = new HoaDonBanDAO();
         HoaDonNhapDAO hoaDonNhapDAO = new HoaDonNhapDAO();
+        KhachHangDAO khachHangDAO = new KhachHangDAO();
         private Button currentButton;
         public FMain(Employee nv)
         {
@@ -376,6 +377,10 @@ namespace DBMS_BookStore
             {
                 maKH = txbMaKH.Text;
             }
+            else
+            {
+                maKH = "0000000000";
+            }
             int succeed = 0;
             foreach(DataGridViewRow row in dtgvXemLaiTienMat.Rows)
             {
@@ -563,6 +568,30 @@ namespace DBMS_BookStore
             dsHangNhap.Clear();
             txbMaHangNhap.Text = string.Empty;
             LoadDTGVNhap();
+        }
+
+        private void txbMaKH_Leave(object sender, EventArgs e)
+        {
+            // Check if MaKH is in the db
+            KhachHang dt = khachHangDAO.ShowMembership(txbMaKH.Text);
+            if (dt == null)
+            {
+                DialogResult add = MessageBox.Show("Không tìm thấy dữ liệu về khách hàng!\n\rThêm dữ liệu?", "Không tìm thấy", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (add == DialogResult.OK)
+                {
+                    FKhachhang fKhachhang = new FKhachhang();
+                    fKhachhang.ShowDialog();
+                }
+                else
+                {
+                    txbMaKH.Focus();
+                }
+            }
+            else
+            {
+                double discount = khachHangDAO.GetDiscountValue(txbMaKH.Text);
+                txbGiamGia.Text = discount.ToString();
+            }
         }
 
         private void btnNhapHangQuayLaiGiaoDich_Click(object sender, EventArgs e)
