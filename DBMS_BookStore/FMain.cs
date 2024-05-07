@@ -1101,7 +1101,10 @@ namespace DBMS_BookStore
             }
             LoadTCNV();
         }
-
+        private void btnCD_NV_ShowMK_Click(object sender, EventArgs e)
+        {
+            txbCD_NV_MK.UseSystemPasswordChar = !txbCD_NV_MK.UseSystemPasswordChar;
+        }
         private void btnCD_NV_QuayLai_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[2];
