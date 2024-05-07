@@ -1052,7 +1052,7 @@ namespace DBMS_BookStore
                 }
                 return;
             }
-
+            
             DataTable dsnv = employeeDAO.GetInfoByTen(txbCD_NV_HoTen.Text);
             InputFieldChanged(dsnv);
         }

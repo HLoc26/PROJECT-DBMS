@@ -15,9 +15,11 @@ namespace DBMS_BookStore.DTO
         string ten;
         DateTime ngaySinh;
         string gioiTinh;
-        TheTV thanhVien;
+        string maThe;
+        int soDiem;
+        string tenBacTV;
 
-        public KhachHang(string maKH, string ho, string tenLot, string ten, DateTime ngaySinh, string gioiTinh, TheTV thanhVien)
+        public KhachHang(string maKH, string ho, string tenLot, string ten, DateTime ngaySinh, string gioiTinh, int soDiem, string tenBacTV)
         {
             MaKH = maKH;
             Ho = ho;
@@ -25,7 +27,8 @@ namespace DBMS_BookStore.DTO
             Ten = ten;
             NgaySinh = ngaySinh;
             GioiTinh = gioiTinh;
-            ThanhVien = thanhVien;
+            SoDiem = 0;
+            TenBacTV = tenBacTV;
         }
 
         public KhachHang(DataRow dr)
@@ -36,6 +39,9 @@ namespace DBMS_BookStore.DTO
             Ten = dr["Ten"].ToString();
             NgaySinh = (DateTime)dr["ngaySinh"];
             GioiTinh = dr["GioiTinh"].ToString();
+            MaThe = dr["MaThe"].ToString();
+            SoDiem = (int)dr["SoDiem"];
+            TenBacTV = dr["TenBacTV"].ToString();
 
         }
         public string MaKH { get => maKH; set => maKH = value; }
@@ -44,6 +50,8 @@ namespace DBMS_BookStore.DTO
         public string Ten { get => ten; set => ten = value; }
         public DateTime NgaySinh { get => ngaySinh; set => ngaySinh = value; }
         public string GioiTinh { get => gioiTinh; set => gioiTinh = value; }
-        public TheTV ThanhVien { get => thanhVien; set => thanhVien = value; }
+        public string MaThe { get => maThe; set => maThe = value; }
+        public int SoDiem { get => soDiem; set => soDiem = value; }
+        public string TenBacTV { get => tenBacTV; set => tenBacTV = value; }
     }
 }

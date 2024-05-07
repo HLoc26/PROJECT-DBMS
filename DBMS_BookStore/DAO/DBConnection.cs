@@ -13,12 +13,12 @@ namespace DBMS_BookStore.DAO
     {
         public static string username;
         public static string password;
-        static string connString = $"Data Source=DESKTOP-OJM3T9C\\SQLEXPRESS;Initial Catalog=Proj_DBMS_BookStore;User ID={username}; Password={password}";
+        static string connString = $"Data Source= (localdb)\\mssqllocaldb;Initial Catalog=Proj_DBMS_BookStore;User ID={username}; Password={password}";
         static SqlConnection SqlConn = new SqlConnection();
 
         public static DataTable ExecuteQuery(SqlCommand sqlCommand)
         {
-            connString = $"Data Source=DESKTOP-OJM3T9C\\SQLEXPRESS;Initial Catalog=Proj_DBMS_BookStore;User ID={username}; Password={password}";
+            connString = $"Data Source=(localdb)\\mssqllocaldb;Initial Catalog=Proj_DBMS_BookStore;User ID={username}; Password={password}";
             SqlConn.ConnectionString = connString;
             DataTable dataTable = new DataTable();
             try
@@ -41,7 +41,7 @@ namespace DBMS_BookStore.DAO
 
         public static int ExecuteNonQuery(SqlCommand sqlCommand)
         {
-            connString = $"Data Source=DESKTOP-OJM3T9C\\SQLEXPRESS;Initial Catalog=Proj_DBMS_BookStore;User ID={username}; Password={password}";
+            connString = $"Data Source=(localdb)\\mssqllocaldb;Initial Catalog=Proj_DBMS_BookStore;User ID={username}; Password={password}";
             SqlConn.ConnectionString = connString;
             int succeed = 0;
             try
@@ -67,7 +67,7 @@ namespace DBMS_BookStore.DAO
         // Trả về dòng cột đầu tiên của bảng trả về, những dòng, cột khác kệ
         public static object ExecuteScalar(SqlCommand sqlCommand)
         {
-            connString = $"Data Source=DESKTOP-OJM3T9C\\SQLEXPRESS;Initial Catalog=Proj_DBMS_BookStore;User ID={username}; Password={password}";
+            connString = $"Data Source=(localdb)\\mssqllocaldb;Initial Catalog=Proj_DBMS_BookStore;User ID={username}; Password={password}";
             SqlConn.ConnectionString = connString;
             object obj = new object();
             try

@@ -65,7 +65,6 @@
     <Compile Include="DTO\TacGia.cs" />
     <Compile Include="DTO\VatPham.cs" />
     <Compile Include="DTO\KhachHang.cs" />
-    <Compile Include="DTO\TheTV.cs" />
     <Compile Include="FLogin.cs">
       <SubType>Form</SubType>
     </Compile>
