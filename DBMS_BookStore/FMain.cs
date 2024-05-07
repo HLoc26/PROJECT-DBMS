@@ -572,25 +572,28 @@ namespace DBMS_BookStore
 
         private void txbMaKH_Leave(object sender, EventArgs e)
         {
-            // Check if MaKH is in the db
-            KhachHang dt = khachHangDAO.ShowMembership(txbMaKH.Text);
-            if (dt == null)
+            if (!string.IsNullOrEmpty(txbMaKH.Text))
             {
-                DialogResult add = MessageBox.Show("Không tìm thấy dữ liệu về khách hàng!\n\rThêm dữ liệu?", "Không tìm thấy", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                if (add == DialogResult.OK)
+                // Check if MaKH is in the db
+                KhachHang dt = khachHangDAO.ShowMembership(txbMaKH.Text);
+                if (dt == null)
                 {
-                    FKhachhang fKhachhang = new FKhachhang();
-                    fKhachhang.ShowDialog();
+                    DialogResult add = MessageBox.Show("Không tìm thấy dữ liệu về khách hàng!\n\rThêm dữ liệu?", "Không tìm thấy", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    if (add == DialogResult.OK)
+                    {
+                        FKhachhang fKhachhang = new FKhachhang();
+                        fKhachhang.ShowDialog();
+                    }
+                    else
+                    {
+                        txbMaKH.Focus();
+                    }
                 }
                 else
                 {
-                    txbMaKH.Focus();
+                    double discount = khachHangDAO.GetDiscountValue(txbMaKH.Text);
+                    txbGiamGia.Text = discount.ToString();
                 }
-            }
-            else
-            {
-                double discount = khachHangDAO.GetDiscountValue(txbMaKH.Text);
-                txbGiamGia.Text = discount.ToString();
             }
         }
 
