@@ -938,32 +938,6 @@ BEGIN
           OR dbo.FUNC_BoDau(TieuDe) LIKE @SearchString;
 END;
 
-
-
--- Z lấy cái này bỏ vô đó đi
---từ từ để chạy script với chỉnh C# đc chưa cái đã
--- admin admin123
--- ĐC rồi đó, làm tương tự với mấy cái kia đi
---kịp k ta
---mai t học ra 10h40 hẹn đâu đó làm đi
--- còn tìm cgi nữa
---Tìm tên loại, với tên sách
---2 cái
--- còn cái tìm vpp với tìm sách m để chung hay sao, chứ làm sao tìm vpp được
---là sao
--- à, tưởng ko có cái chức năng tra cứu vpp
--- z đi, rồi 2 cái kia làm tương tự, m tranh thủ làm liền để update vô docx
---để t ráng tối nay xong rồi update, nếu k thì nộp tạm cái docx cũ còn cái script thì nếu k conflict thì update
--- mà khoan nếu bây giờ t tạo branch mới là t git checkout -b <tên branch mới> à
--- tách ra từ nhánh nào thì đứng ở nhánh đó checkout -b
---rồi làm xong thì add .. rồi commit rồi merge pk
--- xong rồi thì bấm cây bút chì, bấm dấu + là nó tự át cho m	
--- commit mesage thì ở trên đây, xong bấm commit staged
--- rồi checkout lại mergeUI, pull về, xong merge với <nhánh mới>
--- có conflict thì sửa
---là t phải checkout cái branch gốc rồi mới merge pk ừ oke
---Oke m ngủ ngon t sửa xem có kịp k
-
 CREATE PROCEDURE PROC_SearchSachByPartialNXB
     @PartialNXB NVARCHAR(100)
 AS
@@ -977,9 +951,10 @@ BEGIN
     FROM dbo.VIEW_SACHNXB 
     WHERE dbo.FUNC_BoDau(TenNXB) LIKE @SearchString;
 END;
-DROP PROC PROC_SearchSachByPartialNXB
 
-CREATE PROCEDURE SearchBooksByPartialAuthor
+
+
+CREATE PROCEDURE PROC_SearchBooksByPartialAuthor
     @PartialAuthor NVARCHAR(20)
 AS
 BEGIN
@@ -1009,19 +984,7 @@ BEGIN
     WHERE dbo.FUNC_BoDau(TenHang) LIKE @SearchString;
 END;
 
-CREATE PROCEDURE SearchSachByPartialTenLoai
-    @PartialTenLoai NVARCHAR(50)
-AS
-BEGIN
-    SET NOCOUNT ON;
-    
-    DECLARE @SearchString NVARCHAR(50);
-    SET @SearchString = '%' + dbo.FUNC_BoDau(@PartialTenLoai) + '%';
-    
-    SELECT * 
-    FROM VIEW_THELOAISACH 
-    WHERE dbo.FUNC_BoDau(TenLoai) LIKE @SearchString;
-END;
+
 
 CREATE PROCEDURE PROC_SearchSachByPartialTenLoai
     @PartialTenLoai NVARCHAR(50)
