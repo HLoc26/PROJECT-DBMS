@@ -387,6 +387,10 @@
             this.colTongTien_HDBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMaKHMua = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMaNVBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaHDNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colThoiGianNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTongTienNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaNVNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.pageGiaoDich.SuspendLayout();
             this.tblpGiaoDich.SuspendLayout();
@@ -2686,12 +2690,18 @@
             this.dtgvListHDNhap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvListHDNhap.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(205)))), ((int)(((byte)(198)))));
             this.dtgvListHDNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvListHDNhap.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colMaHDNhap,
+            this.colThoiGianNhap,
+            this.colTongTienNhap,
+            this.colMaNVNhap});
             this.dtgvListHDNhap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvListHDNhap.EnableHeadersVisualStyles = false;
             this.dtgvListHDNhap.Location = new System.Drawing.Point(2, 156);
             this.dtgvListHDNhap.Margin = new System.Windows.Forms.Padding(2);
             this.dtgvListHDNhap.Name = "dtgvListHDNhap";
             this.dtgvListHDNhap.ReadOnly = true;
+            this.dtgvListHDNhap.RowHeadersVisible = false;
             this.dtgvListHDNhap.Size = new System.Drawing.Size(1024, 452);
             this.dtgvListHDNhap.TabIndex = 15;
             // 
@@ -5477,6 +5487,34 @@
             this.colMaNVBan.Name = "colMaNVBan";
             this.colMaNVBan.ReadOnly = true;
             // 
+            // colMaHDNhap
+            // 
+            this.colMaHDNhap.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colMaHDNhap.HeaderText = "Mã hóa đơn";
+            this.colMaHDNhap.Name = "colMaHDNhap";
+            this.colMaHDNhap.ReadOnly = true;
+            // 
+            // colThoiGianNhap
+            // 
+            this.colThoiGianNhap.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colThoiGianNhap.HeaderText = "Thời gian";
+            this.colThoiGianNhap.Name = "colThoiGianNhap";
+            this.colThoiGianNhap.ReadOnly = true;
+            // 
+            // colTongTienNhap
+            // 
+            this.colTongTienNhap.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colTongTienNhap.HeaderText = "Tổng tiền";
+            this.colTongTienNhap.Name = "colTongTienNhap";
+            this.colTongTienNhap.ReadOnly = true;
+            // 
+            // colMaNVNhap
+            // 
+            this.colMaNVNhap.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colMaNVNhap.HeaderText = "Mã NV nhập";
+            this.colMaNVNhap.Name = "colMaNVNhap";
+            this.colMaNVNhap.ReadOnly = true;
+            // 
             // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6044,5 +6082,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colTongTien_HDBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaKHMua;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaNVBan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMaHDNhap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colThoiGianNhap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTongTienNhap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMaNVNhap;
     }
 }

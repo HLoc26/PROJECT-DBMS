@@ -651,7 +651,12 @@ namespace DBMS_BookStore
         }
         private void btnTraCuuHDNhap_Click(object sender, EventArgs e)
         {
-            dtgvListHDNhap.DataSource = hoaDonNhapDAO.GetListGoodReceipt(dtpStartHDNhap.Value, (dtpEndHDNhap.Value).AddDays(1));
+            dtgvListHDNhap.Rows.Clear();
+            DataTable dt = hoaDonNhapDAO.GetListGoodReceipt(dtpStartHDNhap.Value, (dtpEndHDNhap.Value).AddDays(1));
+            foreach (DataRow row in dt.Rows)
+            {
+                dtgvListHDNhap.Rows.Add(row.ItemArray);
+            }
         }
         #endregion
 
