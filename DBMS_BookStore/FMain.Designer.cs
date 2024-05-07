@@ -381,6 +381,12 @@
             this.pnlLine = new System.Windows.Forms.Panel();
             this.pnlInfo = new System.Windows.Forms.Panel();
             this.lblSystem = new System.Windows.Forms.Label();
+            this.colMaHDBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colThoiGian = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colKhuyenMai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTongTien_HDBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaKHMua = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaNVBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.pageGiaoDich.SuspendLayout();
             this.tblpGiaoDich.SuspendLayout();
@@ -2523,6 +2529,13 @@
             this.dtgvListHoaDonBan.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(205)))), ((int)(((byte)(198)))));
             this.dtgvListHoaDonBan.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgvListHoaDonBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvListHoaDonBan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colMaHDBan,
+            this.colThoiGian,
+            this.colKhuyenMai,
+            this.colTongTien_HDBan,
+            this.colMaKHMua,
+            this.colMaNVBan});
             this.dtgvListHoaDonBan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvListHoaDonBan.EnableHeadersVisualStyles = false;
             this.dtgvListHoaDonBan.Location = new System.Drawing.Point(2, 156);
@@ -5416,6 +5429,54 @@
             this.lblSystem.TabIndex = 5;
             this.lblSystem.Text = "HỆ THỐNG QUẢN LÝ NHÀ SÁCH HLBS";
             // 
+            // colMaHDBan
+            // 
+            this.colMaHDBan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colMaHDBan.FillWeight = 170F;
+            this.colMaHDBan.HeaderText = "Mã hóa đơn";
+            this.colMaHDBan.Name = "colMaHDBan";
+            this.colMaHDBan.ReadOnly = true;
+            // 
+            // colThoiGian
+            // 
+            this.colThoiGian.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colThoiGian.FillWeight = 170F;
+            this.colThoiGian.HeaderText = "Thời gian";
+            this.colThoiGian.Name = "colThoiGian";
+            this.colThoiGian.ReadOnly = true;
+            // 
+            // colKhuyenMai
+            // 
+            this.colKhuyenMai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colKhuyenMai.FillWeight = 170F;
+            this.colKhuyenMai.HeaderText = "Khuyến mãi";
+            this.colKhuyenMai.Name = "colKhuyenMai";
+            this.colKhuyenMai.ReadOnly = true;
+            // 
+            // colTongTien_HDBan
+            // 
+            this.colTongTien_HDBan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colTongTien_HDBan.FillWeight = 170F;
+            this.colTongTien_HDBan.HeaderText = "Tổng tiền";
+            this.colTongTien_HDBan.Name = "colTongTien_HDBan";
+            this.colTongTien_HDBan.ReadOnly = true;
+            // 
+            // colMaKHMua
+            // 
+            this.colMaKHMua.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colMaKHMua.FillWeight = 170F;
+            this.colMaKHMua.HeaderText = "Mã KH mua";
+            this.colMaKHMua.Name = "colMaKHMua";
+            this.colMaKHMua.ReadOnly = true;
+            // 
+            // colMaNVBan
+            // 
+            this.colMaNVBan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colMaNVBan.FillWeight = 170F;
+            this.colMaNVBan.HeaderText = "Mã NV bán";
+            this.colMaNVBan.Name = "colMaNVBan";
+            this.colMaNVBan.ReadOnly = true;
+            // 
             // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5977,5 +6038,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCMND_BangLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTinhTrangLamViec_BangLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLuongThang_BangLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMaHDBan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colThoiGian;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colKhuyenMai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTongTien_HDBan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMaKHMua;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMaNVBan;
     }
 }

@@ -630,7 +630,12 @@ namespace DBMS_BookStore
 
         private void btnTraCuuHoaDonBan_Click(object sender, EventArgs e)
         {
-            dtgvListHoaDonBan.DataSource = hoaDonBanDAO.GetListSaleReceipt(dtpStartHDBan.Value, (dtpEndHDBan.Value).AddDays(1));
+            dtgvListHoaDonBan.Rows.Clear();
+            DataTable dt = hoaDonBanDAO.GetListSaleReceipt(dtpStartHDBan.Value, (dtpEndHDBan.Value).AddDays(1));
+            foreach (DataRow row in dt.Rows)
+            {
+                dtgvListHoaDonBan.Rows.Add(row.ItemArray);
+            }
         }
         #endregion
 
