@@ -350,6 +350,34 @@ namespace DBMS_BookStore
             txbTongTienMat.Text = (double.Parse(txbTongTien.Text) * (1 - double.Parse(txbGiamGia.Text))).ToString();
         }
 
+        private void txbMaKH_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txbMaKH.Text))
+            {
+                // Check if MaKH is in the db
+                KhachHang dt = khachHangDAO.ShowMembership(txbMaKH.Text);
+                if (dt == null)
+                {
+                    DialogResult add = MessageBox.Show("Không tìm thấy dữ liệu về khách hàng!\n\rThêm dữ liệu?", "Không tìm thấy", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    if (add == DialogResult.OK)
+                    {
+                        FKhachhang fKhachhang = new FKhachhang();
+                        fKhachhang.ShowDialog();
+                    }
+                    else
+                    {
+                        txbMaKH.Focus();
+                    }
+                }
+                else
+                {
+                    double discount = khachHangDAO.GetDiscountValue(txbMaKH.Text);
+                    txbGiamGia.Text = discount.ToString("0.0");
+                }
+            }
+        }
+
+
         private void btnChuyenKhoan_Click(object sender, EventArgs e)
         {
             btnTienMat_Click(sender, e); // hihi
@@ -568,33 +596,6 @@ namespace DBMS_BookStore
             dsHangNhap.Clear();
             txbMaHangNhap.Text = string.Empty;
             LoadDTGVNhap();
-        }
-
-        private void txbMaKH_Leave(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txbMaKH.Text))
-            {
-                // Check if MaKH is in the db
-                KhachHang dt = khachHangDAO.ShowMembership(txbMaKH.Text);
-                if (dt == null)
-                {
-                    DialogResult add = MessageBox.Show("Không tìm thấy dữ liệu về khách hàng!\n\rThêm dữ liệu?", "Không tìm thấy", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                    if (add == DialogResult.OK)
-                    {
-                        FKhachhang fKhachhang = new FKhachhang();
-                        fKhachhang.ShowDialog();
-                    }
-                    else
-                    {
-                        txbMaKH.Focus();
-                    }
-                }
-                else
-                {
-                    double discount = khachHangDAO.GetDiscountValue(txbMaKH.Text);
-                    txbGiamGia.Text = discount.ToString();
-                }
-            }
         }
 
         private void btnNhapHangQuayLaiGiaoDich_Click(object sender, EventArgs e)
