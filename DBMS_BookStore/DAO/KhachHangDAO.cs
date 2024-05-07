@@ -78,7 +78,7 @@ namespace DBMS_BookStore.DAO
 
         public double GetDiscountValue(string MaKH)
         {
-            string query = "SELECT FUNC_GetDiscount(@param)";
+            string query = "SELECT dbo.FUNC_GetDiscount(@param)";
             SqlCommand cmd = new SqlCommand(query);
             cmd.Parameters.AddWithValue("@param", MaKH);
             return (double)DBConnection.ExecuteScalar(cmd);
