@@ -59,7 +59,7 @@
             this.tblpPassword.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tblpPassword.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tblpPassword.Size = new System.Drawing.Size(274, 59);
-            this.tblpPassword.TabIndex = 17;
+            this.tblpPassword.TabIndex = 2;
             // 
             // lblIncorrectPassword
             // 
@@ -97,7 +97,7 @@
             this.tblpUsername.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tblpUsername.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tblpUsername.Size = new System.Drawing.Size(274, 59);
-            this.tblpUsername.TabIndex = 21;
+            this.tblpUsername.TabIndex = 1;
             // 
             // lblIncorrectUsername
             // 
@@ -224,7 +224,7 @@
             this.btnExit.Location = new System.Drawing.Point(343, 3);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(54, 61);
-            this.btnExit.TabIndex = 14;
+            this.btnExit.TabIndex = 4;
             this.btnExit.Text = "x";
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnExit.UseVisualStyleBackColor = false;

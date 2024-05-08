@@ -219,6 +219,10 @@ namespace DBMS_BookStore
 
         private void btnQuayLaiGiaoDich_Click(object sender, EventArgs e)
         {
+            dtgvGioHang.Rows.Clear();
+            txbMaSP.Text = string.Empty;
+            txbMaKH.Text = string.Empty;
+            numSoLuongMua.Value = 1;
             tabControl.SelectedTab = tabControl.TabPages[0];
         }
 
@@ -412,12 +416,23 @@ namespace DBMS_BookStore
             int succeed = 0;
             foreach(DataGridViewRow row in dtgvXemLaiTienMat.Rows)
             {
-                VatPham vatpham = new VatPham(maHoaDonBan, nv.MaNV, maKH, row.Cells[0].Value.ToString(), (int)row.Cells[3].Value);
+                if (row != null)
+                {
+                    VatPham vatpham = new VatPham(maHoaDonBan, nv.MaNV, maKH, row.Cells[0].Value.ToString(), int.Parse(row.Cells[3].Value.ToString()));
 
-                succeed += hoaDonBanDAO.InsertBanHang(vatpham);
+                    succeed += hoaDonBanDAO.InsertBanHang(vatpham);
+                }
             }
 
-            MessageBox.Show($"Đã thêm {succeed} hàng vào BAN_HANG");
+            if (succeed > 0)
+            {
+                MessageBox.Show($"Đã thêm {succeed} hàng vào BAN_HANG");
+                dtgvGioHang.Rows.Clear();
+                txbMaSP.Text = string.Empty;
+                txbMaKH.Text = string.Empty;
+                numSoLuongMua.Value = 1;
+                tabControl.SelectedTab = tabControl.TabPages[5];
+            }
         }
 
         #endregion
