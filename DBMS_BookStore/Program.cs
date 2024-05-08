@@ -19,11 +19,11 @@ namespace DBMS_BookStore
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //EmployeeDAO dao = new EmployeeDAO();
-            //Employee emp = dao.Login("nvv1353", "MK123456");
-            //Application.Run(new FMain(emp));
-            
-            Application.Run(new FLogin());
+            EmployeeDAO dao = new EmployeeDAO();
+            Employee emp = dao.Login("nvv1353", "MK123456");
+            Application.Run(new FMain(emp));
+
+            //Application.Run(new FLogin());
 
             // Application.Run(new FKhachhang());
             // Application.Run(new FThemTTSach());
