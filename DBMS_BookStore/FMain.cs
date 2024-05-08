@@ -679,6 +679,8 @@ namespace DBMS_BookStore
         private void btnQuayLaiTCS_TC_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[1];
+            txtb_TCSACH.Text = "Tra cứu Sách theo Tiêu đề...";
+
         }
 
         private void txtb_TCSACH_Enter(object sender, EventArgs e)
@@ -687,6 +689,14 @@ namespace DBMS_BookStore
             {
                 txtb_TCSACH.Text = "";
                 txtb_TCSACH.ForeColor = Color.FromArgb(0, 80, 131);
+            }
+        }
+
+        private void txtb_TCSACH_TextChanged(object sender, EventArgs e)
+        {
+            if(txtb_TCSACH.Text != "Tra cứu Sách theo Tiêu đề...")
+            {
+                btnTCSACHID_Click(sender, e);
             }
         }
 
@@ -713,17 +723,24 @@ namespace DBMS_BookStore
         private void btnQuayLaiTCTG_TC_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[1];
+            txtbTCTG.Text = "Tra cứu theo tên Tác giả...";
         }
 
         private void txtbTCTG_Enter(object sender, EventArgs e)
         {
-            if (txtb_TCSACH.Text == "Tra cứu theo tên Tác giả...")
+            if (string.Equals(txtbTCTG.Text, "Tra cứu theo tên Tác giả..."))
             {
-                txtb_TCSACH.Text = "";
-                txtb_TCSACH.ForeColor = Color.FromArgb(0, 80, 131);
+                txtbTCTG.Text = "";
+                txtbTCTG.ForeColor = Color.FromArgb(0, 80, 131);
             }
         }
-
+        private void txtbTCTG_TextChanged(object sender, EventArgs e)
+        {
+            if (txtbTCTG.Text != "Tra cứu theo tên Tác giả...")
+            {
+                btnTCTG_Click(sender, e);
+            }
+        }
         private void btnTCTG_Click(object sender, EventArgs e)
         {
             string authorName = txtbTCTG.Text;
@@ -746,15 +763,20 @@ namespace DBMS_BookStore
         private void btnQuayLaiTCNXB_TC_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[1];
+            txtbTCNXB.Text = "Tra cứu theo tên Nhà Xuất Bản...";
         }
 
         private void txtbTCNXB_Enter(object sender, EventArgs e)
         {
-            if (txtb_TCSACH.Text == "Tra cứu theo tên Nhà Xuất Bản...")
+            if (txtbTCNXB.Text == "Tra cứu theo tên Nhà Xuất Bản...")
             {
-                txtb_TCSACH.Text = "";
-                txtb_TCSACH.ForeColor = Color.FromArgb(0, 80, 131);
+                txtbTCNXB.Text = "";
+                txtbTCNXB.ForeColor = Color.FromArgb(0, 80, 131);
             }
+        }
+        private void txtbTCNXB_TextChanged(object sender, EventArgs e)
+        {
+            btnTCNXB_Click(sender, e);
         }
 
         private void btnTCNXB_Click(object sender, EventArgs e)
@@ -778,17 +800,21 @@ namespace DBMS_BookStore
         private void btnQuayLaiTCTL_TC_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[1];
+            txtbTCTL.Text = "Tra cứu theo Thể loại...";
         }
 
         private void txtbTCTL_Enter(object sender, EventArgs e)
         {
-            if (txtb_TCSACH.Text == "Tra cứu theo Thể loại...")
+            if (txtbTCTL.Text == "Tra cứu theo Thể loại...")
             {
-                txtb_TCSACH.Text = "";
-                txtb_TCSACH.ForeColor = Color.FromArgb(0, 80, 131);
+                txtbTCTL.Text = "";
+                txtbTCTL.ForeColor = Color.FromArgb(0, 80, 131);
             }
         }
-
+        private void txtbTCTL_TextChanged(object sender, EventArgs e)
+        {
+            btnTCTL_Click(sender, e);
+        }
         private void btnTCTL_Click(object sender, EventArgs e)
         {
             string tenLoai = txtbTCTL.Text; 
@@ -806,17 +832,21 @@ namespace DBMS_BookStore
         private void btnQuayLaiTCVPP_TC_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[1];
+            txtbTCVPP.Text = "Tra cứu Văn phòng phẩm theo Tên hàng...";
         }
 
         private void txtbTCVPP_Enter(object sender, EventArgs e)
         {
-            if (txtb_TCSACH.Text == "Tra cứu Văn phòng phẩm theo Tên hàng...")
+            if (txtbTCVPP.Text == "Tra cứu Văn phòng phẩm theo Tên hàng...")
             {
-                txtb_TCSACH.Text = "";
-                txtb_TCSACH.ForeColor = Color.FromArgb(0, 80, 131);
+                txtbTCVPP.Text = "";
+                txtbTCVPP.ForeColor = Color.FromArgb(0, 80, 131);
             }
         }
-
+        private void txtbTCVPP_TextChanged(object sender, EventArgs e)
+        {
+            btnTCVPP_Click(sender, e);
+        }
         private void btnTCVPP_Click(object sender, EventArgs e)
         {
             string maHang = txtbTCVPP.Text;
@@ -1291,5 +1321,7 @@ namespace DBMS_BookStore
                 }
             }
         }
+
+
     }
 }
