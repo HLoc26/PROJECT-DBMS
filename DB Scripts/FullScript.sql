@@ -1,4 +1,4 @@
-﻿-- =========================================================================================================================== --
+-- =========================================================================================================================== --
 -- =========================================================================================================================== --
 -- ==========================   ____ ____  _____    _  _____ _____   _____  _    ____  _     _____  ========================== --
 -- ==========================  / ___|  _ \| ____|  / \|_   _| ____| |_   _|/ \  | __ )| |   | ____| ========================== --
@@ -26,7 +26,6 @@ BEGIN TRAN
 -- MaLoai VARCHAR(10)
 -- MaNV VARCHAR(10)
 -- MaThe VARCHAR(10) = MaKH
-
 
 CREATE TABLE dbo.NXB(
 	MaNXB VARCHAR(10) NOT NULL,
@@ -392,7 +391,7 @@ GO
 CREATE FUNCTION FUNC_Get_HangHoa(@MaHang VARCHAR(20))
 RETURNS TABLE
 AS
-	RETURN (SELECT * FROM dbo.VIEW_HANG_HOA WHERE MaHang = @MaHang)
+	RETURN (SELECT * FROM VIEW_HANG_HOA WHERE MaHang = @MaHang)
 GO
 
 -- Hàm tạo mã thẻ thành viên tự động
@@ -431,12 +430,9 @@ GO
 CREATE FUNCTION FUNC_GetKH (@MaKH VARCHAR(10))
 RETURNS TABLE
 AS
-	RETURN (
-	SELECT KHACH_HANG.MaKH, KHACH_HANG.Ho, KHACH_HANG.TenLot, KHACH_HANG.Ten, KHACH_HANG.NgaySinh,
+	RETURN (SELECT KHACH_HANG.MaKH, KHACH_HANG.Ho, KHACH_HANG.TenLot, KHACH_HANG.Ten, KHACH_HANG.NgaySinh,
 	KHACH_HANG.GioiTinh, THE_TV.MaThe, THE_TV.TenBacTV, THE_TV.SoDiem
-	FROM KHACH_HANG INNER JOIN THE_TV ON KHACH_HANG.MaKH = THE_TV.MaKH
-	WHERE KHACH_HANG.MaKH = @MaKH
-	)
+	FROM KHACH_HANG INNER JOIN THE_TV ON KHACH_HANG.MaKH = THE_TV.MaKH)
 GO
 
 -- Hàm lấy giá trị giảm dựa vào điểm thành viên
@@ -452,8 +448,8 @@ BEGIN
 			WHEN @SoDiem = 0 THEN 0.0
 			WHEN @SoDiem > 0 AND @SoDiem < 200 THEN 0.1
 			WHEN @SoDiem >= 200 AND @SoDiem < 400 THEN 0.2
-			WHEN @SoDiem >= 400 THEN 0.3
-			ELSE 0.0
+			WHEN @SoDiem >= 400 AND @SoDiem < 600 THEN 0.3
+			ELSE 0.4
 		END
 	RETURN @Discount
 END;
@@ -927,47 +923,84 @@ END;
 GO
 
 --PROCEDURE lấy sách rồi cho ra bảng kq
-CREATE PROCEDURE SearchSACHByMaHang
-    @MaHang VARCHAR(20)
+CREATE PROCEDURE PROC_SearchSACHByPartialMaSachOrTieuDe
+    @PartialValue NVARCHAR(100)
 AS
 BEGIN
     SET NOCOUNT ON;
-    SELECT s.MaSach, s.TieuDe, hh.DonGia, hh.SoLuong, tg.TenTG, tl.TenLoai, nxb.TenNXB
-    FROM dbo.SACH s
-    JOIN dbo.HANG_HOA hh ON s.MaSach = hh.MaHang
-    JOIN dbo.NXB nxb ON nxb.MaNXB = s.MaNXB
-    JOIN dbo.TAC_GIA_SACH tg_s ON tg_s.MaSach = s.MaSach
-    JOIN dbo.TAC_GIA tg ON tg.MaTG = tg_s.MaTG
-    JOIN dbo.THE_LOAI_SACH tl_s ON tl_s.MaSach = s.MaSach 
-    JOIN dbo.THE_LOAI tl ON tl.MaLoai = tl_s.MaLoai
-    WHERE s.TieuDe = @MaHang;
-END;
-GO
 
--- PROCEDURE tra cứu sách theo tên tác giả
-CREATE PROCEDURE SearchBooksByAuthor
-    @tenTG NVARCHAR(20)
+    DECLARE @SearchString NVARCHAR(100);
+    SET @SearchString = '%' + dbo.FUNC_BoDau(@PartialValue) + '%';
+
+    SELECT * 
+    FROM dbo.VIEW_SACH
+    WHERE dbo.FUNC_BoDau(MaSach) LIKE @SearchString 
+          OR dbo.FUNC_BoDau(TieuDe) LIKE @SearchString;
+END;
+
+CREATE PROCEDURE PROC_SearchSachByPartialNXB
+    @PartialNXB NVARCHAR(100)
 AS
 BEGIN
     SET NOCOUNT ON;
+    
+    DECLARE @SearchString NVARCHAR(100);
+    SET @SearchString = '%' + dbo.FUNC_BoDau(@PartialNXB) + '%';
+    
+    SELECT * 
+    FROM dbo.VIEW_SACHNXB 
+    WHERE dbo.FUNC_BoDau(TenNXB) LIKE @SearchString;
+END;
+
+
+
+CREATE PROCEDURE PROC_SearchBooksByPartialAuthor
+    @PartialAuthor NVARCHAR(20)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    DECLARE @SearchString NVARCHAR(20);
+    SET @SearchString = '%' + dbo.FUNC_BoDau(@PartialAuthor) + '%';
+    
     SELECT MaSach, tenTG, TieuDe, DonGia, TenLoai 
     FROM dbo.VIEW_SACH
-    WHERE tenTG = @tenTG;
+    WHERE dbo.FUNC_BoDau(tenTG) LIKE @SearchString;
 END;
-GO
 
--- Update
--- PROCEDURE tra cứu văn phòng phẩm theo mã hàng 
-CREATE PROCEDURE SearchVPPByMaHang
-    @MaHang VARCHAR(20)
+
+
+CREATE PROCEDURE PROC_SearchVPPByPartialTenHang
+    @PartialTenHang VARCHAR(20)
 AS
 BEGIN
     SET NOCOUNT ON;
+    
+    DECLARE @SearchString VARCHAR(20);
+    SET @SearchString = '%' + dbo.FUNC_BoDau(@PartialTenHang) + '%';
+    
     SELECT MaHang, TenHang, DonGia, SoLuong
     FROM VIEW_VPP
-    WHERE TenHang = @MaHang;
+    WHERE dbo.FUNC_BoDau(TenHang) LIKE @SearchString;
 END;
-GO
+
+
+
+CREATE PROCEDURE PROC_SearchSachByPartialTenLoai
+    @PartialTenLoai NVARCHAR(50)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    DECLARE @SearchString NVARCHAR(50);
+    SET @SearchString = '%' + dbo.FUNC_BoDau(@PartialTenLoai) + '%';
+    
+    SELECT * 
+    FROM VIEW_THELOAISACH 
+    WHERE dbo.FUNC_BoDau(TenLoai) LIKE @SearchString;
+END;
+
+
 
 --Kiểm tra input nếu tìm thấy bằng mã nhân viên hoặc tên nv
 CREATE PROCEDURE SearchNhanVienByMaNVOrTen @Input NVARCHAR(100)
@@ -1382,6 +1415,7 @@ GO
 -- ===========================================================================================================================--
 -- ===========================================================================================================================--
 -- ===========================================================================================================================--
+
 USE Proj_DBMS_BookStore
 SET XACT_ABORT ON
 BEGIN TRAN
@@ -1416,6 +1450,7 @@ DENY EXECUTE ON PROC_Register TO NV;
 DENY EXECUTE ON PROC_NhapHang TO NV;
 DENY EXECUTE ON FUNC_Create_MaHoaDonNhap TO NV;
 COMMIT TRAN
+
 -- =========================================================================================================================== --
 -- =========================================================================================================================== --
 -- ===============================  ___ _   _ ____  _____ ____ _____   ____    _  _____  _     =============================== --

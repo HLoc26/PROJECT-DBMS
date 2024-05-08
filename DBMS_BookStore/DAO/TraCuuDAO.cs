@@ -81,13 +81,13 @@ namespace DBMS_BookStore.DAO
             }
             return null;
         }
-        public DataTable SearchSACHByMaHang(string maHang)
+        public DataTable SearchSACHByPartialMaSachOrTieuDe(string partialValue)
         {
             try
             {
-                SqlCommand sqlCommand = new SqlCommand("SearchSACHByMaHang");
+                SqlCommand sqlCommand = new SqlCommand("PROC_SearchSACHByPartialMaSachOrTieuDe");
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@MaHang", maHang);
+                sqlCommand.Parameters.AddWithValue("@PartialValue", partialValue);
                 return DBConnection.ExecuteQuery(sqlCommand);
             }
             catch (Exception ex)
@@ -96,39 +96,72 @@ namespace DBMS_BookStore.DAO
                 return null;
             }
         }
-        public DataTable SearchBooksByAuthor(string authorName)
-        {
-            // Create SqlCommand for the stored procedure
-            SqlCommand sqlCommand = new SqlCommand("SearchBooksByAuthor");
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("@tenTG", authorName);
 
-            // Execute the query using DBConnection and return the result
-            return DBConnection.ExecuteQuery(sqlCommand);
+        public DataTable SearchBooksByPartialAuthor(string partialAuthor)
+        {
+            try
+            {
+                SqlCommand sqlCommand = new SqlCommand("PROC_SearchBooksByPartialAuthor");
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@PartialAuthor", partialAuthor);
+                return DBConnection.ExecuteQuery(sqlCommand);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return null;
+            }
         }
 
-        public DataTable SearchSachByNXB(string TenNXB)
-        {
-            SqlCommand sqlCommand = new SqlCommand("SELECT * FROM VIEW_SACHNXB WHERE TenNXB = @TenNXB");
-            sqlCommand.Parameters.AddWithValue("@TenNXB", TenNXB);
 
-            return DBConnection.ExecuteQuery(sqlCommand);
+
+        public DataTable SearchSachByPartialNXB(string PartialNXB)
+        {
+            try
+            {
+                SqlCommand sqlCommand = new SqlCommand("PROC_SearchSachByPartialNXB");
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@PartialNXB", PartialNXB);
+                return DBConnection.ExecuteQuery(sqlCommand);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return null;
+            }
+        }
+        public DataTable SearchSachByPartialTenLoai(string partialTenLoai)
+        {
+            try
+            {
+                SqlCommand sqlCommand = new SqlCommand("SearchSachByPartialTenLoai");
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@PartialTenLoai", partialTenLoai);
+                return DBConnection.ExecuteQuery(sqlCommand);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return null;
+            }
         }
 
-        public DataTable SearchVPPByMaHang(string maHang)
-        {
-            SqlCommand sqlCommand = new SqlCommand("SearchVPPByMaHang");
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("@MaHang", maHang);
 
-            return DBConnection.ExecuteQuery(sqlCommand);
-        }
-        public DataTable SearchSachByTenLoai(string tenLoai)
+        public DataTable SearchVPPByPartialTenHang(string partialTenHang)
         {
-            SqlCommand sqlCommand = new SqlCommand("SELECT * FROM VIEW_THELOAISACH WHERE TenLoai = @TenLoai");
-            sqlCommand.Parameters.AddWithValue("@TenLoai", tenLoai);
-
-            return DBConnection.ExecuteQuery(sqlCommand);
+            try
+            {
+                SqlCommand sqlCommand = new SqlCommand("PROC_SearchVPPByPartialTenHang");
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@PartialTenHang", partialTenHang);
+                return DBConnection.ExecuteQuery(sqlCommand);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return null;
+            }
         }
+
     }
 }
