@@ -1,4 +1,4 @@
-﻿-- =========================================================================================================================== --
+-- =========================================================================================================================== --
 -- =========================================================================================================================== --
 -- ==========================   ____ ____  _____    _  _____ _____   _____  _    ____  _     _____  ========================== --
 -- ==========================  / ___|  _ \| ____|  / \|_   _| ____| |_   _|/ \  | __ )| |   | ____| ========================== --
@@ -1436,7 +1436,13 @@ GRANT SELECT ON dbo.FUNC_GetLoginHistory TO NV;
 GRANT SELECT ON dbo.VIEW_SACH TO NV;
 GRANT SELECT ON dbo.VIEW_THELOAISACH TO NV;
 GRANT SELECT ON dbo.VIEW_VPP TO NV;
-
+GRANT SELECT ON dbo.FUNC_Get_HangHoa TO NV;
+GRANT SELECT ON dbo.VIEW_SACHNXB TO NV;
+GRANT SELECT ON dbo.PROC_ChangePass TO NV;
+GRANT EXECUTE ON dbo.FUNC_GetDiscount TO NV;
+GRANT SELECT ON dbo.FUNC_GetKH TO NV;
+GRANT EXECUTE ON dbo.FUNC_Create_MaHoaDonBan TO NV;
+GRANT EXECUTE ON dbo.PROC_AddGioHangVaoHoaDon TO NV;
 
 DENY SELECT ON dbo.VIEW_NV TO NV;
 DENY SELECT ON dbo.VIEW_NV_TK TO NV;

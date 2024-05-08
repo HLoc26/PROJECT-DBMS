@@ -350,6 +350,34 @@ namespace DBMS_BookStore
             txbTongTienMat.Text = (double.Parse(txbTongTien.Text) * (1 - double.Parse(txbGiamGia.Text))).ToString();
         }
 
+        private void txbMaKH_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txbMaKH.Text))
+            {
+                // Check if MaKH is in the db
+                KhachHang dt = khachHangDAO.ShowMembership(txbMaKH.Text);
+                if (dt == null)
+                {
+                    DialogResult add = MessageBox.Show("Không tìm thấy dữ liệu về khách hàng!\n\rThêm dữ liệu?", "Không tìm thấy", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    if (add == DialogResult.OK)
+                    {
+                        FKhachhang fKhachhang = new FKhachhang();
+                        fKhachhang.ShowDialog();
+                    }
+                    else
+                    {
+                        txbMaKH.Focus();
+                    }
+                }
+                else
+                {
+                    double discount = khachHangDAO.GetDiscountValue(txbMaKH.Text);
+                    txbGiamGia.Text = discount.ToString("0.0");
+                }
+            }
+        }
+
+
         private void btnChuyenKhoan_Click(object sender, EventArgs e)
         {
             btnTienMat_Click(sender, e); // hihi
@@ -570,33 +598,6 @@ namespace DBMS_BookStore
             LoadDTGVNhap();
         }
 
-        private void txbMaKH_Leave(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txbMaKH.Text))
-            {
-                // Check if MaKH is in the db
-                KhachHang dt = khachHangDAO.ShowMembership(txbMaKH.Text);
-                if (dt == null)
-                {
-                    DialogResult add = MessageBox.Show("Không tìm thấy dữ liệu về khách hàng!\n\rThêm dữ liệu?", "Không tìm thấy", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                    if (add == DialogResult.OK)
-                    {
-                        FKhachhang fKhachhang = new FKhachhang();
-                        fKhachhang.ShowDialog();
-                    }
-                    else
-                    {
-                        txbMaKH.Focus();
-                    }
-                }
-                else
-                {
-                    double discount = khachHangDAO.GetDiscountValue(txbMaKH.Text);
-                    txbGiamGia.Text = discount.ToString();
-                }
-            }
-        }
-
         private void btnNhapHangQuayLaiGiaoDich_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = tabControl.TabPages[0];
@@ -629,7 +630,12 @@ namespace DBMS_BookStore
 
         private void btnTraCuuHoaDonBan_Click(object sender, EventArgs e)
         {
-            dtgvListHoaDonBan.DataSource = hoaDonBanDAO.GetListSaleReceipt(dtpStartHDBan.Value, (dtpEndHDBan.Value).AddDays(1));
+            dtgvListHoaDonBan.Rows.Clear();
+            DataTable dt = hoaDonBanDAO.GetListSaleReceipt(dtpStartHDBan.Value, (dtpEndHDBan.Value).AddDays(1));
+            foreach (DataRow row in dt.Rows)
+            {
+                dtgvListHoaDonBan.Rows.Add(row.ItemArray);
+            }
         }
         #endregion
 
@@ -645,7 +651,12 @@ namespace DBMS_BookStore
         }
         private void btnTraCuuHDNhap_Click(object sender, EventArgs e)
         {
-            dtgvListHDNhap.DataSource = hoaDonNhapDAO.GetListGoodReceipt(dtpStartHDNhap.Value, (dtpEndHDNhap.Value).AddDays(1));
+            dtgvListHDNhap.Rows.Clear();
+            DataTable dt = hoaDonNhapDAO.GetListGoodReceipt(dtpStartHDNhap.Value, (dtpEndHDNhap.Value).AddDays(1));
+            foreach (DataRow row in dt.Rows)
+            {
+                dtgvListHDNhap.Rows.Add(row.ItemArray);
+            }
         }
         #endregion
 
@@ -1041,7 +1052,7 @@ namespace DBMS_BookStore
                 }
                 return;
             }
-
+            
             DataTable dsnv = employeeDAO.GetInfoByTen(txbCD_NV_HoTen.Text);
             InputFieldChanged(dsnv);
         }
