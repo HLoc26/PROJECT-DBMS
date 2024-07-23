@@ -1,5 +1,5 @@
 **Đặc tả đề tài**
-
+(English below)
 Một cửa hàng sách quản lý nhiều nhân viên. Mỗi nhân viên gồm các thông tin: Mã nhân viên, Họ và tên, Lương; và được cấp một tài khoản để đăng nhập hệ thống. Nhân viên có thể nhập hàng hoá, bán hàng hoá, và tạo thẻ thành viên cho khách hàng.
 
 Thông tin đăng nhập của nhân viên gồm: Tài khoản đăng nhập, mật khẩu. Thông tin này phụ thuộc vào thực thể Nhân viên.
@@ -75,5 +75,85 @@ Từ sơ đồ thực thể kết hợp (ERD), ta có các lược đồ quan h�
 | 15  | NHAP_HANG | Ràng buộc khoá chính (MaDonNhap, MaNV, MaHang)  <br>Ràng buộc khoá ngoại MaDonNhap tham chiếu đến **HOA_DON_NHAP**  <br>Ràng buộc khoá ngoại MaNV tham chiếu đến **NHAN_VIEN**  <br>Ràng buộc khoá ngoại MaHang tham chiếu đến **HANG_HOA** |
 | 16  | HOA_DON_BAN | Ràng buộc khoá chính MaHoaDon |
 | 17  | BAN_HANG | Ràng buộc khoá chính (MaHoaDon, MaNV, MaKH, MaHang)  <br>Ràng buộc khoá ngoại MaHoaDon tham chiếu đến **HOA_DON_BAN**  <br>Ràng buộc khoá ngoại MaNV tham chiếu đến **NHAN_VIEN**  <br>Ràng buộc khoá ngoại MaKH tham chiếu đến **KHACH_HANG**  <br>Ràng buộc khoá ngoại MaHang tham chiếu đến **HANG_HOA** |
+
+**![](https://i.imgur.com/jeZhEwK.png)**
+
+**Topic Specification**
+
+A bookstore manages multiple employees. Each employee has information: Employee ID, Full Name, Salary; and is provided with an account to log into the system. Employees can enter goods, sell goods, and create membership cards for customers.
+
+Employee login information includes: Username, Password. This information is dependent on the Employee entity.
+
+Goods have attributes: Goods ID, Price; and are divided into two categories: Books and Stationery.
+
+Book attributes, in addition to the inherited attributes from Goods, include: Title, Author, Publisher, Genre.
+
+Stationery attributes, in addition to the inherited attributes from Goods, include: Item Name.
+
+A book can belong to many genres, and a genre can include many books. Genre attributes include Genre ID and Genre Name.
+
+Author has Author ID and Author Name.
+
+Publisher has the following information: Publisher ID, Publisher Name, Address, Contact Information. Each publisher can publish many books, but each book is only published by one publisher.
+
+Customer information includes: Customer ID (using phone number), Full Name, Date of Birth, Membership Card Type.
+
+Membership Card Type includes Card ID, Points Accumulated, Membership Level Name. Membership Level Name can be None, Bronze, Silver, Gold.
+
+Employees can create membership cards for customers. The card creation date and the Employee ID who created the card will be recorded.
+
+When an Employee sells goods to a Customer, an Invoice is needed. Invoice attributes include: Invoice ID, Invoice Creation Date (purchase date), Promotion.
+
+Employees can enter goods. When entering goods, a receipt is needed which includes: Receipt ID, Entry Time, and Employee ID who entered the goods.
+
+**Conceptual Database Design:**
+
+From the problem specification, we obtain the entity-relationship diagram (ERD):
+
+![](https://i.imgur.com/vBis5QH.png)
+
+**Logical Database Design:**
+
+From the entity-relationship diagram (ERD), we get the relational schemas:
+
+1. PUBLISHER (PublisherID, PublisherName, Address, Phone)
+2. GOODS (GoodsID, Price, Quantity)
+3. STATIONERY (GoodsID, ItemName)
+4. BOOK (GoodsID, Title, PublisherID, YearPublished)
+5. AUTHOR (AuthorID, AuthorName)
+6. BOOK_AUTHOR (BookID, AuthorID)
+7. GENRE (GenreID, GenreName)
+8. BOOK_GENRE (BookID, GenreID)
+9. CUSTOMER (CustomerID, LastName, MiddleName, FirstName, DateOfBirth, Gender)
+10. MEMBERSHIP_CARD (CardID, Points, MembershipLevel, CustomerID)
+11. EMPLOYEE (EmployeeID, IDNumber, LastName, MiddleName, FirstName, Gender, Salary, Username, Password)
+12. LOGIN_HISTORY (EmployeeID, LoginTime)
+13. CREATE_CARD (EmployeeID, CardID, CustomerID, CreationDate)
+14. ENTRY_RECEIPT (ReceiptID, EntryTime)
+15. ENTER_GOODS (ReceiptID, EmployeeID, GoodsID, Quantity, EmployeeID)
+16. SALE_INVOICE (InvoiceID, SaleTime, Promotion)
+17. SELL_GOODS (InvoiceID, EmployeeID, CustomerID, GoodsID, Quantity)
+
+**Required Constraints:**
+
+| **No.** | **RELATIONSHIP** | **CONSTRAINTS** |
+| --- | --- | --- |
+| 1   | PUBLISHER | Primary key constraint on PublisherID |
+| 2   | GOODS | Primary key constraint on GoodsID<br><br>Domain constraint on Quantity must be greater than 0.<br><br>Quantity value constraint, increase when goods are entered, decrease when goods are sold. |
+| 3   | STATIONERY | Primary key constraint on GoodsID<br>Foreign key constraint on GoodsID references **GOODS** |
+| 4   | BOOK | Primary key constraint on GoodsID<br>Foreign key constraint on PublisherID references PUBLISHER<br>Foreign key constraint on GoodsID references **GOODS** |
+| 5   | AUTHOR | Primary key constraint on AuthorID |
+| 6   | BOOK_AUTHOR | Primary key constraint on (BookID, AuthorID)<br>Foreign key constraint on BookID references **BOOK**<br>Foreign key constraint on AuthorID references **AUTHOR** |
+| 7   | GENRE | Primary key constraint on GenreID |
+| 8   | BOOK_GENRE | Primary key constraint on (BookID, GenreID)<br>Foreign key constraint on BookID references **BOOK**<br>Foreign key constraint on GenreID references **GENRE** |
+| 9   | CUSTOMER | Primary key constraint on CustomerID |
+| 10  | MEMBERSHIP_CARD | Primary key constraint on CardID<br>Foreign key constraint on CustomerID references **CUSTOMER** |
+| 11  | EMPLOYEE | Primary key constraint on EmployeeID.<br>Domain constraint on Salary must be greater than 1000.<br>Unique constraint on IDNumber. |
+| 12  | LOGIN_HISTORY | Primary key constraint on (EmployeeID, LoginTime)<br>Foreign key constraint on EmployeeID references **EMPLOYEE** |
+| 13  | CREATE_CARD | Primary key constraint on (EmployeeID, CardID)<br>Unique constraint on CardID and CustomerID<br>Foreign key constraint on EmployeeID references **EMPLOYEE**<br>Foreign key constraint on CardID references **MEMBERSHIP_CARD**<br>Foreign key constraint on CustomerID references **CUSTOMER** |
+| 14  | ENTRY_RECEIPT | Primary key constraint on ReceiptID<br>Foreign key constraint on EmployeeID references **EMPLOYEE** |
+| 15  | ENTER_GOODS | Primary key constraint on (ReceiptID, EmployeeID, GoodsID)<br>Foreign key constraint on ReceiptID references **ENTRY_RECEIPT**<br>Foreign key constraint on EmployeeID references **EMPLOYEE**<br>Foreign key constraint on GoodsID references **GOODS** |
+| 16  | SALE_INVOICE | Primary key constraint on InvoiceID |
+| 17  | SELL_GOODS | Primary key constraint on (InvoiceID, EmployeeID, CustomerID, GoodsID)<br>Foreign key constraint on InvoiceID references **SALE_INVOICE**<br>Foreign key constraint on EmployeeID references **EMPLOYEE**<br>Foreign key constraint on CustomerID references **CUSTOMER**<br>Foreign key constraint on GoodsID references **GOODS** |
 
 **![](https://i.imgur.com/jeZhEwK.png)**
