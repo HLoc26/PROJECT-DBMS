@@ -17,7 +17,7 @@ Xem [Đặc tả đề tài](https://github.com/HLoc26/PROJECT-DBMS/blob/master/
 - Microsoft SQL Server 
 - Visual Studio 2022
 
-## 5. Ngôn ngữ
+## 5. Công nghệ
 <p align="center">
 <span>
     <img src="https://skillicons.dev/icons?i=cs" width="50px" title="C#"/>
@@ -52,7 +52,7 @@ Visit [Topic specification](https://github.com/HLoc26/PROJECT-DBMS/blob/master/T
 - Microsoft SQL Server 
 - Visual Studio 2022
 
-## 5. Languages
+## 5. Technologies
 <p align="center">
 <span>
     <img src="https://skillicons.dev/icons?i=cs" width="50px" title="C#"/>
