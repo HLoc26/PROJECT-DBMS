@@ -1,4 +1,4 @@
-# Tiếng Việt ([English below](#English))
+# Tiếng Việt
 ## Đặc tả đề tài 
 Một cửa hàng sách quản lý nhiều nhân viên. Mỗi nhân viên gồm các thông tin: Mã nhân viên, Họ và tên, Lương; và được cấp một tài khoản để đăng nhập hệ thống. Nhân viên có thể nhập hàng hoá, bán hàng hoá, và tạo thẻ thành viên cho khách hàng.
 
