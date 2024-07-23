@@ -17,19 +17,6 @@ Xem [Đặc tả đề tài](https://github.com/HLoc26/PROJECT-DBMS/blob/master/
 - Microsoft SQL Server 
 - Visual Studio 2022
 
-## 5. Công nghệ
-<p align="center">
-<span>
-    <img src="https://skillicons.dev/icons?i=cs" width="50px" title="C#"/>
-</span>
-<span>
-    <img src="https://raw.githubusercontent.com/LelouchFR/skill-icons/main/assets/sqlserver-auto.svg" width="50px" title="Microsoft SQL Server"/>
-</span>
-<span>
-    <img src="https://skillicons.dev/icons?i=git" width="50px" title="Git"/>
-</span>
-</p>
-
 ---
 
 # English
@@ -51,16 +38,3 @@ Visit [Topic specification](https://github.com/HLoc26/PROJECT-DBMS/blob/master/T
 ## 4. Environment
 - Microsoft SQL Server 
 - Visual Studio 2022
-
-## 5. Technologies
-<p align="center">
-<span>
-    <img src="https://skillicons.dev/icons?i=cs" width="50px" title="C#"/>
-</span>
-<span>
-    <img src="https://raw.githubusercontent.com/LelouchFR/skill-icons/main/assets/sqlserver-auto.svg" width="50px" title="Microsoft SQL Server"/>
-</span>
-<span>
-    <img src="https://skillicons.dev/icons?i=git" width="50px" title="Git"/>
-</span>
-</p>
