@@ -26,7 +26,7 @@ Xem [Đặc tả đề tài](https://github.com/HLoc26/PROJECT-DBMS/blob/master/
     <img src="https://raw.githubusercontent.com/LelouchFR/skill-icons/main/assets/sqlserver-auto.svg" width="50px" title="Microsoft SQL Server"/>
 </span>
 <span>
-    <img src="https://skillicons.dev/icons?i=git" width="50px" title="Microsoft SQL Server"/>
+    <img src="https://skillicons.dev/icons?i=git" width="50px" title="Git"/>
 </span>
 </p>
 
@@ -61,6 +61,6 @@ Visit [Topic specification](https://github.com/HLoc26/PROJECT-DBMS/blob/master/T
     <img src="https://raw.githubusercontent.com/LelouchFR/skill-icons/main/assets/sqlserver-auto.svg" width="50px" title="Microsoft SQL Server"/>
 </span>
 <span>
-    <img src="https://skillicons.dev/icons?i=git" width="50px" title="Microsoft SQL Server"/>
+    <img src="https://skillicons.dev/icons?i=git" width="50px" title="Git"/>
 </span>
 </p>
