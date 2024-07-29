@@ -29,7 +29,7 @@ The bookstore management system is designed to optimize the process of managing 
 - Ensure smooth and accurate operations for inventory and sales transactions.
 
 ## 2. Topic specification
-Visit [Topic specification]((https://github.com/HLoc26/PROJECT-DBMS/blob/master/TopicSpecification.md#english))
+Visit [Topic specification](https://github.com/HLoc26/PROJECT-DBMS/blob/master/TopicSpecification.md#english)
 
 ## 3. Installation
 - Run `DB Script/FullScript.sql` in MSSQLServer to create the database.
